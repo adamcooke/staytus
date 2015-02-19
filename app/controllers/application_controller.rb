@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def site
-    @site || = Site.first
+    @site ||= Site.first
   end
 
 end
