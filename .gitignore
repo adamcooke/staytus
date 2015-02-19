@@ -11,3 +11,4 @@
 /log/*
 !/log/.keep
 /tmp
+config/environment.yml
