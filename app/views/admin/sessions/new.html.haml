@@ -1,0 +1,9 @@
+= form_tag do
+  %dl
+    %dt email
+    %dd= text_field_tag 'email', params[:email]
+
+    %dt password
+    %dd= password_field_tag 'password', params[:password]
+
+    %dd= submit_tag "Login"

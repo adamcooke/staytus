@@ -15,18 +15,18 @@ default: &default
   pool: 5
   username: root
   password:
-  socket: /tmp/mysql.sock
+  host: 127.0.0.1
 
 development:
   <<: *default
-  database: sexy_status_development
+  database: staytus
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: sexy_status_test
+  database: staytus_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: sexy_status_production
-  username: sexy_status
-  password: <%= ENV['SEXY_STATUS_DATABASE_PASSWORD'] %>
+  database: staytus_production
+  username: staytus
+  password: <%= ENV['STAYTUS_DATABASE_PASSWORD'] %>
