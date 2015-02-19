@@ -6,5 +6,6 @@ class ApplicationController < ActionController::Base
   def site
     @site ||= Site.first
   end
+  helper_method :site
 
 end

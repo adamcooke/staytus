@@ -9,3 +9,8 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+if File.exist?(Staytus::Config.theme_root)
+  Rails.application.config.assets.paths << File.join(Staytus::Config.theme_root, 'assets', 'javascripts')
+  Rails.application.config.assets.paths << File.join(Staytus::Config.theme_root, 'assets', 'stylesheets')
+  Rails.application.config.assets.precompile += %w( frontend.js frontend.css )
+end
