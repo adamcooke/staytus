@@ -1,4 +1,4 @@
-%ul.issueStateSelection
+%ul.issueStateSelection{:class => (defined?(class_name) ? class_name : nil)}
   - for state in Issue::STATES
     %li.issueStateSelection__item{:class => "issueStateSelection__item--#{state}"}
       %label

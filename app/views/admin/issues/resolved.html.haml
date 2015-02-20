@@ -1,0 +1,8 @@
+.u-float-right= link_to "Back to ongoing", admin_issues_path, :class => 'button button--lightGrey button--small'
+.pageContent__heading= @page_title = 'Resolved Issues'
+%p.u-intro.u-margin-2x
+  This page lists all issues which have now been resolved and are no longer
+  ongoing.
+
+= render 'issue_boxes', :issues => @issues
+= paginate @issues

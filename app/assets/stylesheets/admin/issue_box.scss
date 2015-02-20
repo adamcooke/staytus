@@ -9,6 +9,18 @@
   box-shadow: inset 1px 1px 2px rgba(0,0,0,0.08);
 }
 
+.issueBox--investigating {
+  background:$lightRed;
+}
+
+.issueBox--identified {
+  background:$lightOrange;
+}
+
+.issueBox--monitoring {
+  background:$lightBlue;
+}
+
 .issueBox__title {
   font-size:17px;
   margin-bottom:5px;
@@ -17,6 +29,11 @@
 
 .issueBox__status {
   font-size:13px;
+  margin-bottom:7px;
+}
+
+.issueBox__left {
+  width:55%;
 }
 
 .issueBox__right {
@@ -40,4 +57,9 @@
 .issueBox__time {
   color:#999;
   margin-bottom:10px;
+}
+
+.issueBox__update {
+  font-size:12px;
+  line-height:20px;
 }

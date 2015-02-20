@@ -1,8 +1,18 @@
 class Admin::IssuesController < Admin::BaseController
 
+  before_filter { params[:id] && @issue = Issue.find(params[:id]) }
+
   def index
-    @ongoing_issues = Issue.ongoing.ordered
-    @resolved_issues = Issue.resolved.ordered.page(params[:page])
+    @ongoing_issues = Issue.ongoing.ordered.includes(:latest_update, :service_status, :user)
+  end
+
+  def resolved
+    @issues = Issue.resolved.ordered.includes(:latest_update, :service_status, :user).page(params[:page])
+  end
+
+  def show
+    @update = @issue.updates.build(:state => @issue.state, :service_status => @issue.service_status)
+    @updates = @issue.updates.ordered
   end
 
   def new

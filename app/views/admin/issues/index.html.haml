@@ -5,20 +5,12 @@
   straight away.
 
 .largeCreateButtonContainer.u-margin-2x
-  = link_to "Start posting a new issue", new_admin_issue_path, :class => 'button button--green button--solid'
+  = link_to "Post a new issue", new_admin_issue_path, :class => 'button button--green button--solid'
 
-- for issue in @ongoing_issues
-  .issueBox.u-margin
-    .issueBox__right
-      %p.issueBox__time Last updated #{time_tag issue.updated_at}
-      %p.issueBox__servicesTitle Affected Services
-      %ul.issueBox__services
-        - for service in issue.services
-          %li= service.name
+- if @ongoing_issues.empty?
+  .noDataArea.noDataArea--large
+    Well that's just brilliant - you've got no ongoing issues!
+- else
+  = render 'issue_boxes', :issues => @ongoing_issues
 
-    %h3.issueBox__title= link_to issue.title, [:admin, issue], :class => 'u-underline'
-    .issueBox__status
-      = service_status_tag issue.service_status
-      (#{issue.state.humanize})
-
-
+%p.u-align-right= link_to "Show resolved issues", resolved_admin_issues_path, :class => 'button button--lightGrey button--small'

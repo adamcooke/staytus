@@ -32,14 +32,15 @@ class Issue < ActiveRecord::Base
   has_many :issue_service_joins, :dependent => :destroy
   has_many :services, :through => :issue_service_joins
   has_many :updates, :dependent => :destroy, :class_name => 'IssueUpdate'
+  has_one :latest_update, -> { order(:id => :desc) }, :class_name => 'IssueUpdate'
 
   after_create :add_initial_update
 
   def add_initial_update
     if self.initial_update.blank? && self.updates.empty?
-      self.updates.create!(:user => self.user, :text => INITIAL_UPDATE_TEXT)
+      self.updates.create!(:state => self.state, :service_status => self.service_status, :user => self.user, :text => INITIAL_UPDATE_TEXT)
     else
-      self.updates.create!(:user => self.user, :text => self.initial_update)
+      self.updates.create!(:state => self.state, :service_status => self.service_status, :user => self.user, :text => self.initial_update)
     end
   end
 

@@ -1,0 +1,15 @@
+- for issue in issues
+  .issueBox.u-margin-2x{:class => "issueBox--#{issue.state}"}
+    .issueBox__right
+      %p.issueBox__time Last updated #{time_tag issue.updated_at}
+      %p.issueBox__servicesTitle Affected Services
+      %ul.issueBox__services
+        - for service in issue.services
+          %li= service.name
+    .issueBox__left
+      %h3.issueBox__title= link_to issue.title, [:admin, issue], :class => 'u-underline'
+      .issueBox__status= service_status_tag issue.service_status
+      - if issue.latest_update
+        .issueBox__update
+          <b>#{issue.latest_update.state.humanize}</b> &mdash;
+          = truncate issue.latest_update.text, :length => 500

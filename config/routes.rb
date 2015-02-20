@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     resources :services
     resources :locations
     resources :service_statuses
-    resources :issues
+    resources :issues do
+      get 'resolved', :on => :collection
+      resources :issue_updates
+    end
 
     root 'dashboard#index'
   end

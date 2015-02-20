@@ -1,0 +1,21 @@
+.issueUpdates {
+
+}
+
+.issueUpdates__item {
+  border-bottom:1px dashed #ccc;
+  padding-bottom:15px;
+  margin-bottom:15px;
+}
+
+.issueUpdates__item:last-child {
+  margin-bottom:0;
+  border-bottom:0;
+  padding-bottom:0;
+}
+
+.issueUpdates__meta {
+  font-size:12px;
+  color:#888;
+  margin-top:10px;
+}

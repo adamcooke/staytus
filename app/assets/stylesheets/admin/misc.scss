@@ -2,7 +2,6 @@
 
 .serviceStatusTag {
   font-weight:bold;
-  font-size:13px;
   color:#aaa;
 }
 
@@ -19,4 +18,56 @@
   margin:40px 0;
   color:#999;
   font-style:italic;
+}
+
+.noDataArea--large {
+  margin:100px 0;
+  font-size:20px;
+}
+
+.pagination {
+  text-align:center;
+  margin-top:25px;
+  font-size:12px;
+  a, span.page.current {
+    background:#f9f9f9;
+    border:1px solid #ccc;
+    padding:2px 9px;
+    margin:0 2px;
+    display:inline-block;
+    text-decoration:none;
+  }
+  span.page.current {
+    font-weight:bold;
+    background:#ccc;
+    color:#fff;
+  }
+}
+
+.box {
+  border:2px solid #ddd;
+  border-radius:$globalBorderRadius;
+  padding:20px;
+  background:#f9f9f9;
+}
+
+.box__footer {
+  margin:0 -20px;
+  margin-bottom:-20px;
+  border-top:1px solid #ddd;
+  padding:20px;
+  background:#fff;
+}
+
+.definition {
+  dt { font-weight:bold; width:20%; float:left;}
+  dd { margin-left:20%;}
+}
+
+.standardList {
+  li {
+    list-style:square;
+    margin-left:20px;
+    line-height:24px;
+  }
 }

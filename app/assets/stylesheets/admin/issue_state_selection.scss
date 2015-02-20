@@ -19,7 +19,6 @@
 .issueStateSelection__radio {
   display:none;
   &:checked + .issueStateSelection__button {
-
     box-shadow:inset 2px 2px 7px rgba(0,0,0,0.3);
   }
 }
@@ -63,4 +62,9 @@ $issueStates: (
   text-align:center;
   background:#f7f7f7;
   padding:25px 0;
+  .issueStateSelection--small & {
+    padding:8px 0;
+    font-size:13px;
+  }
 }
+
