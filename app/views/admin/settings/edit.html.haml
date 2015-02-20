@@ -27,6 +27,6 @@
       %dt.fieldSet__label= f.label :website_url, "Website URL"
       %dd.fieldSet__input= f.text_field :website_url, :class => 'textInput'
 
-  .u-align-right.buttonSet--onRight
+  .formButtons
     = f.submit "Save Settings", :class => 'button button--solid'
     = link_to "Cancel", admin_root_path, :class => 'button button--lightGrey'

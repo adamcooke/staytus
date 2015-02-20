@@ -10,11 +10,11 @@
     %section.globalSidebar
       %p.globalSidebar__logo Staytus
       %ul.globalSidebar__nav
-        %li= link_to "Dashboard"
+        %li= link_to "Dashboard", admin_root_path
         %li= link_to "Issues"
         %li= link_to "Maintenance"
         %li
-          = link_to "Infrastructure", admin_infrastructure_path
+          = link_to "Infrastructure", '#'
           %ul
             %li= link_to "Services", admin_services_path
             %li= link_to "Locations", admin_locations_path
