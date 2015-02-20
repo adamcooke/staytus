@@ -23,7 +23,7 @@
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :service_status_id
       %dd.fieldSet__input
-        .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.all, :id, :name
+        .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.problematic, :id, :name
 
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :service_ids, "Which services are affected?"

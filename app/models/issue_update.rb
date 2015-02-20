@@ -21,7 +21,7 @@ class IssueUpdate < ActiveRecord::Base
   belongs_to :user
   belongs_to :service_status
 
-  after_update :update_base_issue
+  after_save :update_base_issue
 
   def update_base_issue
     if self.state
@@ -30,7 +30,7 @@ class IssueUpdate < ActiveRecord::Base
     if self.service_status
       self.issue.service_status = self.service_status
     end
-    self.save!
+    self.issue.save!
   end
 
 end

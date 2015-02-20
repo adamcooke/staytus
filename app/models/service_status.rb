@@ -26,6 +26,7 @@ class ServiceStatus < ActiveRecord::Base
   has_many :issues, :dependent => :restrict_with_exception
 
   scope :ordered, -> { order(:name => :asc) }
+  scope :problematic, -> { where(:status_type => ['minor', 'major']) }
 
   def self.create_defaults
     ServiceStatus.create!(:name => 'Operational', :status_type => 'ok', :color => '2FCC66')
