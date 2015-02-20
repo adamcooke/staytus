@@ -1,0 +1,35 @@
+= form_for [:admin, @issue] do |f|
+  = f.error_messages
+  .fieldSet.u-margin-2x
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :title
+      %dd.fieldSet__input= f.text_field :title, :class => 'textInput', :autofocus => @issue.new_record?, :required => true
+
+    - if @issue.new_record?
+      %dl.fieldSet__field.u-margin
+        %dt.fieldSet__label= f.label :initial_update, "Text for the first update"
+        %dd.fieldSet__input= f.text_area :initial_update, :class => 'textInput', :placeholder => Issue::INITIAL_UPDATE_TEXT
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :state
+      %dd.fieldSet__input
+        = render 'state_selection', :f => f, :field_name => :state
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :service_status_id
+      %dd.fieldSet__input
+        .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.problematic, :id, :name
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :service_ids, "Which services are affected?"
+      %dd.fieldSet__input
+        = hidden_field_tag 'issue[service_ids][]', nil
+        %ul.fieldSet__checkboxList
+          - for service in Service.ordered
+            %li
+              = check_box_tag 'issue[service_ids][]', service.id, @issue.services.include?(service), :id => "service_#{service.id}"
+              = label_tag "service_#{service.id}", service.name
+
+  .formButtons
+    = f.submit :class => 'button button--solid'
+    = link_to "Cancel", admin_issues_path, :class => 'button button--lightGrey'

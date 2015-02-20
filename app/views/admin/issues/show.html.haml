@@ -1,21 +1,23 @@
-
+.u-float-right= link_to "Back to issues", admin_issues_path, :class => 'button button--lightGrey'
 .pageContent__heading.u-margin-2x Issue ##{@issue.id}
 .box.box--white.u-margin
-  %dl.definition.u-margin
+  %dl.definition
     %dt Description
     %dd= @issue.title
-  %dl.definition.u-margin
+  %dl.definition.u-margin-top
     %dt State
     %dd= @issue.state.humanize
-  %dl.definition.u-margin
-    %dt Service Status
-    %dd= service_status_tag @issue.service_status
-  %dl.definition
-    %dt Affected Services
-    %dd
-      %ul.standardList.standardList--double
-        - for service in @issue.services
-          %li= service.name
+
+  - unless @issue.services.empty?
+    %dl.definition.u-margin-top
+      %dt Service Status
+      %dd= service_status_tag @issue.service_status
+    %dl.definition.u-margin-top
+      %dt Affected Services
+      %dd
+        %ul.standardList.standardList--double
+          - for service in @issue.services
+            %li= service.name
   .box__footer.box__footer--smaller
     .buttonSet.buttonSet--onRight.u-align-right
       = link_to "Edit Issue Details", [:edit, :admin, @issue], :class => 'button button--small'
