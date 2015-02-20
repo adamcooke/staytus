@@ -9,6 +9,11 @@ User.create!(:email_address => 'admin@example.com', :password => 'password', :na
 Site.create!(:title => 'Viaduct Hosting', :description => 'Viaduct is a revolutionary hosting platform. This is our status site. Contact us at team@viaduct with any questions or problems.', :domain => 'staytus.dev', :support_email => 'team@viaduct.io', :website_url => 'http://viaduct.io')
 
 #
+# Create default statuses
+#
+ServiceStatus.create_defaults
+
+#
 # Add services
 #
 services                   = {}

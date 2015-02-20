@@ -1,0 +1,16 @@
+.dashboardNav {
+  overflow: hidden;
+}
+
+.dashboardNav__item {
+  width:20%;
+  float:left;
+  a {
+    display:block;
+    text-align:center;
+    padding:15px 0;
+    p {
+      font-weight:bold;
+    }
+  }
+}
