@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  scope :ordered, -> { order(:name => :asc) }
+
   def self.authenticate(email, password)
     user = self.where(:email_address => email).first
     return :no_user unless user

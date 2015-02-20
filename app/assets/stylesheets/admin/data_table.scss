@@ -1,0 +1,93 @@
+@import 'admin/variables';
+
+.dataTable {
+  width:100%;
+  td, th {
+    vertical-align: middle;
+  }
+  thead {
+    td {
+      padding:5px 10px;
+      font-size:12px;
+      font-weight:$fontWeightMedium;
+      border-bottom:1px solid $darkGrey;
+    }
+  }
+  tfoot {
+    td {
+      padding:5px 10px;
+      font-size:12px;
+      font-weight:$fontWeightMedium;
+    }
+  }
+
+  tbody {
+    td, th {
+      padding:10px;
+      border-bottom:1px solid #ccc;
+    }
+
+    tr:nth-child(even) {
+      background:lighten($backgroundBlue, 2%);
+    }
+    tr.empty {
+      td {
+        font-size:12px;
+        color:$darkGreyBlue;
+        text-align:center;
+        padding:55px 0;
+      }
+    }
+  }
+}
+
+.dataTable--smallText {
+  font-size:12px;
+
+}
+
+.dataTable--noStripe {
+  tbody {
+    tr:nth-child(even) {
+      background:none;
+    }
+  }
+}
+
+.dataTable--highlightedRow {
+  td {
+    background-color:$lightYellow;
+  }
+}
+
+.dataTable__deletedRow {
+  td {
+    opacity:0.5;
+    text-decoration: line-through;
+  }
+}
+
+.dataTable__defaultRow {
+  td {
+    &:first-child {
+      border-left:3px solid $purple;
+    }
+  }
+}
+
+.dataTable--forceTextWrap {
+  table-layout:fixed;
+  tbody td { word-wrap:break-word; }
+}
+
+.dataTable--alignTop {
+  td { vertical-align: top;}
+}
+
+.dataTable__iconRow {
+  padding-left:25px !important;
+  background-size:16px;
+  background-position:0 9px;
+  background-repeat:no-repeat;
+}
+

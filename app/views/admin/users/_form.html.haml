@@ -1,0 +1,20 @@
+= form_for [:admin, @user] do |f|
+  = f.error_messages
+  .fieldSet.u-margin-2x
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :name
+      %dt.fieldSet__input= f.text_field :name, :class => 'textInput', :autofocus => true, :required => true
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :email_address, "E-Mail Address"
+      %dt.fieldSet__input= f.text_field :email_address, :class => 'textInput', :required => true
+
+    %dl.fieldSet__field
+      %dt.fieldSet__label= f.label :password, "New Password"
+      %dt.fieldSet__input= f.password_field :password, :class => 'textInput', :required => @user.new_record?
+
+  .u-align-right.buttonSet--onRight
+    - unless @user.new_record?
+      .u-float-left= link_to "Delete User", [:admin, @user], :class => 'button button--grey button--solid', :method => :delete, :data => {:confirm => "Are you sure you wish to delete #{@user.name}?"}
+    = f.submit "Save User", :class => 'button button--solid'
+    = link_to "Cancel", admin_users_path, :class => 'button button--lightGrey'

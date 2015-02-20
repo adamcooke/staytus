@@ -11,6 +11,12 @@
     margin-left:5px;
     margin-right:0;
   }
+  .u-float-left {
+    .button {
+      margin-left:0;
+      margin-right:5px;
+    }
+  }
 }
 
 .button {
@@ -63,6 +69,8 @@
 $buttonColours: (
   grey: $grey,
   red: $red,
+  lime: $lime,
+  green: $green,
   lightGrey: #aaa
 );
 

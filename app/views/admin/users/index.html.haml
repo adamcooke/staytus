@@ -1,0 +1,19 @@
+.pageContent__heading Users
+%p.u-intro.u-margin
+  These users are those who have access to manage your status site - including
+  adding new incidents, maintenance and other configuration.
+
+%table.dataTable.u-margin
+  %thead
+    %tr
+      %td{:width => '35%'} Name
+      %td{:width => '45%'} E-Mail Address
+      %td{:width => '20%'}
+  %tbody
+    - for user in @users
+      %tr
+        %td= link_to user.name, [:edit, :admin, user], :class => 'u-underline '
+        %td= user.email_address
+        %td.u-align-right= link_to "Edit", [:edit, :admin, user], :class => 'button button--small'
+
+%p= link_to "Add New User", new_admin_user_path, :class => 'button button--green button--small'

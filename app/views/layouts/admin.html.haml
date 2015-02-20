@@ -13,8 +13,8 @@
         %li= link_to "Dashboard"
         %li= link_to "Issues"
         %li= link_to "Maintenance"
-        %li= link_to "Infrastructure"
-        %li= link_to "Users"
+        %li= link_to "Infrastructure", admin_infrastructure_path
+        %li= link_to "Users", admin_users_path
         %li= link_to "Settings", admin_settings_path
         %li= link_to "Logout", admin_logout_path, :method => :delete
 

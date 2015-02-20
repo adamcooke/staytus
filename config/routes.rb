@@ -8,6 +8,12 @@ Rails.application.routes.draw do
     get 'settings' => 'settings#edit'
     patch 'settings' => 'settings#update'
 
+    get 'infrastructure' => 'infrastructure#index'
+
+    resources :users
+    resources :services
+    resources :locations
+
     root 'dashboard#index'
   end
 
