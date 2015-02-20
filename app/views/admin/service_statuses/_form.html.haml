@@ -1,0 +1,21 @@
+= form_for [:admin, @service_status] do |f|
+  = f.error_messages
+  .fieldSet.u-margin-2x
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :name
+      %dt.fieldSet__input= f.text_field :name, :class => 'textInput', :autofocus => @service_status.new_record?, :required => true
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :permalink
+      %dt.fieldSet__input= f.text_field :permalink, :class => 'textInput', :required => true
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :color
+      %dt.fieldSet__input= f.text_field :color, :class => 'textInput', :required => true
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :status_type
+      %dt.fieldSet__input= f.select :status_type, ServiceStatus::STATUS_TYPES.map { |type| [t("service_status_types.#{type}"), type]}
+
+  .formButtons
+    - unless @service_status.new_record?
+      .formButtons__secondary= link_to "Delete Status", [:admin, @service_status], :class => 'button button--grey button--solid', :method => :delete, :data => {:confirm => "Are you sure you wish to delete #{@service_status.name}?"}
+    = f.submit "Save Status", :class => 'button button--solid'
+    = link_to "Cancel", admin_service_statuses_path, :class => 'button button--lightGrey'

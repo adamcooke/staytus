@@ -18,8 +18,13 @@ class ServiceStatus < ActiveRecord::Base
   validates :name, :presence => true
   validates :permalink, :presence => true, :uniqueness => true
   validates :status_type, :inclusion => {:in => STATUS_TYPES}
+  validates :color, :format => {:with => /\A[A-Fa-f0-9]{6}\z/, :message => "must be a hex value (e.g. 2FCC66)"}
 
   default_value :permalink, -> { self.name.parameterize }
+
+  has_many :services, :dependent => :restrict_with_exception, :foreign_key => 'status_id'
+
+  scope :ordered, -> { order(:name => :asc) }
 
   def self.create_defaults
     ServiceStatus.create!(:name => 'Operational', :status_type => 'ok', :color => '2FCC66')
