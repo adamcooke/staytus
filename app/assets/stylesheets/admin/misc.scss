@@ -7,8 +7,9 @@
 }
 
 .largeCreateButtonContainer {
-  background:$lightGreen;//lighten($green, 55%);
+  background:$lightGreen;
   padding:15px;
+  border-radius:$globalBorderRadius;
   text-align:center;
   border:1px solid darken($lightGreen, 10%);
 }

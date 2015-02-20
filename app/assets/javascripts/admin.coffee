@@ -16,6 +16,8 @@
 
 $ ->
 
+  $('time').timeago()
+
   #
   # Checkbox reveal areas
   #

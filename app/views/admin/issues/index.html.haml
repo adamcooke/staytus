@@ -7,8 +7,18 @@
 .largeCreateButtonContainer.u-margin-2x
   = link_to "Start posting a new issue", new_admin_issue_path, :class => 'button button--green button--solid'
 
-%h2.pageContent__heading2 Ongoing Issues
-= render 'table', :issues => @ongoing_issues
+- for issue in @ongoing_issues
+  .issueBox.u-margin
+    .issueBox__right
+      %p.issueBox__time Last updated #{time_tag issue.updated_at}
+      %p.issueBox__servicesTitle Affected Services
+      %ul.issueBox__services
+        - for service in issue.services
+          %li= service.name
 
-%h2.pageContent__heading2 Resolved Issues
-= render 'table', :issues => @resolved_issues
+    %h3.issueBox__title= link_to issue.title, [:admin, issue], :class => 'u-underline'
+    .issueBox__status
+      = service_status_tag issue.service_status
+      (#{issue.state.humanize})
+
+

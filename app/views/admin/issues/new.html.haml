@@ -16,27 +16,16 @@
 
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :state
-      %dd.fieldSet__text
-        Your issue may pass through each of these state while it is active. When it
-        is marked as resolved it will no longer be an ongoing issue on your status
-        site.
-
       %dd.fieldSet__input
         = render 'state_selection', :f => f, :field_name => :state
 
-
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :service_status_id
-      %dd.fieldSet__text
-        This is the status which will be set for all services which you select below.
-        You will have the option to change this at anytime when you post updates
-        to this issue.
-
       %dd.fieldSet__input
         .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.all, :id, :name
 
     %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :service_ids, "Select which services are affected"
+      %dt.fieldSet__label= f.label :service_ids, "Which services are affected?"
       %dd.fieldSet__input
         = hidden_field_tag 'issue[service_ids][]', nil
         %ul.fieldSet__checkboxList

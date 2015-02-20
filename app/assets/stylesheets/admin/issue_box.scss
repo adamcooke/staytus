@@ -1,0 +1,43 @@
+@import 'admin/variables';
+
+.issueBox {
+  border:1px solid #ccc;
+  border-radius:$globalBorderRadius;
+  padding:20px;
+  overflow: hidden;
+  background:#f9f9f9;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.08);
+}
+
+.issueBox__title {
+  font-size:17px;
+  margin-bottom:5px;
+  font-weight:$fontWeightBold;
+}
+
+.issueBox__status {
+  font-size:13px;
+}
+
+.issueBox__right {
+  float:right;
+  width:40%;
+}
+
+.issueBox__servicesTitle {
+  font-weight:$fontWeightMedium;
+  margin-bottom:5px;
+}
+
+.issueBox__services {
+  font-size:12px;
+  li {
+    list-style:square;
+    margin-left:25px;
+  }
+}
+
+.issueBox__time {
+  color:#999;
+  margin-bottom:10px;
+}

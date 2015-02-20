@@ -12,7 +12,9 @@
       %dt.fieldSet__input= f.text_field :color, :class => 'textInput', :required => true
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :status_type
-      %dt.fieldSet__input= f.select :status_type, ServiceStatus::STATUS_TYPES.map { |type| [t("service_status_types.#{type}"), type]}
+      %dt.fieldSet__input
+        .fieldSet__selectContainer
+          = f.select :status_type, ServiceStatus::STATUS_TYPES.map { |type| [t("service_status_types.#{type}"), type]}
 
   .formButtons
     - unless @service_status.new_record?
