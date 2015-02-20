@@ -28,7 +28,7 @@
     }
 
     tr:nth-child(even) {
-      background:lighten($backgroundBlue, 2%);
+      background:#f9f9f9;
     }
     tr.empty {
       td {

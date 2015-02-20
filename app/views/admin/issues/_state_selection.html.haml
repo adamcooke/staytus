@@ -1,0 +1,6 @@
+%ul.issueStateSelection
+  - for state in Issue::STATES
+    %li.issueStateSelection__item{:class => "issueStateSelection__item--#{state}"}
+      %label
+        = f.radio_button field_name, state, :class => 'issueStateSelection__radio'
+        .issueStateSelection__button= state.humanize

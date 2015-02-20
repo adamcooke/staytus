@@ -1,0 +1,14 @@
+.pageContent__heading Issues
+%p.u-intro.u-margin-2x
+  If anything goes wrong and it wasn't planned, it's an issue. You can add issues
+  which occur straight into here and they'll be published on your status site
+  straight away.
+
+.largeCreateButtonContainer.u-margin-2x
+  = link_to "Start posting a new issue", new_admin_issue_path, :class => 'button button--green button--solid'
+
+%h2.pageContent__heading2 Ongoing Issues
+= render 'table', :issues => @ongoing_issues
+
+%h2.pageContent__heading2 Resolved Issues
+= render 'table', :issues => @resolved_issues

@@ -1,0 +1,14 @@
+- if issues.empty?
+  .noDataArea
+    There are no issues to display.
+- else
+  %table.dataTable
+    %thead
+      %tr
+        %td Title
+        %td Status
+    %tbody
+      - for issue in issues
+        %tr
+          %td= issue.title
+          %td

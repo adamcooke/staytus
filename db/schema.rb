@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220140723) do
+ActiveRecord::Schema.define(version: 20150220155052) do
 
   create_table "authie_sessions", force: :cascade do |t|
     t.string   "token",              limit: 255
@@ -35,6 +35,22 @@ ActiveRecord::Schema.define(version: 20150220140723) do
   add_index "authie_sessions", ["browser_id"], name: "index_authie_sessions_on_browser_id", using: :btree
   add_index "authie_sessions", ["token"], name: "index_authie_sessions_on_token", using: :btree
   add_index "authie_sessions", ["user_id"], name: "index_authie_sessions_on_user_id", using: :btree
+
+  create_table "issue_service_joins", force: :cascade do |t|
+    t.integer  "issue_id",   limit: 4
+    t.integer  "service_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "issues", force: :cascade do |t|
+    t.string   "title",             limit: 255
+    t.string   "state",             limit: 255
+    t.integer  "service_status_id", limit: 4
+    t.boolean  "all_services",      limit: 1,   default: true
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string   "name",                  limit: 255

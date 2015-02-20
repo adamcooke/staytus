@@ -23,6 +23,7 @@ class ServiceStatus < ActiveRecord::Base
   default_value :permalink, -> { self.name.parameterize }
 
   has_many :services, :dependent => :restrict_with_exception, :foreign_key => 'status_id'
+  has_many :issues, :dependent => :restrict_with_exception
 
   scope :ordered, -> { order(:name => :asc) }
 

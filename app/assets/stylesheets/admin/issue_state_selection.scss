@@ -1,0 +1,66 @@
+@import 'admin/variables';
+
+.issueStateSelection {
+  overflow: hidden;
+  border-radius:$globalBorderRadius;
+  border:1px solid #ccc;
+}
+
+.issueStateSelection__item {
+  width:25%;
+  float:left;
+  font-weight:bold;
+}
+
+.issueStateSelection__item + .issueStateSelection__item {
+  border-left: 1px solid #ccc;
+}
+
+.issueStateSelection__radio {
+  display:none;
+  &:checked + .issueStateSelection__button {
+
+    box-shadow:inset 2px 2px 7px rgba(0,0,0,0.3);
+  }
+}
+
+$issueStates: (
+  investigating: (
+    background: $lightRed,
+    foreground: $red
+  ),
+  identified: (
+    background: $lightOrange,
+    foreground: $orange
+  ),
+  monitoring: (
+    background: $lightBlue,
+    foreground: $blue
+  ),
+  resolved: (
+    background: #ccc,
+    foreground: #666
+  )
+
+);
+
+@each $name, $palette in $issueStates {
+  .issueStateSelection__item--#{$name} .issueStateSelection__radio {
+    &:checked + .issueStateSelection__button {
+      color:map-get(map-get($issueStates, $name), background);
+      background:map-get(map-get($issueStates, $name), foreground);
+      font-weight:bold;
+    }
+  }
+
+  .issueStateSelection__item--#{$name} {
+    color:map-get(map-get($issueStates, $name), foreground);
+  }
+}
+
+.issueStateSelection__button {
+  border-right-width:0;
+  text-align:center;
+  background:#f7f7f7;
+  padding:25px 0;
+}

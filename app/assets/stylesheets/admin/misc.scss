@@ -1,5 +1,21 @@
+@import 'admin/variables';
+
 .serviceStatusTag {
   font-weight:bold;
   font-size:13px;
   color:#aaa;
+}
+
+.largeCreateButtonContainer {
+  background:$lightGreen;//lighten($green, 55%);
+  padding:15px;
+  text-align:center;
+  border:1px solid darken($lightGreen, 10%);
+}
+
+.noDataArea {
+  text-align:center;
+  margin:40px 0;
+  color:#999;
+  font-style:italic;
 }

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :services
     resources :locations
     resources :service_statuses
+    resources :issues
 
     root 'dashboard#index'
   end

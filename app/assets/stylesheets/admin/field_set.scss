@@ -6,12 +6,28 @@
 
 .fieldSet__label {
   font-weight:bold;
-  margin-bottom:5px;
+  margin-bottom:7px;
   font-size:13px;
 }
 
 .fieldSet__Input {
 
+}
+
+.fieldSet__text {
+  color:#999;
+  font-size:12px;
+  margin-bottom:8px;
+}
+
+.fieldSet__selectContainer {
+  border:1px solid #ccc;
+  width:100%;
+  padding:10px 15px;
+  font-family:$sansFontFamily;
+  background:#f9f9f9;
+  box-shadow:inset 1px 1px 1px rgba(0,0,0,0.1);
+  border-radius:3px;
 }
 
 .fieldSet__checkboxList {
@@ -32,5 +48,13 @@
       margin-top:5px;
       margin-right:10px;
     }
+  }
+}
+
+.fieldSet__checkbox {
+  input {
+    float:left;
+    margin-top:5px;
+    margin-right:10px;
   }
 }
