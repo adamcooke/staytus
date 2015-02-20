@@ -1,0 +1,18 @@
+.pageContent__heading= @page_title = 'Services'
+
+%p.u-intro.u-margin
+  Services are the individual components that you wish to provide the status for.
+  Each of these can be assigned to locations.
+
+%table.dataTable.u-margin
+  %thead
+    %tr
+      %td Name
+      %td
+  %tbody
+    - for service in @services
+      %tr
+        %td= link_to service.name, [:edit, :admin, service], :class => 'u-underline'
+        %td.u-align-right= link_to "Edit", [:edit, :admin, service], :class => 'button button--small'
+%p.u-margin-2x= link_to "Add New Service", new_admin_service_path, :class => 'button button--green button--small'
+

@@ -1,3 +1,5 @@
+@import 'admin/variables';
+
 .fieldSet {
 
 }
@@ -10,4 +12,25 @@
 
 .fieldSet__Input {
 
+}
+
+.fieldSet__checkboxList {
+  border:1px solid #ccc;
+  width:100%;
+  padding:10px 15px;
+  font-family:$sansFontFamily;
+  background:#f9f9f9;
+  box-shadow:inset 1px 1px 1px rgba(0,0,0,0.1);
+  border-radius:3px;
+  overflow: hidden;
+  li {
+    line-height:24px;
+    width:50%;
+    float:left;
+    input {
+      float:left;
+      margin-top:5px;
+      margin-right:10px;
+    }
+  }
 }

@@ -13,3 +13,20 @@
 ##= require jquery
 ##= require jquery_ujs
 ##= require_tree .
+
+$ ->
+
+  #
+  # Checkbox reveal areas
+  #
+  revealCheckboxes = $('input[data-reveal-area]')
+  toggleRevealCheckboxValue = (checkbox)->
+    hiddenArea = $(checkbox.data('reveal-area'))
+    if checkbox.data('reveal-area-invert')
+      if checkbox.prop('checked') then hiddenArea.hide() else hiddenArea.show()
+    else
+      if checkbox.prop('checked') then hiddenArea.show() else hiddenArea.hide()
+
+  if revealCheckboxes.length
+    $.each revealCheckboxes, -> toggleRevealCheckboxValue($(this))
+    revealCheckboxes.on 'change', -> toggleRevealCheckboxValue($(this))

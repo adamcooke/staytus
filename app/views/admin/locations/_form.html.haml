@@ -1,0 +1,32 @@
+= form_for [:admin, @location] do |f|
+  = f.error_messages
+  .fieldSet.u-margin-2x
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :name
+      %dt.fieldSet__input= f.text_field :name, :class => 'textInput', :autofocus => @location.new_record?, :required => true
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :service_ids, "Services"
+      %dd.fieldSet__input
+        = hidden_field_tag 'location[service_ids][]', nil
+        %ul.fieldSet__checkboxList
+          - for service in Service.ordered
+            %li
+              = check_box_tag 'location[service_ids][]', service.id, @location.services.include?(service), :id => "service_#{service.id}"
+              = label_tag "service_#{service.id}", service.name
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :has_physical_presence, "Does this location have a physical presence?"
+      %dt.fieldSet__input= f.check_box :has_physical_presence, :data => {:reveal_area => '.js-physical-location-fields'}
+
+    .js-physical-location-fields
+      %dl.fieldSet__field.u-margin
+        %dt.fieldSet__label= f.label :physical_address, "Physical location details"
+        %dt.fieldSet__input= f.text_field :physical_address, :class => 'textInput'
+
+
+  .formButtons
+    - unless @location.new_record?
+      .formButtons__secondary= link_to "Delete Location", [:admin, @location], :class => 'button button--grey button--solid', :method => :delete, :data => {:confirm => "Are you sure you wish to delete #{@location.name}?"}
+    = f.submit "Save Location", :class => 'button button--solid'
+    = link_to "Cancel", admin_services_path, :class => 'button button--lightGrey'

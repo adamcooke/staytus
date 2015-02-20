@@ -13,8 +13,8 @@
       %dt.fieldSet__label= f.label :password, "New Password"
       %dt.fieldSet__input= f.password_field :password, :class => 'textInput', :required => @user.new_record?
 
-  .u-align-right.buttonSet--onRight
+  .formButtons
     - unless @user.new_record?
-      .u-float-left= link_to "Delete User", [:admin, @user], :class => 'button button--grey button--solid', :method => :delete, :data => {:confirm => "Are you sure you wish to delete #{@user.name}?"}
+      .formButtons__secondary= link_to "Delete User", [:admin, @user], :class => 'button button--grey button--solid', :method => :delete, :data => {:confirm => "Are you sure you wish to delete #{@user.name}?"}, :tabindex => -1
     = f.submit "Save User", :class => 'button button--solid'
     = link_to "Cancel", admin_users_path, :class => 'button button--lightGrey'

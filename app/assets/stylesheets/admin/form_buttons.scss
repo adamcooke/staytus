@@ -1,0 +1,19 @@
+@import 'admin/variables';
+
+.formButtons {
+  border-top:1px solid #ccc;
+  border-radius:$globalBorderRadius;
+  background:#f7f7f7;
+  padding:25px;
+  .button {
+    margin-right:5px;
+  }
+}
+
+.formButtons__secondary {
+  float:right;
+  .button {
+    margin-left:5px;
+    margin-right:0;
+  }
+}
