@@ -1,55 +1,57 @@
-.buttonSet.buttonSet--onRight.u-float-right.u-margin
-  = link_to "Edit", [:edit, :admin, @issue], :class => 'button button--small'
-  = link_to "Delete", [:admin, @issue], :class => 'button button--small button--grey', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this issue and all updates?"}
 
 .pageContent__heading.u-margin-2x Issue ##{@issue.id}
+.box.box--white.u-margin
+  %dl.definition.u-margin
+    %dt Description
+    %dd= @issue.title
+  %dl.definition.u-margin
+    %dt State
+    %dd= @issue.state.humanize
+  %dl.definition.u-margin
+    %dt Service Status
+    %dd= service_status_tag @issue.service_status
+  %dl.definition
+    %dt Affected Services
+    %dd
+      %ul.standardList.standardList--double
+        - for service in @issue.services
+          %li= service.name
+  .box__footer.box__footer--smaller
+    .buttonSet.buttonSet--onRight.u-align-right
+      = link_to "Edit Issue Details", [:edit, :admin, @issue], :class => 'button button--small'
+      = link_to "Delete", [:admin, @issue], :class => 'button button--small button--grey', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this issue and all updates?"}
 
-%dl.definition.u-margin
-  %dt Description
-  %dd= @issue.title
-%dl.definition.u-margin
-  %dt State
-  %dd= @issue.state.humanize
-%dl.definition.u-margin
-  %dt Service Status
-  %dd= service_status_tag @issue.service_status
-%dl.definition.u-margin-2x
-  %dt Affected Services
-  %dd
-    %ul.standardList
-      - for service in @issue.services
-        %li= service.name
+.box.box--white
 
-.box
-  %ul.issueUpdates.u-margin-2x
-    - if @updates.empty?
-      .noDataArea There are no updates for this issue.
-    - else
-      - for update in @updates
-        %li.issueUpdates__item
-          %p.issueUpdates__text
-            %b= update.state.humanize
-            &mdash;
-            = update.text
-          %p.issueUpdates__meta
-            Posted #{time_tag update.created_at}
-            - if update.user
-              by #{update.user.name}
+  = form_for [:admin, @issue, @update] do |f|
+    .fieldSet
+      %dl.fieldSet__field.u-margin
+        %dt.fieldSet__label= f.label :text, "Post an update"
+        %dd.fieldSet__field= f.text_area :text, :class => 'textInput', :placeholder => "Enter the text you wish to post here..."
+      %dl.fieldSet__field.u-margin
+        %dt.fieldSet__label= f.label :state, "Current State"
+        %dd.fieldSet__field
+          = render 'state_selection', :f => f, :field_name => :state, :class_name => 'issueStateSelection--small'
+
+      %dl.fieldSet__field.u-margin
+        %dt.fieldSet__label= f.label :service_status_id
+        %dd.fieldSet__input
+          .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.all, :id, :name
+
+      %p.u-align-right= f.submit "Post Update", :class => 'button button--solid'
 
   .box__footer
-    = form_for [:admin, @issue, @update] do |f|
-      .fieldSet
-        %dl.fieldSet__field.u-margin
-          %dt.fieldSet__label= f.label :text, "Post an update"
-          %dd.fieldSet__field= f.text_area :text, :class => 'textInput', :placeholder => "Enter the text you wish to post here..."
-        %dl.fieldSet__field.u-margin
-          %dt.fieldSet__label= f.label :state, "Current State"
-          %dd.fieldSet__field
-            = render 'state_selection', :f => f, :field_name => :state, :class_name => 'issueStateSelection--small'
-
-        %dl.fieldSet__field.u-margin
-          %dt.fieldSet__label= f.label :service_status_id
-          %dd.fieldSet__input
-            .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.all, :id, :name
-
-        %p.u-align-right= f.submit "Post Update", :class => 'button button--solid'
+    %ul.issueUpdates
+      - if @updates.empty?
+        .noDataArea There are no updates for this issue.
+      - else
+        - for update in @updates
+          %li.issueUpdates__item
+            %p.issueUpdates__text
+              %b= update.state.humanize
+              &mdash;
+              = update.text
+            %p.issueUpdates__meta
+              Posted #{time_tag update.created_at}
+              - if update.user
+                by #{update.user.name}

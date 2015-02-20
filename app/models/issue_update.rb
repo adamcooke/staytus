@@ -21,7 +21,7 @@ class IssueUpdate < ActiveRecord::Base
   belongs_to :user
   belongs_to :service_status
 
-  scope :ordered, -> { order(:id) }
+  scope :ordered, -> { order(:id => :desc) }
 
   after_save :update_base_issue
 

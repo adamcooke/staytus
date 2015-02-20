@@ -51,17 +51,29 @@
   background:#f9f9f9;
 }
 
+.box--white {
+  background:#fff;
+  .box__footer {
+    background:#f7f7f7;
+  }
+}
+
 .box__footer {
   margin:0 -20px;
   margin-bottom:-20px;
+  margin-top:20px;
   border-top:1px solid #ddd;
   padding:20px;
   background:#fff;
 }
 
+.box__footer--smaller {
+  padding:13px 20px;;
+}
+
 .definition {
-  dt { font-weight:bold; width:20%; float:left;}
-  dd { margin-left:20%;}
+  dt { font-weight:bold; width:150px; float:left;}
+  dd { margin-left:160px;}
 }
 
 .standardList {
@@ -69,5 +81,13 @@
     list-style:square;
     margin-left:20px;
     line-height:24px;
+  }
+}
+
+.standardList--double {
+  overflow:hidden;
+  li {
+    float:left;
+    width:45%;
   }
 }
