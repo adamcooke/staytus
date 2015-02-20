@@ -18,7 +18,7 @@
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :service_status_id
       %dd.fieldSet__input
-        .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.problematic, :id, :name
+        .fieldSet__selectContainer= f.collection_select :service_status_id, @issue.new_record? ? ServiceStatus.problematic.sort_by_type : ServiceStatus.ordered.sort_by_type, :id, :name
 
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :service_ids, "Which services are affected?"

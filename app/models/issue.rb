@@ -35,12 +35,22 @@ class Issue < ActiveRecord::Base
   has_one :latest_update, -> { order(:id => :desc) }, :class_name => 'IssueUpdate'
 
   after_create :add_initial_update
+  after_save :update_service_statuses
 
   def add_initial_update
     if self.initial_update.blank? && self.updates.empty?
       self.updates.create!(:state => self.state, :service_status => self.service_status, :user => self.user, :text => INITIAL_UPDATE_TEXT)
     else
       self.updates.create!(:state => self.state, :service_status => self.service_status, :user => self.user, :text => self.initial_update)
+    end
+  end
+
+  def update_service_statuses
+    if self.service_status_id_changed?
+      self.services.each do |service|
+        service.status = self.service_status
+        service.save
+      end
     end
   end
 

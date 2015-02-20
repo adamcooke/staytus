@@ -40,4 +40,8 @@ class ServiceStatus < ActiveRecord::Base
     self.where(:status_type => 'ok').ordered.first
   end
 
+  def self.sort_by_type
+    where("1=1").sort_by { |s| ServiceStatus::STATUS_TYPES.index(s.status_type) }
+  end
+
 end

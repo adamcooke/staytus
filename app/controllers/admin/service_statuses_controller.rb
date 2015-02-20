@@ -3,7 +3,7 @@ class Admin::ServiceStatusesController < Admin::BaseController
   before_filter { params[:id] && @service_status = ServiceStatus.find(params[:id]) }
 
   def index
-    @service_statuses = ServiceStatus.ordered.sort_by { |s| ServiceStatus::STATUS_TYPES.index(s.status_type) }
+    @service_statuses = ServiceStatus.ordered.sort_by_type
   end
 
   def new
