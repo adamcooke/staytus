@@ -1,5 +1,5 @@
 .u-float-right= link_to "Back to issues", admin_issues_path, :class => 'button button--lightGrey'
-.pageContent__heading.u-margin-2x Issue ##{@issue.id}
+.pageContent__heading.u-margin-2x= @page_title = "Issue ##{@issue.id}"
 .box.box--white.u-margin
   %dl.definition
     %dt Description
