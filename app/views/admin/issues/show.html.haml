@@ -60,3 +60,4 @@
               Posted #{time_tag update.created_at}
               - if update.user
                 by #{update.user.name}
+              = link_to "Edit", [:edit, :admin, @issue, update], :class => 'u-underline issueUpdates__edit'

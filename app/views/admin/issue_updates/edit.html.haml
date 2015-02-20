@@ -1,0 +1,10 @@
+.pageContent__heading.u-margin-2x Edit Update for Issue ##{@issue.id}
+= form_for [:admin, @issue, @issue_update] do |f|
+  .fieldSet
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :text, "Post an update"
+      %dd.fieldSet__field= f.text_area :text, :class => 'textInput', :placeholder => "Enter the text you wish to post here..."
+  .formButtons
+    .formButtons__secondary= link_to "Delete Update", [:admin, @issue, @issue_update], :class => 'button button--grey button--solid', :method => :delete, :data => {:confirm => "Are you sure you wish to delete this update?"}
+    = f.submit :class => 'button button--solid'
+    = link_to "Cancel", admin_issue_path(@issue), :class => 'button button--lightGrey'

@@ -13,6 +13,19 @@ class Admin::IssueUpdatesController < Admin::BaseController
     end
   end
 
+  def update
+    if @issue_update.update(safe_params)
+      redirect_to admin_issue_path(@issue), :notice => "Update has been updated successfully."
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @issue_update.destroy
+    redirect_to admin_issue_path(@issue), :notice => "Update has been removed successfully."
+  end
+
   private
 
   def safe_params
