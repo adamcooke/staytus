@@ -10,15 +10,10 @@
         %dt.fieldSet__label= f.label :initial_update, "Text for the first update"
         %dd.fieldSet__input= f.text_area :initial_update, :class => 'textInput', :placeholder => Issue::INITIAL_UPDATE_TEXT
 
-    %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :state
-      %dd.fieldSet__input
-        = render 'state_selection', :f => f, :field_name => :state
-
-    %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :service_status_id
-      %dd.fieldSet__input
-        .fieldSet__selectContainer= f.collection_select :service_status_id, @issue.new_record? ? ServiceStatus.problematic.sort_by_type : ServiceStatus.ordered.sort_by_type, :id, :name
+      %dl.fieldSet__field.u-margin
+        %dt.fieldSet__label= f.label :state
+        %dd.fieldSet__input
+          = render 'state_selection', :f => f, :field_name => :state
 
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :service_ids, "Which services are affected?"
@@ -29,6 +24,12 @@
             %li
               = check_box_tag 'issue[service_ids][]', service.id, @issue.services.include?(service), :id => "service_#{service.id}"
               = label_tag "service_#{service.id}", service.name
+
+    - if @issue.new_record?
+      %dl.fieldSet__field.u-margin
+        %dt.fieldSet__label= f.label :service_status_id, "Set the status for these services to..."
+        %dd.fieldSet__input
+          .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.problematic.sort_by_type, :id, :name
 
   .formButtons
     = f.submit :class => 'button button--solid'

@@ -5,6 +5,7 @@ class Admin::IssueUpdatesController < Admin::BaseController
 
   def create
     @update = @issue.updates.build(safe_params)
+    @update.user = current_user
     if @update.save
       redirect_to admin_issue_path(@issue), :notice => "Update has been posted successfully."
     else

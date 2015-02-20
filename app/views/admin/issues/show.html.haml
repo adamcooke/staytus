@@ -36,9 +36,9 @@
           = render 'state_selection', :f => f, :field_name => :state, :class_name => 'issueStateSelection--small'
 
       %dl.fieldSet__field.u-margin
-        %dt.fieldSet__label= f.label :service_status_id
+        %dt.fieldSet__label= f.label :service_status_id, "Update service statuses to..."
         %dd.fieldSet__input
-          .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.all, :id, :name
+          .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.for_issues.sort_by_type, :id, :name, :include_blank => "Don't change service statuses"
 
       %p.u-align-right= f.submit "Post Update", :class => 'button button--solid'
 
@@ -53,6 +53,9 @@
               %b= update.state.humanize
               &mdash;
               = update.text
+            - if update.service_status
+              %p.issueUpdates__status
+                Set service status to #{service_status_tag update.service_status}
             %p.issueUpdates__meta
               Posted #{time_tag update.created_at}
               - if update.user

@@ -11,7 +11,7 @@ class Admin::IssuesController < Admin::BaseController
   end
 
   def show
-    @update = @issue.updates.build(:state => @issue.state, :service_status => @issue.service_status)
+    @update = @issue.updates.build(:state => @issue.state)
     @updates = @issue.updates.ordered
   end
 
