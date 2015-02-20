@@ -9,8 +9,9 @@
 
 - if @ongoing_issues.empty?
   .noDataArea.noDataArea--large
-    Well that's just brilliant - you've got no ongoing issues!
+    %p.u-margin Well that's just brilliant - you've got no ongoing issues!
+    %p.u-subText= link_to "Show resolved issues", resolved_admin_issues_path, :class => 'u-underline'
+
 - else
   = render 'issue_boxes', :issues => @ongoing_issues
-
-%p.u-align-right= link_to "Show resolved issues", resolved_admin_issues_path, :class => 'button button--lightGrey button--small'
+  %p.u-align-right= link_to "Show resolved issues", resolved_admin_issues_path, :class => 'button button--lightGrey button--small'
