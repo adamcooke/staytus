@@ -5,6 +5,7 @@
   and the first update you wish to post.
 
 = form_for [:admin, @issue] do |f|
+  = f.error_messages
   .fieldSet.u-margin-2x
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :title

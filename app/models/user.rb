@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
   validates :email_address, :presence => true, :email => true
   validates :name, :presence => true
 
+  has_many :issues, :dependent => :nullify
+  has_many :issue_updates, :dependent => :nullify
+
   has_secure_password
 
   scope :ordered, -> { order(:name => :asc) }

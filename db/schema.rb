@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220155052) do
+ActiveRecord::Schema.define(version: 20150220163824) do
 
   create_table "authie_sessions", force: :cascade do |t|
     t.string   "token",              limit: 255
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20150220155052) do
     t.datetime "updated_at",           null: false
   end
 
+  create_table "issue_updates", force: :cascade do |t|
+    t.integer  "issue_id",          limit: 4
+    t.integer  "user_id",           limit: 4
+    t.integer  "service_status_id", limit: 4
+    t.string   "state",             limit: 255
+    t.text     "text",              limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
   create_table "issues", force: :cascade do |t|
     t.string   "title",             limit: 255
     t.string   "state",             limit: 255
@@ -50,6 +60,7 @@ ActiveRecord::Schema.define(version: 20150220155052) do
     t.boolean  "all_services",      limit: 1,   default: true
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
+    t.integer  "user_id",           limit: 4
   end
 
   create_table "locations", force: :cascade do |t|

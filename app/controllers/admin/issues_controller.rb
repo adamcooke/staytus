@@ -11,6 +11,7 @@ class Admin::IssuesController < Admin::BaseController
 
   def create
     @issue = Issue.new(safe_params)
+    @issue.user = current_user
     if @issue.save
       redirect_to admin_issues_path, :notice => 'Added succesfully'
     else
