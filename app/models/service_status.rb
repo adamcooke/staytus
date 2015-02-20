@@ -34,4 +34,8 @@ class ServiceStatus < ActiveRecord::Base
     ServiceStatus.create!(:name => 'Maintenance', :status_type => 'maintenance', :color => 'AAAAAA')
   end
 
+  def self.default
+    self.where(:status_type => 'ok').ordered.first
+  end
+
 end
