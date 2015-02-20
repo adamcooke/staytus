@@ -1,10 +1,23 @@
 !!!
 %html
   %head
-    %title
-    = javascript_include_tag 'application'
-    = stylesheet_link_tag 'application'
+    %title #{@page_title} - Staytus
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    = javascript_include_tag 'admin'
+    = stylesheet_link_tag 'admin'
     = csrf_meta_tags
   %body
-    = display_flash
-    = yield
+    %section.globalSidebar
+      %p.globalSidebar__logo Staytus
+      %ul.globalSidebar__nav
+        %li= link_to "Dashboard"
+        %li= link_to "Issues"
+        %li= link_to "Maintenance"
+        %li= link_to "Infrastructure"
+        %li= link_to "Users"
+        %li= link_to "Settings", admin_settings_path
+        %li= link_to "Logout", admin_logout_path, :method => :delete
+
+    %section.pageContent
+      = display_flash
+      = yield

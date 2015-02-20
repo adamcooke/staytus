@@ -1,0 +1,37 @@
+@import 'admin/variables';
+
+.flashMessage {
+  background:$grey;
+  text-align:center;
+  font-size:14px;
+  color:#fff;
+  border-radius:$globalBorderRadius;
+  padding:15px;
+  margin-bottom:15px;
+}
+
+.flashMessage--notice {
+  background-color:$green;
+}
+
+.flashMessage--alert {
+  background-color:$red;
+}
+
+.errorExplanation {
+  border:3px solid $red;
+  padding:15px;
+  margin-bottom:15px;
+  color:$red;
+  h2 {
+    font-weight:$fontWeightBold;
+    margin-bottom:10px;
+  }
+  p { display:none;}
+  ul {
+    li {
+      list-style:square;
+      margin-left:35px;
+    }
+  }
+}

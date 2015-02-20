@@ -1,0 +1,78 @@
+@import 'admin/variables';
+
+.buttonSet {
+  .button {
+    margin-right:5px;
+  }
+}
+
+.buttonSet--onRight {
+  .button {
+    margin-left:5px;
+    margin-right:0;
+  }
+}
+
+.button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance:none;
+  font:inherit;
+  border:2px solid;
+  color:$red;
+  padding:5px 17px;
+  border-radius:4px;
+  font-weight:$fontWeightMedium;
+  text-transform:uppercase;
+  font-size:12px;
+  display:inline-block;
+  background:none;
+  line-height:1.5;
+  vertical-align:middle;
+  text-decoration: none !important;
+}
+
+// Sizes
+
+.button--large {
+  font-size:14px;
+  padding:6px 20px;
+}
+
+.button--small {
+  font-size:11px;
+  padding:1px 10px;
+}
+
+.button--medium {
+  font-size:11px;
+  padding:3px 13px;
+}
+
+
+// Styles
+.button--solid {
+  background-color:$red;
+  border-color:$red;
+  color:#fff;
+}
+
+
+// Colors
+
+$buttonColours: (
+  grey: $grey,
+  red: $red,
+  lightGrey: #aaa
+);
+
+@each $name, $colour in $buttonColours {
+  .button--#{$name} {
+    color:$colour;
+    &.button--solid {
+      color:#fff;
+      background-color:$colour;
+      border-color:$colour;
+    }
+  }
+}

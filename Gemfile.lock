@@ -98,7 +98,7 @@ GEM
     minitest (5.5.1)
     multi_json (1.10.1)
     mysql2 (0.3.18)
-    nifty-utils (1.1.1)
+    nifty-utils (1.1.2)
     nilify_blanks (1.1.0)
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)

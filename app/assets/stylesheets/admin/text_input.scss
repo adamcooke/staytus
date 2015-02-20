@@ -1,0 +1,21 @@
+@import 'admin/variables';
+
+.textInput {
+  border:1px solid #ccc;
+  width:100%;
+  padding:6px;
+  font-family:$sansFontFamily;
+  background:#f9f9f9;
+  box-shadow:inset 1px 1px 1px rgba(0,0,0,0.1);
+  border-radius:3px;
+}
+
+textarea.textInput {
+  min-height:100px;
+}
+
+.textInput:focus {
+  border-color:#aaa;
+  background-color:#fff;
+  box-shadow:0 0 6px #ccc;
+}

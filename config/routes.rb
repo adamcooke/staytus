@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     post 'login' => 'sessions#create'
     delete 'logout' => 'sessions#destroy'
 
+    get 'settings' => 'settings#edit'
+    patch 'settings' => 'settings#update'
+
     root 'dashboard#index'
   end
 

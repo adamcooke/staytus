@@ -1,0 +1,32 @@
+- @page_title = 'Settings'
+.pageContent__heading.u-margin Site Settings
+%p.u-intro.u-margin
+  This form allows you to make changes to your site settings. Once you have made
+  your changes, just click the 'Save' button at the bottom to continue.
+
+= form_for @site, :url => admin_settings_path do |f|
+  = f.error_messages
+  .fieldSet.u-margin-2x
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :title
+      %dd.fieldSet__input= f.text_field :title, :class => 'textInput'
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :description
+      %dd.fieldSet__input= f.text_area :description, :class => 'textInput'
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :domain
+      %dd.fieldSet__input= f.text_field :domain, :class => 'textInput'
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :support_email, "Support E-Mail Addresss"
+      %dd.fieldSet__input= f.text_field :support_email, :class => 'textInput'
+
+    %dl.fieldSet__field
+      %dt.fieldSet__label= f.label :website_url, "Website URL"
+      %dd.fieldSet__input= f.text_field :website_url, :class => 'textInput'
+
+  .u-align-right.buttonSet--onRight
+    = f.submit "Save Settings", :class => 'button button--solid'
+    = link_to "Cancel", admin_root_path, :class => 'button button--lightGrey'
