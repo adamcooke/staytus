@@ -12,9 +12,11 @@
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :start_at_as_string, "What time does this session begin?"
       %dd.fieldSet__input
-        - if @maintenance.start_at && @maintenance.start_at_was != @maintenance.start_at
-          %p.chronicPreview= @maintenance.start_at.to_s(:long)
-        = f.text_field :start_at_as_string, :class => 'textInput has-chronicPreview', :required => true, :placeholder => "e.g. tomorrow at 2pm or 2015-12-23 13:40"
+        .u-margin
+          - if @maintenance.start_at && @maintenance.start_at_was != @maintenance.start_at
+            %p.chronicPreview= @maintenance.start_at.to_s(:long)
+          = f.text_field :start_at_as_string, :class => 'textInput has-chronicPreview', :required => true, :placeholder => "e.g. tomorrow at 2pm or 2015-12-23 13:40"
+        %p.alertBox.alertBox--warning Time zone is currently set to <b>#{site.time_zone}</b> (#{link_to 'change this?', admin_settings_path, :class => "u-underline"})
 
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :length_in_minutes_as_string, "How long will this session last?"

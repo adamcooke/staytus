@@ -1,0 +1,35 @@
+@import 'admin/variables';
+
+.alertBox {
+  background:$lightRed;
+  padding:6px 10px;
+  font-size:12px;
+  border-radius: $globalBorderRadius $globalBorderRadius;
+  line-height:$globalLineHeight;
+  color:$red;
+  box-shadow:inset 0 0 3px lighten($red, 35%);
+}
+
+.alertBox--warning {
+  background:$lightYellow;
+  color:$brown;
+  box-shadow:inset 0 0 3px lighten($brown, 35%);
+}
+
+.alertBox--error {
+  background:$lightRed;
+  color:$red;
+  box-shadow:inset 0 0 3px lighten($red, 35%);
+}
+
+.alertBox--info {
+  background:$lightBlue;
+  color:$darkGrey;
+  box-shadow:inset 0 0 3px lighten($darkGrey, 35%);
+}
+
+.alertBox--success {
+  background:$lightGreen;
+  color:$green;
+  box-shadow:inset 0 0 3px darken($lightGreen, 40%);
+}
