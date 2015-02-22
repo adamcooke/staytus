@@ -38,7 +38,7 @@ class Admin::ServicesController < Admin::BaseController
   private
 
   def safe_params
-    params.require(:service).permit(:auto, :location_ids => [])
+    params.require(:service).permit(:auto)
   end
 
 end

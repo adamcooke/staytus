@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220163824) do
+ActiveRecord::Schema.define(version: 20150222140153) do
 
   create_table "authie_sessions", force: :cascade do |t|
     t.string   "token",              limit: 255
@@ -61,22 +61,6 @@ ActiveRecord::Schema.define(version: 20150220163824) do
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
     t.integer  "user_id",           limit: 4
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.string   "name",                  limit: 255
-    t.string   "permalink",             limit: 255
-    t.boolean  "has_physical_presence", limit: 1,   default: false
-    t.string   "physical_address",      limit: 255
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-  end
-
-  create_table "service_locations", force: :cascade do |t|
-    t.integer  "service_id",  limit: 4
-    t.integer  "location_id", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
   end
 
   create_table "service_statuses", force: :cascade do |t|

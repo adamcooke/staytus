@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
     resources :users
     resources :services
-    resources :locations
     resources :service_statuses
     resources :issues do
       get 'resolved', :on => :collection

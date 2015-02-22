@@ -40,7 +40,7 @@ class Admin::ServiceStatusesController < Admin::BaseController
   private
 
   def safe_params
-    params.require(:service_status).permit(:auto, :location_ids => [])
+    params.require(:service_status).permit(:auto)
   end
 
 end

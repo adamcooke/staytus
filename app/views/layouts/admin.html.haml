@@ -17,16 +17,12 @@
             %span.globalSidebar__count= count
           = link_to "Issues", admin_issues_path
         %li= link_to "Maintenance"
-        %li
-          = link_to "Infrastructure", '#'
-          %ul
-            %li= link_to "Services", admin_services_path
-            %li= link_to "Locations", admin_locations_path
 
         %li
           = link_to "Settings", admin_settings_path
           %ul
             %li= link_to "Users", admin_users_path
+            %li= link_to "Services", admin_services_path
             %li= link_to "Service Statuses", admin_service_statuses_path
         %li= link_to "Logout", admin_logout_path, :method => :delete
 

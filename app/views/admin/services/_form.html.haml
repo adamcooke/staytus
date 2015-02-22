@@ -13,16 +13,6 @@
         .fieldSet__selectContainer
           = f.collection_select :status_id, ServiceStatus.all, :id, :name
 
-    %dl.fieldSet__field
-      %dt.fieldSet__label= f.label :location_ids, "Locations"
-      %dd.fieldSet__input
-        = hidden_field_tag 'service[location_ids][]', nil
-        %ul.fieldSet__checkboxList
-          - for location in Location.ordered
-            %li
-              = check_box_tag 'service[location_ids][]', location.id, @service.locations.include?(location), :id => "location_#{location.id}"
-              = label_tag "location_#{location.id}", location.name
-
   .formButtons
     - unless @service.new_record?
       .formButtons__secondary= link_to "Delete Service", [:admin, @service], :class => 'button button--grey button--solid', :method => :delete, :data => {:confirm => "Are you sure you wish to delete #{@service.name}?"}
