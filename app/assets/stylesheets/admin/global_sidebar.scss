@@ -47,6 +47,15 @@
   }
 }
 
+.globalSidebar__nav--subNav {
+  margin-top:20px;
+  li a {
+    font-size:12px;
+    margin-bottom:0;
+    opacity:0.5;
+  }
+}
+
 .globalSidebar__count {
   float:right;
   color:#fff;

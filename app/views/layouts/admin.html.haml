@@ -29,6 +29,9 @@
             %li= link_to "Users", admin_users_path, :class => (@active_nav_item == :users ? 'active' : '')
             %li= link_to "Services", admin_services_path, :class => (@active_nav_item == :services ? 'active' : '')
             %li= link_to "Service Statuses", admin_service_statuses_path, :class => (@active_nav_item == :service_statuses ? 'active' : '')
+
+      %ul.globalSidebar__nav.globalSidebar__nav--subNav
+        %li= link_to "View public site", root_path
         %li= link_to "Logout", admin_logout_path, :method => :delete
 
     %section.pageHeader
