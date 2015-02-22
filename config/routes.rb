@@ -19,7 +19,8 @@ Rails.application.routes.draw do
     end
     resources :maintenances do
       get 'completed', :on => :collection
-      post 'close', :on => :member
+      post 'toggle', :on => :member
+      resources :maintenance_updates
     end
     get 'helpers/:action', :controller => 'helpers'
     root 'dashboard#index'

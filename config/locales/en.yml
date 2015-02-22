@@ -1,4 +1,9 @@
 en:
+  maintenance_statuses:
+    active: In Progress
+    closed: Finished
+    upcoming: Upcoming
+
   service_status_types:
     ok: OK - everything is working as it should be
     minor: Minor Issue - there are some issues but not affecting the whole service

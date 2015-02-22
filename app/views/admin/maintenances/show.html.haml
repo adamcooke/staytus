@@ -15,6 +15,9 @@
   %dl.definition.u-margin
     %dt Completion Time
     %dd= @maintenance.finish_at.to_s(:long)
+  %dl.definition.u-margin
+    %dt Status
+    %dd= maintenance_status_tag @maintenance.status
   - unless @maintenance.services.empty?
     %dl.definition
       %dt Affected Services
@@ -22,8 +25,33 @@
         %ul.standardList.standardList--double
           - for service in @maintenance.services
             %li= service.name
+
   .box__footer.box__footer--smaller
     .buttonSet.buttonSet--onRight.u-align-right
       - if @maintenance.open?
-        = link_to "Mark as closed", [:close, :admin, @maintenance], :class => 'button button--small button--green button--solid', :method => :post
+        = link_to "Finish Session", [:toggle, :admin, @maintenance], :class => 'button button--small button--green button--solid', :method => :post
+      - else
+        = link_to "Re-open Session", [:toggle, :admin, @maintenance], :class => 'button button--small button--lightGrey button--solid', :method => :post
       = link_to "Edit Details", [:edit, :admin, @maintenance], :class => 'button button--small'
+
+.box.box--white
+  = form_for [:admin, @maintenance, @update] do |f|
+    .fieldSet
+      %dl.fieldSet__field.u-margin
+        %dt.fieldSet__label= f.label :text, "Post an update"
+        %dd.fieldSet__field= f.text_area :text, :class => 'textInput', :placeholder => "Enter the text you wish to post here..."
+      %p.u-align-right= f.submit "Post Update", :class => 'button button--solid'
+
+  .box__footer
+    %ul.issueUpdates
+      - if @updates.empty?
+        .noDataArea There are no updates for this session.
+      - else
+        - for update in @updates
+          %li.issueUpdates__item
+            %p.issueUpdates__text= update.text
+            %p.issueUpdates__meta
+              Posted #{time_tag update.created_at}
+              - if update.user
+                by #{update.user.name}
+              = link_to "Edit", [:edit, :admin, @maintenance, update], :class => 'u-underline issueUpdates__edit'

@@ -5,6 +5,17 @@
   color:#aaa;
 }
 
+.maintenanceStatusTag {
+  font-weight:bold;
+  color:#aaa;
+  &.maintenanceStatusTag--active {
+    color:$green;
+  }
+  &.maintenanceStatusTag--upcoming {
+    color:$blue;
+  }
+}
+
 .largeCreateButtonContainer {
   background:$lightGreen;
   padding:15px;

@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
 
   has_many :issues, :dependent => :nullify
   has_many :issue_updates, :dependent => :nullify
+  has_many :maintenances, :dependent => :nullify
+  has_many :maintenance_updates, :dependent => :nullify
 
   has_secure_password
 

@@ -6,6 +6,11 @@ class Admin::MaintenancesController < Admin::BaseController
     @maintenances = Maintenance.open
   end
 
+  def show
+    @update = @maintenance.updates.build
+    @updates = @maintenance.updates.ordered
+  end
+
   def new
     @maintenance = Maintenance.new
   end
@@ -27,9 +32,14 @@ class Admin::MaintenancesController < Admin::BaseController
     end
   end
 
-  def close
-    @maintenance.close
-    redirect_to admin_maintenances_path, :notice => "Maintenance session has been closed successfully."
+  def toggle
+    if @maintenance.closed?
+      @maintenance.open
+      redirect_to [:admin, @maintenance], :notice => "Maintenance session has been marked as in progress successfully."
+    else
+      @maintenance.close
+      redirect_to [:admin, @maintenance], :notice => "Maintenance session has been finished successfully."
+    end
   end
 
   def destroy

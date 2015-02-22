@@ -29,6 +29,7 @@ class Maintenance < ActiveRecord::Base
 
   has_many :maintenance_service_joins, :dependent => :destroy
   has_many :services, :through => :maintenance_service_joins
+  has_many :updates, :dependent => :destroy, :class_name => 'MaintenanceUpdate'
 
   scope :open, -> { where(:closed => false) }
   scope :ordered, -> { order(:start_at => :asc) }
@@ -36,8 +37,18 @@ class Maintenance < ActiveRecord::Base
 
   before_validation :convert_times
 
+  def status
+    return :closed if self.closed?
+    self.start_at > Time.now ? :upcoming : :active
+  end
+
   def open?
     !closed?
+  end
+
+  def open
+    self.closed = false
+    self.save
   end
 
   def close
