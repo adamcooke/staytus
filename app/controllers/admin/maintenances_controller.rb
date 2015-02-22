@@ -6,6 +6,10 @@ class Admin::MaintenancesController < Admin::BaseController
     @maintenances = Maintenance.open
   end
 
+  def completed
+    @maintenances = Maintenance.closed
+  end
+
   def show
     @update = @maintenance.updates.build
     @updates = @maintenance.updates.ordered

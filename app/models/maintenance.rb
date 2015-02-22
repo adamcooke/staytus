@@ -32,6 +32,7 @@ class Maintenance < ActiveRecord::Base
   has_many :updates, :dependent => :destroy, :class_name => 'MaintenanceUpdate'
 
   scope :open, -> { where(:closed => false) }
+  scope :closed, -> { where(:closed => true) }
   scope :ordered, -> { order(:start_at => :asc) }
   scope :active_now, -> { where("start_at <= ? AND closed = ?", Time.now, false) }
 

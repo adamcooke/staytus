@@ -12,17 +12,6 @@
     %p.u-subText= link_to "Show completed sessions", completed_admin_maintenances_path, :class => 'u-underline'
 
 - else
-  %table.dataTable
-    %thead
-      %tr
-        %td{:width => '40%'} Title
-        %td{:width => '40%'} Start Time
-        %td{:width => '20%'} Status
-    %tbody
-      - for maintenance in @maintenances
-        %tr
-          %td= link_to maintenance.title, [:admin, maintenance], :class => 'u-underline'
-          %td
-            = maintenance.start_at.to_s(:short)
-            for #{maintenance.length_in_minutes_as_string}
-          %td= maintenance_status_tag(maintenance.status)
+  = render 'table'
+
+  %p.u-align-right= link_to "Show completed sessions", completed_admin_maintenances_path, :class => 'button button--lightGrey button--small'

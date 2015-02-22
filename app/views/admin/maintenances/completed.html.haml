@@ -1,0 +1,6 @@
+.u-float-right= link_to "Back", admin_maintenances_path, :class => 'button button--lightGrey button--small'
+.pageContent__heading= @page_title = "Completed Maintenance Sessions"
+%p.u-intro.u-margin-2x
+  This page lists all maintenance sessions which are now marked as completed.
+
+= render 'table'
