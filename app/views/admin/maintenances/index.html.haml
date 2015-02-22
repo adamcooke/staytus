@@ -1,0 +1,26 @@
+.pageContent__heading= @page_title = "Scheduled Maintenance"
+%p.u-intro.u-margin-2x
+  If you have planned maintenance on any part of your infrastrucutre, you can
+  log it here. It will then be automatically displayed when in progress.
+
+.largeCreateButtonContainer.u-margin-2x
+  = link_to "Schedule Maintenance Session", new_admin_maintenance_path, :class => 'button button--green button--solid'
+
+- if @maintenances.empty?
+  .noDataArea.noDataArea--large
+    %p.u-margin You have no upcoming maintenance sessions.
+    %p.u-subText= link_to "Show completed sessions", completed_admin_maintenances_path, :class => 'u-underline'
+
+- else
+  %table.dataTable
+    %thead
+      %tr
+        %td{:width => '50%'} Title
+        %td{:width => '50%'} Start Time
+    %tbody
+      - for maintenance in @maintenances
+        %tr
+          %td= link_to maintenance.title, [:admin, maintenance], :class => 'u-underline'
+          %td
+            = maintenance.start_at.to_s(:short)
+            for #{maintenance.length_in_minutes_as_string}

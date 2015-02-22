@@ -4,3 +4,9 @@ en:
     minor: Minor Issue - there are some issues but not affecting the whole service
     major: Major Issues - a complete service outage affecting all users
     maintenance: Maintenance - the service is currently undergoing planned maintenance
+
+  activerecord:
+    attributes:
+      maintenance:
+        length_in_minutes: Session length
+

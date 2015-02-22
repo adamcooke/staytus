@@ -1,0 +1,29 @@
+.u-float-right= link_to "Back to sessions", admin_maintenances_path, :class => 'button button--lightGrey'
+.pageContent__heading.u-margin-2x= @page_title = "Maintenance ##{@maintenance.id}"
+.box.box--white.u-margin
+  %dl.definition.u-margin
+    %dt Title
+    %dd= @maintenance.title
+  %dl.definition.u-margin
+    %dt Details
+    %dd= @maintenance.description
+  %dl.definition.u-margin
+    %dt Time Period
+    %dd
+      = @maintenance.start_at.to_s(:long)
+      for #{@maintenance.length_in_minutes_as_string}
+  %dl.definition.u-margin
+    %dt Completion Time
+    %dd= @maintenance.finish_at.to_s(:long)
+  - unless @maintenance.services.empty?
+    %dl.definition
+      %dt Affected Services
+      %dd
+        %ul.standardList.standardList--double
+          - for service in @maintenance.services
+            %li= service.name
+  .box__footer.box__footer--smaller
+    .buttonSet.buttonSet--onRight.u-align-right
+      - if @maintenance.open?
+        = link_to "Mark as closed", [:close, :admin, @maintenance], :class => 'button button--small button--green button--solid', :method => :post
+      = link_to "Edit Details", [:edit, :admin, @maintenance], :class => 'button button--small'

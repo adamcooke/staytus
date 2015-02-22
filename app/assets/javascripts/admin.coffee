@@ -32,3 +32,21 @@ $ ->
   if revealCheckboxes.length
     $.each revealCheckboxes, -> toggleRevealCheckboxValue($(this))
     revealCheckboxes.on 'change', -> toggleRevealCheckboxValue($(this))
+
+  #
+  # Watching for chronic preview
+  #
+  $('.has-chronicPreview').each ->
+    chronicWatchTimer = null
+    field = $(this)
+    field.on 'keyup', ->
+      clearTimeout(chronicWatchTimer) if chronicWatchTimer
+      if field.val().length
+        chronicWatchTimer = setTimeout ->
+          $.get "/admin/helpers/chronic", {string: field.val()}, (data)->
+            field.parent().find('.chronicPreview').remove()
+            value = if data.formatted then data.formatted else 'Invalid Date'
+            $("<p class='chronicPreview'>#{value}</p>").insertBefore(field)
+        , 1000
+      else
+        field.parent().find('.chronicPreview').remove()

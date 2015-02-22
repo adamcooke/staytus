@@ -17,9 +17,14 @@ Rails.application.routes.draw do
       get 'resolved', :on => :collection
       resources :issue_updates
     end
-
+    resources :maintenances do
+      get 'completed', :on => :collection
+      post 'close', :on => :member
+    end
+    get 'helpers/:action', :controller => 'helpers'
     root 'dashboard#index'
   end
+
 
   root 'pages#index'
 

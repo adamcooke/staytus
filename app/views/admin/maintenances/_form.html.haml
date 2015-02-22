@@ -1,0 +1,43 @@
+= form_for [:admin, @maintenance] do |f|
+  = f.error_messages
+  .fieldSet.u-margin-2x
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :title
+      %dd.fieldSet__input= f.text_field :title, :class => 'textInput', :autofocus => @maintenance.new_record?, :required => true
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :description, "Description/schedule of works"
+      %dd.fieldSet__input= f.text_area :description, :class => 'textInput'
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :start_at_as_string, "What time does this session begin?"
+      %dd.fieldSet__input
+        - if @maintenance.start_at && @maintenance.start_at_was != @maintenance.start_at
+          %p.chronicPreview= @maintenance.start_at.to_s(:long)
+        = f.text_field :start_at_as_string, :class => 'textInput has-chronicPreview', :required => true, :placeholder => "e.g. tomorrow at 2pm or 2015-12-23 13:40"
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :length_in_minutes_as_string, "How long will this session last?"
+      %dd.fieldSet__input= f.text_field :length_in_minutes_as_string, :class => 'textInput', :required => true, :placeholder => "e.g. 2 hours, 30 minutes or 6 and a half hours"
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :service_ids, "Which services are affected?"
+      %dd.fieldSet__input
+        = hidden_field_tag 'maintenance[service_ids][]', nil
+        %ul.fieldSet__checkboxList
+          - for service in Service.ordered
+            %li
+              = check_box_tag 'maintenance[service_ids][]', service.id, @maintenance.services.include?(service), :id => "service_#{service.id}"
+              = label_tag "service_#{service.id}", service.name
+
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :service_status_id, "Which status should be displayed for these status when this session is active?"
+      %dd.fieldSet__input
+        .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.for_maintenance.sort_by_type, :id, :name
+
+  .formButtons
+    - unless @maintenance.new_record?
+      .formButtons__secondary= link_to "Delete", [:admin, @maintenance], :class => 'button button--solid button--grey', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this session and all updates?"}
+
+    = f.submit :class => 'button button--solid'
+    = link_to "Cancel", @maintenance.new_record? ? admin_maintenances_path : [:admin, @maintenance], :class => 'button button--lightGrey'

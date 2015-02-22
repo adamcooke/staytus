@@ -16,6 +16,8 @@ gem 'dynamic_form'
 gem 'activevalidators'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails_env_config', '~> 1', group: :development
+gem 'chronic_duration', '~> 0.10'
+gem 'datey', '~> 1.0'
 
 group :development, :test do
   gem 'byebug'
