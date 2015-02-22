@@ -13,7 +13,7 @@
       - for service in @services
         %tr
           %td.name= service.name
-          %td= service_status_tag(service)
+          %td= service_status_tag(service, :link_maintenance => :admin)
   .col.col--8
     %a.dashboardButton.dashboardButton--issue.u-margin{:href => new_admin_issue_path}
       Post new issue
