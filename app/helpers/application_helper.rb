@@ -4,23 +4,28 @@ module ApplicationHelper
     content_tag :span, t("maintenance_statuses.#{status}"), :class => "maintenanceStatusTag maintenanceStatusTag--#{status}"
   end
 
-  def service_status_tag(status)
+  def service_status_tag(status, options = {})
     case status
-    when ServiceStatus then service_status_tag_for_status(status)
-    when Service then service_status_tag_for_service(status)
+    when ServiceStatus then service_status_tag_for_status(status, options)
+    when Service then service_status_tag_for_service(status, options)
     else
     end
   end
 
-  def service_status_tag_for_service(service)
+  def service_status_tag_for_service(service, options = {})
     if maintenance = service.active_maintenances.first
-      service_status_tag_for_status(maintenance.service_status)
+      status = service_status_tag_for_status(maintenance.service_status)
+      if options[:link_maintenance] == :admin
+        link_to(status, [:admin, maintenance])
+      else
+        status
+      end
     else
       service_status_tag_for_status(service.status)
     end
   end
 
-  def service_status_tag_for_status(status)
+  def service_status_tag_for_status(status, options = {})
     if status
       content_tag :span, status.name, :class => "serviceStatusTag serviceStatusTag--#{status.status_type}", :style => "color:##{status.color}"
     else
