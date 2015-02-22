@@ -8,26 +8,27 @@
     = csrf_meta_tags
   %body
     %section.globalSidebar
-      %p.globalSidebar__logo Staytus
+      .globalSidebar__version v#{Staytus::Config.version}
+      = link_to "Staytus", "http://staytus.co", :class => 'globalSidebar__logo'
       %ul.globalSidebar__nav
-        %li= link_to "Dashboard", admin_root_path
+        %li= link_to "Dashboard", admin_root_path, :class => (@active_nav_item == :dashboard ? 'active' : '')
         %li
           - count = Issue.ongoing.count
           - if count > 0
             %span.globalSidebar__count= count
-          = link_to "Issues", admin_issues_path
+          = link_to "Issues", admin_issues_path, :class => (@active_nav_item == :issues ? 'active' : '')
         %li
           - count = Maintenance.active_now.count
           - if count > 0
             %span.globalSidebar__count.globalSidebar__count--maintenance= count
-          = link_to "Maintenance", admin_maintenances_path
+          = link_to "Maintenance", admin_maintenances_path, :class => (@active_nav_item == :maintenance ? 'active' : '')
 
         %li
-          = link_to "Settings", admin_settings_path
+          = link_to "Settings", admin_settings_path, :class => (@active_nav_item == :settings ? 'active' : '')
           %ul
-            %li= link_to "Users", admin_users_path
-            %li= link_to "Services", admin_services_path
-            %li= link_to "Service Statuses", admin_service_statuses_path
+            %li= link_to "Users", admin_users_path, :class => (@active_nav_item == :users ? 'active' : '')
+            %li= link_to "Services", admin_services_path, :class => (@active_nav_item == :services ? 'active' : '')
+            %li= link_to "Service Statuses", admin_service_statuses_path, :class => (@active_nav_item == :service_statuses ? 'active' : '')
         %li= link_to "Logout", admin_logout_path, :method => :delete
 
     %section.pageHeader

@@ -1,3 +1,4 @@
+- @active_nav_item = :maintenance
 = content_for :page_header do
   .pageHeader__backButton= link_to "Back to sessions", admin_maintenances_path, :class => 'button button--small button--lightGrey'
   %h1.pageHeader__heading= @page_title = "Maintenance ##{@maintenance.id}"

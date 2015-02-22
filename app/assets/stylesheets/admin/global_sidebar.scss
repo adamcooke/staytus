@@ -9,12 +9,24 @@
   left:0;
 }
 
+.globalSidebar__version {
+  float:right;
+  color:#fff;
+  opacity:0.5;
+  font-size:12px;
+  margin-top:23px;
+  margin-right:25px;
+}
+
 .globalSidebar__logo {
-  padding:15px 25px;
+  display:block;
+  padding:23px 25px;
   color:#666;
-  background:$red;
+  background:image-url('logo-white.svg') $red no-repeat 25px 20px;
   margin-bottom:15px;
   color:#fff;
+  background-size:90px;
+  text-indent:-40000px;
 }
 
 .globalSidebar__nav {
@@ -23,12 +35,10 @@
     padding:5px 25px;
     color:#fff;
     font-size:14px;
+    margin-bottom:3px;
     text-decoration: none;
-    &:hover {
-      opacity:0.7;
-    }
-    &:active {
-      opacity:0.6;
+    &.active {
+      background:darken($grey, 5%);
     }
   }
   li li a{
@@ -40,12 +50,13 @@
 .globalSidebar__count {
   float:right;
   color:#fff;
+  z-index:2000;
   background:$red;
   font-size:11px;
   font-weight:$fontWeightBold;
   padding:1px 6px;
   margin-right:20px;
-  margin-top:4px;
+  margin-top:6px;
   border-radius:4px;
 }
 
