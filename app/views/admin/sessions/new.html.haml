@@ -1,9 +1,10 @@
 = form_tag do
-  %dl
-    %dt email
-    %dd= text_field_tag 'email', params[:email]
+  .loginForm
+    %dl.loginField.u-margin
+      %dt= label_tag 'email', 'E-Mail Address'
+      %dd= text_field_tag 'email', params[:email], :class => 'loginInput', :autofocus => true, :required => true, :placeholder => "E-Mail Address"
+    %dl.loginField.u-margin
+      %dt= label_tag 'password', 'Password'
+      %dd= password_field_tag 'password', params[:password], :class => 'loginInput', :required => true, :placeholder => "Password"
 
-    %dt password
-    %dd= password_field_tag 'password', params[:password]
-
-    %dd= submit_tag "Login"
+    %p.loginSubmit= submit_tag "Login", :class => 'button button--white button--solid'

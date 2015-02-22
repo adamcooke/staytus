@@ -34,9 +34,12 @@
         %li= link_to "View public site", root_path
         %li= link_to "Logout", admin_logout_path, :method => :delete
 
+
+
     %section.pageHeader
+      = display_flash
       .pageHeader__inner
         = yield :page_header
     %section.pageContent
-      = display_flash
+
       = yield

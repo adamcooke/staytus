@@ -1,13 +1,19 @@
 @import 'admin/variables';
 
 .flashMessage {
-  background:$grey;
-  text-align:center;
-  font-size:14px;
+  position:fixed;
+  width:350px;
+  background: $darkGrey;
+  z-index:600;
+  padding:15px 25px;
+  right:0;
+  top:0;
   color:#fff;
-  border-radius:$globalBorderRadius;
-  padding:15px;
-  margin-bottom:15px;
+  line-height:$globalLineHeight;
+  font-weight:$fontWeightMedium;
+  border-radius:5px;
+  margin: 15px 15px 0 0;
+  cursor:pointer;
 }
 
 .flashMessage--notice {

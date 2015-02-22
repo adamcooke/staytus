@@ -1,0 +1,38 @@
+@import 'admin/variables';
+
+.loginPage {
+  background:$red;
+  .flashMessage--alert {
+    background:#000;
+  }
+}
+
+.loginForm {
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width:300px;
+  margin:auto;
+  text-align:center;
+  background:image-url('logo-white.svg') no-repeat center 0;
+  background-size:200px;
+  padding-top:100px;
+}
+
+.loginInput {
+  width:100%;
+  text-align: center;
+  border:3px solid transparent;
+  border-radius:$globalBorderRadius;
+  padding:7px;
+  font-size:15px;
+  font-family:$sansFontFamily;
+  &:focus {
+    border-color:#ff978b;
+  }
+}
+
+.loginField dt {display:none; }
+
+.loginSubmit { text-align:right;}

@@ -16,7 +16,7 @@ class Admin::SessionsController < Admin::BaseController
 
   def destroy
     auth_session.invalidate!
-    redirect_to admin_login_path, :notice => "Logged out successfully."
+    redirect_to admin_login_path
   end
 
 end

@@ -50,3 +50,18 @@ $ ->
         , 1000
       else
         field.parent().find('.chronicPreview').remove()
+
+  #
+  # Clicking on notices will hide them
+  #
+  notices = $('#flash-notice, #flash-alert')
+  if notices.length
+    notices.on 'click', -> $(this).hide('fast')
+    setTimeout ->
+      notices.hide('fast')
+    , 5000
+
+  #
+  # Open external links in new window
+  #
+  $('a[href^=http]:not([rel=internal])').attr('target', '_blank');

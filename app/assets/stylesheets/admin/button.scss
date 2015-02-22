@@ -71,7 +71,8 @@ $buttonColours: (
   red: $red,
   lime: $lime,
   green: $green,
-  lightGrey: #aaa
+  lightGrey: #aaa,
+  white: #fff
 );
 
 @each $name, $colour in $buttonColours {
@@ -83,4 +84,8 @@ $buttonColours: (
       border-color:$colour;
     }
   }
+}
+
+.button--white.button--solid {
+  color:$red;
 }
