@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
     get 'settings' => 'settings#edit'
     patch 'settings' => 'settings#update'
+    get 'settings/design' => 'settings#design'
 
     get 'infrastructure' => 'infrastructure#index'
 

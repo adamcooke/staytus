@@ -65,3 +65,17 @@ $ ->
   # Open external links in new window
   #
   $('a[href^=http]:not([rel=internal])').attr('target', '_blank');
+
+  #
+  # Deleting image attachments
+  #
+  $('.imagePreview a').on 'click', ->
+    container = $(this).parent()
+    # remove images
+    $('img', container).replaceWith("Will remove on save...")
+    $(this).remove()
+    # add hidden field
+    $('input[type=hidden]', container).val('delete')
+    container.addClass('imagePreview--deleting')
+
+    false

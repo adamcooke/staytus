@@ -29,6 +29,7 @@
             %li= link_to "Users", admin_users_path, :class => (@active_nav_item == :users ? 'active' : '')
             %li= link_to "Services", admin_services_path, :class => (@active_nav_item == :services ? 'active' : '')
             %li= link_to "Service Statuses", admin_service_statuses_path, :class => (@active_nav_item == :service_statuses ? 'active' : '')
+            %li= link_to "Design", admin_settings_design_path, :class => (@active_nav_item == :design_settings ? 'active' : '')
 
       %ul.globalSidebar__nav.globalSidebar__nav--subNav
         %li= link_to "View public site", root_path

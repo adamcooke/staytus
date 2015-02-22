@@ -1,0 +1,52 @@
+- @active_nav_item = :design_settings
+= content_for :page_header do
+  %h1.pageHeader__heading.u-margin= @page_title = "Design settings"
+  %p.u-intro
+    From here you can customize aspects of your status page's design.
+    If you are using a using a custom theme, you may find that some of these
+    options are not supported.
+
+= form_for @site, :url => admin_settings_path do |f|
+  = hidden_field_tag 'return_to', 'design'
+  = f.error_messages
+  .fieldSet.u-margin-2x
+    .row.u-margin-2x
+      .col.col--12
+        %dl.fieldSet__field
+          %dt.fieldSet__label= f.label :logo_file, "Upload a logo"
+          %dd.fieldSet__text
+            It's recommended that your logo is less than 100x50 pixels and is as small as possible.
+          %dd.fieldSet__input
+            .fieldSet__selectContainer= f.file_field :logo_file
+      .col.col--8
+        - if @site.logo
+          .imagePreview
+            = link_to "Delete", '#'
+            = image_tag @site.logo.path
+            = f.hidden_field :logo_delete
+        - else
+          .imagePreview.imagePreview--empty
+            No logo
+
+    .row
+      .col.col--12
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :cover_image_file, "Upload a cover image"
+          %dd.fieldSet__text
+            It's recommended that cover images are around 1500x1000 pixels and are as compressed
+            as possible without losing too much image quality.
+          %dd.fieldSet__input
+            .fieldSet__selectContainer= f.file_field :cover_image_file
+      .col.col--8
+        - if @site.cover_image
+          .imagePreview
+            = link_to "Delete", '#'
+            = image_tag @site.cover_image.path
+            = f.hidden_field :cover_image_delete
+        - else
+          .imagePreview.imagePreview--empty
+            No cover image
+
+  .formButtons
+    = f.submit "Save Settings", :class => 'button button--solid'
+    = link_to "Cancel", admin_root_path, :class => 'button button--lightGrey'

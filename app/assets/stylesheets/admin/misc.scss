@@ -114,3 +114,38 @@
   font-size:12px;
   color:$green;
 }
+
+.imagePreview {
+  border:2px solid #ccc;
+  text-align:center;
+  line-height:0;
+  border-radius:$globalBorderRadius;
+  background:image-url('transparent.png');
+  min-height:120px;
+  position:relative;
+  overflow: hidden;
+  img { width:calc(100%);}
+  a {
+    position:absolute;
+    right:10px;
+    top:10px;
+    width:30px;
+    height:30px;
+    background:image-url('delete.svg') rgba(0,0,0,0.6) no-repeat center center;
+    background-size:16px;
+    text-indent:-400000px;
+    border-radius:$globalBorderRadius;
+  }
+}
+
+.imagePreview--empty,
+.imagePreview--deleting {
+  min-height:0;
+  padding:60px 0;
+  font-size:16px;
+  color:#777;
+}
+
+.imagePreview--deleting {
+  font-style:italic;
+}
