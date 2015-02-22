@@ -14,6 +14,8 @@ if File.exist?(Staytus::Config.theme_root)
   Rails.application.config.assets.paths << File.join(Staytus::Config.theme_root, 'assets', 'javascripts')
   Rails.application.config.assets.paths << File.join(Staytus::Config.theme_root, 'assets', 'stylesheets')
   Rails.application.config.assets.precompile += %w( frontend.js frontend.css )
+  Rails.application.config.assets.precompile += [/\.jpg\z/, /\.png/, /\.gif/]
+
 end
 
 Rails.application.config.assets.precompile += %w( admin.js admin.css )

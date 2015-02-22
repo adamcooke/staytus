@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   layout 'frontend'
 
   def index
+    @services = Service.ordered.includes(:status, {:active_maintenances => :service_status})
   end
 
 end

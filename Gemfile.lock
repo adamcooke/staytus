@@ -101,6 +101,7 @@ GEM
     minitest (5.5.1)
     multi_json (1.10.1)
     mysql2 (0.3.18)
+    nifty-attachments (1.0.3)
     nifty-utils (1.1.2)
     nilify_blanks (1.1.0)
       activerecord (>= 3.0.0)
@@ -187,6 +188,7 @@ DEPENDENCIES
   jquery-rails
   kaminari (~> 0.16.1)
   mysql2
+  nifty-attachments
   nifty-utils (~> 1.1)
   nilify_blanks (~> 1.1.0)
   rails (= 4.2.0)

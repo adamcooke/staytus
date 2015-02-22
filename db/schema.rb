@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222183637) do
+ActiveRecord::Schema.define(version: 20150222230215) do
 
   create_table "authie_sessions", force: :cascade do |t|
     t.string   "token",              limit: 255
@@ -89,6 +89,19 @@ ActiveRecord::Schema.define(version: 20150222183637) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.datetime "closed_at"
+  end
+
+  create_table "nifty_attachments", force: :cascade do |t|
+    t.integer  "parent_id",   limit: 4
+    t.string   "parent_type", limit: 255
+    t.string   "token",       limit: 255
+    t.string   "digest",      limit: 255
+    t.string   "role",        limit: 255
+    t.string   "file_name",   limit: 255
+    t.string   "file_type",   limit: 255
+    t.binary   "data",        limit: 16777215
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "service_statuses", force: :cascade do |t|

@@ -1,1 +1,101 @@
-body { background:#888; }
+#= require reset
+
+$sansSerifFont:  'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+body {
+  font-family: $sansSerifFont;
+  font-size:16px;
+}
+
+
+//
+// The main page container
+//
+.container {
+  width:750px;
+  margin:0 auto;
+}
+
+//
+// The site header
+//
+.siteHeader {
+  text-align:center;
+  background:#2B3034;
+  padding:170px 0;
+  margin-bottom:50px;
+}
+
+.siteHeader__title {
+  font-size:55px;
+  letter-spacing:-0.05em;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:15px;
+}
+
+.siteHeader__subTitle {
+  font-size:16px;
+  width:80%;
+  margin:auto;
+  line-height:24px;
+  color:#7e8890;
+}
+
+//
+// The site footer
+//
+.siteFooter {
+  border-top:1px solid #efefef;
+  padding:30px 0;
+  font-size:13px;
+  margin-top:50px;
+
+  .poweredBy {
+    float:right;
+    color:#999;
+  }
+}
+
+//
+// Footer navigation
+//
+.footerNav {
+  li {
+    float:left;
+    margin-right:25px;
+    a {
+      color:#999;
+    }
+  }
+}
+
+//
+// The current status of all services
+//
+.serviceList {
+  border:3px solid #bfc8d0;
+  border-radius:6px;
+  overflow: hidden;
+}
+
+.serviceList__item {
+  padding:13px 15px;
+  overflow: hidden;
+  border-bottom:1px solid #d7e2eb;
+  &:nth-child(even) {
+    background:#f6fbff;
+  }
+  &:last-child {
+    border-bottom:0;
+  }
+}
+
+.serviceList__name {
+  float:left;
+}
+
+.serviceList__status {
+  float:right;
+}
+

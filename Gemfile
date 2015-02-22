@@ -18,6 +18,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rails_env_config', '~> 1', group: :development
 gem 'chronic_duration', '~> 0.10'
 gem 'datey', '~> 1.0'
+gem 'nifty-attachments'
 
 group :development, :test do
   gem 'byebug'

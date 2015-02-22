@@ -22,4 +22,7 @@ class Site < ActiveRecord::Base
 
   default_value :time_zone, -> { 'UTC' }
 
+  attachment :logo
+  attachment :cover_image
+
 end

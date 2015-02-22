@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><%= @page_title %> - <%= site.title %></title>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-<%= stylesheet_link_tag 'frontend' %>
-<%= javascript_include_tag 'frontend' %>
+  <title><%= @page_title %> - <%= site.title %></title>
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag 'frontend' %>
+  <%= javascript_include_tag 'frontend' %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
+  <header class='siteHeader'>
+    <div class='container'>
+      <p class='siteHeader__title'><%= site.title %></p>
+      <p class='siteHeader__subTitle'><%= site.description %></p>
+    </div>
+  </header>
+
   <%= yield %>
-  <hr>
-  <p><a href='/admin'>Admin area</a></p>
+
+  <footer class='siteFooter'>
+    <div class='container'>
+      <p class='poweredBy'>
+        <%= t("themes.default.footer.powered_by", :default => "Proudly powered by") %> <a href='http://staytus.co'>Staytus</a>
+      </p>
+      <ul class='footerNav'>
+        <li><a href='<%= site.website_url %>'><%= t("themes.default.footer.homepage", :default => 'Our Homepage') %></a></li>
+        <li><a href='mailto:<%= site.support_email %>'><%= t("themes.default.footer.contact_us", :default => 'Contact Us') %></a></li>
+      </p>
+    </div>
+  </footer>
 </body>
 </html>

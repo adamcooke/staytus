@@ -1,1 +1,12 @@
-<h1><%= site.title %></h1>
+<% @page_title = 'Welcome' %>
+
+<div class='container'>
+  <ul class='serviceList'>
+    <% for service in @services %>
+    <li class='serviceList__item'>
+      <p class='serviceList__name'><%= service.name %></p>
+      <p class='serviceList__status'><%= service_status_tag service %></p>
+    </li>
+    <% end %>
+  </ul>
+</div>
