@@ -29,6 +29,7 @@ class Service < ActiveRecord::Base
   has_many :issues, :through => :issue_service_joins
   has_many :maintenance_service_joins, :dependent => :destroy
   has_many :maintenances, :through => :maintenance_service_joins
+  has_many :active_maintenances, -> { references(:maintenances).where(:closed_at => nil).where("start_at <= ?", Time.now) }, :through => :maintenance_service_joins, :source => :maintenance
 
   scope :ordered, -> { order(:position => :asc) }
 

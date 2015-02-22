@@ -3,7 +3,7 @@ class Admin::ServicesController < Admin::BaseController
   before_filter { params[:id] && @service = Service.find(params[:id]) }
 
   def index
-    @services = Service.ordered
+    @services = Service.ordered.includes(:status, {:active_maintenances => :service_status})
   end
 
   def new
