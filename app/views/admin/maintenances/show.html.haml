@@ -1,5 +1,7 @@
-.u-float-right= link_to "Back to sessions", admin_maintenances_path, :class => 'button button--lightGrey'
-.pageContent__heading.u-margin-2x= @page_title = "Maintenance ##{@maintenance.id}"
+= content_for :page_header do
+  .pageHeader__backButton= link_to "Back to sessions", admin_maintenances_path, :class => 'button button--small button--lightGrey'
+  %h1.pageHeader__heading= @page_title = "Maintenance ##{@maintenance.id}"
+
 .u-margin
   %dl.definition.u-margin
     %dt Title
@@ -25,7 +27,6 @@
         %ul.standardList.standardList--double
           - for service in @maintenance.services
             %li= service.name
-  %hr
   %dl.definition.u-margin-2x
     %dd.buttonSet
       - if @maintenance.open?

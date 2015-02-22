@@ -1,2 +1,4 @@
-.pageContent__heading.u-margin-2x= @page_title = 'Edit Service Status'
+= content_for :page_header do
+  .pageHeader__heading= @page_title = 'Edit Service Status'
+
 = render 'form'

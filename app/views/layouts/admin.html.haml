@@ -30,6 +30,9 @@
             %li= link_to "Service Statuses", admin_service_statuses_path
         %li= link_to "Logout", admin_logout_path, :method => :delete
 
+    %section.pageHeader
+      .pageHeader__inner
+        = yield :page_header
     %section.pageContent
       = display_flash
       = yield

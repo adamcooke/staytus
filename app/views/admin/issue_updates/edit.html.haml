@@ -1,4 +1,6 @@
-.pageContent__heading.u-margin-2x Edit Update for Issue ##{@issue.id}
+= content_for :page_header do
+  .pageHeader__heading Edit Update for Issue ##{@issue.id}
+
 = form_for [:admin, @issue, @issue_update] do |f|
   .fieldSet
     %dl.fieldSet__field.u-margin

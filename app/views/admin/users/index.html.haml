@@ -1,7 +1,9 @@
-.pageContent__heading= @page_title = 'Users'
-%p.u-intro.u-margin
-  These users are those who have access to manage your status site - including
-  adding new incidents, maintenance and other configuration.
+= content_for :page_header do
+  .pageHeader__button= link_to "Add New User", new_admin_user_path, :class => 'button button--green button--small button--solid'
+  .pageHeader__heading.u-margin= @page_title = 'Users'
+  %p.u-intro
+    These users are those who have access to manage your status site - including
+    adding new incidents, maintenance and other configuration.
 
 %table.dataTable.u-margin
   %thead
@@ -16,4 +18,3 @@
         %td= user.email_address
         %td.u-align-right= link_to "Edit", [:edit, :admin, user], :class => 'button button--small'
 
-%p= link_to "Add New User", new_admin_user_path, :class => 'button button--green button--small'

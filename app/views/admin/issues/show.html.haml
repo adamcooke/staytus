@@ -1,7 +1,8 @@
-.u-float-right.buttonSet--onRight
-  = link_to "Edit", [:edit, :admin, @issue], :class => 'button button--small'
-  = link_to "Back", admin_issues_path, :class => 'button button--lightGrey button--small'
-.pageContent__heading.u-margin-2x= @page_title = "Issue ##{@issue.id}"
+= content_for :page_header do
+  .pageHeader__button.buttonSet--onRight
+    = link_to "Edit Details", [:edit, :admin, @issue], :class => 'button button--small'
+    = link_to "Back", admin_issues_path, :class => 'button button--lightGrey button--small'
+  %h1.pageHeader__heading= @page_title = "Issue ##{@issue.id}"
 
 .u-margin
   %dl.definition
@@ -22,7 +23,7 @@
           - for service in @issue.services
             %li= service.name
 
-.box.box--white
+.box.box--white.u-margin-top-2x
   = form_for [:admin, @issue, @update] do |f|
     .fieldSet
       %dl.fieldSet__field.u-margin

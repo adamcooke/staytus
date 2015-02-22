@@ -1,8 +1,8 @@
-- @page_title = 'Settings'
-.pageContent__heading Site Settings
-%p.u-intro.u-margin-2x
-  This form allows you to make changes to your site settings. Once you have made
-  your changes, just click the 'Save' button at the bottom to continue.
+= content_for :page_header do
+  %h1.pageHeader__heading.u-margin Site Settings
+  %p.u-intro
+    This form allows you to make changes to your site settings. Once you have made
+    your changes, just click the 'Save' button at the bottom to continue.
 
 = form_for @site, :url => admin_settings_path do |f|
   = f.error_messages

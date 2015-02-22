@@ -1,2 +1,3 @@
-.pageContent__heading.u-margin-2x= @page_title = 'Edit User'
+= content_for :page_header do
+  .pageHeader__heading= @page_title = 'Edit User'
 = render 'form'

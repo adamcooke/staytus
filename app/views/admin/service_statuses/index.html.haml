@@ -1,7 +1,9 @@
-.pageContent__heading= @page_title = 'Service Statuses'
-%p.u-intro.u-margin
-  These are the statuses which will be assigned to your services when there is
-  an issue or maintenance session in progress.
+= content_for :page_header do
+  .pageHeader__button= link_to "Add New Status", new_admin_service_status_path, :class => 'button button--green button--small button--solid'
+  .pageHeader__heading.u-margin= @page_title = 'Service Statuses'
+  %p.u-intro
+    These are the statuses which will be assigned to your services when there is
+    an issue or maintenance session in progress.
 
 %table.dataTable.u-margin
   %thead
@@ -14,4 +16,4 @@
         %td= link_to service_status_tag(status), [:edit, :admin, status]
 
         %td.u-align-right= link_to "Edit", [:edit, :admin, status], :class => 'button button--small'
-%p.u-margin-2x= link_to "Add New Status", new_admin_service_status_path, :class => 'button button--green button--small'
+

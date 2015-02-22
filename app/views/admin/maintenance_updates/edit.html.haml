@@ -1,4 +1,6 @@
-.pageContent__heading.u-margin-2x= @page_title = "Edit Update for Maintenance ##{@maintenance.id}"
+= content_for :page_header do
+  %h1.pageHeader__heading= @page_title = "Edit Update for Maintenance ##{@maintenance.id}"
+
 = form_for [:admin, @maintenance, @maintenance_update] do |f|
   .fieldSet
     %dl.fieldSet__field.u-margin

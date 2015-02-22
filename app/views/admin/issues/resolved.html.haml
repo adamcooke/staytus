@@ -1,8 +1,14 @@
-.u-float-right= link_to "Back to ongoing", admin_issues_path, :class => 'button button--lightGrey button--small'
-.pageContent__heading= @page_title = 'Resolved Issues'
-%p.u-intro.u-margin-2x
-  This page lists all issues which have now been resolved and are no longer
-  ongoing.
+- content_for :page_header do
+  .pageHeader__button= link_to "Back to ongoing", admin_issues_path, :class => 'button button--lightGrey button--small'
+  %h1.pageHeader__heading.u-margin= @page_title = 'Resolved Issues'
+  %p.u-intro
+    This page lists all issues which have now been resolved and are no longer
+    ongoing.
 
-= render 'issue_boxes', :issues => @issues
-= paginate @issues
+- if @issues.empty?
+  .noDataArea.noDataArea--large
+    %p.u-margin You have no resolved issues.
+    %p.u-subText= link_to "Back to outstanding issues", admin_issues_path, :class => 'u-underline'
+- else
+  = render 'issue_boxes', :issues => @issues
+  = paginate @issues

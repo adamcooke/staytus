@@ -1,6 +1,7 @@
-%h1.pageContent__heading= @page_title = 'Create an issue'
-%p.u-intro.u-margin-2x
-  When you have created an issue, you will be able to provide continuous updates
-  to it to provide the latest information to your users. Begin by entering a title
-  and the first update you wish to post.
+= content_for :page_header do
+  %h1.pageHeader__heading.u-margin= @page_title = 'Create an issue'
+  %p.u-intro
+    When you have created an issue, you will be able to provide continuous updates
+    to it to provide the latest information to your users. Begin by entering a title
+    and the first update you wish to post.
 = render 'form'

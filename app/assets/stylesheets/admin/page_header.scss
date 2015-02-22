@@ -1,0 +1,22 @@
+.pageHeader {
+  background:#f7f7f7;
+  border-bottom:2px solid #ddd;
+  margin-left:220px;
+}
+
+.pageHeader__inner {
+  max-width:780px;
+  padding:30px 45px;
+}
+
+.pageHeader__heading {
+  font-size:25px;
+  font-weight:600;
+}
+
+.pageHeader__button,
+.pageHeader__backButton {
+  float:right;
+  margin-top:6px;
+}
+

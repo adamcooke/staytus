@@ -1,2 +1,3 @@
-%h1.pageContent__heading.u-margin-2x= @page_title = "Edit Issue"
+- content_for :page_header do
+  %h1.pageHeader__heading= @page_title = "Edit Issue"
 = render 'form'
