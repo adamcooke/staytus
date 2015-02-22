@@ -1,10 +1,11 @@
 - @page_title = 'Welcome'
-%h1.pageContent__heading.u-margin Welcome to Staytus.
-%p.u-intro.u-margin-2x
-  Staytus is your off-site service status site which allows you to easily
-  communicate with your customers whenever anything goes awry within your
-  network. It's an open source project which you can contribute to, be
-  sure to check out our #{link_to 'repository on GitHub', 'http://github.com/viaduct/staytus', :class => 'u-underline'}.
+= content_for :page_header do
+  %h1.pageHeader__heading.u-margin Welcome to Staytus.
+  %p.u-intro
+    Staytus is your off-site service status site which allows you to easily
+    communicate with your customers whenever anything goes awry within your
+    network. It's an open source project which you can contribute to, be
+    sure to check out our #{link_to 'repository on GitHub', 'http://github.com/viaduct/staytus', :class => 'u-underline'}.
 
 
 
