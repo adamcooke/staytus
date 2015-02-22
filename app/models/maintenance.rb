@@ -62,7 +62,7 @@ class Maintenance < ActiveRecord::Base
   end
 
   def start_at_as_string
-    @start_at_as_string ||= self.start_at ? self.start_at.to_s(:db) : nil
+    @start_at_as_string ||= self.start_at ? self.start_at.strftime("%Y-%m-%d %H:%m") : nil
   end
 
   def start_at_as_string=(string)

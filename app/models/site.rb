@@ -8,6 +8,7 @@
 #  domain        :string(255)
 #  support_email :string(255)
 #  website_url   :string(255)
+#  time_zone     :string(255)
 #
 
 class Site < ActiveRecord::Base
@@ -17,5 +18,8 @@ class Site < ActiveRecord::Base
   validates :domain, :presence => true
   validates :support_email, :presence => true, :email => true
   validates :website_url, :presence => true, :url => true
+  validates :time_zone, :presence => true
+
+  default_value :time_zone, -> { 'UTC' }
 
 end

@@ -1,6 +1,6 @@
 - @active_nav_item = :settings
 = content_for :page_header do
-  %h1.pageHeader__heading.u-margin Site Settings
+  %h1.pageHeader__heading.u-margin= @page_title = "Site Settings"
   %p.u-intro
     This form allows you to make changes to your site settings. Once you have made
     your changes, just click the 'Save' button at the bottom to continue.
@@ -24,9 +24,15 @@
       %dt.fieldSet__label= f.label :support_email, "Support E-Mail Addresss"
       %dd.fieldSet__input= f.text_field :support_email, :class => 'textInput'
 
-    %dl.fieldSet__field
+    %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :website_url, "Website URL"
       %dd.fieldSet__input= f.text_field :website_url, :class => 'textInput'
+
+    %dl.fieldSet__field
+      %dt.fieldSet__label= f.label :time_zone, "Time Zone"
+      %dd.fieldSet__input
+        .fieldSet__selectContainer
+          = f.time_zone_select :time_zone
 
   .formButtons
     = f.submit "Save Settings", :class => 'button button--solid'
