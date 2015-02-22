@@ -1,0 +1,54 @@
+@import 'admin/variables';
+
+.dashboardServiceStatusTable {
+  width:calc(100% + 45px);
+  margin-left:-45px;
+  td {
+    padding:9px 0;
+    border-bottom:1px solid #efefef;
+  }
+  td.name {
+    padding-left:45px;
+  }
+  tr:last-child td { border-bottom:0;}
+}
+
+.dashboardButton {
+  display:block;
+  background:$lightBlue;
+  text-align:center;
+  padding:25px 0;
+  font-size:16px;
+  font-weight:$fontWeightMedium;
+  border-radius:$globalBorderRadius;
+}
+
+.dashboardButton--issue {
+  background-color:$lightRed;
+  color:$red;
+}
+
+.poweredBy {
+  margin-top:50px;
+  margin-left:-45px;
+  padding-left:45px;
+  border-top:5px solid #efefef;
+  padding-top:25px;
+  line-height:20px;
+  font-size:12px;
+  background:image-url('logo.svg') no-repeat 45px 20px;
+  padding-top:60px;
+  background-size:100px;
+}
+
+.poweredBy__nav {
+  float:right;
+  width:40%;
+  li { float:left; width:50%;}
+}
+
+.poweredBy__text {
+
+  color:#888;
+  width:50%;
+}

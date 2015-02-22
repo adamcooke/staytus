@@ -3,7 +3,31 @@
 = content_for :page_header do
   %h1.pageHeader__heading.u-margin Welcome to Staytus.
   %p.u-intro
-    Staytus is your off-site service status site which allows you to easily
+    Staytus is your service status site which allows you to easily
     communicate with your customers whenever anything goes awry within your
-    network. It's an open source project which you can contribute to, be
-    sure to check out our #{link_to 'repository on GitHub', 'http://github.com/viaduct/staytus', :class => 'u-underline'}.
+    network.
+
+.row.u-margin-2x
+  .col.col--12
+    %table.dashboardServiceStatusTable
+      - for service in @services
+        %tr
+          %td.name= service.name
+          %td= service_status_tag(service)
+  .col.col--8
+    %a.dashboardButton.dashboardButton--issue.u-margin{:href => new_admin_issue_path}
+      Post new issue
+    %a.dashboardButton{:href => new_admin_maintenance_path}
+      Schedule maintenance
+
+.poweredBy
+  %ul.poweredBy__nav
+    %li= link_to "Homepage", "http://staytus.co", :class => 'u-underline'
+    %li= link_to "Repository", "http://staytus.co/repo", :class => 'u-underline'
+    %li= link_to "Report a bug", "http://staytus.co/bug", :class => 'u-underline'
+    %li= link_to "Donate", "http://staytus.co/donate", :class => 'u-underline'
+  .poweredBy__text
+    %p Powered by #{link_to 'Staytus', 'http://staytus.co', :class => 'u-underline'} &mdash; the open source status site.
+    %p
+      UI designs, logomarks and code &copy; 2015 The Staytus Core Team.
+      Released under the MIT-License.
