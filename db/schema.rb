@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222153603) do
+ActiveRecord::Schema.define(version: 20150222174621) do
 
   create_table "authie_sessions", force: :cascade do |t|
     t.string   "token",              limit: 255
@@ -84,11 +84,11 @@ ActiveRecord::Schema.define(version: 20150222153603) do
     t.datetime "start_at"
     t.datetime "finish_at"
     t.integer  "length_in_minutes", limit: 4
-    t.boolean  "closed",            limit: 1,     default: false
     t.integer  "user_id",           limit: 4
     t.integer  "service_status_id", limit: 4
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.datetime "closed_at"
   end
 
   create_table "service_statuses", force: :cascade do |t|

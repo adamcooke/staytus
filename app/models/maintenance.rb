@@ -8,11 +8,11 @@
 #  start_at          :datetime
 #  finish_at         :datetime
 #  length_in_minutes :integer
-#  closed            :boolean          default("0")
 #  user_id           :integer
 #  service_status_id :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  closed_at         :datetime
 #
 
 class Maintenance < ActiveRecord::Base
@@ -31,10 +31,10 @@ class Maintenance < ActiveRecord::Base
   has_many :services, :through => :maintenance_service_joins
   has_many :updates, :dependent => :destroy, :class_name => 'MaintenanceUpdate'
 
-  scope :open, -> { where(:closed => false) }
-  scope :closed, -> { where(:closed => true) }
+  scope :open, -> { where(:closed_at => nil) }
+  scope :closed, -> { where.not(:closed_at => nil) }
   scope :ordered, -> { order(:start_at => :asc) }
-  scope :active_now, -> { where("start_at <= ? AND closed = ?", Time.now, false) }
+  scope :active_now, -> { where("start_at <= ?", Time.now).open }
 
   before_validation :convert_times
 
@@ -44,16 +44,20 @@ class Maintenance < ActiveRecord::Base
   end
 
   def open?
-    !closed?
+    closed_at.nil?
+  end
+
+  def closed?
+    !closed_at.nil?
   end
 
   def open
-    self.closed = false
+    self.closed_at = nil
     self.save
   end
 
   def close
-    self.closed = true
+    self.closed_at = Time.now
     self.save
   end
 
