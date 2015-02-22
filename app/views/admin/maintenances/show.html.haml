@@ -1,6 +1,6 @@
 .u-float-right= link_to "Back to sessions", admin_maintenances_path, :class => 'button button--lightGrey'
 .pageContent__heading.u-margin-2x= @page_title = "Maintenance ##{@maintenance.id}"
-.box.box--white.u-margin
+.u-margin
   %dl.definition.u-margin
     %dt Title
     %dd= @maintenance.title
@@ -19,15 +19,15 @@
     %dt Status
     %dd= maintenance_status_tag @maintenance.status
   - unless @maintenance.services.empty?
-    %dl.definition
+    %dl.definition.u-margin
       %dt Affected Services
       %dd
         %ul.standardList.standardList--double
           - for service in @maintenance.services
             %li= service.name
-
-  .box__footer.box__footer--smaller
-    .buttonSet.buttonSet--onRight.u-align-right
+  %hr
+  %dl.definition.u-margin-2x
+    %dd.buttonSet
       - if @maintenance.open?
         = link_to "Finish Session", [:toggle, :admin, @maintenance], :class => 'button button--small button--green button--solid', :method => :post
       - else

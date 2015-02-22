@@ -32,5 +32,7 @@
           .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.problematic.sort_by_type, :id, :name
 
   .formButtons
+    - unless @issue.new_record?
+      .formButtons__secondary= link_to "Delete", [:admin, @issue], :class => 'button button--solid button--grey', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this issue and all updates?"}
     = f.submit :class => 'button button--solid'
-    = link_to "Cancel", admin_issues_path, :class => 'button button--lightGrey'
+    = link_to "Cancel", @issue.new_record? ? admin_issues_path : [:admin, @issue], :class => 'button button--lightGrey'
