@@ -26,9 +26,9 @@ $ cd staytus
 $ bundle install --deployment --without deployment:test
 $ nano -w config/database.yml # Add your database configuration
 $ bundle exec rake db:create db:schema:load
-$ bundle exec rails server
+$ bundle exec rails server -b 0.0.0.0 -p 8787
 ```
 
-This will run the application on HTTP port 3000 by default. When you first
-login, you'll be able to add your own site settings. Browse to http://[IP]:3000
+This will run the application on HTTP port 8787. When you first
+login, you'll be able to add your own site settings. Browse to http://[IP]:8787
 to begin.

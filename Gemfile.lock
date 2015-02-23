@@ -110,6 +110,8 @@ GEM
       mini_portile (~> 0.6.0)
     numerizer (0.1.1)
     phony (2.10.4)
+    puma (2.11.1)
+      rack (>= 1.1, < 2.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -191,6 +193,7 @@ DEPENDENCIES
   nifty-attachments
   nifty-utils (~> 1.1)
   nilify_blanks (~> 1.1.0)
+  puma
   rails (= 4.2.0)
   rails_env_config (~> 1)
   sass-rails (~> 5.0)
