@@ -1,18 +1,21 @@
 = form_for [:admin, @service_status] do |f|
   = f.error_messages
   .fieldSet.u-margin-2x
-    %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :name
-      %dt.fieldSet__input= f.text_field :name, :class => 'textInput', :autofocus => @service_status.new_record?, :required => true
-    %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :permalink
-      %dt.fieldSet__input= f.text_field :permalink, :class => 'textInput', :required => true
+    .row
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :name
+          %dd.fieldSet__input= f.text_field :name, :class => 'textInput', :autofocus => @service_status.new_record?, :required => true
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :permalink
+          %dd.fieldSet__input= f.text_field :permalink, :class => 'textInput', :required => true
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :color
-      %dt.fieldSet__input= f.text_field :color, :class => 'textInput', :required => true
+      %dd.fieldSet__input= f.text_field :color, :class => 'textInput', :required => true
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :status_type
-      %dt.fieldSet__input
+      %dd.fieldSet__input
         .fieldSet__selectContainer
           = f.select :status_type, ServiceStatus::STATUS_TYPES.map { |type| [t("service_status_types.#{type}"), type]}
 

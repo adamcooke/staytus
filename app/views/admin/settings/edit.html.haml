@@ -8,25 +8,29 @@
 = form_for @site, :url => admin_settings_path do |f|
   = f.error_messages
   .fieldSet.u-margin-2x
-    %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :title
-      %dd.fieldSet__input= f.text_field :title, :class => 'textInput'
+    .row
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :title
+          %dd.fieldSet__input= f.text_field :title, :class => 'textInput'
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :domain
+          %dd.fieldSet__input= f.text_field :domain, :class => 'textInput'
 
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :description
       %dd.fieldSet__input= f.text_area :description, :class => 'textInput'
 
-    %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :domain
-      %dd.fieldSet__input= f.text_field :domain, :class => 'textInput'
-
-    %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :support_email, "Support E-Mail Addresss"
-      %dd.fieldSet__input= f.text_field :support_email, :class => 'textInput'
-
-    %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :website_url, "Website URL"
-      %dd.fieldSet__input= f.text_field :website_url, :class => 'textInput'
+    .row
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :support_email, "Support E-Mail Addresss"
+          %dd.fieldSet__input= f.text_field :support_email, :class => 'textInput'
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :website_url, "Website URL"
+          %dd.fieldSet__input= f.text_field :website_url, :class => 'textInput'
 
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :time_zone, "Time Zone"

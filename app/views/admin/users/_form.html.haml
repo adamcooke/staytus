@@ -1,17 +1,24 @@
 = form_for [:admin, @user] do |f|
   = f.error_messages
   .fieldSet.u-margin-2x
-    %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :name
-      %dt.fieldSet__input= f.text_field :name, :class => 'textInput', :autofocus => true, :required => true
-
-    %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :email_address, "E-Mail Address"
-      %dt.fieldSet__input= f.text_field :email_address, :class => 'textInput', :required => true
-
-    %dl.fieldSet__field
-      %dt.fieldSet__label= f.label :password, "New Password"
-      %dt.fieldSet__input= f.password_field :password, :class => 'textInput', :required => @user.new_record?
+    .row
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :name
+          %dd.fieldSet__input= f.text_field :name, :class => 'textInput', :autofocus => true, :required => true
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :email_address, "E-Mail Address"
+          %dd.fieldSet__input= f.text_field :email_address, :class => 'textInput', :required => true
+    .row
+      .col.col--10
+        %dl.fieldSet__field
+          %dt.fieldSet__label= f.label :password, "Password"
+          %dd.fieldSet__input= f.password_field :password, :class => 'textInput', :required => @user.new_record?
+      .col.col--10
+        %dl.fieldSet__field
+          %dt.fieldSet__label= f.label :password_confirmation, "Password Confirmation"
+          %dd.fieldSet__input= f.password_field :password_confirmation, :class => 'textInput', :required => @user.new_record?
 
   .formButtons
     - unless @user.new_record?

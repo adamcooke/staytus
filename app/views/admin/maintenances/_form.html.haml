@@ -8,19 +8,19 @@
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :description, "Description/schedule of works"
       %dd.fieldSet__input= f.text_area :description, :class => 'textInput'
-
-    %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :start_at_as_string, "What time does this session begin?"
-      %dd.fieldSet__input
-        .u-margin
-          - if @maintenance.start_at && @maintenance.start_at_was != @maintenance.start_at
-            %p.chronicPreview= @maintenance.start_at.to_s(:long)
-          = f.text_field :start_at_as_string, :class => 'textInput has-chronicPreview', :required => true, :placeholder => "e.g. tomorrow at 2pm or 2015-12-23 13:40"
-        %p.alertBox.alertBox--warning Time zone is currently set to <b>#{site.time_zone}</b> (#{link_to 'change this?', admin_settings_path, :class => "u-underline"})
-
-    %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :length_in_minutes_as_string, "How long will this session last?"
-      %dd.fieldSet__input= f.text_field :length_in_minutes_as_string, :class => 'textInput', :required => true, :placeholder => "e.g. 2 hours, 30 minutes or 6 and a half hours"
+    .row
+      .col.col--12
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :start_at_as_string, "Start time (#{site.time_zone} time)"
+          %dd.fieldSet__input
+            .u-margin
+              - if @maintenance.start_at && @maintenance.start_at_was != @maintenance.start_at
+                %p.chronicPreview= @maintenance.start_at.to_s(:long)
+              = f.text_field :start_at_as_string, :class => 'textInput has-chronicPreview', :required => true, :placeholder => "e.g. tomorrow at 2pm or 2015-12-23 13:40"
+      .col.col--8
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :length_in_minutes_as_string, "How long will this session last?"
+          %dd.fieldSet__input= f.text_field :length_in_minutes_as_string, :class => 'textInput', :required => true, :placeholder => "e.g. 2 hours, 30 minutes or 6 and a half hours"
 
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :service_ids, "Which services are affected?"
