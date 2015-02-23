@@ -38,3 +38,32 @@
   right:25px;
   img {max-height:30px;}
 }
+
+@media (max-width: 750px) {
+  .siteHeader__title {
+    font-size:6.0vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .siteHeader {
+    padding:85px 0 30px 0;
+    margin-bottom:25px;
+    &.has-coverImage {
+      padding:100px 0 40px 0;
+    }
+  }
+
+  .siteHeader__subTitle {
+    font-size:14px;
+    line-height:20px;
+  }
+}
+
+@media (max-width: 470px) {
+  .siteHeader__subTitle {
+    font-size:13px;
+    line-height:18px;
+  }
+
+}

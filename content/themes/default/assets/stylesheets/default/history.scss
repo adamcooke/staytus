@@ -62,3 +62,32 @@
   padding-bottom:3px;
   margin-bottom:25px;
 }
+
+
+
+@media (max-width: 600px) {
+  .history__heading {
+    font-size:30px;
+  }
+
+  .history__itemType {
+    width:100%;
+    span {
+      background:none;
+      text-align:left;
+      font-weight:700;
+      &.history__itemType__issue { background:#fff; color:#068FD6; border:0; }
+      &.history__itemType__maintenance { background:#fff; color:#9b957b; border:0;}
+    }
+  }
+
+  .history__itemTitle {
+    margin-left:0;
+  }
+}
+
+@media (max-width: 470px) {
+  .history__heading {
+    font-size:25px;
+  }
+}

@@ -1,4 +1,7 @@
 @import 'default/variables';
+.ongoingIssues {
+  margin-bottom:15px;
+}
 
 .issueBanner {
   background:#333;
@@ -9,18 +12,17 @@
   color:#fff;
   margin-bottom:15px;
   &:last-child {margin-bottom:0;}
-
   &.issueBanner--investigating { background:$investigatingColor;}
   &.issueBanner--identified { background:$identifiedColor;}
   &.issueBanner--monitoring { background:$monitoringColor;}
   &.issueBanner--maintenance { background:#fff7d6; color:#77745e;}
-
 }
 
 .issueBanner__state {
   float:right;
   font-weight:600;
   font-size:12px;
+  margin-left:15px;
 }
 
 .issueBanner__time {

@@ -8,6 +8,6 @@ Any version number which is suffixed by `-dev` means that it is currently
 being developed and is not yet released. It is most likely you'll only ever
 see this in a master branch.
 
-## v1.0.0-dev
+## v1.0.0
 
 * Initial Release
