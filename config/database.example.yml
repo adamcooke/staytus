@@ -9,7 +9,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
+  username: staytus
   password:
   database: staytus
   host: 127.0.0.1

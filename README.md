@@ -20,6 +20,13 @@ you need your status site to be available when you're other infrastructure is
 unavailable so why not deploy offsite using [Viaduct's](http://viaduct.io)
 free application hosting platform?
 
+Before start, you'll need to create a new MySQL database.
+
+```text
+mysql$ CREATE DATABASE `staytus` CHARSET utf8 COLLATE utf8_unicode_ci;
+mysql$ GRANT ALL ON sirportly.* TO `staytus`@`localhost` IDENTIFIED BY "a_secure_password";
+```
+
 ```text
 $ git clone https://github.com/adamcooke/staytus
 $ git checkout stable
@@ -27,7 +34,7 @@ $ cd staytus
 $ bundle install --deployment --without deployment:test
 $ cp config/database.example.yml config/database.yml
 $ nano -w config/database.yml # Add your database configuration
-$ bundle exec rake db:create db:schema:load
+$ bundle exec rake staytus:install
 $ bundle exec rails server -b 0.0.0.0 -p 8787
 ```
 
