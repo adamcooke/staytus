@@ -28,11 +28,19 @@
       %dt.fieldSet__label= f.label :website_url, "Website URL"
       %dd.fieldSet__input= f.text_field :website_url, :class => 'textInput'
 
-    %dl.fieldSet__field
+    %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :time_zone, "Time Zone"
       %dd.fieldSet__input
         .fieldSet__selectContainer
           = f.time_zone_select :time_zone
+
+    %dl.fieldSet__field
+      %dt.fieldSet__label= f.label :crawling_permitted, "Allow search engines?"
+      %dd.fieldSet__input
+        .fieldSet__checkbox.fieldSet__selectContainer
+          = f.check_box :crawling_permitted
+          = f.label :crawling_permitted, "Yes - allow search engines to index the public status site"
+
 
   .formButtons
     = f.submit "Save Settings", :class => 'button button--solid'

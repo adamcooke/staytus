@@ -23,4 +23,14 @@ class PagesController < ApplicationController
     @items = HistoryItem.includes(:item).ordered.page(params[:page])
   end
 
+  def robots
+    text = []
+    text << "User-agent: *"
+    text << "Disallow: /admin"
+    unless site.crawling_permitted?
+      text << "Disallow: /"
+    end
+    render :text => text.join("\n"), :content_type => 'text/plain'
+  end
+
 end
