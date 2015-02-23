@@ -6,7 +6,7 @@ User.create!(:email_address => 'admin@example.com', :password => 'password', :na
 #
 # Create a default site
 #
-Site.create!(:title => 'The Viaduct Status Site', :description => 'Viaduct is a revolutionary hosting platform. This is our status site. Contact us at team@viaduct with any questions or problems.', :domain => 'staytus.dev', :support_email => 'team@viaduct.io', :website_url => 'http://viaduct.io', :time_zone => 'London')
+Site.create!(:title => 'The Widgets Status Site', :description => 'Widgets Inc is a revolutionary widget platform. This is our status site. Contact us at team@widgetsrus.io with any questions or problems.', :domain => 'widgetsrus.io', :support_email => 'team@widgetsrus.io', :website_url => 'http://staytus.co', :time_zone => 'London')
 
 #
 # Create default statuses
