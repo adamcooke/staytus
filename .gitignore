@@ -12,3 +12,5 @@
 !/log/.keep
 /tmp
 config/environment.yml
+config/database.yml
+
