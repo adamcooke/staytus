@@ -14,8 +14,8 @@ default: &default
   database: staytus
   host: 127.0.0.1
 
-development:
+production:
   <<: *default
 
-production:
+development:
   <<: *default
