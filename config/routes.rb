@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   get 'issue/:id' => 'pages#issue'
   get 'maintenance/:id' => 'pages#maintenance'
+  get 'history' => 'pages#history'
   root 'pages#index'
 
 end

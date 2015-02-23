@@ -1,8 +1,5 @@
 <% @page_title = "#{@maintenance.title} - #{@maintenance.start_at.strftime("%d/%m/%Y")}" %>
-<header class='pageHeader'>
-  <a href='/' class='button'>&larr; Homepage</a>
-  <p class='pageHeader__title'><%= site.title %></p>
-</header>
+<%= render 'page_header' %>
 
 <section class='issueDetail'>
   <div class='container'>

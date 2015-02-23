@@ -1,0 +1,25 @@
+<% @page_title = "History" %>
+<%= render 'page_header' %>
+
+<section class='history'>
+  <div class='container'>
+    <h1 class='history__heading'>Issue &amp; Maintenance History</h1>
+    <p class='history__info'>This page shows the last 30 issues & maintenance sessions. Select any of the items shown below to read more information.</p>
+
+    <% for month, items in @items %>
+    <div class='history__items'>
+      <h2 class='history__itemHeading'><%= month.strftime("%B %Y") %></h2>
+      <% for item in items %>
+      <div class='history__item'>
+        <p class='history__itemType'><span class='history__itemType__<%= item.type.downcase %>'><%= item.type %></span></p>
+        <p class='history__itemTitle'>
+          <a href='<%= item.link %>'><%= item.title %></a>
+          <span class='history__itemDate'> from <%= item.date.to_date.to_s(:long) %></span>
+        </p>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+
+  </div>
+</section>
