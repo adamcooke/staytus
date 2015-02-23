@@ -367,3 +367,25 @@ body {
   padding-bottom:3px;
   margin-bottom:25px;
 }
+
+//
+// Pagination
+//
+.pagination {
+  text-align:center;
+  margin-top:45px;
+  font-size:12px;
+  a, span.page.current {
+    background:#f9f9f9;
+    border:1px solid #ccc;
+    padding:2px 9px;
+    margin:0 2px;
+    display:inline-block;
+    text-decoration:none;
+  }
+  span.page.current {
+    font-weight:bold;
+    background:#ccc;
+    color:#fff;
+  }
+}

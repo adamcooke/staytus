@@ -20,7 +20,7 @@ class PagesController < ApplicationController
   end
 
   def history
-    @items = HistoryItem.includes(:item).ordered.page(params[:page]).group_by(&:month)
+    @items = HistoryItem.includes(:item).ordered.page(params[:page])
   end
 
 end

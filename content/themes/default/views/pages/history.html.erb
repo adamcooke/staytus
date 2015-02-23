@@ -3,10 +3,10 @@
 
 <section class='history'>
   <div class='container'>
-    <h1 class='history__heading'>Issue &amp; Maintenance History</h1>
-    <p class='history__info'>This page shows the last 30 issues & maintenance sessions. Select any of the items shown below to read more information.</p>
+    <h1 class='history__heading'><%= t('themes.default.history.title', :default => 'Issue &amp; Maintenance History'.html_safe) %></h1>
+    <p class='history__info'><%= t('themes.default.history.intro', :default => "This page shows all current & historical issues & maintenance sessions.".html_safe) %></p>
 
-    <% for month, items in @items %>
+    <% for month, items in @items.group_by(&:month) %>
     <div class='history__items'>
       <h2 class='history__itemHeading'><%= month.strftime("%B %Y") %></h2>
       <% for item in items %>
@@ -20,6 +20,8 @@
       <% end %>
     </div>
     <% end %>
+
+    <%= paginate @items %>
 
   </div>
 </section>

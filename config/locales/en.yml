@@ -1,4 +1,5 @@
 en:
+  banana: asd
   maintenance_statuses:
     active: In Progress
     closed: Finished
