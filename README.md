@@ -5,7 +5,10 @@ any issues with your web applications, networks or services. Along with
 absolutely beautiful public & admin interfaces, Staytus is a powerful tool for
 any organization with customers rely on them to be online 24/7.
 
-[Check out the live demo](http://demo.staytus.co)
+* [Check out the live demo](http://demo.staytus.co)
+* [Read the roadmap](https://github.com/adamcooke/staytus/blob/master/ROADMAP.md)
+* [Report a bug](https://github.com/adamcooke/staytus/issues/new?labels=bug)
+* [Ask a question](https://github.com/adamcooke/staytus/issues/new?labels=question)
 
 ![Screenshot](https://s.adamcooke.io/15/8HeZGuskLO.png)
 
