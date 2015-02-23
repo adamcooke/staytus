@@ -33,3 +33,17 @@
     border-width:1px;
   }
 }
+
+
+@media (max-width: 320px) {
+  .serviceList__item {
+    text-align: center;
+  }
+  .serviceList__name {
+    margin-bottom:5px;
+  }
+  .serviceList__name,
+  .serviceList__status {
+    float:none;
+  }
+}
