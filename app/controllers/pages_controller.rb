@@ -14,4 +14,9 @@ class PagesController < ApplicationController
     @updates = @issue.updates.includes(:user).ordered
   end
 
+  def maintenance
+    @maintenance = Maintenance.find_by_identifier!(params[:id])
+    @updates = @maintenance.updates.includes(:user).ordered
+  end
+
 end

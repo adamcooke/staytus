@@ -206,12 +206,31 @@ body {
   font-weight:700;
   letter-spacing:-0.02em;
   line-height:38px;
+  margin-bottom:7px;
 }
 
 .issueDetail__date {
   font-size:13px;
   color:#999;
   margin-bottom:30px;
+}
+
+.issueDetail__descriptionTitle {
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.issueDetail__description {
+  line-height:24px;
+  margin-bottom:25px;
+}
+
+.issueDetail__details {
+  line-height:24px;
+  margin-bottom:40px;
+  dt { font-weight:700; margin-bottom:15px; float:left; width:40%;}
+  dd { margin-bottom:15px; }
+  dd:last-child { margin-bottom:0; }
 }
 
 .issueDetail__services {
@@ -230,6 +249,16 @@ body {
     list-style:square;
     margin-left:16px;
   }
+}
+
+//
+// Issue update
+//
+
+.issueUpdates__header {
+  font-weight:700;
+  margin-bottom:25px;
+  font-size:22px;
 }
 
 .issueUpdates {
@@ -261,3 +290,12 @@ body {
 .issueUpdate__state--monitoring { color:$monitoringColor;}
 .issueUpdate__state--resolved { color:$resolvedColor;}
 
+.maintenanceStatusTag {
+  color:#aaa;
+  &.maintenanceStatusTag--active {
+    color:#6CBE07;
+  }
+  &.maintenanceStatusTag--upcoming {
+    color:#068FD6;
+  }
+}
