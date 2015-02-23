@@ -43,11 +43,13 @@ class Issue < ActiveRecord::Base
   after_destroy :destroy_history_item
 
   def add_initial_update
+    update = self.updates.build(:state => self.state, :service_status => self.service_status, :user => self.user, :created_at => self.created_at)
     if self.initial_update.blank? && self.updates.empty?
-      self.updates.create!(:state => self.state, :service_status => self.service_status, :user => self.user, :text => INITIAL_UPDATE_TEXT)
+      update.text = INITIAL_UPDATE_TEXT
     else
-      self.updates.create!(:state => self.state, :service_status => self.service_status, :user => self.user, :text => self.initial_update)
+      update.text = self.initial_update
     end
+    update.save!
   end
 
   def update_service_statuses
