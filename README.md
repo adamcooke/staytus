@@ -5,6 +5,8 @@ any issues with your web applications, networks or services. Along with
 absolutely beautiful public & admin interfaces, Staytus is a powerful tool for
 any organization with customers rely on them to be online 24/7.
 
+[Check out the live demo](http://demo.staytus.co)
+
 ![Screenshot](https://s.adamcooke.io/15/vGMNR1.png)
 
 ## System Requirements
