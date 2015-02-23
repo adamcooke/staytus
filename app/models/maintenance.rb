@@ -41,6 +41,8 @@ class Maintenance < ActiveRecord::Base
   scope :upcoming, -> { where("start_at > ?", Time.now).open }
 
   before_validation :convert_times
+  after_save :create_or_update_history_item
+  after_destroy :destroy_history_item
 
   def status
     return :closed if self.closed?
@@ -101,6 +103,18 @@ class Maintenance < ActiveRecord::Base
     if self.start_at && self.length_in_minutes
       self.finish_at = self.start_at + (self.length_in_minutes * 60)
     end
+  end
+
+  def create_or_update_history_item
+    if self.start_at_changed?
+      item = HistoryItem.where(:item => self).first_or_initialize
+      item.date = self.start_at
+      item.save
+    end
+  end
+
+  def destroy_history_item
+    HistoryItem.where(:item => self).destroy_all
   end
 
 end

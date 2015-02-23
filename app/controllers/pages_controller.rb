@@ -20,9 +20,7 @@ class PagesController < ApplicationController
   end
 
   def history
-    @issues = Issue.resolved.limit(30).to_a.map { |i| HistoryItem.new(i) }
-    @maintenances = Maintenance.closed.limit(30).to_a.map { |i| HistoryItem.new(i) }
-    @items = (@issues | @maintenances).sort_by(&:date).reverse.group_by(&:month)
+    @items = HistoryItem.includes(:item).ordered.page(params[:page]).group_by(&:month)
   end
 
 end

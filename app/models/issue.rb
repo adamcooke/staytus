@@ -39,6 +39,8 @@ class Issue < ActiveRecord::Base
 
   after_create :add_initial_update
   after_save :update_service_statuses
+  after_create :create_history_item
+  after_destroy :destroy_history_item
 
   def add_initial_update
     if self.initial_update.blank? && self.updates.empty?
@@ -55,6 +57,16 @@ class Issue < ActiveRecord::Base
         service.save
       end
     end
+  end
+
+  private
+
+  def create_history_item
+    HistoryItem.create(:item => self, :date => self.created_at)
+  end
+
+  def destroy_history_item
+    HistoryItem.where(:item => self).destroy_all
   end
 
 end

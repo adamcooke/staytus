@@ -1,27 +1,33 @@
-class HistoryItem
+# == Schema Information
+#
+# Table name: history_items
+#
+#  id        :integer          not null, primary key
+#  item_type :string(255)
+#  item_id   :integer
+#  date      :datetime
+#
 
-  def initialize(item)
-    @item = item
-  end
+class HistoryItem < ActiveRecord::Base
 
-  def date
-    @item.is_a?(Maintenance) ? @item.start_at : @item.created_at
-  end
+  belongs_to :item, :polymorphic => true
 
-  def link
-    @item.is_a?(Maintenance) ? "/maintenance/#{@item.identifier}" : "/issue/#{@item.identifier}"
-  end
-
-  def title
-    @item.title
-  end
-
-  def type
-    @item.class.name
-  end
+  scope :ordered, -> { order(:date => :desc) }
 
   def month
     @month ||= Date.new(date.year, date.month)
+  end
+
+  def link
+    item.is_a?(Maintenance) ? "/maintenance/#{item.identifier}" : "/issue/#{item.identifier}"
+  end
+
+  def title
+    item.title
+  end
+
+  def type
+    item_type
   end
 
 end
