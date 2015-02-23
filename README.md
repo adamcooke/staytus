@@ -24,7 +24,7 @@ Before start, you'll need to create a new MySQL database.
 
 ```text
 mysql$ CREATE DATABASE `staytus` CHARSET utf8 COLLATE utf8_unicode_ci;
-mysql$ GRANT ALL ON sirportly.* TO `staytus`@`localhost` IDENTIFIED BY "a_secure_password";
+mysql$ GRANT ALL ON staytus.* TO `staytus`@`localhost` IDENTIFIED BY "a_secure_password";
 ```
 
 ```text
