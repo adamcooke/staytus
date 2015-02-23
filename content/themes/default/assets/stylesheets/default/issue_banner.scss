@@ -12,11 +12,12 @@
   color:#fff;
   margin-bottom:15px;
   &:last-child {margin-bottom:0;}
-  &.issueBanner--investigating { background:$investigatingColor;}
-  &.issueBanner--identified { background:$identifiedColor;}
-  &.issueBanner--monitoring { background:$monitoringColor;}
-  &.issueBanner--maintenance { background:#fff7d6; color:#77745e;}
 }
+
+.issueBanner--investigating { background:$investigatingColor;}
+.issueBanner--identified { background:$identifiedColor;}
+.issueBanner--monitoring { background:$monitoringColor;}
+.issueBanner--maintenance { background:#fff7d6; color:#77745e;}
 
 .issueBanner__state {
   float:right;
