@@ -33,7 +33,7 @@ $ bundle install --deployment --without deployment:test
 $ cp config/database.example.yml config/database.yml
 $ nano -w config/database.yml # Add your database configuration
 $ bundle exec rake staytus:build staytus:install
-$ bundle exec rails server -b 0.0.0.0 -p 8787
+$ bundle exec rails server
 ```
 
 This will run the application on HTTP port 8787. When you first
