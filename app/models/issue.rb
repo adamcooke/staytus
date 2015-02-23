@@ -10,6 +10,7 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  user_id           :integer
+#  identifier        :string(255)
 #
 
 class Issue < ActiveRecord::Base
@@ -26,6 +27,8 @@ class Issue < ActiveRecord::Base
   scope :ordered, -> { order(:id => :desc) }
   scope :ongoing, -> { where.not(:state => 'resolved') }
   scope :resolved, -> { where(:state => 'resolved') }
+
+  random_string :identifier, :type => :uuid, :unique => true
 
   belongs_to :service_status
   belongs_to :user

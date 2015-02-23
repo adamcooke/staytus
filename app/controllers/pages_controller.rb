@@ -10,4 +10,9 @@ class PagesController < ApplicationController
     @upcoming_maintenances = Maintenance.upcoming.to_a
   end
 
+  def issue
+    @issue = Issue.find_by_identifier!(params[:id])
+    @updates = @issue.updates.includes(:user).ordered
+  end
+
 end

@@ -1,11 +1,21 @@
 <% @page_title = 'Welcome' %>
 
+<header class='siteHeader <% if site.cover_image %>has-coverImage<% end %>' <% if site.cover_image%>style='background-image:url(<%= site.cover_image.path %>)'<% end%>>
+  <% if site.logo %>
+  <p class='siteHeader__logo'><%= image_tag site.logo.path %></p>
+  <% end %>
+  <div class='container'>
+    <p class='siteHeader__title'><%= site.title %></p>
+    <p class='siteHeader__subTitle'><%= site.description %></p>
+  </div>
+</header>
+
 <div class='container'>
 
   <% unless @issues.empty? %>
   <section class='ongoingIssues'>
     <% @issues.each do |issue| %>
-    <a href='#' class='issueBanner issueBanner--<%= issue.state %>'>
+    <a href='/issue/<%= issue.identifier %>' class='issueBanner issueBanner--<%= issue.state %>'>
       <p class='issueBanner__state'><%= issue.state.humanize %></p>
       <h2><%= issue.title %></h2>
       <p class='issueBanner__time'><%= t("themes.default.last_updated", :default => 'last updated') %> <%= time_tag issue.updated_at %></p>
@@ -17,7 +27,7 @@
   <% unless @active_maintenances.empty? %>
   <section class='ongoingIssues'>
     <% @active_maintenances.each do |maintenance| %>
-    <a href='#' class='issueBanner issueBanner--maintenance'>
+    <a href='/maintenance/<%= maintenance.identifier %>' class='issueBanner issueBanner--maintenance'>
       <p class='issueBanner__state'><%= t("themes.default.maintenance", :default => 'Maintenance') %></p>
       <h2><%= maintenance.title %></h2>
       <p class='issueBanner__time'><%= t("themes.default.due_to_finish", :default => 'due to finish') %> <%= distance_of_time_in_words_to_now_with_direction maintenance.finish_at %></p>
@@ -27,7 +37,7 @@
   <% end %>
 
   <% unless @upcoming_maintenances.empty? %>
-  <a href='#' class='issueBanner issueBanner--maintenanceUpcoming'>
+  <a href='/maintenance' class='issueBanner issueBanner--maintenanceUpcoming'>
     <h2>There <%= @upcoming_maintenances.size == 1 ? 'is' : 'are' %> <%= pluralize @upcoming_maintenances.size, 'maintenance session' %> scheduled for the future. Read more &rarr;</h2>
   </a>
   <% end %>

@@ -13,6 +13,7 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  closed_at         :datetime
+#  identifier        :string(255)
 #
 
 class Maintenance < ActiveRecord::Base
@@ -30,6 +31,8 @@ class Maintenance < ActiveRecord::Base
   has_many :maintenance_service_joins, :dependent => :destroy
   has_many :services, :through => :maintenance_service_joins
   has_many :updates, :dependent => :destroy, :class_name => 'MaintenanceUpdate'
+
+  random_string :identifier, :type => :uuid, :unique => true
 
   scope :open, -> { where(:closed_at => nil) }
   scope :closed, -> { where.not(:closed_at => nil) }

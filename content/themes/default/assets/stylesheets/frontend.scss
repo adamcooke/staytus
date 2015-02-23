@@ -1,6 +1,10 @@
 #= require reset
 
 $sansSerifFont:  'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$investigatingColor: #d13943;
+$identifiedColor: #d13980;
+$monitoringColor: #399dd1;
+$resolvedColor: #AAAAAA;
 
 body {
   font-family: $sansSerifFont;
@@ -134,9 +138,9 @@ body {
   margin-bottom:15px;
   &:last-child {margin-bottom:0;}
 
-  &.issueBanner--investigating { background:#d13943;}
-  &.issueBanner--identified { background:#d13980;}
-  &.issueBanner--monitoring { background:#399dd1;}
+  &.issueBanner--investigating { background:$investigatingColor;}
+  &.issueBanner--identified { background:$identifiedColor;}
+  &.issueBanner--monitoring { background:$monitoringColor;}
   &.issueBanner--maintenance { background:#14a87c;}
   &.issueBanner--maintenanceUpcoming { background:#fff7d6; color:#aaa686;}
 
@@ -162,3 +166,100 @@ body {
   font-weight:600;
   color:#2B3034;
 }
+
+//
+// A page header (i.e. the header on all pages but the homepage)
+//
+.pageHeader {
+  padding:40px;
+  background:#f9f9f9;
+  border-bottom:1px solid #efefef;
+  margin-bottom:50px;
+}
+
+.pageHeader__title {
+  float:right;
+  color:#999;
+}
+
+//
+// A button
+//
+.button {
+  border-radius:4px;
+  padding:10px 20px;
+  background:#fff;
+  text-decoration: none;
+  border:1px solid #ddd;
+  color:#888;
+  text-transform: uppercase;
+  font-size:12px;
+}
+
+//
+// Issue detail page
+//
+.issueDetail {
+  overflow: hidden;
+}
+
+.issueDetail__title {
+  font-size:35px;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  line-height:38px;
+}
+
+.issueDetail__date {
+  font-size:13px;
+  color:#999;
+  margin-bottom:30px;
+}
+
+.issueDetail__services {
+  background:#fff7d6;
+  width:220px;
+  float:right;
+  font-size:13px;
+  padding:15px 20px;
+  border-radius:4px;
+  margin-left:25px;
+  p {
+    font-weight:bold;
+    margin-bottom:5px;
+  }
+  li {
+    list-style:square;
+    margin-left:16px;
+  }
+}
+
+.issueUpdates {
+  line-height:1.5;
+}
+
+.issueUpdates__update {
+  margin-bottom:15px;
+  padding-bottom:15px;
+  border-bottom:1px dashed #ddd;
+  &:last-child {
+    border-bottom:0;
+    margin-bottom:0;
+    padding-bottom:0;
+  }
+}
+
+.issueUpdates__text {
+  margin-bottom:5px;
+}
+
+.issueUpdates__meta {
+  font-size:12px;
+  color:#888;
+}
+
+.issueUpdate__state--investigating { color:$investigatingColor;}
+.issueUpdate__state--identified { color:$identifiedColor;}
+.issueUpdate__state--monitoring { color:$monitoringColor;}
+.issueUpdate__state--resolved { color:$resolvedColor;}
+

@@ -27,7 +27,9 @@ Rails.application.routes.draw do
     root 'dashboard#index'
   end
 
-
+  get 'issue/:id' => 'pages#issue'
+  get 'maintenance/:id' => 'pages#maintenance'
+  get 'maintenance' => 'pages#upcoming_maintenance'
   root 'pages#index'
 
 end
