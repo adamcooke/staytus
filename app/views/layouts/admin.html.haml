@@ -6,6 +6,7 @@
     = javascript_include_tag 'admin'
     = stylesheet_link_tag 'admin'
     = csrf_meta_tags
+    %link{:href => image_path('favicon.png'), :rel => 'shortcut icon', :type => 'image/png'}
   %body
     %section.globalSidebar
       .globalSidebar__version v#{Staytus::Config.version}
