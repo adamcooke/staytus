@@ -7,7 +7,7 @@ any organization with customers rely on them to be online 24/7.
 
 [Check out the live demo](http://demo.staytus.co)
 
-![Screenshot](https://s.adamcooke.io/15/vGMNR1.png)
+![Screenshot](https://s.adamcooke.io/15/8HeZGuskLO.png)
 
 ## System Requirements
 
