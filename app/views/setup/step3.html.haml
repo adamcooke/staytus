@@ -1,0 +1,42 @@
+- @page_title = "Setup Wizard"
+
+= content_for :page_header do
+  .pageHeader__heading.u-margin Tell us a bit about your status site
+  %p.u-intro
+    Tell us a bit about your new status site and your organization details.
+    You can change any of this information later if you need to.
+
+= form_for @new_site, :url => setup_path(:step3) do |f|
+  = f.error_messages
+  .fieldSet.u-margin-2x
+    .row
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :title, "Site Name"
+          %dd.fieldSet__input= f.text_field :title, :class => 'textInput', :autofocus => true, :required => true, :placeholder => "e.g. The Widgets Status Site"
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :domain, "Status Site Domain"
+          %dd.fieldSet__input= f.text_field :domain, :class => 'textInput', :required => true
+    .row
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :website_url, "Homepage URL"
+          %dd.fieldSet__input= f.text_field :website_url, :class => 'textInput', :placeholder => 'http://widgets.com'
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :support_email, "Support E-Mail Address"
+          %dd.fieldSet__input= f.text_field :support_email, :class => 'textInput', :placeholder => 'team@widgets.com'
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :description, "Enter a description"
+      %dd.fieldSet__text
+        This is a description of your status site. This will be displayed
+        on the top of your status site.
+      %dd.fieldSet__input= f.text_area :description, :class => 'textInput', :placeholder => "Widgets make wonderful software. If you have any issues using any of our services, you can check out this site to see the latest status of infrastructure."
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :time_zone, "Choose your time zone"
+      %dd.fieldSet__input
+        .fieldSet__selectContainer= f.time_zone_select :time_zone
+
+  .formButtons.u-align-right
+    = f.submit "Finish", :class => 'button button--solid'

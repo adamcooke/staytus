@@ -1,0 +1,34 @@
+- @page_title = "Setup Wizard"
+
+= content_for :page_header do
+  .pageHeader__heading.u-margin Welcome to Staytus
+  %p.u-intro
+    This wizard will guide you through setting up Staytus for
+    the first time. Once this wizard is complete, you'll be able
+    to start using Staytus.
+.row
+  .col.col--8
+    %p.u-intro.u-margin-2x
+      Staytus provides you with a public facing status site as well
+      as an admin interface which you can use to configure the public
+      site.
+
+    %p= link_to "Start setup wizard", setup_path(:step2), :class => 'button button--solid button--green'
+
+  .col.col--12
+    %ul.standardList.u-margin-2x
+      %li.u-margin
+        <b>Create your first admin user</b> &mdash; admin users are people who
+        have access to login to add new issues & maintenance sessions as
+        well as configure your public status site.
+      %li.u-margin
+        <b>Enter some details about your new status site</b> &mdash; this allows us to add some
+        appropriate information to your public status site. Once you have
+        completed the setup, you can upload logos and add other information.
+      %li.u-margin
+        We will automatically add a number of service statuses but you can
+        change these whenever you want.
+      %li
+        We'll also add a number of generic services. You can add to these or
+        just remove them - whatever you want.
+

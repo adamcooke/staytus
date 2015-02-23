@@ -18,7 +18,7 @@ class Site < ActiveRecord::Base
   validates :description, :presence => true
   validates :domain, :presence => true
   validates :support_email, :presence => true, :email => true
-  validates :website_url, :presence => true, :url => true
+  validates :website_url, :url => true
   validates :time_zone, :presence => true
 
   default_value :time_zone, -> { 'UTC' }

@@ -33,4 +33,11 @@ class Service < ActiveRecord::Base
 
   scope :ordered, -> { order(:position => :asc) }
 
+  def self.create_defaults
+    Service.create!(:name => "Web Application")
+    Service.create!(:name => "API")
+    Service.create!(:name => "Public Website")
+    Service.create!(:name => "Customer Support")
+  end
+
 end

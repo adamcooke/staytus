@@ -1,0 +1,32 @@
+- @page_title = "Setup Wizard"
+
+= content_for :page_header do
+  .pageHeader__heading.u-margin Create your first admin user
+  %p.u-intro
+    To begin, you need to create a user
+    account which will be able to modify your status site.
+
+= form_for @user, :url => setup_path(:step2) do |f|
+  = f.error_messages
+  .fieldSet.u-margin-2x
+    .row
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :name, "Your Name"
+          %dt.fieldSet__input= f.text_field :name, :class => 'textInput', :autofocus => true, :required => true
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :email_address, "E-Mail Address"
+          %dt.fieldSet__input= f.text_field :email_address, :class => 'textInput', :required => true
+    .row.u-margin-2x
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :password, "Choose a password"
+          %dt.fieldSet__input= f.password_field :password, :class => 'textInput', :required => true
+      .col.col--10
+        %dl.fieldSet__field
+          %dt.fieldSet__label= f.label :password_confirmation, "Confirm your password"
+          %dt.fieldSet__input= f.password_field :password_confirmation, :class => 'textInput', :required => true
+
+    .formButtons.u-align-right
+      = f.submit "Next Step", :class => 'button button--solid'

@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   get 'maintenance/:id' => 'pages#maintenance'
   get 'history' => 'pages#history'
 
+  match 'setup/:action', :controller => 'setup', :as => 'setup', :via => [:get, :post]
+
   get 'robots.txt' => 'pages#robots'
   root 'pages#index'
 
