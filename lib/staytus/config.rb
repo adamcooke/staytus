@@ -4,8 +4,12 @@ module Staytus
   module Config
     class << self
 
+      def theme_name
+        ENV['STAYTUS_THEME'] || 'default'
+      end
+
       def theme_root
-        Rails.root.join('content', 'themes', ENV['STAYTUS_THEME'] || 'default')
+        Rails.root.join('content', 'themes', self.theme_name)
       end
 
       def version

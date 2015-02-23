@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= @page_title %> - <%= site.title %></title>
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag 'frontend' %>
-  <%= javascript_include_tag 'frontend' %>
-  <%= csrf_meta_tags %>
+<title><%= @page_title %> - <%= site.title %></title>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<%= stylesheet_link_tag 'default' %>
+<%= javascript_include_tag 'default' %>
+<%= csrf_meta_tags %>
+<meta name='Generator' content='Staytus/<%= Staytus::Config.version %>' />
 </head>
 <body>
 

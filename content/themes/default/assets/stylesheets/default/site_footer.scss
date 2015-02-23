@@ -1,0 +1,27 @@
+//
+// The site footer
+//
+.siteFooter {
+  border-top:1px solid #efefef;
+  padding:30px 0 80px 0;
+  overflow: hidden;
+  font-size:13px;
+  margin-top:50px;
+  .poweredBy {
+    float:right;
+    color:#999;
+  }
+}
+
+//
+// Footer navigation
+//
+.footerNav {
+  li {
+    float:left;
+    margin-right:25px;
+    a {
+      color:#999;
+    }
+  }
+}

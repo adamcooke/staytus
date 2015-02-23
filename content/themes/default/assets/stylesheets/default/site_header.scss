@@ -1,0 +1,40 @@
+.siteHeader {
+  text-align:center;
+  background:#2B3034;
+  padding:150px 0 60px 0;
+  margin-bottom:50px;
+  &.has-coverImage {
+    padding:260px 0 60px 0;
+    background-size:cover;
+    .siteHeader__title {
+      text-shadow: 0 0 6px rgba(0,0,0,0.5);
+    }
+    .siteHeader__subTitle {
+      color:#fff;
+      text-shadow: 0 0 6px rgba(0,0,0,0.8);
+    }
+  }
+}
+
+.siteHeader__title {
+  font-size:55px;
+  letter-spacing:-0.05em;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:15px;
+}
+
+.siteHeader__subTitle {
+  font-size:16px;
+  width:80%;
+  margin:auto;
+  line-height:24px;
+  color:#7e8890;
+}
+
+.siteHeader__logo {
+  position:absolute;
+  top:25px;
+  right:25px;
+  img {max-height:30px;}
+}

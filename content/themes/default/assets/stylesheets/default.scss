@@ -1,0 +1,5 @@
+#= require reset
+#= require_tree ./default
+@import 'default/variables';
+body { font-family: $sansSerifFont; font-size:16px; }
+.container { width:750px; margin:0 auto; }

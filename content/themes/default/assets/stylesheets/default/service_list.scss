@@ -1,0 +1,28 @@
+//
+// The current status of all services
+//
+.serviceList {
+  border:2px solid #bfc8d0;
+  border-radius:6px;
+  overflow: hidden;
+}
+
+.serviceList__item {
+  padding:13px 15px;
+  overflow: hidden;
+  border-bottom:1px solid #d7e2eb;
+  &:nth-child(even) {
+    background:#f6fbff;
+  }
+  &:last-child {
+    border-bottom:0;
+  }
+}
+
+.serviceList__name {
+  float:left;
+}
+
+.serviceList__status {
+  float:right;
+}
