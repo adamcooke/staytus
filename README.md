@@ -31,7 +31,7 @@ mysql$ GRANT ALL ON staytus.* TO `staytus`@`localhost` IDENTIFIED BY "a_secure_p
 $ git clone https://github.com/adamcooke/staytus
 $ git checkout stable
 $ cd staytus
-$ bundle install --deployment --without deployment:test
+$ bundle install --deployment --without development:test
 $ cp config/database.example.yml config/database.yml
 $ nano -w config/database.yml # Add your database configuration
 $ bundle exec rake staytus:build staytus:install
