@@ -95,7 +95,7 @@ body {
 // The current status of all services
 //
 .serviceList {
-  border:3px solid #bfc8d0;
+  border:2px solid #bfc8d0;
   border-radius:6px;
   overflow: hidden;
 }
@@ -388,4 +388,20 @@ body {
     background:#ccc;
     color:#fff;
   }
+}
+
+//
+// Staytus demo
+//
+.staytusDemo {
+  margin-top:30px;
+  background:#f3ffe1;
+  padding:15px;
+  border-radius:6px;
+  border:2px solid #cfdbbd;
+  font-size:14px;
+  text-align: center;
+  line-height:24px;
+  b { color:#719904; }
+  a { font-weight:700;}
 }

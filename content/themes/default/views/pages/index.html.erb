@@ -49,4 +49,14 @@
     </li>
     <% end %>
   </ul>
+
+  <% if Staytus::Config.demo? %>
+  <div class='staytusDemo'>
+    <p>
+      <b>This is a demo version of Staytus.</b> All the info on this site is fictional.
+      You can <a href='/admin'>check out the admin area</a> to see how you would
+      manage the content on this site.
+    </p>
+  </div>
+  <% end %>
 </div>
