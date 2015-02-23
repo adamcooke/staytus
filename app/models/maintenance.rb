@@ -35,6 +35,7 @@ class Maintenance < ActiveRecord::Base
   scope :closed, -> { where.not(:closed_at => nil) }
   scope :ordered, -> { order(:start_at => :asc) }
   scope :active_now, -> { where("start_at <= ?", Time.now).open }
+  scope :upcoming, -> { where("start_at > ?", Time.now).open }
 
   before_validation :convert_times
 

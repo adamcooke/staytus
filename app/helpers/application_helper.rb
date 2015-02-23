@@ -1,5 +1,10 @@
 module ApplicationHelper
 
+  def distance_of_time_in_words_to_now_with_direction(time)
+    time = distance_of_time_in_words_to_now(time)
+    time > Time.now ? "in #{time}" : "#{time} ago"
+  end
+
   def maintenance_status_tag(status)
     content_tag :span, t("maintenance_statuses.#{status}"), :class => "maintenanceStatusTag maintenanceStatusTag--#{status}"
   end

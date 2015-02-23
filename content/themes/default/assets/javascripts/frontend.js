@@ -1,6 +1,7 @@
 #= require jquery
 #= require jquery_ujs
+#= require vendor/timeago
 
 $(document).ready(function() {
-  console.log('hello');
+  $('time').timeago()
 })

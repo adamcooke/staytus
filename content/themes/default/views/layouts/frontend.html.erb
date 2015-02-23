@@ -24,9 +24,10 @@
   <footer class='siteFooter'>
     <div class='container'>
       <p class='poweredBy'>
-        <%= t("themes.default.footer.powered_by", :default => "Proudly powered by") %> <a href='http://staytus.co'>Staytus</a>
+        <%= t("themes.default.footer.powered_by", :default => "Powered by") %> <a href='http://staytus.co'>Staytus</a>
       </p>
       <ul class='footerNav'>
+        <li><a href='/history'><%= t("themes.default.footer.history", :default => 'History') %></a></li>
         <li><a href='<%= site.website_url %>'><%= t("themes.default.footer.homepage", :default => 'Our Homepage') %></a></li>
         <li><a href='mailto:<%= site.support_email %>'><%= t("themes.default.footer.contact_us", :default => 'Contact Us') %></a></li>
       </p>

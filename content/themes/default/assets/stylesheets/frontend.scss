@@ -22,7 +22,7 @@ body {
 .siteHeader {
   text-align:center;
   background:#2B3034;
-  padding:170px 0;
+  padding:120px 0;
   margin-bottom:50px;
 
   &.has-coverImage {
@@ -65,10 +65,10 @@ body {
 //
 .siteFooter {
   border-top:1px solid #efefef;
-  padding:30px 0;
+  padding:30px 0 80px 0;
+  overflow: hidden;
   font-size:13px;
   margin-top:50px;
-
   .poweredBy {
     float:right;
     color:#999;
@@ -117,3 +117,48 @@ body {
   float:right;
 }
 
+//
+// Ongoing issues
+//
+.ongoingIssues {
+  margin-bottom:15px;
+}
+
+.issueBanner {
+  background:#333;
+  display:block;
+  border-radius:6px;
+  text-decoration: none;
+  padding:13px 17px;
+  color:#fff;
+  margin-bottom:15px;
+  &:last-child {margin-bottom:0;}
+
+  &.issueBanner--investigating { background:#d13943;}
+  &.issueBanner--identified { background:#d13980;}
+  &.issueBanner--monitoring { background:#399dd1;}
+  &.issueBanner--maintenance { background:#14a87c;}
+  &.issueBanner--maintenanceUpcoming { background:#fff7d6; color:#aaa686;}
+
+}
+
+.issueBanner__state {
+  float:right;
+  font-weight:600;
+  font-size:12px;
+}
+
+.issueBanner__time {
+  font-size:12px;
+  opacity:0.7;
+}
+
+//
+// Sub heading
+//
+.subHeading {
+  font-size:20px;
+  margin-bottom:15px;
+  font-weight:600;
+  color:#2B3034;
+}
