@@ -1,8 +1,8 @@
 module ApplicationHelper
 
   def distance_of_time_in_words_to_now_with_direction(time)
-    time = distance_of_time_in_words_to_now(time)
-    time > Time.now ? "in #{time}" : "#{time} ago"
+    string = distance_of_time_in_words_to_now(time)
+    time > Time.now ? "in #{string}" : "#{string} ago"
   end
 
   def maintenance_status_tag(status)

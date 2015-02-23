@@ -11,7 +11,6 @@ body {
   font-size:16px;
 }
 
-
 //
 // The main page container
 //
@@ -26,10 +25,10 @@ body {
 .siteHeader {
   text-align:center;
   background:#2B3034;
-  padding:120px 0;
+  padding:150px 0 60px 0;
   margin-bottom:50px;
-
   &.has-coverImage {
+    padding:260px 0 60px 0;
     background-size:cover;
     .siteHeader__title {
       text-shadow: 0 0 6px rgba(0,0,0,0.5);
@@ -141,8 +140,7 @@ body {
   &.issueBanner--investigating { background:$investigatingColor;}
   &.issueBanner--identified { background:$identifiedColor;}
   &.issueBanner--monitoring { background:$monitoringColor;}
-  &.issueBanner--maintenance { background:#14a87c;}
-  &.issueBanner--maintenanceUpcoming { background:#fff7d6; color:#aaa686;}
+  &.issueBanner--maintenance { background:#fff7d6; color:#77745e;}
 
 }
 

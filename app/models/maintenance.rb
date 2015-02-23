@@ -47,6 +47,10 @@ class Maintenance < ActiveRecord::Base
     self.start_at > Time.now ? :upcoming : :active
   end
 
+  def started?
+    self.start_at < Time.now
+  end
+
   def open?
     closed_at.nil?
   end

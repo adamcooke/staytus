@@ -3,7 +3,7 @@ class Admin::MaintenancesController < Admin::BaseController
   before_filter { params[:id] && @maintenance = Maintenance.find(params[:id]) }
 
   def index
-    @maintenances = Maintenance.open
+    @maintenances = Maintenance.open.ordered
   end
 
   def completed

@@ -6,8 +6,7 @@ class PagesController < ApplicationController
   def index
     @services = Service.ordered.includes(:status, {:active_maintenances => :service_status}).to_a
     @issues = Issue.ongoing.ordered.to_a
-    @active_maintenances = Maintenance.active_now.to_a
-    @upcoming_maintenances = Maintenance.upcoming.to_a
+    @maintenances = Maintenance.open.ordered.to_a
   end
 
   def issue
