@@ -3,8 +3,19 @@ class Admin::SessionsController < Admin::BaseController
   layout 'login'
   skip_before_filter :login_required, :only => [:new, :create]
 
+  def new
+    if Staytus::Config.demo?
+      params[:email] = 'admin@example.com'
+      params[:password] = 'password'
+    end
+  end
+
   def create
-    user = User.authenticate(params[:email], params[:password])
+    if Staytus::Config.demo?
+      user = User.first
+    else
+      user = User.authenticate(params[:email], params[:password])
+    end
     if user.is_a?(User)
       self.current_user = user
       redirect_to admin_root_path

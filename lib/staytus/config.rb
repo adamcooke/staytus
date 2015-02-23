@@ -12,6 +12,10 @@ module Staytus
         Staytus::VERSION
       end
 
+      def demo?
+        ENV['STAYTUS_DEMO'] == '1'
+      end
+
     end
   end
 end
