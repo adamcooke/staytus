@@ -47,7 +47,7 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (6.0.0)
-    authie (1.0.3)
+    authie (1.1.0)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -178,7 +178,7 @@ PLATFORMS
 DEPENDENCIES
   activevalidators
   annotate (~> 2.6.5)
-  authie (~> 1.0.0)
+  authie (~> 1.1.0)
   bcrypt (~> 3.1.7)
   byebug
   chronic (~> 0.10.2)
