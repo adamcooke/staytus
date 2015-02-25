@@ -32,6 +32,7 @@
               %li= link_to "Services", admin_services_path, :class => (@active_nav_item == :services ? 'active' : '')
               %li= link_to "Service Statuses", admin_service_statuses_path, :class => (@active_nav_item == :service_statuses ? 'active' : '')
               %li= link_to "Design", admin_settings_design_path, :class => (@active_nav_item == :design_settings ? 'active' : '')
+              %li= link_to "API Tokens", admin_api_tokens_path, :class => (@active_nav_item == :api_tokens ? 'active' : '')
 
         %ul.globalSidebar__nav.globalSidebar__nav--subNav
           %li= link_to "View public site", root_path

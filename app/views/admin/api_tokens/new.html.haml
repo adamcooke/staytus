@@ -1,0 +1,9 @@
+- @active_nav_item = :api_tokens
+= content_for :page_header do
+  .pageHeader__heading.u-margin= @page_title = 'Add API Token'
+  %p.u-intro
+    Enter a name/description for your API token. Once it has been
+    added you will be able to access a token & secret which you can
+    use when authenticating to the API.
+
+= render 'form'

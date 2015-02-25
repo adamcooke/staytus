@@ -1,0 +1,22 @@
+= form_for [:admin, @api_token] do |f|
+  = f.error_messages
+  .fieldSet.u-margin-2x
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :name
+      %dd.fieldSet__input= f.text_field :name, :class => 'textInput', :autofocus => @api_token.new_record?, :required => true
+    - unless @api_token.new_record?
+      .row
+        .col.col--10
+          %dl.fieldSet__field.u-margin
+            %dt.fieldSet__label Token
+            %dd.fieldSet__input= f.text_field :token, :class => 'textInput', :disabled => true
+        .col.col--10
+          %dl.fieldSet__field.u-margin
+            %dt.fieldSet__label Secret
+            %dd.fieldSet__input= f.text_field :secret, :class => 'textInput', :disabled => true
+
+  .formButtons
+    - unless @api_token.new_record?
+      .formButtons__secondary= link_to "Delete Token", [:admin, @api_token], :class => 'button button--grey button--solid', :method => :delete, :data => {:confirm => "Are you sure you wish to delete #{@api_token.name}?"}
+    = f.submit "Save Token", :class => 'button button--solid'
+    = link_to "Cancel", admin_api_tokens_path, :class => 'button button--lightGrey'

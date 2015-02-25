@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :users
     resources :services
     resources :service_statuses
+    resources :api_tokens
 
     #
     # Issues

@@ -1,0 +1,22 @@
+- @active_nav_item = :api_tokens
+= content_for :page_header do
+  .pageHeader__button= link_to "Add New API Token", new_admin_api_token_path, :class => 'button button--green button--small button--solid'
+  .pageHeader__heading.u-margin= @page_title = 'API Tokens'
+  %p.u-intro
+    The API tokens you add here will be permitted to access the
+    API for your status site. They will have full access to make
+    any changes which can be made through the admin interface.
+
+%table.dataTable.u-margin
+  %thead
+    %tr
+      %td{:width => '40%'} Name
+      %td{:width => '50%'} Token
+      %td{:width => '10%'}
+  %tbody
+    - for token in @api_tokens
+      %tr
+        %td= link_to token.name, [:edit, :admin, token]
+        %td= token.token
+        %td.u-align-right= link_to "View", [:edit, :admin, token], :class => 'button button--small'
+
