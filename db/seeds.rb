@@ -4,6 +4,11 @@
 User.create!(:email_address => 'admin@example.com', :password => 'password', :name => 'Admin User')
 
 #
+# Create a development API token
+#
+ApiToken.create!(:name => "Demo Token", :token => 'demo', :secret => 'demo')
+
+#
 # Create a default site
 #
 Site.create!(:title => 'The Widgets Status Site', :description => 'Widgets Inc is a revolutionary widget platform. This is our status site. Contact us at team@widgetsrus.io with any questions or problems.', :domain => 'demo.staytus.co', :support_email => 'team@viaduct.io', :website_url => 'http://staytus.co', :time_zone => 'London')

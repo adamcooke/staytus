@@ -19,6 +19,7 @@ gem 'chronic_duration', '~> 0.10'
 gem 'datey', '~> 1.0'
 gem 'nifty-attachments'
 gem 'puma'
+gem 'moonrope', '~> 1.3'
 
 group :development, :test do
   gem 'byebug'
