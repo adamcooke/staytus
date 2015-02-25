@@ -44,8 +44,13 @@
   <ul class='serviceList'>
     <% for service in @services %>
     <li class='serviceList__item'>
-      <p class='serviceList__name'><%= service.name %></p>
       <p class='serviceList__status'><%= service_status_tag service %></p>
+      <p class='serviceList__name'>
+        <%= service.name %>
+        <% unless service.description.blank? %>
+        <span class='serviceList__description' data-tooltip="<%= service.description %>"><%= service.description %></span>
+        <% end %>
+      </p>
     </li>
     <% end %>
   </ul>
