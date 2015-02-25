@@ -16,13 +16,12 @@ ServiceStatus.create_defaults
 #
 # Add services
 #
-services                   = {}
-services[:hosted_apps]    = Service.create!(:name => 'Hosted Applications')
-services[:management_ui]  = Service.create!(:name => 'Management Interface')
-services[:dns]            = Service.create!(:name => 'DNS', :status => ServiceStatus.find_by_name('Partial Outage'))
-services[:helpdesk]       = Service.create!(:name => 'Helpdesk', :status => ServiceStatus.find_by_name('Major Outage'))
-services[:website]        = Service.create!(:name => 'Website & Documentation')
-services[:webpush]        = Service.create!(:name => 'WebPush')
+services                 = {}
+services[:app]           = Service.create!(:name => 'Web Application', :description => "The web interface to the widget making application.")
+services[:api]           = Service.create!(:name => 'Developer API', :description => "Our HTTP JSON API for application developers.")
+services[:factory]       = Service.create!(:name => 'Widget Factory', :description => "Where the magic happens.")
+services[:website]       = Service.create!(:name => 'Website & Documentation', :description => "Our own website and application documentation.")
+services[:helpdesk]      = Service.create!(:name => 'Helpdesk', :description => "Our customer support helpdesk.")
 
 #
 # Add some example issues
@@ -34,7 +33,7 @@ issue.initial_update = 'We are aware of issues with database01 which hosts some 
 issue.state = 'investigating'
 issue.service_status = ServiceStatus.find_by_name('Partial Outage')
 issue.user = User.first
-issue.services = [services[:hosted_apps]]
+issue.services = [services[:app]]
 issue.save!
 
 update = issue.updates.build
@@ -75,7 +74,7 @@ issue.initial_update = "We're currently working with resolving a network issue w
 issue.state = 'investigating'
 issue.service_status = ServiceStatus.find_by_name('Partial Outage')
 issue.user = User.first
-issue.services = [services[:hosted_apps]]
+issue.services = [services[:app], services[:factory]]
 issue.save!
 
 update = issue.updates.build
@@ -93,7 +92,7 @@ issue.initial_update = "We're currently working with resolving a network issue w
 issue.state = 'investigating'
 issue.service_status = ServiceStatus.find_by_name('Partial Outage')
 issue.user = User.first
-issue.services = [services[:hosted_apps], services[:webpush], services[:management_ui], services[:website]]
+issue.services = [services[:app], services[:api], services[:factory], services[:website]]
 issue.save!
 
 update = issue.updates.build
@@ -136,7 +135,7 @@ maintenance.start_at = Time.new(2014, 12, 1, 21)
 maintenance.length_in_minutes = 60
 maintenance.title = "Routine Storage Maintenance"
 maintenance.description = "We'll be performing some routine maintenance on our platform this evening which will result in the management UI being unavailable. This is the final phase of our work to move all our infrastructure over to our new storage infrastructure."
-maintenance.services = [services[:management_ui]]
+maintenance.services = [services[:api]]
 maintenance.service_status = ServiceStatus.find_by_name('Maintenance')
 maintenance.user = User.first
 maintenance.closed_at = Time.new(2014, 12, 2, 0, 29)
@@ -160,8 +159,13 @@ maintenance.start_at = 5.minutes.ago
 maintenance.length_in_minutes = 120
 maintenance.title = "Software Upgrades"
 maintenance.description = "We will be carrying out an upgrade of some of the software which powers our platform. We do not anticipate any downtime during this period however the service should be considered at risk for the duration."
-maintenance.services = [services[:hosted_apps]]
+maintenance.services = [services[:app]]
 maintenance.service_status = ServiceStatus.find_by_name('Maintenance')
 maintenance.user = User.first
 maintenance.save!
 
+services[:factory].status = ServiceStatus.find_by_name('Partial Outage')
+services[:factory].save
+
+services[:helpdesk].status = ServiceStatus.find_by_name('Major Outage')
+services[:helpdesk].save
