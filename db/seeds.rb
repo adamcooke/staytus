@@ -21,7 +21,7 @@ services[:app]           = Service.create!(:name => 'Web Application', :descript
 services[:api]           = Service.create!(:name => 'Developer API', :description => "Our HTTP JSON API for application developers.")
 services[:factory]       = Service.create!(:name => 'Widget Factory', :description => "Where the magic happens.")
 services[:website]       = Service.create!(:name => 'Website & Documentation', :description => "Our own website and application documentation.")
-services[:helpdesk]      = Service.create!(:name => 'Helpdesk', :description => "Our customer support helpdesk.")
+services[:helpdesk]      = Service.create!(:name => 'Helpdesk')
 
 #
 # Add some example issues
