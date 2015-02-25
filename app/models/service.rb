@@ -2,13 +2,14 @@
 #
 # Table name: services
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  permalink  :string(255)
-#  position   :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  status_id  :integer
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  permalink   :string(255)
+#  position    :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  status_id   :integer
+#  description :text(65535)
 #
 
 class Service < ActiveRecord::Base
@@ -16,6 +17,7 @@ class Service < ActiveRecord::Base
   validates :name, :presence => true
   validates :permalink, :presence => true, :uniqueness => true, :slug => true
   validates :status_id, :presence => true
+  validates :description, :length => {:maximum => 1000}
 
   default_value :permalink, -> { self.name.parameterize }
   default_value :status_id, -> { ServiceStatus.default.try(:id) }

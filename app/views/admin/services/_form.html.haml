@@ -11,6 +11,9 @@
           %dt.fieldSet__label= f.label :permalink
           %dd.fieldSet__input= f.text_field :permalink, :class => 'textInput', :required => true
     %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :description
+      %dd.fieldSet__input= f.text_area :description, :class => 'textInput'
+    %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :status_id, "Current Status"
       %dd.fieldSet__input
         .fieldSet__selectContainer
