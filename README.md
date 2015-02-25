@@ -69,6 +69,14 @@ overriden in an upgrade.
 
 Full details about how to make these will be coming soon.
 
+## Examples in the wild
+
+* [Viaduct Status Site](http://status.viaduct.io)
+* [Dial 9 Status Site](http://status.dial9.co.uk)
+
+If you're running Staytus in the wild, let us know so we can
+add you tot he list.
+
 ## Screenshots
 
 Here's a few extra screenshots from the application:
