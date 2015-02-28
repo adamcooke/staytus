@@ -24,7 +24,7 @@
 .siteHeader__button {
   background:rgba(0,0,0,0.2);
   border:0;
-  color:#fff;
+  color:#6e7c88;
   border-radius:5px;
   text-decoration: none;
   font-size:12px;
@@ -74,6 +74,11 @@
     &.has-coverImage {
       padding:100px 0 40px 0;
     }
+  }
+
+  .siteHeader__button {
+    padding:5px 12px;
+    font-size:11px;
   }
 
   .siteHeader__subTitle {
