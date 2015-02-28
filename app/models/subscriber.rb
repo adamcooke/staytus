@@ -28,8 +28,12 @@ class Subscriber < ActiveRecord::Base
   end
 
   def verify!
-    self.verified_at = Time.now
-    self.save!
+    if self.verified?
+      true
+    else
+      self.verified_at = Time.now
+      self.save!
+    end
   end
 
   def send_verification_email

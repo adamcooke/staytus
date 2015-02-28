@@ -1,0 +1,17 @@
+<% @page_title = "You're Verified" %>
+<%= render 'page_header' %>
+
+<section classs='subscriberVerification'>
+  <div class='container'>
+    <h2 class='subscriberVerification__title'>Thanks &mdash; you're all set.</h2>
+    <p class='subscriberVerification__intro'>
+      You will now receive status updates whenever we post new issues or schedule
+      maintenance. These will be sent to <b><%= @subscriber.email_address %></b>.
+      You can unsubscribe by clicking the unsubscribe link in any of the emails
+      which we send you.
+    </p>
+    <p class='subscriberVerification__back'>
+      <a href='/'>Go back to the homepage</a> to view our current status.
+    </p>
+  </div>
+</section>

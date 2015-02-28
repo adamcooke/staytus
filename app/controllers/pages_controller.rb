@@ -33,4 +33,9 @@ class PagesController < ApplicationController
     render :text => text.join("\n"), :content_type => 'text/plain'
   end
 
+  def subscriber_verification
+    @subscriber = Subscriber.find_by_verification_token!(params[:token])
+    @subscriber.verify!
+  end
+
 end
