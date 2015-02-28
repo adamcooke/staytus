@@ -79,6 +79,7 @@ GEM
     dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (2.3.0)
+    florrick (1.1.0)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     haml (4.0.6)
@@ -191,6 +192,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   datey (~> 1.0)
   dynamic_form
+  florrick
   haml (~> 4.0.5)
   jquery-rails
   kaminari (~> 0.16.1)

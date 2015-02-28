@@ -11,6 +11,9 @@ en:
     major: Major Issues - a complete service outage affecting all users
     maintenance: Maintenance - the service is currently undergoing planned maintenance
 
+  default_email_subjects:
+    subscribed: "Confirm your subscription to {{site.title}}"
+
   activerecord:
     attributes:
       maintenance:

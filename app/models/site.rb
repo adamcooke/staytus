@@ -26,4 +26,20 @@ class Site < ActiveRecord::Base
   attachment :logo
   attachment :cover_image
 
+  florrick do
+    string :title
+    string :description
+    string :domain
+    string :domain_with_protocol
+    string :support_email
+    string :website_url
+    string :time_zone
+    string(:logo) { logo ? logo.path : nil }
+    string(:cover_image) { cover_image ? cover_image.path : nil }
+  end
+
+  def domain_with_protocol
+    "http://#{domain}"
+  end
+
 end

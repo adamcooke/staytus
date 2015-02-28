@@ -4,5 +4,5 @@ http://{{site.domain}}/verify/{{subscriber.verification_token}}
 
 If you did not request this or no longer with wish to receive these notifications, you can just ignore this e-mail.
 
-{{site.email_from_name}}
-{{site.email_from_address}}
+{{from_name}}
+{{from_address}}
