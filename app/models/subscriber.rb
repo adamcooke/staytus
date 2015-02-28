@@ -18,6 +18,11 @@ class Subscriber < ActiveRecord::Base
 
   scope :verified, -> { where.not(:verified_at => nil) }
 
+  florrick do
+    string :email_address
+    string :verification_token
+  end
+
   def verified?
     !!self.verified_at
   end
@@ -25,6 +30,10 @@ class Subscriber < ActiveRecord::Base
   def verify!
     self.verified_at = Time.now
     self.save!
+  end
+
+  def send_verification_email
+    Staytus::Email.deliver(self.email_address, :subscribed, :subscriber => self)
   end
 
 end
