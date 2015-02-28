@@ -38,6 +38,15 @@ class PagesController < ApplicationController
     @subscriber.verify!
   end
 
+  def unsubscribe
+    if @subscriber = Subscriber.find_by_verification_token(params[:token])
+      @subscriber.destroy
+      redirect_to root_path, :notice => "You have been successfully unsubscribed. You won't receive any further e-mails from us."
+    else
+      redirect_to root_path, :alert => "Seems like you have already unsubscribed."
+    end
+  end
+
   before_filter :check_whether_subscriptions_are_enabled, :only => [:subscribe, :subscribe_by_email]
 
   def subscribe
