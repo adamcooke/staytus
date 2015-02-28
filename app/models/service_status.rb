@@ -30,6 +30,13 @@ class ServiceStatus < ActiveRecord::Base
   scope :for_issues, -> { where.not(:status_type => 'maintenance') }
   scope :for_maintenance, -> { where(:status_type => 'maintenance') }
 
+  florrick do
+    string :name
+    string :permalink
+    string :color
+    string :status_type
+  end
+
   def self.create_defaults
     ServiceStatus.create!(:name => 'Operational', :status_type => 'ok', :color => '2FCC66')
     ServiceStatus.create!(:name => 'Degraded Performance', :status_type => 'minor', :color => 'F1C40F')

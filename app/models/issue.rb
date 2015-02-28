@@ -41,15 +41,32 @@ class Issue < ActiveRecord::Base
   after_save :update_service_statuses
   after_create :create_history_item
   after_destroy :destroy_history_item
+  after_commit :send_notifications_on_create, :on => :create
+
+  florrick do
+    string :title
+    string :state
+    string :identifier
+    string :created_at
+    string :updated_at
+    relationship :service_status
+    relationship :user
+  end
 
   def add_initial_update
-    update = self.updates.build(:state => self.state, :service_status => self.service_status, :user => self.user, :created_at => self.created_at)
     if self.initial_update.blank? && self.updates.empty?
-      update.text = INITIAL_UPDATE_TEXT
+      initial_text = INITIAL_UPDATE_TEXT
     else
-      update.text = self.initial_update
+      initial_text = self.initial_update
     end
-    update.save!
+    self.updates.create!(
+      :state => self.state,
+      :service_status => self.service_status,
+      :user => self.user,
+      :created_at => self.created_at,
+      :text => initial_text,
+      :initial_update => true
+    )
   end
 
   def update_service_statuses
@@ -59,6 +76,16 @@ class Issue < ActiveRecord::Base
         service.save
       end
     end
+  end
+
+  def send_notifications
+    for subscriber in Subscriber.verified
+      Staytus::Email.deliver(subscriber.email_address, :new_issue, :issue => self, :update => self.updates.order(:id).first)
+    end
+  end
+
+  def send_notifications_on_create
+    self.delay.send_notifications
   end
 
   private

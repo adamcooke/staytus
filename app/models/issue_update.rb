@@ -15,6 +15,8 @@
 
 class IssueUpdate < ActiveRecord::Base
 
+  attr_accessor :initial_update
+
   validates :state, :inclusion => {:in => Issue::STATES, :allow_blank => true}
   validates :text, :presence => true
 
@@ -27,6 +29,18 @@ class IssueUpdate < ActiveRecord::Base
   scope :ordered, -> { order(:id => :desc) }
 
   after_save :update_base_issue
+  after_commit :send_notifications_on_create, :on => :create
+
+  florrick do
+    string :state
+    string :text
+    string :identifier
+    string :created_at
+    string :updated_at
+    relationship :service_status
+    relationship :user
+    relationship :issue
+  end
 
   def update_base_issue
     if self.state
@@ -36,6 +50,18 @@ class IssueUpdate < ActiveRecord::Base
       self.issue.service_status = self.service_status
     end
     self.issue.save!
+  end
+
+  def send_notifications
+    for subscriber in Subscriber.verified
+      Staytus::Email.deliver(subscriber.email_address, :new_issue_update, :issue => self.issue, :update => self)
+    end
+  end
+
+  def send_notifications_on_create
+    unless self.initial_update
+      delay.send_notifications
+    end
   end
 
 end

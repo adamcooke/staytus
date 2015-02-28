@@ -13,6 +13,8 @@ en:
 
   default_email_subjects:
     subscribed: "Confirm your subscription to {{site.title}}"
+    new_issue: "[New Issue] {{issue.title}} on {{site.title}}"
+    new_issue_update: "[Updated Issue] {{issue.title}} on {{site.title}}"
 
   activerecord:
     attributes:

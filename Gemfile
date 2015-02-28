@@ -21,6 +21,7 @@ gem 'nifty-attachments'
 gem 'puma'
 gem 'moonrope', '~> 1.3'
 gem 'florrick', '~> 1.1'
+gem 'delayed_job_active_record'
 
 group :development, :test do
   gem 'byebug'

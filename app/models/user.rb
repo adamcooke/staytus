@@ -26,6 +26,11 @@ class User < ActiveRecord::Base
 
   scope :ordered, -> { order(:name => :asc) }
 
+  florrick do
+    string :email_address
+    string :name
+  end
+
   def self.authenticate(email, password)
     user = self.where(:email_address => email).first
     return :no_user unless user

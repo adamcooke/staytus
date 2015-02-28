@@ -1,0 +1,10 @@
+An issue has been updated on {{site.title}}. Full details can be seen below. We will continue to post updated whenever they become available.
+
+http://{{site.domain}}/issue/{{issue.identifier}}#{{update.identifier}}
+
+================================================================================
+{{issue.title}}
+Posted {{issue.created_at}}
+================================================================================
+
+{{update.state.humanize}} - {{update.text}}
