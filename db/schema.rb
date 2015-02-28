@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150228151632) do
+ActiveRecord::Schema.define(version: 20150228154218) do
 
   create_table "api_tokens", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -79,9 +79,10 @@ ActiveRecord::Schema.define(version: 20150228151632) do
     t.integer  "service_status_id", limit: 4
     t.string   "state",             limit: 255
     t.text     "text",              limit: 65535
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.string   "identifier",        limit: 255
+    t.boolean  "notify",            limit: 1,     default: true
   end
 
   create_table "issues", force: :cascade do |t|
@@ -93,6 +94,7 @@ ActiveRecord::Schema.define(version: 20150228151632) do
     t.datetime "updated_at",                                   null: false
     t.integer  "user_id",           limit: 4
     t.string   "identifier",        limit: 255
+    t.boolean  "notify",            limit: 1,   default: true
   end
 
   create_table "maintenance_service_joins", force: :cascade do |t|
@@ -106,9 +108,10 @@ ActiveRecord::Schema.define(version: 20150228151632) do
     t.integer  "maintenance_id", limit: 4
     t.integer  "user_id",        limit: 4
     t.text     "text",           limit: 65535
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.string   "identifier",     limit: 255
+    t.boolean  "notify",         limit: 1,     default: true
   end
 
   create_table "maintenances", force: :cascade do |t|
@@ -119,10 +122,11 @@ ActiveRecord::Schema.define(version: 20150228151632) do
     t.integer  "length_in_minutes", limit: 4
     t.integer  "user_id",           limit: 4
     t.integer  "service_status_id", limit: 4
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.datetime "closed_at"
     t.string   "identifier",        limit: 255
+    t.boolean  "notify",            limit: 1,     default: true
   end
 
   create_table "nifty_attachments", force: :cascade do |t|
@@ -158,15 +162,16 @@ ActiveRecord::Schema.define(version: 20150228151632) do
   end
 
   create_table "sites", force: :cascade do |t|
-    t.string  "title",              limit: 255
-    t.string  "description",        limit: 255
-    t.string  "domain",             limit: 255
-    t.string  "support_email",      limit: 255
-    t.string  "website_url",        limit: 255
-    t.string  "time_zone",          limit: 255
-    t.boolean "crawling_permitted", limit: 1,   default: false
-    t.string  "email_from_name",    limit: 255
-    t.string  "email_from_address", limit: 255
+    t.string  "title",               limit: 255
+    t.string  "description",         limit: 255
+    t.string  "domain",              limit: 255
+    t.string  "support_email",       limit: 255
+    t.string  "website_url",         limit: 255
+    t.string  "time_zone",           limit: 255
+    t.boolean "crawling_permitted",  limit: 1,   default: false
+    t.string  "email_from_name",     limit: 255
+    t.string  "email_from_address",  limit: 255
+    t.boolean "allow_subscriptions", limit: 1,   default: true
   end
 
   create_table "subscribers", force: :cascade do |t|

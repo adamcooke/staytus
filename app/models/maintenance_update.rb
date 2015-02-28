@@ -9,6 +9,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  identifier     :string(255)
+#  notify         :boolean          default("1")
 #
 
 class MaintenanceUpdate < ActiveRecord::Base

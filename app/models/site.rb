@@ -2,16 +2,17 @@
 #
 # Table name: sites
 #
-#  id                 :integer          not null, primary key
-#  title              :string(255)
-#  description        :string(255)
-#  domain             :string(255)
-#  support_email      :string(255)
-#  website_url        :string(255)
-#  time_zone          :string(255)
-#  crawling_permitted :boolean          default("0")
-#  email_from_name    :string(255)
-#  email_from_address :string(255)
+#  id                  :integer          not null, primary key
+#  title               :string(255)
+#  description         :string(255)
+#  domain              :string(255)
+#  support_email       :string(255)
+#  website_url         :string(255)
+#  time_zone           :string(255)
+#  crawling_permitted  :boolean          default("0")
+#  email_from_name     :string(255)
+#  email_from_address  :string(255)
+#  allow_subscriptions :boolean          default("1")
 #
 
 class Site < ActiveRecord::Base

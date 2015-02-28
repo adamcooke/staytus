@@ -11,6 +11,7 @@
 #  updated_at        :datetime         not null
 #  user_id           :integer
 #  identifier        :string(255)
+#  notify            :boolean          default("1")
 #
 
 class Issue < ActiveRecord::Base

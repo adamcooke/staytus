@@ -38,6 +38,8 @@ class PagesController < ApplicationController
     @subscriber.verify!
   end
 
+  before_filter :check_whether_subscriptions_are_enabled, :only => [:subscribe, :subscribe_by_email]
+
   def subscribe
   end
 
@@ -48,6 +50,14 @@ class PagesController < ApplicationController
       redirect_to root_path, :notice => "Thanks - please check your email and click the link within to confirm your subscription."
     else
       redirect_to subscribe_path, :alert => "The e-mail address you have entered is either invalid or already subscribed to the status site."
+    end
+  end
+
+  private
+
+  def check_whether_subscriptions_are_enabled
+    unless site.allow_subscriptions?
+      redirect_to root_path
     end
   end
 
