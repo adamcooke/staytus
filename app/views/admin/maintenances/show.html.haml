@@ -42,6 +42,15 @@
       %dl.fieldSet__field.u-margin
         %dt.fieldSet__label= f.label :text, "Post an update"
         %dd.fieldSet__field= f.text_area :text, :class => 'textInput', :placeholder => "Enter the text you wish to post here..."
+
+      - if @maintenance.notify? && site.allow_subscriptions?
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :notify, "Notify subscribers when this session is posted?"
+          %dd.fieldSet__input
+            .fieldSet__checkbox.fieldSet__selectContainer
+              = f.check_box :notify
+              = f.label :notify, "Yes - send notifications to #{pluralize Subscriber.verified.count, 'subscriber'}"
+
       %p.u-align-right= f.submit "Post Update", :class => 'button button--solid'
 
   .box__footer

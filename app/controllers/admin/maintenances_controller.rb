@@ -11,12 +11,12 @@ class Admin::MaintenancesController < Admin::BaseController
   end
 
   def show
-    @update = @maintenance.updates.build
+    @update = @maintenance.updates.build(:notify => true)
     @updates = @maintenance.updates.ordered
   end
 
   def new
-    @maintenance = Maintenance.new
+    @maintenance = Maintenance.new(:notify => true)
   end
 
   def create

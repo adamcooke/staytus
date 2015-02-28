@@ -44,6 +44,20 @@ class Maintenance < ActiveRecord::Base
   before_validation :convert_times
   after_save :create_or_update_history_item
   after_destroy :destroy_history_item
+  after_commit :send_notifications_on_create, :on => :create
+
+  florrick do
+    string :title
+    string :description
+    string :start_at
+    string :finish_at
+    string :length_in_minutes
+    string :identifier
+    string(:duration) { length_in_minutes_as_string }
+    string(:status) { I18n.translate("maintenance_statuses.#{self.status}") }
+    relationship :service_status
+    relationship :user
+  end
 
   def status
     return :closed if self.closed?
@@ -93,6 +107,18 @@ class Maintenance < ActiveRecord::Base
       self.length_in_minutes = parsed_time / 60
     else
       self.length_in_minutes = nil
+    end
+  end
+
+  def send_notifications
+    for subscriber in Subscriber.verified
+      Staytus::Email.deliver(subscriber.email_address, :new_maintenance, :maintenance => self)
+    end
+  end
+
+  def send_notifications_on_create
+    if self.notify?
+      self.delay.send_notifications
     end
   end
 

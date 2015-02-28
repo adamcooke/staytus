@@ -1,0 +1,10 @@
+A maintenance session has been updated on {{site.title}}.
+
+http://{{site.domain}}/maintenance/{{maintenance.identifier}}
+
+Title: {{maintenance.title}}
+Date: {{maintenance.start_at}}
+Duration: {{maintenance.duration}}
+Status: {{maintenance.status.humanize}}
+
+{{update.text}}

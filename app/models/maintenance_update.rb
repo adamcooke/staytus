@@ -23,4 +23,25 @@ class MaintenanceUpdate < ActiveRecord::Base
 
   scope :ordered, -> { order(:id => :desc) }
 
+  after_commit :send_notifications_on_create, :on => :create
+
+  florrick do
+    string :text
+    string :identifier
+    relationship :maintenance
+    relationship :user
+  end
+
+  def send_notifications
+    for subscriber in Subscriber.verified
+      Staytus::Email.deliver(subscriber.email_address, :new_maintenance_update, :maintenance => self.maintenance, :update => self)
+    end
+  end
+
+  def send_notifications_on_create
+    if self.notify?
+      self.delay.send_notifications
+    end
+  end
+
 end
