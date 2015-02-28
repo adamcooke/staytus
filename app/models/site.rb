@@ -10,6 +10,8 @@
 #  website_url        :string(255)
 #  time_zone          :string(255)
 #  crawling_permitted :boolean          default("0")
+#  email_from_name    :string(255)
+#  email_from_address :string(255)
 #
 
 class Site < ActiveRecord::Base

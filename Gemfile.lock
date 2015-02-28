@@ -192,7 +192,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   datey (~> 1.0)
   dynamic_form
-  florrick
+  florrick (~> 1.1)
   haml (~> 4.0.5)
   jquery-rails
   kaminari (~> 0.16.1)

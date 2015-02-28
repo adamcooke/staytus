@@ -20,7 +20,7 @@ gem 'datey', '~> 1.0'
 gem 'nifty-attachments'
 gem 'puma'
 gem 'moonrope', '~> 1.3'
-gem 'florrick'
+gem 'florrick', '~> 1.1'
 
 group :development, :test do
   gem 'byebug'

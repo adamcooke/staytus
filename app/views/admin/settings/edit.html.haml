@@ -38,12 +38,23 @@
         .fieldSet__selectContainer
           = f.time_zone_select :time_zone
 
-    %dl.fieldSet__field
+    %dl.fieldSet__field.u-margin-2x
       %dt.fieldSet__label= f.label :crawling_permitted, "Allow search engines?"
       %dd.fieldSet__input
         .fieldSet__checkbox.fieldSet__selectContainer
           = f.check_box :crawling_permitted
           = f.label :crawling_permitted, "Yes - allow search engines to index the public status site"
+
+    %h2.fieldSet__subHeading.u-margin Outgoing E-Mail Settings
+    .row
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :email_from_name, "Outgoing E-Mail Name"
+          %dd.fieldSet__input= f.text_field :email_from_name, :class => 'textInput', :placeholder => @site.title
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :email_from_address, "Outgoing E-Mail Address"
+          %dd.fieldSet__input= f.text_field :email_from_address, :class => 'textInput', :placeholder => @site.support_email
 
 
   .formButtons

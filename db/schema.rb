@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227191659) do
+ActiveRecord::Schema.define(version: 20150228132133) do
 
   create_table "api_tokens", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -149,6 +149,8 @@ ActiveRecord::Schema.define(version: 20150227191659) do
     t.string  "website_url",        limit: 255
     t.string  "time_zone",          limit: 255
     t.boolean "crawling_permitted", limit: 1,   default: false
+    t.string  "email_from_name",    limit: 255
+    t.string  "email_from_address", limit: 255
   end
 
   create_table "subscribers", force: :cascade do |t|

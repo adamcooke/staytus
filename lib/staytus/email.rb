@@ -51,14 +51,14 @@ module Staytus
       # Return the name that emails should be sent from
       #
       def from_name
-        site.title
+        site.email_from_name || site.title
       end
 
       #
       # Return the email address which e-mails should be sent from
       #
       def from_address
-        site.support_email
+        site.email_from_address || site.support_email
       end
 
       #
