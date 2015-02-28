@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
     # Settings
     #
-    get 'settings' => 'settings#edit'
+    get 'settings' => 'settings#index'
+    get 'settings/general' => 'settings#edit'
     patch 'settings' => 'settings#update'
     get 'settings/design' => 'settings#design'
     resources :users

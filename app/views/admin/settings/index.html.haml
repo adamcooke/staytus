@@ -1,0 +1,34 @@
+- @active_nav_item = :settings
+= content_for :page_header do
+  %h1.pageHeader__heading.u-margin= @page_title = "Staytus Settings"
+  %p.u-intro
+    Your settings are split into a number of areas. Choose from the options
+    below to choose which settings you wish to edit.
+
+.navGrid.u-margin-2x
+  .navGrid__item
+    = image_tag 'icons/general.svg'
+    %p= link_to "General Settings", admin_settings_general_path
+    %p.navGrid__text Manage your site name, contact details, outbound email settings and other general settings.
+  .navGrid__item
+    = image_tag 'icons/design.svg'
+    %p= link_to "Design", admin_settings_design_path
+    %p.navGrid__text Upload your own logo and cover image which is displayed on your public status site.
+.navGrid.u-margin-2x
+  .navGrid__item
+    = image_tag 'icons/users.svg'
+    %p= link_to "Users", admin_users_path
+    %p.navGrid__text Create admin users who are able to manage your site and add/update issues & maintenance sessions.
+  .navGrid__item
+    = image_tag 'icons/services.svg'
+    %p= link_to "Services", admin_services_path
+    %p.navGrid__text Configure the services which you'd like to report the statuses of.
+.navGrid
+  .navGrid__item
+    = image_tag 'icons/statuses.svg'
+    %p= link_to "Service Statuses", admin_service_statuses_path
+    %p.navGrid__text Configure the different statuses which can be assigned to the services you're reporting on.
+  .navGrid__item
+    = image_tag 'icons/api_tokens.svg'
+    %p= link_to "API Tokens", admin_api_tokens_path
+    %p.navGrid__text Manage which external applications are permitted to access your status site using the API.

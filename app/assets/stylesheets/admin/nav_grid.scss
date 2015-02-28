@@ -1,0 +1,26 @@
+.navGrid {
+  overflow: hidden;
+
+}
+
+.navGrid__item {
+  width:50%;
+  float:left;
+  padding-right:25px;
+  img {
+    width:24px;
+    float:left;
+    margin-top:3px;
+  }
+  p {
+    margin-left:40px;
+    a { font-weight:bold; font-size:16px;}
+    a:hover { text-decoration: underline;}
+  }
+}
+
+.navGrid__text {
+  color:#888;
+  margin-top:5px;
+  font-size:14px
+}

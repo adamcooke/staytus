@@ -1,8 +1,8 @@
 - @active_nav_item = :settings
 = content_for :page_header do
-  %h1.pageHeader__heading.u-margin= @page_title = "Site Settings"
+  %h1.pageHeader__heading.u-margin= @page_title = "General Settings"
   %p.u-intro
-    This form allows you to make changes to your site settings. Once you have made
+    This form allows you to make changes to your general settings. Once you have made
     your changes, just click the 'Save' button at the bottom to continue.
 
 = form_for @site, :url => admin_settings_path do |f|
@@ -66,4 +66,4 @@
 
   .formButtons
     = f.submit "Save Settings", :class => 'button button--solid'
-    = link_to "Cancel", admin_root_path, :class => 'button button--lightGrey'
+    = link_to "Cancel", admin_settings_path, :class => 'button button--lightGrey'
