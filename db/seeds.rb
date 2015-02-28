@@ -11,7 +11,7 @@ ApiToken.create!(:name => "Demo Token", :token => 'demo', :secret => 'demo')
 #
 # Create a default site
 #
-Site.create!(:title => 'The Widgets Status Site', :description => 'Widgets Inc is a revolutionary widget platform. This is our status site. Contact us at team@widgetsrus.io with any questions or problems.', :domain => 'demo.staytus.co', :support_email => 'team@viaduct.io', :website_url => 'http://staytus.co', :time_zone => 'London')
+Site.create!(:title => 'The Widgets Status Site', :description => 'Widgets Inc is a revolutionary widget platform. This is our status site. Contact us at team@widgetsrus.io with any questions or problems.', :domain => Rails.env.production? ? 'demo.staytus.co' : 'localhost:8787', :support_email => 'team@viaduct.io', :website_url => 'http://staytus.co', :time_zone => 'London')
 
 #
 # Create default statuses
