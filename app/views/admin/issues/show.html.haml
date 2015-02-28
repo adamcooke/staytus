@@ -35,10 +35,20 @@
         %dd.fieldSet__field
           = render 'state_selection', :f => f, :field_name => :state, :class_name => 'issueStateSelection--small'
 
-      %dl.fieldSet__field.u-margin
-        %dt.fieldSet__label= f.label :service_status_id, "Update service statuses to..."
-        %dd.fieldSet__input
-          .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.for_issues.sort_by_type, :id, :name, :include_blank => "Don't change service statuses"
+      .row
+        .col.col--10
+          %dl.fieldSet__field.u-margin
+            %dt.fieldSet__label= f.label :service_status_id, "Update service statuses to..."
+            %dd.fieldSet__input
+              .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.for_issues.sort_by_type, :id, :name, :include_blank => "Don't change service statuses"
+        .col.col--10
+          - if @issue.notify? && site.allow_subscriptions?
+            %dl.fieldSet__field.u-margin
+              %dt.fieldSet__label= f.label :notify, "Notify subscribers when posted?"
+              %dd.fieldSet__input
+                .fieldSet__checkbox.fieldSet__selectContainer
+                  = f.check_box :notify
+                  = f.label :notify, "Notify #{pluralize Subscriber.verified.count, 'subscriber'}"
 
       %p.u-align-right= f.submit "Post Update", :class => 'button button--solid'
 

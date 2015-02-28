@@ -11,7 +11,7 @@
 #  updated_at        :datetime         not null
 #  user_id           :integer
 #  identifier        :string(255)
-#  notify            :boolean          default("1")
+#  notify            :boolean          default("0")
 #
 
 class Issue < ActiveRecord::Base
@@ -66,7 +66,7 @@ class Issue < ActiveRecord::Base
       :user => self.user,
       :created_at => self.created_at,
       :text => initial_text,
-      :initial_update => true
+      :notify => false
     )
   end
 
@@ -86,7 +86,9 @@ class Issue < ActiveRecord::Base
   end
 
   def send_notifications_on_create
-    self.delay.send_notifications
+    if self.notify?
+      self.delay.send_notifications
+    end
   end
 
   private

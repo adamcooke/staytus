@@ -11,12 +11,10 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  identifier        :string(255)
-#  notify            :boolean          default("1")
+#  notify            :boolean          default("0")
 #
 
 class IssueUpdate < ActiveRecord::Base
-
-  attr_accessor :initial_update
 
   validates :state, :inclusion => {:in => Issue::STATES, :allow_blank => true}
   validates :text, :presence => true
@@ -60,7 +58,7 @@ class IssueUpdate < ActiveRecord::Base
   end
 
   def send_notifications_on_create
-    unless self.initial_update
+    if self.notify?
       delay.send_notifications
     end
   end

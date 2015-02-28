@@ -31,6 +31,14 @@
         %dd.fieldSet__input
           .fieldSet__selectContainer= f.collection_select :service_status_id, ServiceStatus.problematic.sort_by_type, :id, :name
 
+      - if site.allow_subscriptions?
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :notify, "Notify subscribers when this issue is posted?"
+          %dd.fieldSet__input
+            .fieldSet__checkbox.fieldSet__selectContainer
+              = f.check_box :notify
+              = f.label :notify, "Yes - send notifications to #{pluralize Subscriber.verified.count, 'subscriber'}"
+
   .formButtons
     - unless @issue.new_record?
       .formButtons__secondary= link_to "Delete", [:admin, @issue], :class => 'button button--solid button--grey', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this issue and all updates?"}

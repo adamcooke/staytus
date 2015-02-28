@@ -79,10 +79,10 @@ ActiveRecord::Schema.define(version: 20150228154218) do
     t.integer  "service_status_id", limit: 4
     t.string   "state",             limit: 255
     t.text     "text",              limit: 65535
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "identifier",        limit: 255
-    t.boolean  "notify",            limit: 1,     default: true
+    t.boolean  "notify",            limit: 1,     default: false
   end
 
   create_table "issues", force: :cascade do |t|
@@ -90,11 +90,11 @@ ActiveRecord::Schema.define(version: 20150228154218) do
     t.string   "state",             limit: 255
     t.integer  "service_status_id", limit: 4
     t.boolean  "all_services",      limit: 1,   default: true
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.integer  "user_id",           limit: 4
     t.string   "identifier",        limit: 255
-    t.boolean  "notify",            limit: 1,   default: true
+    t.boolean  "notify",            limit: 1,   default: false
   end
 
   create_table "maintenance_service_joins", force: :cascade do |t|
@@ -108,10 +108,10 @@ ActiveRecord::Schema.define(version: 20150228154218) do
     t.integer  "maintenance_id", limit: 4
     t.integer  "user_id",        limit: 4
     t.text     "text",           limit: 65535
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.string   "identifier",     limit: 255
-    t.boolean  "notify",         limit: 1,     default: true
+    t.boolean  "notify",         limit: 1,     default: false
   end
 
   create_table "maintenances", force: :cascade do |t|
@@ -122,11 +122,11 @@ ActiveRecord::Schema.define(version: 20150228154218) do
     t.integer  "length_in_minutes", limit: 4
     t.integer  "user_id",           limit: 4
     t.integer  "service_status_id", limit: 4
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.datetime "closed_at"
     t.string   "identifier",        limit: 255
-    t.boolean  "notify",            limit: 1,     default: true
+    t.boolean  "notify",            limit: 1,     default: false
   end
 
   create_table "nifty_attachments", force: :cascade do |t|

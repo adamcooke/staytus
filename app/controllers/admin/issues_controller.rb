@@ -11,12 +11,12 @@ class Admin::IssuesController < Admin::BaseController
   end
 
   def show
-    @update = @issue.updates.build(:state => @issue.state)
+    @update = @issue.updates.build(:state => @issue.state, :notify => @issue.notify)
     @updates = @issue.updates.ordered
   end
 
   def new
-    @issue = Issue.new(:state => 'investigating')
+    @issue = Issue.new(:state => 'investigating', :notify => true)
   end
 
   def create
