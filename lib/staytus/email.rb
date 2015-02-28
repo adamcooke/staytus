@@ -16,10 +16,17 @@ module Staytus
           body plain_text
         end
 
+
         markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-        html = markdown.render(plain_text)
+        content_html = markdown.render(plain_text)
+
+        template_html = File.read(File.join(Staytus::Config.theme_root, 'views', 'email.html'))
+        final_html = Florrick.convert(template_html, add_default_attributes(:content => content_html))
+        premailer = Premailer.new(final_html, :with_html_string => true)
+        final_html = premailer.to_inline_css
+
         mail.html_part do
-          body html
+          body final_html
         end
 
         mail.deliver

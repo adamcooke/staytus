@@ -24,6 +24,7 @@ gem 'florrick', '~> 1.1'
 gem 'delayed_job_active_record'
 gem 'foreman'
 gem 'redcarpet', '~> 3.2.2'
+gem 'premailer', '~> 1.8.3'
 
 group :development, :test do
   gem 'byebug'

@@ -4,13 +4,9 @@ Full details can be seen below. We will continue to post updated whenever they b
 
 [View on the status site](http://{{site.domain}}/issue/{{issue.identifier}}#{{update.identifier}})
 
---------
-
 ## {{issue.title}}
 
 * **Posted at:** {{issue.created_at}}
 * **Affected services:** {{issue.services.to_sentence | No specific services}}
-
---------
 
 **{{update.state.capitalize}}** - {{update.text}}
