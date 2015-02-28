@@ -4,12 +4,14 @@
   letter-spacing:-0.02em;
   line-height:38px;
   margin-bottom:7px;
+  text-align:center;
 }
 
 .history__info {
-  font-size:13px;
+  font-size:14px;
   color:#999;
-  margin-bottom:30px;
+  margin-bottom:40px;
+  text-align:center;
 }
 
 .history__items {
@@ -45,6 +47,7 @@
 .history__itemTitle {
   margin-left:16%;
   font-size:14px;
+
 }
 
 .history__itemDate {
@@ -67,7 +70,7 @@
 
 @media (max-width: 600px) {
   .history__heading {
-    font-size:30px;
+    font-size:29px;
   }
 
   .history__itemType {
@@ -88,6 +91,9 @@
 
 @media (max-width: 470px) {
   .history__heading {
-    font-size:25px;
+    font-size:23px;
+  }
+  .history__info {
+    margin-bottom:25px;
   }
 }

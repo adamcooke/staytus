@@ -1,6 +1,7 @@
 @import 'default/variables';
 
 .subscribePage__heading {
+  text-align:center;
   font-size:35px;
   font-weight:700;
   letter-spacing:-0.02em;
@@ -9,9 +10,10 @@
 }
 
 .subscribePage__info {
-  font-size:13px;
+  font-size:14px;
   color:#999;
-  margin-bottom:30px;
+  text-align:center;
+  margin-bottom:40px;
 }
 
 .subscribePage__box {
@@ -50,12 +52,15 @@
 
 @media (max-width: 600px) {
   .subscribePage__heading {
-    font-size:30px;
+    font-size:29px;
   }
 }
 
 @media (max-width: 470px) {
   .subscribePage__heading {
-    font-size:25px;
+    font-size:23px;
+  }
+  .subscribePage__info {
+    margin-bottom:25px;
   }
 }
