@@ -1,11 +1,16 @@
-A new issue has been reported on {{site.title}}. Full details can be seen below. We will continue to post updated whenever they become available.
+# A new issue has been reported on {{site.title}}
 
-http://{{site.domain}}/issue/{{issue.identifier}}
+Full details can be seen below. We will continue to post updated whenever they become available.
 
-================================================================================
-{{issue.title}}
-Posted at: {{issue.created_at}}
-Affected services: {{issue.services.to_sentence | No specific services}}
-================================================================================
+[View on the status site](http://{{site.domain}}/issue/{{issue.identifier}})
 
-{{update.state.humanize}} - {{update.text}}
+--------
+
+## {{issue.title}}
+
+* **Posted at:** {{issue.created_at}}
+* **Affected services:** {{issue.services.to_sentence | No specific services}}
+
+--------
+
+**{{update.state.capitalize}}** - {{update.text}}

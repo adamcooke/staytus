@@ -23,6 +23,7 @@ gem 'moonrope', '~> 1.3'
 gem 'florrick', '~> 1.1'
 gem 'delayed_job_active_record'
 gem 'foreman'
+gem 'redcarpet', '~> 3.2.2'
 
 group :development, :test do
   gem 'byebug'

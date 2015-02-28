@@ -11,7 +11,17 @@ module Staytus
         mail.to         recipient
         mail.from       "#{from_name} <#{from_address}>"
         mail.subject    self.subject_for(template, attributes)
-        mail.body       self.body_for(template, attributes)
+        plain_text = self.body_for(template, attributes)
+        mail.text_part do
+          body plain_text
+        end
+
+        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+        html = markdown.render(plain_text)
+        mail.html_part do
+          body html
+        end
+
         mail.deliver
         mail
       end

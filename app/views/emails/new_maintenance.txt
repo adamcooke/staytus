@@ -1,11 +1,16 @@
-A new maintenance session has been announced on {{site.title}}.
+# A new maintenance session has been announced on {{site.title}}
 
-http://{{site.domain}}/maintenance/{{maintenance.identifier}}
+[View on the status site](http://{{site.domain}}/maintenance/{{maintenance.identifier}})
 
-Title: {{maintenance.title}}
-Date: {{maintenance.start_at}}
-Duration: {{maintenance.duration}}
-Status: {{maintenance.status.humanize}}
-Affected services: {{maintenance.services.to_sentence | No specific services}}
+--------
+
+## {{maintenance.title}}
+
+* **Date:** {{maintenance.start_at}}
+* **Duration:** {{maintenance.duration}}
+* **Status:** {{maintenance.status.humanize}}
+* **Affected services:** {{maintenance.services.to_sentence | No specific services}}
+
+--------
 
 {{maintenance.description}}
