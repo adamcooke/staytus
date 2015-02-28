@@ -12,19 +12,25 @@ module Staytus
         mail.from       "#{from_name} <#{from_address}>"
         mail.subject    self.subject_for(template, attributes.merge(:subscriber => subscriber))
 
+        # Generate and set the plain text version of this message
         plain_text = self.body_for(template, attributes.merge(:subscriber => subscriber))
         mail.text_part do
           body plain_text
         end
 
+        # Convert the plain text message into HTML
         markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
         content_html = markdown.render(plain_text)
 
+        # Get the HTML template and generate a final HTML message
         template_html = File.read(File.join(Staytus::Config.theme_root, 'views', 'email.html'))
         final_html = Florrick.convert(template_html, add_default_attributes(:content => content_html).merge(:subscriber => subscriber))
+
+        # Pass the HTML through premailer to add inline CSS
         premailer = Premailer.new(final_html, :with_html_string => true)
         final_html = premailer.to_inline_css
 
+        # Add the final html to the message
         mail.html_part do
           body final_html
         end
@@ -98,7 +104,5 @@ module Staytus
       end
 
     end
-
-
   end
 end
