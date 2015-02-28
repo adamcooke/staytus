@@ -38,4 +38,17 @@ class PagesController < ApplicationController
     @subscriber.verify!
   end
 
+  def subscribe
+  end
+
+  def subscribe_by_email
+    @subscriber = Subscriber.new(:email_address => params[:email_address])
+    if @subscriber.save
+      @subscriber.send_verification_email
+      redirect_to root_path, :notice => "Thanks - please check your email and click the link within to confirm your subscription."
+    else
+      redirect_to subscribe_path, :alert => "The e-mail address you have entered is either invalid or already subscribed to the status site."
+    end
+  end
+
 end

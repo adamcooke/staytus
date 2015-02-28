@@ -4,6 +4,9 @@
   <% if site.logo %>
   <p class='siteHeader__logo'><%= image_tag site.logo.path %></p>
   <% end %>
+  <p class='siteHeader__subscribe'>
+    <a class='siteHeader__button' href='/subscribe'>Subscribe</a>
+  </p>
   <div class='container'>
     <p class='siteHeader__title'><%= site.title %></p>
     <p class='siteHeader__subTitle'><%= site.description %></p>

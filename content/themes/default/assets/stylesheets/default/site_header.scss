@@ -2,6 +2,7 @@
   text-align:center;
   background:#2B3034;
   padding:150px 0 60px 0;
+  position:relative;
   margin-bottom:50px;
   &.has-coverImage {
     padding:260px 0 60px 0;
@@ -13,7 +14,22 @@
       color:#fff;
       text-shadow: 0 0 6px rgba(0,0,0,0.8);
     }
+    .siteHeader__button {
+      background:rgba(0,0,0,0.5);
+      color:#fff;
+    }
   }
+}
+
+.siteHeader__button {
+  background:rgba(0,0,0,0.2);
+  border:0;
+  color:#fff;
+  border-radius:5px;
+  text-decoration: none;
+  font-size:12px;
+  text-transform: uppercase;
+  padding:8px 18px;
 }
 
 .siteHeader__title {
@@ -30,6 +46,12 @@
   margin:auto;
   line-height:24px;
   color:#7e8890;
+}
+
+.siteHeader__subscribe {
+  position: absolute;
+  top:25px;
+  left:25px;
 }
 
 .siteHeader__logo {

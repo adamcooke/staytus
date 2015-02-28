@@ -58,6 +58,8 @@ Rails.application.routes.draw do
   get 'maintenance/:id' => 'pages#maintenance'
   get 'history' => 'pages#history'
   get 'robots.txt' => 'pages#robots'
+  get 'subscribe' => 'pages#subscribe'
+  post 'subscribe/email' => 'pages#subscribe_by_email'
   get 'verify/:token' => 'pages#subscriber_verification'
   root 'pages#index'
 
