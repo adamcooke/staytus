@@ -47,3 +47,15 @@
     border-color:#aaa;
   }
 }
+
+@media (max-width: 600px) {
+  .subscribePage__heading {
+    font-size:30px;
+  }
+}
+
+@media (max-width: 470px) {
+  .subscribePage__heading {
+    font-size:25px;
+  }
+}
