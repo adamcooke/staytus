@@ -6,22 +6,22 @@ module Staytus
       #
       # Send an email to the given recipient
       #
-      def deliver(recipient, template, attributes = {})
+      def deliver(subscriber, template, attributes = {})
         mail = Mail.new
-        mail.to         recipient
+        mail.to         subscriber.email_address
         mail.from       "#{from_name} <#{from_address}>"
-        mail.subject    self.subject_for(template, attributes)
-        plain_text = self.body_for(template, attributes)
+        mail.subject    self.subject_for(template, attributes.merge(:subscriber => subscriber))
+
+        plain_text = self.body_for(template, attributes.merge(:subscriber => subscriber))
         mail.text_part do
           body plain_text
         end
-
 
         markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
         content_html = markdown.render(plain_text)
 
         template_html = File.read(File.join(Staytus::Config.theme_root, 'views', 'email.html'))
-        final_html = Florrick.convert(template_html, add_default_attributes(:content => content_html))
+        final_html = Florrick.convert(template_html, add_default_attributes(:content => content_html).merge(:subscriber => subscriber))
         premailer = Premailer.new(final_html, :with_html_string => true)
         final_html = premailer.to_inline_css
 

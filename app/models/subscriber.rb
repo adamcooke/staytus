@@ -37,7 +37,7 @@ class Subscriber < ActiveRecord::Base
   end
 
   def send_verification_email
-    Staytus::Email.deliver(self.email_address, :subscribed, :subscriber => self)
+    Staytus::Email.deliver(self, :subscribed)
   end
 
 end

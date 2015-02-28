@@ -34,7 +34,7 @@ class MaintenanceUpdate < ActiveRecord::Base
 
   def send_notifications
     for subscriber in Subscriber.verified
-      Staytus::Email.deliver(subscriber.email_address, :new_maintenance_update, :maintenance => self.maintenance, :update => self)
+      Staytus::Email.deliver(subscriber, :new_maintenance_update, :maintenance => self.maintenance, :update => self)
     end
   end
 

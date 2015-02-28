@@ -82,7 +82,7 @@ class Issue < ActiveRecord::Base
 
   def send_notifications
     for subscriber in Subscriber.verified
-      Staytus::Email.deliver(subscriber.email_address, :new_issue, :issue => self, :update => self.updates.order(:id).first)
+      Staytus::Email.deliver(subscriber, :new_issue, :issue => self, :update => self.updates.order(:id).first)
     end
   end
 
