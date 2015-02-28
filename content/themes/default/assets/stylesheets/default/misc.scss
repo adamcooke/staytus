@@ -106,3 +106,9 @@
   width:18%;
   button, input { width:100%;}
 }
+
+
+@media (max-width: 560px) {
+  .inputWithSubmit__input { width:68%;}
+  .inputWithSubmit__submit { width:30%;}
+}
