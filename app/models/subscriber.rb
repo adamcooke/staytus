@@ -12,7 +12,7 @@
 
 class Subscriber < ActiveRecord::Base
 
-  validates :email_address, :presence => true, :email => true
+  validates :email_address, :presence => true, :email => true, :uniqueness => true
 
   random_string :verification_token, :type => :uuid, :unique => true
 
