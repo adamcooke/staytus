@@ -22,6 +22,7 @@ gem 'puma'
 gem 'moonrope', '~> 1.3'
 gem 'florrick', '~> 1.1'
 gem 'delayed_job_active_record'
+gem 'foreman'
 
 group :development, :test do
   gem 'byebug'

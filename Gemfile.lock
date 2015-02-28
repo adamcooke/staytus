@@ -81,10 +81,14 @@ GEM
     delayed_job_active_record (4.0.3)
       activerecord (>= 3.0, < 5.0)
       delayed_job (>= 3.0, < 4.1)
+    dotenv (1.0.2)
     dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (2.3.0)
     florrick (1.1.0)
+    foreman (0.77.0)
+      dotenv (~> 1.0.2)
+      thor (~> 0.19.1)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     haml (4.0.6)
@@ -199,6 +203,7 @@ DEPENDENCIES
   delayed_job_active_record
   dynamic_form
   florrick (~> 1.1)
+  foreman
   haml (~> 4.0.5)
   jquery-rails
   kaminari (~> 0.16.1)

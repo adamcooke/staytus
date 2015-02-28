@@ -9,7 +9,7 @@ module Rails
     alias :original_default_options :default_options
     def default_options
       original_default_options.merge(
-        :Port => 8787,
+        :Port => ENV['STAYTUS_WEB_PORT'] || 8787,
         :Host => '0.0.0.0'
       )
     end
