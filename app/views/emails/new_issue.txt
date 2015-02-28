@@ -4,7 +4,8 @@ http://{{site.domain}}/issue/{{issue.identifier}}
 
 ================================================================================
 {{issue.title}}
-Posted {{update.created_at}}
+Posted at: {{issue.created_at}}
+Affected services: {{issue.services.to_sentence | No specific services}}
 ================================================================================
 
 {{update.state.humanize}} - {{update.text}}

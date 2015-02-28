@@ -50,6 +50,7 @@ class Issue < ActiveRecord::Base
     string :identifier
     string :created_at
     string :updated_at
+    string(:services) { services.map(&:name) }
     relationship :service_status
     relationship :user
   end

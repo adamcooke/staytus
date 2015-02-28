@@ -53,6 +53,7 @@ class Maintenance < ActiveRecord::Base
     string :finish_at
     string :length_in_minutes
     string :identifier
+    string(:services) { services.map(&:name) }
     string(:duration) { length_in_minutes_as_string }
     string(:status) { I18n.translate("maintenance_statuses.#{self.status}") }
     relationship :service_status

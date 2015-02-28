@@ -6,5 +6,6 @@ Title: {{maintenance.title}}
 Date: {{maintenance.start_at}}
 Duration: {{maintenance.duration}}
 Status: {{maintenance.status.humanize}}
+Affected services: {{maintenance.services.to_sentence | No specific services}}
 
 {{maintenance.description}}
