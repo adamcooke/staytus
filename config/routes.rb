@@ -37,6 +37,13 @@ Rails.application.routes.draw do
     end
 
     #
+    # Subscribers
+    #
+    resources :subscribers, :only => [:index, :destroy] do
+      post 'verify', :on => :member
+    end
+
+    #
     # Misc. Admin Routes
     #
     get 'helpers/:action', :controller => 'helpers'

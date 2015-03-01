@@ -24,7 +24,7 @@
             - if count > 0
               %span.globalSidebar__count.globalSidebar__count--maintenance= count
             = link_to "Maintenance", admin_maintenances_path, :class => (@active_nav_item == :maintenance ? 'active' : '')
-
+          %li= link_to "Subscribers", admin_subscribers_path, :class => (@active_nav_item == :subscribers ? 'active' : '')
           %li= link_to "Settings", admin_settings_path, :class => (@active_nav_item == :settings ? 'active' : '')
 
         %ul.globalSidebar__nav.globalSidebar__nav--subNav

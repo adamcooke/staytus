@@ -1,0 +1,29 @@
+- @active_nav_item = :subscribers
+- content_for :page_header do
+  %h1.pageHeader__heading.u-margin= @page_title = 'Subscribers'
+  %p.u-intro
+    This page lists all the people who have subscribed to receive e-mail whenever
+    you post issues or maintenance sesssions.
+
+- if @subscribers.empty?
+  .noDataArea.noDataArea--large
+    %p.u-margin Nobody has subscribed to your site yet.
+- else
+  %table.dataTable
+    %thead
+      %tr
+        %td{:width => '45%'} E-Mail Address
+        %td{:width => '35%'} Date
+        %td{:width => '20%'}
+    %tbody
+      - for subscriber in @subscribers
+        %tr
+          %td= subscriber.email_address
+          %td= time_tag subscriber.created_at
+          %td.u-align-right
+            - unless subscriber.verified?
+              = link_to "Verify", [:verify, :admin, subscriber], :class => 'button button--small', :method => :post
+            = link_to "X", [:admin, subscriber], :class => 'button button--small', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this subscriber?"}
+
+  = paginate @subscribers
+

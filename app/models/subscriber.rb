@@ -16,6 +16,7 @@ class Subscriber < ActiveRecord::Base
 
   random_string :verification_token, :type => :uuid, :unique => true
 
+  scope :ordered, -> { order(:id => :desc) }
   scope :verified, -> { where.not(:verified_at => nil) }
 
   florrick do
