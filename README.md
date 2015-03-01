@@ -41,8 +41,8 @@ $ bundle exec rake staytus:build staytus:install
 $ bundle exec foreman start
 ```
 
-This will run the application on HTTP port 8787. When you first
-login, you'll be able to add your own site settings. Browse to http://[IP]:8787
+This will run the application on HTTP port 5000. When you first
+login, you'll be able to add your own site settings. Browse to http://[IP]:5000
 to begin.
 
 ### Upgrading
