@@ -42,9 +42,9 @@ module Staytus
       #
       # Generate the contents of the message which should be sent.
       #
-      def body_for(template, attributes = {})
-        template = EmailTemplate.body_for(template)
-        template = default_template(template) if template.nil?
+      def body_for(template_name, attributes = {})
+        template = EmailTemplate.body_for(template_name)
+        template = default_template(template_name) if template.nil?
         Florrick.convert(template, add_default_attributes(attributes))
       end
 
@@ -53,7 +53,7 @@ module Staytus
       #
       def subject_for(template, attributes = {})
         subject = EmailTemplate.subject_for(template)
-        subject = I18n.t("default_email_subjects.#{template}") if subject.nil?
+        subject = I18n.t("email_templates.#{template}.default_subject") if subject.nil?
         subject = "No Subject" if subject.nil?
         Florrick.convert(subject, add_default_attributes(attributes))
       end

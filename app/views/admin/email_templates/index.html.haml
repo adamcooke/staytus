@@ -1,0 +1,18 @@
+- @active_nav_item = :settings
+- content_for :page_header do
+  %h1.pageHeader__heading.u-margin= @page_title = 'E-Mail Templates'
+  %p.u-intro
+    From here you can customize the contents of any of the emails sent to people
+    who subscribe to your status site by e-mail.
+
+%table.dataTable
+  %thead
+    %tr
+      %td{:width => '80%'} Template
+      %td{:width => '20%'}
+  %tbody
+    - for name, template in t("email_templates")
+      %tr
+        %td= template[:name]
+        %td.u-align-right= link_to (@templates.include?(name.to_s) ? "Edit" : "Add"), edit_admin_email_template_path(name), :class => 'button button--small'
+

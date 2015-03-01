@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :users
     resources :services
     resources :service_statuses
+    resources :email_templates, :only => [:index, :edit, :update, :destroy]
     resources :api_tokens
 
     #

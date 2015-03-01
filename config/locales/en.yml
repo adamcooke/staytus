@@ -11,12 +11,22 @@ en:
     major: Major Issues - a complete service outage affecting all users
     maintenance: Maintenance - the service is currently undergoing planned maintenance
 
-  default_email_subjects:
-    subscribed: "Confirm your subscription to {{site.title}}"
-    new_issue: "[New Issue] {{issue.title}} on {{site.title}}"
-    new_issue_update: "[Updated Issue] {{issue.title}} on {{site.title}}"
-    new_maintenance: "[Maintenance] {{maintenance.title}} on {{site.title}}"
-    new_maintenance_update: "[Maintenance Update] {{maintenance.title}} on {{site.title}}"
+  email_templates:
+    subscribed:
+      name: Subscription Confirmation Message
+      default_subject: "Confirm your subscription to {{site.title}}"
+    new_issue:
+      name: New issue is posted
+      default_subject: "[New Issue] {{issue.title}} on {{site.title}}"
+    new_issue_update:
+      name: Issue is updated
+      default_subject: "[Updated Issue] {{issue.title}} on {{site.title}}"
+    new_maintenance:
+      name: New maintenance session is posted
+      default_subject: "[Maintenance] {{maintenance.title}} on {{site.title}}"
+    new_maintenance_update:
+      name: Maintenance session is updated
+      default_subject: "[Maintenance Update] {{maintenance.title}} on {{site.title}}"
 
   activerecord:
     attributes:
