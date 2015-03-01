@@ -67,3 +67,10 @@
         - for field in Subscriber.florrick_fields.values.flatten.map(&:keys).flatten
           %li {{subscriber.#{field}}}
 
+  .row.u-margin
+    .col.col--10
+      %h2.variableList__heading Site
+      %ul.variableList__list
+        - for field in Site.florrick_fields.values.flatten.map(&:keys).flatten
+          %li {{site.#{field}}}
+
