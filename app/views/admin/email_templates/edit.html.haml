@@ -2,14 +2,18 @@
 - content_for :page_header do
   %h1.pageHeader__heading= @page_title = "Edit #{@default[:name]}"
 
-= form_for @template, :method => :patch, :url => admin_email_template_path(params[:id]) do |f|
+= form_for @template, :method => :patch, :url => admin_email_template_path(params[:id]), :html => {:class => 'u-margin-2x'} do |f|
   = f.error_messages
   .fieldSet
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :subject
       %dd.fieldSet__input= f.text_field :subject, :class => 'textInput', :placeholder => @default[:default_subject]
     %dl.fieldSet__field.u-margin
-      %dt.fieldSet__label= f.label :content
+      %dt.fieldSet__label= f.label :content, "Message"
+      %dd.fieldSet__text
+        You should use markdown to format your outbound messages. You can also use the variables
+        below to insert appropriate text. Outbound messages will be formatted with the template
+        defined in your theme.
       %dd.fieldSet__input= f.text_area :content, :class => 'textInput textInput--text', :placeholder => @default_content
 
   .formButtons
@@ -18,3 +22,48 @@
         = link_to "Revert to default", admin_email_template_path(@template.name), :class => 'button button--grey button--solid', :method => :delete, :data => {:confirm => "Are you sure you wish to revert to the default content?"}
     = f.submit "Save Template", :class => 'button button--solid'
     = link_to "Cancel", admin_email_templates_path, :class => 'button button--lightGrey'
+
+
+.variableList
+  %p.u-intro.u-margin
+    You can use the variables shown below in your message content or subject.
+    The variable sets which are available depends on the e-mail which you editting.
+  .row.u-margin
+    .col.col--10
+      %h2.variableList__heading Issue
+      %ul.variableList__list
+        - for field in Issue.florrick_fields.values.flatten.map(&:keys).flatten
+          %li {{issue.#{field}}}
+    .col.col--10
+      %h2.variableList__heading Issue Update
+      %ul.variableList__list
+        - for field in IssueUpdate.florrick_fields.values.flatten.map(&:keys).flatten
+          %li {{update.#{field}}}
+  .row.u-margin
+    .col.col--10
+      %h2.variableList__heading Maintenance Session
+      %ul.variableList__list
+        - for field in Maintenance.florrick_fields.values.flatten.map(&:keys).flatten
+          %li {{maintenance.#{field}}}
+    .col.col--10
+      %h2.variableList__heading Maintenance Update
+      %ul.variableList__list.u-margin
+        - for field in MaintenanceUpdate.florrick_fields.values.flatten.map(&:keys).flatten
+          %li {{update.#{field}}}
+      %h2.variableList__heading Service Status
+      %ul.variableList__list
+        - for field in ServiceStatus.florrick_fields.values.flatten.map(&:keys).flatten
+          %li {{status.#{field}}}
+
+  .row.u-margin
+    .col.col--10
+      %h2.variableList__heading User
+      %ul.variableList__list
+        - for field in User.florrick_fields.values.flatten.map(&:keys).flatten
+          %li {{user.#{field}}}
+    .col.col--10
+      %h2.variableList__heading Subscriber
+      %ul.variableList__list
+        - for field in Subscriber.florrick_fields.values.flatten.map(&:keys).flatten
+          %li {{subscriber.#{field}}}
+

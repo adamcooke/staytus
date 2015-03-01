@@ -151,3 +151,26 @@
 .imagePreview--deleting {
   font-style:italic;
 }
+
+.variableList {
+  background:#efefef;
+  padding:25px;
+  border-radius:$globalBorderRadius;
+}
+
+.variableList__heading {
+  font-weight:$fontWeightBold;
+  font-size:18px;
+  margin-bottom:10px;
+  border-bottom:1px solid #fff;
+  padding-bottom:3px;
+}
+
+.variableList__list {
+  li {
+    list-style:square;
+    margin-left:25px;
+    line-height:22px;
+    font-family:$fixedFontFamily;
+  }
+}
