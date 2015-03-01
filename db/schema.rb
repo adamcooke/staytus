@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150228154218) do
+ActiveRecord::Schema.define(version: 20150301145259) do
 
   create_table "api_tokens", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -59,6 +59,14 @@ ActiveRecord::Schema.define(version: 20150228154218) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "email_templates", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "subject",    limit: 255
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "history_items", force: :cascade do |t|
     t.string   "item_type", limit: 255
