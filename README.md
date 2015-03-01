@@ -10,7 +10,7 @@ any organization with customers rely on them to be online 24/7.
 * [Report a bug](https://github.com/adamcooke/staytus/issues/new?labels=bug)
 * [Ask a question](https://github.com/adamcooke/staytus/issues/new?labels=question)
 
-![Screenshot](https://s.adamcooke.io/15/8HeZGuskLO.png)
+![Screenshot](https://s.adamcooke.io/15/iOzvtk.png)
 
 ## System Requirements
 
@@ -79,10 +79,14 @@ add you tot he list.
 
 ## Screenshots
 
-Here's a few extra screenshots from the application:
+Here's a few extra screenshots from the admin and public interfaces.
 
-![Screenshot](https://s.adamcooke.io/15/iQh38xz4A1.png)
+![Screenshot](https://s.adamcooke.io/15/SZ2WUI.png)
 
-![Screenshot](https://s.adamcooke.io/15/McUqTjcZfd.png)
+![Screenshot](https://s.adamcooke.io/15/TgqeV8.png)
 
 ![Screenshot](https://s.adamcooke.io/15/JErXE75Fhu.png)
+
+![Screenshot](https://s.adamcooke.io/15/fb5kFe.png)
+
+![Screenshot](https://s.adamcooke.io/15/9n5W4j.png)
