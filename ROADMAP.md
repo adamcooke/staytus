@@ -17,7 +17,7 @@ and tag it with suggestion.
 
 * Notifications. Allow users to subscribe to the status
   site and receive updates whenever new issues are posted
-  or maintenance is scheduled.
+  or maintenance is scheduled. [**DONE**]
 
 * Integration with Twitter. Automatically update Twitter
   when issues occur, maintenance starts or statuses change.
