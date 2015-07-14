@@ -13,7 +13,7 @@ controller :services do
     action do
       service = Service.find_by_permalink(params.service)
       unless service
-        error :not_found, "Sevice not found with permalink `#{params.service}`"
+        error :not_found, "Service not found with permalink `#{params.service}`"
       end
       structure(service, :full => true, :expansions => true)
     end
@@ -25,12 +25,12 @@ controller :services do
     action do
       service = Service.find_by_permalink(params.service)
       unless service
-        error :not_found, "Sevice not found with permalink `#{params.service}`"
+        error :not_found, "Service not found with permalink `#{params.service}`"
       end
 
       status = ServiceStatus.find_by_permalink(params.status)
       unless status
-        error :not_found, "Sevice status not found with permalink `#{params.status}`"
+        error :not_found, "Service status not found with permalink `#{params.status}`"
       end
 
       service.status = status
