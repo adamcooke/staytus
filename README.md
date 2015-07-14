@@ -65,7 +65,7 @@ processes which you have running.
 All themes are stored in the `content/themes` directory. You can
 add your own themes in this directory but we do not recommend
 making changes to the `default` theme as these changes may get
-overriden in an upgrade.
+overridden in an upgrade.
 
 Full details about how to make these will be coming soon.
 
