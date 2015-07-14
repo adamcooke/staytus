@@ -3,7 +3,7 @@
 Staytus is a complete solution for publishing the latest information about
 any issues with your web applications, networks or services. Along with
 absolutely beautiful public & admin interfaces, Staytus is a powerful tool for
-any organization with customers rely on them to be online 24/7.
+any organization with customers that rely on them to be online 24/7.
 
 * [Check out the live demo](http://demo.staytus.co)
 * [Read the roadmap](https://github.com/adamcooke/staytus/blob/master/ROADMAP.md)
@@ -63,7 +63,7 @@ processes which you have running.
 ## Themes
 
 All themes are stored in the `content/themes` directory. You can
-add your own these in this directory but we do not recommend
+add your own themes in this directory but we do not recommend
 making changes to the `default` theme as these changes may get
 overriden in an upgrade.
 
