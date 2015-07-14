@@ -75,7 +75,7 @@ Full details about how to make these will be coming soon.
 * [Dial 9 Status Site](http://status.dial9.co.uk)
 
 If you're running Staytus in the wild, let us know so we can
-add you tot he list.
+add you to the list.
 
 ## Screenshots
 
