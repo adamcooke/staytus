@@ -30,4 +30,5 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'annotate', '~> 2.6.5'
+  gem 'pry-rails'
 end
