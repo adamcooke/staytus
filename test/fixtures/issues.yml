@@ -1,0 +1,8 @@
+one:
+  title: issue 1
+  state: operational
+  user: one
+
+two:
+  title: issue 2
+  state: major-outage
