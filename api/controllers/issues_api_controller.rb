@@ -45,4 +45,30 @@ controller :issues do
     end
   end
 
+  action :update do
+    param :id, :required => true, :type => Integer
+    param :text, :required => false, :type => String
+    param :state, :required => false, :type => String
+    param :status, :required => false, :type => String
+    param :notify, :required => false
+
+    action do
+      update_params = {
+        text: params.text,
+        state: params.state,
+        service_status: ServiceStatus.where(permalink: params.status).first,
+        notify: params.notify
+      }.compact
+
+      issue = Issue.find params.id
+      update = issue.updates.build update_params
+
+      if update.save
+        structure update, :full => true
+      else
+        error :validation_error, update.errors
+      end
+    end
+  end
+
 end
