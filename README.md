@@ -32,8 +32,8 @@ mysql$ GRANT ALL ON staytus.* TO `staytus`@`localhost` IDENTIFIED BY "a_secure_p
 
 ```text
 $ git clone https://github.com/adamcooke/staytus
-$ git checkout stable
 $ cd staytus
+$ git checkout stable
 $ bundle install --deployment --without development:test
 $ cp config/database.example.yml config/database.yml
 $ nano -w config/database.yml # Add your database configuration
