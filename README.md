@@ -20,7 +20,7 @@ any organization with customers that rely on them to be online 24/7.
 * RubyGems and Bundler
 * A MySQL database server
 
-## Instructions
+### Instructions
 
 Before start, you'll need to create a new MySQL database:
 
