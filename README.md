@@ -12,28 +12,7 @@ any organization with customers that rely on them to be online 24/7.
 
 ![Screenshot](https://s.adamcooke.io/15/iOzvtk.png)
 
-## Setup with Docker
-
-1. [Install Docker locally](https://docs.docker.com/installation/)
-2. Run `docker run -d -p 80:5000 --name=staytus adamcooke/staytus`
-3. Go to [http://localhost:80](http://localhost:80) and follow the instructions to configure Staytus
-
-This will pull and start the latest published Staytus docker container, and start it listening on port 80 on the host machine.
-
-Note that this container includes two persistent volumes, one for the database (persisting all config and state) and one for persistent DB config.
-
-### Upgrading with Docker
-
-When a new Staytus Docker image is published that you'd like to upgrade to:
-
-1. Stop your current Staytus container with `docker stop staytus`
-2. Rename your previous container with `docker rename staytus staytus-old`
-3. Start a new container, reusing your previous volumes, with `docker run -d -p 80:5000 --name=staytus --volumes-from=staytus-old adamcooke/staytus`
-4. Delete the old container with `docker rm staytus-old`
-
-This will automatically migrate your DB to pick up any new changes, and bring in any new code changes from the Staytus code. 
-
-## Manual setup
+## Installation from source
 
 ### System Requirements
 
@@ -41,10 +20,7 @@ This will automatically migrate your DB to pick up any new changes, and bring in
 * RubyGems and Bundler
 * A MySQL database server
 
-### Installation from source
-
-Currently the only way to install Stayus is from the source repository.
-To do this, you'll need Git installed.
+## Instructions
 
 Before start, you'll need to create a new MySQL database:
 
@@ -82,6 +58,27 @@ $ bundle exec rake staytus:build staytus:upgrade
 
 Once you've done this, you should ensure you restart any Staytus
 processes which you have running.
+
+## Setup with Docker
+
+1. [Install Docker locally](https://docs.docker.com/installation/)
+2. Run `docker run -d -p 80:5000 --name=staytus adamcooke/staytus`
+3. Go to [http://localhost:80](http://localhost:80) and follow the instructions to configure Staytus
+
+This will pull and start the latest published Staytus docker container, and start it listening on port 80 on the host machine.
+
+Note that this container includes two persistent volumes, one for the database (persisting all config and state) and one for persistent DB config.
+
+### Upgrading with Docker
+
+When a new Staytus Docker image is published that you'd like to upgrade to:
+
+1. Stop your current Staytus container with `docker stop staytus`
+2. Rename your previous container with `docker rename staytus staytus-old`
+3. Start a new container, reusing your previous volumes, with `docker run -d -p 80:5000 --name=staytus --volumes-from=staytus-old adamcooke/staytus`
+4. Delete the old container with `docker rm staytus-old`
+
+This will automatically migrate your DB to pick up any new changes, and bring in any new code changes from the Staytus code.
 
 ## Themes
 
