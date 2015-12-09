@@ -44,6 +44,9 @@ This will run the application on HTTP port 5000. When you first
 login, you'll be able to add your own site settings. Browse to http://[IP]:5000
 to begin.
 
+You may also want to change the SMTP configuration via environment variables,
+which are described in [`config/environment.example.yml`](config/environment.example.yml).
+
 ### Upgrading
 
 Once you've installed Staytus, you can easily upgrade it by
@@ -65,7 +68,7 @@ processes which you have running.
 2. Run `docker run -d -p 80:5000 --name=staytus adamcooke/staytus`
 3. Go to [http://localhost:80](http://localhost:80) and follow the instructions to configure Staytus
 
-This will pull and start the latest published Staytus docker container, and start it listening on port 80 on the host machine.
+This will pull and start the latest published Staytus Docker image, and start it listening on port 80 on the host machine.
 
 Note that this container includes two persistent volumes, one for the database (persisting all config and state) and one for persistent DB config.
 
@@ -79,6 +82,12 @@ When a new Staytus Docker image is published that you'd like to upgrade to:
 4. Delete the old container with `docker rm staytus-old`
 
 This will automatically migrate your DB to pick up any new changes, and bring in any new code changes from the Staytus code.
+
+## Administration
+
+To log in for the first time, visit the `/admin`, and log in with email
+`admin@example.com` and password `password`. You will probably want to go to
+Settings -> Users and set up your admins.
 
 ## Themes
 
