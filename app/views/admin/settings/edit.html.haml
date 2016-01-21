@@ -37,6 +37,11 @@
       %dd.fieldSet__input
         .fieldSet__selectContainer
           = f.time_zone_select :time_zone
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :http_protocol, "HTTP Protocol"
+      %dd.fieldSet__input
+        .fieldSet__selectContainer
+          = f.select :http_protocol, [['HTTP', 'http'], ['HTTPS', 'https']]
 
     %dl.fieldSet__field.u-margin-2x
       %dt.fieldSet__label= f.label :crawling_permitted, "Allow search engines?"
@@ -62,6 +67,7 @@
         %dl.fieldSet__field.u-margin
           %dt.fieldSet__label= f.label :email_from_address, "Outgoing E-Mail Address"
           %dd.fieldSet__input= f.text_field :email_from_address, :class => 'textInput', :placeholder => @site.support_email
+
 
 
   .formButtons

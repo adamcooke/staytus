@@ -28,6 +28,7 @@ class SetupController < ApplicationController
   def step3
     if request.post?
       @new_site = Site.new(params.require(:site).permit(:auto))
+      @new_site.http_protocol = request.protocol.gsub('://', '')
       if @new_site.save
         ServiceStatus.create_defaults
         Service.create_defaults
