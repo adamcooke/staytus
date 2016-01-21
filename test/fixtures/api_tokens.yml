@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: api_tokens
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  token      :string(255)
+#  secret     :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 one:
   name: api token 1
   token: <%= SecureRandom.uuid %>
