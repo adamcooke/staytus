@@ -2,7 +2,7 @@
 
 Full details can be seen below. We will continue to post updated whenever they become available.
 
-[View on the status site](http://{{site.domain}}/issue/{{issue.identifier}}#{{update.identifier}})
+[View on the status site]({{site.domain_with_protocol}}/issue/{{issue.identifier}}#{{update.identifier}})
 
 ## {{issue.title}}
 
