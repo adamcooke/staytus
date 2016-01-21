@@ -1,6 +1,6 @@
 # A maintenance session has been updated on {{site.title}}
 
-[View on the status site](http://{{site.domain}}/maintenance/{{maintenance.identifier}})
+[View on the status site]({{site.domain_with_protocol}}/maintenance/{{maintenance.identifier}})
 
 ## {{maintenance.title}}
 

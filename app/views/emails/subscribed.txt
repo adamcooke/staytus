@@ -2,6 +2,6 @@
 
 You recently opted to receive e-mail notifications from {{site.title}}. In order to send these messages, please click the link below to verify that you own this e-mail address.
 
-[Click here to verify your address](http://{{site.domain}}/verify/{{subscriber.verification_token}})
+[Click here to verify your address]({{site.domain_with_protocol}}/verify/{{subscriber.verification_token}})
 
 If you did not request this or no longer with wish to receive these notifications, you can just ignore this e-mail.
