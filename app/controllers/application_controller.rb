@@ -5,7 +5,14 @@ class ApplicationController < ActionController::Base
   around_filter :set_time_zone
   before_filter :ensure_site
 
+  rescue_from Authie::Session::InactiveSession, :with => :auth_session_error
+  rescue_from Authie::Session::ExpiredSession,  :with => :auth_session_error
+  rescue_from Authie::Session::BrowserMismatch, :with => :auth_session_error
+
   private
+  def auth_session_error
+    redirect_to login_path, :alert => "Your session is no longer valid. Please login again to continue..."
+  end
 
   def set_time_zone
     if has_site?

@@ -9,7 +9,7 @@ and tag it with suggestion.
 
 * JSON API to allow services to be updated by external
   tools. For example, Nagios or Zabbix could updates
-  statuses as appropriate when they detect issues.
+  statuses as appropriate when they detect issues. [**DONE**]
 
 * Built-in basic Ping, HTTP & DNS monitoring. Monitor
   given endpoints and automatically update statuses
@@ -17,7 +17,7 @@ and tag it with suggestion.
 
 * Notifications. Allow users to subscribe to the status
   site and receive updates whenever new issues are posted
-  or maintenance is scheduled.
+  or maintenance is scheduled. [**DONE**]
 
 * Integration with Twitter. Automatically update Twitter
   when issues occur, maintenance starts or statuses change.

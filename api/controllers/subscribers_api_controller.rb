@@ -55,7 +55,7 @@ controller :subscribers do
     action do
       deleted_items = Subscriber.where(:email_address => params.email_address).destroy_all
       deleted_items.map do |subscriber|
-        strucutre subscriber
+        structure subscriber
       end
     end
   end

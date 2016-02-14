@@ -1,5 +1,5 @@
-#= require reset
-#= require_tree ./default
+//= require reset
+//= require_tree ./default
 @import 'default/variables';
 body {
   font-family: $sansSerifFont;

@@ -13,6 +13,7 @@
 #  email_from_name     :string(255)
 #  email_from_address  :string(255)
 #  allow_subscriptions :boolean          default("1")
+#  http_protocol       :string(255)
 #
 
 class Site < ActiveRecord::Base
@@ -20,6 +21,7 @@ class Site < ActiveRecord::Base
   validates :title, :presence => true
   validates :description, :presence => true
   validates :domain, :presence => true
+  validates :http_protocol, :inclusion => {:in => ['http', 'https']}
   validates :support_email, :presence => true, :email => true
   validates :website_url, :url => true
   validates :time_zone, :presence => true
@@ -34,6 +36,7 @@ class Site < ActiveRecord::Base
     string :description
     string :domain
     string :domain_with_protocol
+    string :http_protocol
     string :support_email
     string :website_url
     string :time_zone
@@ -42,7 +45,7 @@ class Site < ActiveRecord::Base
   end
 
   def domain_with_protocol
-    "http://#{domain}"
+    "#{http_protocol}://#{domain}"
   end
 
 end

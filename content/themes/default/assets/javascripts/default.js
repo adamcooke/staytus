@@ -1,8 +1,7 @@
-#= require jquery
-#= require jquery_ujs
-#= require vendor/timeago
-#= require default/tooltip
+//= require jquery
+//= require jquery_ujs
+//= require vendor/timeago
 
-$(document).ready(function() {
-  $('time').timeago()
-})
+$(function() {
+  $('time').timeago();
+});
