@@ -89,6 +89,10 @@ To log in for the first time, visit the `/admin`, and log in with email
 `admin@example.com` and password `password`. You will probably want to go to
 Settings -> Users and set up your admins.
 
+## Notifications
+
+To send emails notifications, you need to run `rake jobs:work` to execute delayed jobs.
+
 ## Themes
 
 All themes are stored in the `content/themes` directory. You can
