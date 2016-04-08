@@ -19,7 +19,7 @@
 class Site < ActiveRecord::Base
 
   validates :title, :presence => true
-  validates :description, :presence => true
+  validates :description, :presence => true, :length => {:maximum => 255}
   validates :domain, :presence => true
   validates :http_protocol, :inclusion => {:in => ['http', 'https']}
   validates :support_email, :presence => true, :email => true
