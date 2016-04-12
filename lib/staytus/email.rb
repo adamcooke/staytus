@@ -37,8 +37,6 @@ module Staytus
           body final_html
         end
 
-        puts plain_text
-
         mail.deliver
         mail
       ensure
