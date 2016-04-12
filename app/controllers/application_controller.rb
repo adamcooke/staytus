@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
       Chronic.time_class = Time.zone
     end
     yield
+  ensure
     Chronic.time_class = Time
     Time.zone = nil
   end
