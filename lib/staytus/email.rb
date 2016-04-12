@@ -7,6 +7,8 @@ module Staytus
       # Send an email to the given recipient
       #
       def deliver(subscriber, template, attributes = {})
+        original_zone = Time.zone
+        Time.zone = Site.first.time_zone
         mail = Mail.new
         mail.to         subscriber.email_address
         mail.from       "#{from_name} <#{from_address}>"
@@ -35,8 +37,12 @@ module Staytus
           body final_html
         end
 
+        puts plain_text
+
         mail.deliver
         mail
+      ensure
+        Time.zone = original_zone
       end
 
       #
