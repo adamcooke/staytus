@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     #
     # Subscribers
     #
-    resources :subscribers, :only => [:index, :destroy] do
+    resources :subscribers, :only => [:index, :destroy, :new, :create] do
       post 'verify', :on => :member
     end
 
