@@ -29,11 +29,16 @@
     %p= link_to "Service Statuses", admin_service_statuses_path
     %p.navGrid__text Configure the different statuses which can be assigned to the services you're reporting on.
   .navGrid__item
-    = image_tag 'icons/email_templates.svg'
-    %p= link_to "E-Mail Templates", admin_email_templates_path
-    %p.navGrid__text Customize the content of the emails which are sent to people who subscribe to your site by e-mail.
+    = image_tag 'icons/services.svg'
+    %p= link_to "Service Groups", admin_service_groups_path
+    %p.navGrid__text Configure the different groups which can be assigned to the services you're reporting on.
 .navGrid
   .navGrid__item
     = image_tag 'icons/api_tokens.svg'
     %p= link_to "API Tokens", admin_api_tokens_path
     %p.navGrid__text Manage which external applications are permitted to access your status site using the API.
+  .navGrid__item
+    = image_tag 'icons/email_templates.svg'
+    %p= link_to "E-Mail Templates", admin_email_templates_path
+    %p.navGrid__text Customize the content of the emails which are sent to people who subscribe to your site by e-mail.
+
