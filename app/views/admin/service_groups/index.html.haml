@@ -1,0 +1,20 @@
+- @active_nav_item = :settings
+= content_for :page_header do
+  .pageHeader__button= link_to "Add New Group", new_admin_service_group_path, :class => 'button button--green button--small button--solid'
+  .pageHeader__heading.u-margin= @page_title = 'Service Groups'
+  %p.u-intro
+    These are the groups which will be assigned to your services when there is
+    an issue or maintenance session in progress.
+
+%table.dataTable.u-margin
+  %thead
+    %tr
+      %td{:width => '40%'} Name
+      %td{:width => '20%'}
+  %tbody
+    - for group in @service_groups
+      %tr
+        %td= link_to group.name, [:edit, :admin, group]
+
+        %td.u-align-right= link_to "Edit", [:edit, :admin, group], :class => 'button button--small'
+
