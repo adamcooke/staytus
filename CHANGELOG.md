@@ -8,6 +8,11 @@ Any version number which is suffixed by `-dev` means that it is currently
 being developed and is not yet released. It is most likely you'll only ever
 see this in a master branch.
 
+## v1.2.0
+
+* Allow services to be grouped
+* Allow subscribers to be added through the admin interface
+
 ## v1.0.1
 
 * Allow services to have a description which will be displayed on the
