@@ -8,6 +8,7 @@ class Admin::SubscribersController < Admin::BaseController
 
   def create
     @subscriber = Subscriber.new(safe_params)
+    @subscriber.verified_at = Time.now
     if @subscriber.save
       redirect_to admin_subscribers_path, :notice => 'Subscriber has been created'
     else

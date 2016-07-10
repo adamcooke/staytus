@@ -3,7 +3,7 @@
   .fieldSet.u-margin-2x
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :email_address
-      %dd.fieldSet__input= f.text_field :email_address, :class => 'textInput', :required => true
+      %dd.fieldSet__input= f.text_field :email_address, :class => 'textInput', :required => true, :autofocus => true
 
   .formButtons
     - unless @subscriber.new_record?
