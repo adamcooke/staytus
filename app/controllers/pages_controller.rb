@@ -4,7 +4,8 @@ class PagesController < ApplicationController
   layout Staytus::Config.theme_name
 
   def index
-    @services = Service.ordered.includes(:status, {:active_maintenances => :service_status}).to_a
+    @groups = ServiceGroup.ordered.includes(:services => [ { :active_maintenances => :service_status }, :status ])
+    @groups << ServiceGroup.new(:services => Service.where('group_id is null').ordered.includes(:status, {:active_maintenances => :service_status}).to_a)
     @issues = Issue.ongoing.ordered.to_a
     @maintenances = Maintenance.open.ordered.to_a
   end
