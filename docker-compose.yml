@@ -1,0 +1,21 @@
+database:
+  image: "sameersbn/mysql:latest"
+  environment:
+    DB_NAME: staytus
+    DB_USER: staytus
+    DB_PASS: staytus
+  volumes:
+    - "/opt/docker/staytus-database:/var/lib/mysql"
+staytus:
+  image: "adamcooke/staytus:latest"
+  links:
+    - database
+  ports:
+    - "80:5000"
+  environment:
+    DB_HOST: database
+    DB_PASSWORD: staytus
+    DEBUG: "true"
+#    SETTING_SMTP_HOSTNAME: smtp.deliverhq.com
+#    SETTING_STAYTUS_SMTP_USERNAME: your-username
+#    SETTING_STAYTUS_SMTP_PASSWORD: your-password

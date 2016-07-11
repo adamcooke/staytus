@@ -12,6 +12,9 @@ any organization with customers that rely on them to be online 24/7.
 
 ![Screenshot](https://s.adamcooke.io/15/iOzvtk.png)
 
+## Running with Docker
+See the README file for running with Docker [README.docker.md](README.docker.md).
+
 ## Installation from source
 
 ### System Requirements
