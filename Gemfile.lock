@@ -94,6 +94,8 @@ GEM
     foreman (0.77.0)
       dotenv (~> 1.0.2)
       thor (~> 0.19.1)
+    foreman-export-initscript (0.0.1)
+      foreman
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.6)
@@ -221,6 +223,7 @@ DEPENDENCIES
   dynamic_form
   florrick (~> 1.1)
   foreman
+  foreman-export-initscript
   haml (~> 4.0.5)
   jquery-rails
   kaminari (~> 0.16.1)
@@ -240,4 +243,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.13.2
