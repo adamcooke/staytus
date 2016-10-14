@@ -1,0 +1,114 @@
+@import 'default/variables';
+
+//
+// A button
+//
+.button {
+  border-radius:4px;
+  padding:10px 20px;
+  background:#fff;
+  text-decoration: none;
+  border:1px solid #ddd;
+  color:#888;
+  text-transform: uppercase;
+  font-size:12px;
+}
+
+//
+// A grey button
+//
+.pushButton {
+  background:#efefef;
+  font-size:12px;
+  color:#777;
+  text-shadow: 1px 1px 2px #fff;
+  padding:6px 15px;
+  text-decoration: none;
+  display:inline-block;
+  border-radius:4px;
+  border:1px solid #ddd;
+  font-weight:600;
+  outline:none;
+  box-shadow:inset 0 0 1px #fff;
+  background: rgb(252,252,252); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(239,239,239,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(239,239,239,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(239,239,239,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(239,239,239,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(239,239,239,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(239,239,239,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#efefef',GradientType=0 ); /* IE6-9 */
+  &:active {
+    background:#efefef;
+  }
+}
+
+.maintenanceStatusTag {
+  color:#aaa;
+  &.maintenanceStatusTag--active {
+    color:#6CBE07;
+  }
+  &.maintenanceStatusTag--upcoming {
+    color:#068FD6;
+  }
+}
+
+//
+// Pagination
+//
+.pagination {
+  text-align:center;
+  margin-top:45px;
+  font-size:12px;
+  a, span.page.current {
+    background:#f9f9f9;
+    border:1px solid #ccc;
+    padding:2px 9px;
+    margin:0 2px;
+    display:inline-block;
+    text-decoration:none;
+  }
+  span.page.current {
+    font-weight:bold;
+    background:#ccc;
+    color:#fff;
+  }
+}
+
+//
+// Staytus demo
+//
+.staytusDemo {
+  margin-top:30px;
+  background:#f3ffe1;
+  padding:15px;
+  border-radius:6px;
+  border:2px solid #cfdbbd;
+  font-size:14px;
+  text-align: center;
+  line-height:24px;
+  b { color:#719904; }
+  a { font-weight:700;}
+}
+
+.inputWithSubmit {
+  overflow: hidden;
+}
+
+.inputWithSubmit__input {
+  width:80%;
+  float:left;
+  input { width:100%;}
+}
+
+.inputWithSubmit__submit {
+  float:right;
+  width:18%;
+  button, input { width:100%;}
+}
+
+
+@media (max-width: 560px) {
+  .inputWithSubmit__input { width:68%;}
+  .inputWithSubmit__submit { width:30%;}
+}

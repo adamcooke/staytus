@@ -1,0 +1,59 @@
+.ui-tooltip-group{
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  top: -10px;
+  text-align: center;
+  .ui-tooltip-group__tooltip-text{
+    width: 200px;
+    padding: 7px 15px;
+    background-color: #2B3034;
+    color: #ffffff;
+    font-size: 12px;
+    border-radius: 5px;
+    line-height: 20px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin-left: -100px;
+    box-sizing: border-box;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    display: block;
+    /*
+    Thanks stripe I forgot about the cubic-bezier timing function. Notice the last number goes over the 1 value which means it actually has like a bounce/snap effect. Sweet!
+    */
+    transition: all .25s cubic-bezier(0.250, 0.250, 0.485, 1.650);
+    &:before{
+      border-top: 7px solid #2b3034;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-left: 7px solid transparent;
+      content: ' ';
+      position: absolute;
+      bottom: -14px;
+      left: 50%;
+      margin-left: -7px;
+    }
+  }
+}
+.has-tooltip{
+  position: relative;
+  cursor: help;
+}
+.is-active-tooltip{
+  .ui-tooltip-group__tooltip-text{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.is-inactive-tooltip{
+  .ui-tooltip-group__tooltip-text{
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}

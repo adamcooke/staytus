@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+/vendor
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -15,4 +16,3 @@ config/environment.yml
 config/database.yml
 config/secret_token.yml
 public/assets
-

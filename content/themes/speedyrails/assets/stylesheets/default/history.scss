@@ -1,0 +1,99 @@
+.history__heading {
+  font-size:35px;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  line-height:38px;
+  margin-bottom:7px;
+  text-align:center;
+}
+
+.history__info {
+  font-size:14px;
+  color:#999;
+  margin-bottom:40px;
+  text-align:center;
+}
+
+.history__items {
+  overflow: hidden;
+  margin-bottom:25px;
+}
+
+.history__item {
+  padding:7px 0;
+  overflow: hidden;
+}
+
+.history__itemType {
+  width:14%;
+  font-weight:600;
+  text-transform: uppercase;
+  font-size:11px;
+  margin-top:-1px;
+  float:left;
+  span {
+    background:#333;
+    width:100%;
+    display:inline-block;
+    text-align:center;
+    border-radius: 6px;
+    padding:3px 0;
+    border-bottom:1px solid #ccc;
+    &.history__itemType__issue { background:#BFC8D0; border-color:#9ba8b4; }
+    &.history__itemType__maintenance { background:#FFF7D6; border-color:#dbd3b3}
+  }
+}
+
+.history__itemTitle {
+  margin-left:16%;
+  font-size:14px;
+
+}
+
+.history__itemDate {
+  margin-left:5px;
+  font-size:90%;
+  color:#999;
+  font-size:12px;
+  text-align:right;
+}
+
+.history__itemHeading {
+  font-weight:600;
+  font-size:20px;
+  border-bottom:1px solid #ddd;
+  padding-bottom:3px;
+  margin-bottom:25px;
+}
+
+
+
+@media (max-width: 600px) {
+  .history__heading {
+    font-size:29px;
+  }
+
+  .history__itemType {
+    width:100%;
+    span {
+      background:none;
+      text-align:left;
+      font-weight:700;
+      &.history__itemType__issue { background:#fff; color:#068FD6; border:0; }
+      &.history__itemType__maintenance { background:#fff; color:#9b957b; border:0;}
+    }
+  }
+
+  .history__itemTitle {
+    margin-left:0;
+  }
+}
+
+@media (max-width: 470px) {
+  .history__heading {
+    font-size:23px;
+  }
+  .history__info {
+    margin-bottom:25px;
+  }
+}

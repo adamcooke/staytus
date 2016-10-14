@@ -1,0 +1,66 @@
+@import 'default/variables';
+
+.subscribePage__heading {
+  text-align:center;
+  font-size:35px;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  line-height:38px;
+  margin-bottom:7px;
+}
+
+.subscribePage__info {
+  font-size:14px;
+  color:#999;
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.subscribePage__box {
+  border:2px solid #BFC8D0;
+  border-radius:4px;
+  background:#F6FBFF;
+  padding:20px;
+}
+
+.subscribePage__subHeading {
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:4px;
+}
+
+.subscribePage__subInfo {
+  font-size:13px;
+  color:#999;
+  margin-bottom:15px;
+}
+
+.subscribePage__input {
+  font-size:13px;
+  color:#000;
+  padding:5px 8px;
+  width:50%;
+  text-decoration: none;
+  display:inline-block;
+  border-radius:4px;
+  border:1px solid #ddd;
+  font-family:$sansSerifFont;
+  &:focus {
+    border-color:#aaa;
+  }
+}
+
+@media (max-width: 600px) {
+  .subscribePage__heading {
+    font-size:29px;
+  }
+}
+
+@media (max-width: 470px) {
+  .subscribePage__heading {
+    font-size:23px;
+  }
+  .subscribePage__info {
+    margin-bottom:25px;
+  }
+}

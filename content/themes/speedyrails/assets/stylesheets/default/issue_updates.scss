@@ -1,0 +1,37 @@
+@import 'default/variables';
+
+.issueUpdates {
+  line-height:1.5;
+}
+
+.issueUpdates__header {
+  font-weight:700;
+  margin-bottom:25px;
+  font-size:22px;
+}
+
+
+.issueUpdates__update {
+  margin-bottom:15px;
+  padding-bottom:15px;
+  border-bottom:1px dashed #ddd;
+  &:last-child {
+    border-bottom:0;
+    margin-bottom:0;
+    padding-bottom:0;
+  }
+}
+
+.issueUpdates__text {
+  margin-bottom:5px;
+}
+
+.issueUpdates__meta {
+  font-size:12px;
+  color:#888;
+}
+
+.issueUpdate__state--investigating { color:$investigatingColor;}
+.issueUpdate__state--identified { color:$identifiedColor;}
+.issueUpdate__state--monitoring { color:$monitoringColor;}
+.issueUpdate__state--resolved { color:$resolvedColor;}

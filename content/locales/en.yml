@@ -2,5 +2,5 @@ en:
   # You can add additional locale definitions in here if you need to
   # override anything.
   themes:
-    default:
+    speedyrails:
       hello: Hello world!

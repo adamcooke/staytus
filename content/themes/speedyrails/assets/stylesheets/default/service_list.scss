@@ -1,0 +1,75 @@
+//
+// The current status of all services
+//
+.serviceList {
+  border:2px solid #bfc8d0;
+  border-radius:6px;
+}
+
+.serviceList__item {
+  padding:13px 15px;
+  border-bottom:1px solid #d7e2eb;
+  &:after {
+    content: " ";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+  }
+
+  &:nth-child(even) {
+    background:#f6fbff;
+  }
+  &:last-child {
+    border-bottom:0;
+    border-radius: 0 0 6px 6px;
+  }
+}
+
+.serviceList__description {
+  display:inline-block;
+  text-indent: -40000px;
+  background:image-url('default/question.svg');
+  background-size:14px;
+  height:14px;
+  width:14px;
+  vertical-align: -3px;
+  margin-left:5px;
+  .ui-tooltip-group {
+    text-indent: 0;
+    opacity: 0.8;
+  }
+}
+
+.serviceList__name {
+  float:left;
+}
+
+.serviceList__status {
+  float:right;
+}
+
+@media (max-width: 650px) {
+  .serviceList__description { display:none; }
+}
+
+@media (max-width: 470px) {
+  .serviceList {
+    font-size:14px;
+    border-width:1px;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .serviceList__item {
+    text-align: center;
+  }
+  .serviceList__name {
+    margin-bottom:5px;
+  }
+  .serviceList__name,
+  .serviceList__status {
+    float:none;
+  }
+}

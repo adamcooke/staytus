@@ -1,0 +1,31 @@
+<% @page_title = "Subscribe" %>
+<%= render 'page_header' %>
+
+<section class='subscribePage'>
+  <div class='container'>
+
+    <h1 class='subscribePage__heading'><%= t('themes.default.subscribe.title', :default => 'Subscribe for updates') %></h1>
+    <p class='subscribePage__info'><%= t('themes.default.subscribe.intro', :default => "Choose from the options below to automatically receive notifications when we update the status site.") %></p>
+
+    <div class='subscribePage__box'>
+      <h2 class='subscribePage__subHeading'>Receive updates by e-mail</h2>
+      <p class='subscribePage__subInfo'>
+        We can automatically send you an email whenever we update the status site.
+        Just enter your email address below and click 'Subscribe'.
+      </p>
+      <%= form_tag '/subscribe/email' do %>
+        <div class='inputWithSubmit'>
+          <div class='inputWithSubmit__input'>
+            <input type='email' name='email_address' placeholder='e.g. joe@bloggs.com' class='subscribePage__input' autofocus />
+          </div>
+          <div class='inputWithSubmit__submit'>
+            <button class='pushButton'>Subscribe</button>
+          </div>
+        </div>
+
+
+      <% end %>
+    </div>
+
+  </div>
+</section>

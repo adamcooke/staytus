@@ -1,0 +1,33 @@
+<% @page_title = "History" %>
+<%= render 'page_header' %>
+
+<section class='history'>
+  <div class='container'>
+    <h1 class='history__heading'><%= t('themes.default.history.title', :default => 'Issue &amp; Maintenance History'.html_safe) %></h1>
+    <p class='history__info'><%= t('themes.default.history.intro', :default => "This page shows all current & historical issues & maintenance sessions.".html_safe) %></p>
+
+    <% for month, items in @items.group_by(&:month) %>
+    <div class='history__items'>
+      <h2 class='history__itemHeading'><%= month.strftime("%B %Y") %></h2>
+
+      <% for item in items %>
+      <div class='history__item'>
+        <p class='history__itemType'>
+          <span class='history__itemType__<%= item.type.downcase %>'>
+            <%= item.type %>
+          </span>
+        </p>
+        <p class='history__itemTitle'>
+          <a href='<%= item.link %>'><%= item.title %></a>
+          <span class='history__itemDate'> from <%= item.date.to_date.to_s(:long) %></span>
+        </p>
+      </div>
+      <% end %>
+
+    </div>
+    <% end %>
+
+    <%= paginate @items %>
+
+  </div>
+</section>
