@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name='Generator' content='Staytus/<%= Staytus::Config.version %>' />
+<style type="text/css">
+  html, body { background:#F6FBFF;}
+  * { color:#2B3034; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:14px; }
+  .content { background:#fff;}
+  .content h1 { font-size:17px; font-weight:normal; line-height:1.4; color:#BFC8D0;}
+  .content h2 {font-size:24px; font-weight:bold; }
+  .content p { font-size:14px; line-height:1.5; }
+  .content li { font-size:14px; line-height:1.5; }
+  .content a { color:#007ce0; font-weight:bold;}
+  .content hr { border:0; height:1px; background:#ccc; margin:25px 0;}
+  .content li { margin-bottom:4px;}
+  table { width:550px; margin:auto; }
+  table.main {border:2px solid #BFC8D0;}
+
+  .footer p { font-size:12px; color:#BFC8D0; line-height:1.5; text-align: center;}
+  .footer p a { color:#BFC8D0; font-size:12px;}
+</style>
+</head>
+<body>
+<br><br><br><br>
+<table class='main' align="center" width='550' cellpadding="0" cellspacing="0">
+<tr><td colspan='3' style='font-size:17px;' class='content'>&nbsp;</td></tr>
+<tr>
+  <td class='content' width='30'>&nbsp;</td>
+  <td class='content'>
+    {{content}}
+  </td>
+  <td class='content' width='30'>&nbsp;</td>
+</tr>
+<tr><td colspan='3' style='font-size:17px;' class='content'>&nbsp;</td></tr>
+</table>
+<br>
+<table align="center" width='550' cellpadding="0" cellspacing="0">
+<tr>
+  <td class='footer' width='30'>&nbsp;</td>
+  <td class='footer'>
+    <p>
+      You have received this e-mail because you have subscribed to {{site.title}}.
+      If you'd like to stop receiving these messages, you can <a href='http://{{site.domain}}/unsub/{{subscriber.verification_token}}'>click here</a>
+      and we'll stop sending messages straight away.
+    </p>
+  </td>
+  <td class='footer' width='30'>&nbsp;</td>
+</tr>
+</table>
+<br><br><br><br><br><br>
+</body>
+</html>

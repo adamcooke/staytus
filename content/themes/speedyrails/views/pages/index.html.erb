@@ -1,0 +1,75 @@
+<% @page_title = 'Service Status' %>
+
+<header class='siteHeader <% if site.cover_image %>has-coverImage<% end %>' <% if site.cover_image%>style='background-image:url(<%= site.cover_image.path %>)'<% end%>>
+  <% if site.logo %>
+  <p class='siteHeader__logo'><%= image_tag site.logo.path %></p>
+  <% end %>
+
+  <% if site.allow_subscriptions? %>
+  <p class='siteHeader__subscribe'>
+    <a class='siteHeader__button' href='/subscribe'>Subscribe</a>
+  </p>
+  <% end %>
+
+  <div class='container'>
+    <p class='siteHeader__title'><%= site.title %></p>
+    <p class='siteHeader__subTitle'><%= site.description %></p>
+  </div>
+</header>
+
+<div class='container'>
+
+  <% unless @issues.empty? %>
+  <section class='ongoingIssues'>
+    <% @issues.each do |issue| %>
+    <a href='/issue/<%= issue.identifier %>' class='issueBanner issueBanner--<%= issue.state %>'>
+      <p class='issueBanner__state'><%= issue.state.humanize %></p>
+      <h2><%= issue.title %></h2>
+      <p class='issueBanner__time'><%= t("themes.default.last_updated", :default => 'last updated') %> <%= time_tag issue.updated_at %></p>
+    </a>
+    <% end %>
+  </section>
+  <% end %>
+
+  <% unless @maintenances.empty? %>
+  <section class='ongoingIssues'>
+    <% @maintenances.each do |maintenance| %>
+    <a href='/maintenance/<%= maintenance.identifier %>' class='issueBanner issueBanner--maintenance'>
+      <p class='issueBanner__state'><%= t("themes.default.maintenance", :default => 'Maintenance') %></p>
+      <h2><%= maintenance.title %></h2>
+      <% if maintenance.started? %>
+      <p class='issueBanner__time'><%= t("themes.default.due_to_finish", :default => 'due to finish') %> <%= distance_of_time_in_words_to_now_with_direction maintenance.finish_at %></p>
+      <% else %>
+      <p class='issueBanner__time'><%= t("themes.default.due_to_start", :default => 'due to start') %> <%= distance_of_time_in_words_to_now_with_direction maintenance.start_at %></p>
+      <% end %>
+
+    </a>
+    <% end %>
+  </section>
+  <% end %>
+
+  <ul class='serviceList'>
+    <% for service in @services %>
+    <li class='serviceList__item'>
+      <p class='serviceList__status'><%= service_status_tag service %></p>
+      <p class='serviceList__name'>
+        <%= service.name %>
+        <% unless service.description.blank? %>
+        <span class='serviceList__description' data-tooltip="<%= service.description %>"><%= service.description %></span>
+        <% end %>
+      </p>
+    </li>
+    <% end %>
+  </ul>
+
+  <% if Staytus::Config.demo? %>
+  <div class='staytusDemo'>
+    <p>
+      <b>This is a demo version of Staytus.</b> All the info on this site is fictional.
+      You can <a href='/admin'>check out the admin area</a> to see how you would
+      manage the content on this site.
+    </p>
+  </div>
+  <% end %>
+
+</div>

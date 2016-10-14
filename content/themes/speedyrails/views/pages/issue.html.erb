@@ -1,0 +1,36 @@
+<% @page_title = "#{@issue.title} - #{@issue.created_at.strftime("%d/%m/%Y")}" %>
+<%= render 'page_header' %>
+
+<section class='issueDetail'>
+  <div class='container'>
+  <% unless @issue.services.empty? %>
+  <div class='issueDetail__services'>
+    <p>Affected services:</p>
+    <ul>
+      <% @issue.services.each do |service| %>
+      <li><%= service.name %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <h1 class='issueDetail__title'><%= @issue.title %></h1>
+  <p class='issueDetail__date'>Opened on <%= @issue.created_at.strftime("%A #{@issue.created_at.day.ordinalize} %B %Y") %>, last updated <%= time_tag @issue.updated_at %></p>
+
+  <div class='issueUpdates'>
+    <% @updates.each do |update| %>
+    <div class='issueUpdates__update'>
+      <a name='update-<%=update.identifier%>'></a>
+      <p class='issueUpdates__text'>
+        <b class='issueUpdate__state issueUpdate__state--<%= update.state %>'><%= update.state.humanize %></b> &mdash;
+        <%= update.text %>
+      </p>
+      <p class='issueUpdates__meta'>
+        Posted <%= time_tag update.created_at%>
+        <% if update.user %>by <%= update.user.name %><% end %>
+      </p>
+    </div>
+    <% end %>
+    </div>
+  </div>
+</section>

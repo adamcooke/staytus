@@ -1,0 +1,28 @@
+.pageHeader {
+  padding:40px;
+  background:#f9f9f9;
+  border-bottom:1px solid #efefef;
+  margin-bottom:50px;
+}
+
+.pageHeader__title {
+  float:right;
+  color:#999;
+}
+
+@media (max-width: 470px) {
+
+  .pageHeader {
+    margin-bottom:25px;
+    padding:20px 20px;
+
+  }
+
+  .pageHeader .button {
+    padding:4px 10px;
+  }
+
+  .pageHeader__title {
+    font-size:14px;
+  }
+}

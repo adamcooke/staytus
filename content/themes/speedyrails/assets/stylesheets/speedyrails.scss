@@ -1,0 +1,14 @@
+#= require reset
+#= require_tree ./speedyrails
+@import 'speedyrails/variables';
+body {
+  font-family: $sansSerifFont;
+  font-size:16px;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+.container { max-width:700px; margin:0 auto; }
+
+@media (max-width: 750px) {
+  .container { padding:0 25px; }
+}
