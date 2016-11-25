@@ -14,7 +14,7 @@
 
 class MaintenanceUpdate < ActiveRecord::Base
 
-  belongs_to :maintenance
+  belongs_to :maintenance, :touch => true
   belongs_to :user
 
   validates :text, :presence => true

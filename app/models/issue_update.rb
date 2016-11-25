@@ -19,7 +19,7 @@ class IssueUpdate < ActiveRecord::Base
   validates :state, :inclusion => {:in => Issue::STATES, :allow_blank => true}
   validates :text, :presence => true
 
-  belongs_to :issue
+  belongs_to :issue, :touch => true
   belongs_to :user
   belongs_to :service_status
 
