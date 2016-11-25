@@ -48,6 +48,7 @@ class IssueUpdate < ActiveRecord::Base
     if self.service_status
       self.issue.service_status = self.service_status
     end
+    self.issue.updated_at = Time.now
     self.issue.save!
   end
 

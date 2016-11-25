@@ -1,9 +1,14 @@
 if ENV['STAYTUS_SMTP_HOSTNAME']
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :address    => ENV['STAYTUS_SMTP_HOSTNAME'],
     :user_name  => ENV['STAYTUS_SMTP_USERNAME'],
-    :password   => ENV['STAYTUS_SMTP_PASSWORD']
+    :password   => ENV['STAYTUS_SMTP_PASSWORD'],
+    #:domain => 'yourdomain.com',
+    :address    => ENV['STAYTUS_SMTP_HOSTNAME'],
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+
   }
 else
   puts "\e[33m=> You haven't configured an SMTP server. Mail will be sent using sendmail.\e[0m"
