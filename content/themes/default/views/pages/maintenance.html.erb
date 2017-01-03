@@ -15,7 +15,7 @@
   <% end %>
 
   <h1 class='issueDetail__title'><%= @maintenance.title %></h1>
-  <p class='issueDetail__date'>Scheduled for <%= @maintenance.start_at.strftime("%A #{@maintenance.start_at.day.ordinalize} %B %Y at %H:%M%P (#{site.time_zone})") %></p>
+  <p class='issueDetail__date'>Scheduled for <%= @maintenance.start_at.strftime("%A #{@maintenance.start_at.day.ordinalize} %B %Y at %H:%M (#{site.time_zone})") %></p>
   <p class='issueDetail__descriptionTitle'>Schedule/description of work</p>
   <p class='issueDetail__description'><%= @maintenance.description %></p>
 
