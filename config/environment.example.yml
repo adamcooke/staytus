@@ -14,5 +14,6 @@ STAYTUS_DEMO: '0'
 # Configure an SMTP server for sending messages. If you don't
 # configure an SMTP service, e-mail will be sent using sendmail.
 STAYTUS_SMTP_HOSTNAME: smtp.deliverhq.com
+STAYTUS_SMTP_PORT: '25'
 STAYTUS_SMTP_USERNAME: your-username
 STAYTUS_SMTP_PASSWORD: your-password
