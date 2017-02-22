@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   private
   def auth_session_error
-    redirect_to login_path, :alert => "Your session is no longer valid. Please login again to continue..."
+    redirect_to admin_login_path, :alert => "Your session is no longer valid. Please login again to continue..."
   end
 
   def set_time_zone
