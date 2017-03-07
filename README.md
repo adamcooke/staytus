@@ -19,6 +19,8 @@ any organization with customers that rely on them to be online 24/7.
 * Ruby 2.1 or greater
 * RubyGems and Bundler
 * A MySQL database server
+* Bundler (`gem install bundler`)
+* Procodile (`gem install procodile`)
 
 ### Instructions
 
@@ -37,15 +39,17 @@ $ bundle install --deployment --without development:test
 $ cp config/database.example.yml config/database.yml
 $ nano -w config/database.yml # Add your database configuration
 $ bundle exec rake staytus:build staytus:install
-$ bundle exec foreman start
+$ procodile start --foreground
 ```
 
 This will run the application on HTTP port 5000. When you first
-login, you'll be able to add your own site settings. Browse to http://[IP]:5000
+login, you'll be able to add your own site settings. Browse to http://[IP]:8787
 to begin.
 
 You may also want to change the SMTP configuration via environment variables,
 which are described in [`config/environment.example.yml`](config/environment.example.yml).
+
+To run staytus in the background, simply run `procodile start` without the `--foreground` option.
 
 ### Upgrading
 

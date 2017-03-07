@@ -1,0 +1,9 @@
+app_name: staytus
+log_root: log
+pid_root: tmp/pids
+console_command: bundle exec rails console
+processes:
+  web:
+    restart_mode: usr2
+  worker:
+    restart_mode: start-term
