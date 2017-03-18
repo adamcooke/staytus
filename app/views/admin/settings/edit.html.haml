@@ -18,6 +18,16 @@
           %dt.fieldSet__label= f.label :domain
           %dd.fieldSet__input= f.text_field :domain, :class => 'textInput'
 
+    .row
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :title_public
+          %dd.fieldSet__input= f.text_field :title_public, :class => 'textInput'
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :domain_public
+          %dd.fieldSet__input= f.text_field :domain_public, :class => 'textInput'
+
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :description
       %dd.fieldSet__input= f.text_area :description, :class => 'textInput'

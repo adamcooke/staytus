@@ -18,6 +18,14 @@
       %dd.fieldSet__input
         .fieldSet__selectContainer
           = f.collection_select :status_id, ServiceStatus.all, :id, :name
+
+    %dl.fieldSet__field.u-margin-2x
+      %dt.fieldSet__label= f.label :is_public, "Allow public visibility ?"
+      %dd.fieldSet__input
+        .fieldSet__checkbox.fieldSet__selectContainer
+          = f.check_box :is_public
+          = f.label :is_public, "Yes - allow visitors can see service's status"
+
     - if ServiceGroup.count > 0
       %dl.fieldSet__field.u-margin
         %dt.fieldSet__label= f.label :group_id, "Service Group"

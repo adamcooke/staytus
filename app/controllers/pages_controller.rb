@@ -4,7 +4,12 @@ class PagesController < ApplicationController
   layout Staytus::Config.theme_name
 
   def index
-    @services = Service.ordered.includes(:group, :status, {:active_maintenances => :service_status})
+    if request.host.to_s == site.domain_public.to_s
+      site.title = site.title_public
+      @services = Service.where(is_public: true).ordered.includes(:group, :status, {:active_maintenances => :service_status})
+    else
+      @services = Service.ordered.includes(:group, :status, {:active_maintenances => :service_status})
+    end
     @services_with_group = @services.group_by(&:group).sort_by { |g,_| g ? g.name : 'zzz' }
     @issues = Issue.ongoing.ordered.to_a
     @maintenances = Maintenance.open.ordered.to_a
