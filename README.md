@@ -9,6 +9,7 @@ any organization with customers that rely on them to be online 24/7.
 * [Read the roadmap](https://github.com/adamcooke/staytus/blob/master/ROADMAP.md)
 * [Report a bug](https://github.com/adamcooke/staytus/issues/new?labels=bug)
 * [Ask a question](https://github.com/adamcooke/staytus/issues/new?labels=question)
+* [Installation tutorial](https://atech.blog/atech/install-staytus-tutorial)
 
 ![Screenshot](https://s.adamcooke.io/15/iOzvtk.png)
 
@@ -22,7 +23,11 @@ any organization with customers that rely on them to be online 24/7.
 * Bundler (`gem install bundler`)
 * Procodile (`gem install procodile`)
 
-### Instructions
+### Installation Instructions
+
+**A comprehensive tutorial about how to install Staytus [available here](https://atech.blog/atech/install-staytus-tutorial) on the [aTech Media blog](https://atech.blog).**
+
+Alternativly, these basic instructions will get you up and running:
 
 Before start, you'll need to create a new MySQL database:
 
