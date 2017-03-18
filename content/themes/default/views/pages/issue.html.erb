@@ -28,6 +28,7 @@
       <p class='issueUpdates__meta'>
         Posted <%= time_tag update.created_at%>
         <% if update.user %>by <%= update.user.name %><% end %>
+        <% if update.service_status %>&mdash; Changed to <%= update.service_status.name.humanize %><% end %>
       </p>
     </div>
     <% end %>
