@@ -6,7 +6,8 @@ if ENV['STAYTUS_SMTP_HOSTNAME']
     :user_name              => ENV['STAYTUS_SMTP_USERNAME'],
     :password               => ENV['STAYTUS_SMTP_PASSWORD'],
     :authentication         => ENV['STAYTUS_SMTP_AUTH_MODE'],
-    :enable_starttls_auto   => ENV['STAYTUS_SMTP_STARTTLS'] == '1'
+    :enable_starttls_auto   => ENV['STAYTUS_SMTP_STARTTLS'] == '1',
+    :domain                 => ENV['STAYTUS_SMTP_DOMAIN'],
   }
 else
   puts "\e[33m=> You haven't configured an SMTP server. Mail will be sent using sendmail.\e[0m"
