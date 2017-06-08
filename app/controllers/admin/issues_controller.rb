@@ -1,6 +1,6 @@
 class Admin::IssuesController < Admin::BaseController
 
-  before_filter { params[:id] && @issue = Issue.find(params[:id]) }
+  before_action { params[:id] && @issue = Issue.find(params[:id]) }
 
   def index
     @ongoing_issues = Issue.ongoing.ordered.includes(:latest_update, :service_status, :user)
@@ -45,7 +45,7 @@ class Admin::IssuesController < Admin::BaseController
   private
 
   def safe_params
-    params.require(:issue).permit(:auto, :service_ids => [])
+    params.require(:issue).permit(:title, :initial_update, :state, :service_status_id, :notify, :service_ids => [])
   end
 
 end

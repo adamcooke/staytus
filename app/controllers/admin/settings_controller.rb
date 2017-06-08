@@ -10,7 +10,7 @@ class Admin::SettingsController < Admin::BaseController
 
   def update
     @site = Site.find(site.id)
-    if @site.update_attributes(params.require(:site).permit(:auto, :logo_delete, :cover_image_delete))
+    if @site.update_attributes(params.require(:site).permit(:title, :domain, :description, :support_email, :website_url, :time_zone, :http_protocol, :crawling_permitted, :allow_subscriptions, :email_from_name, :email_from_address, :logo_file, :logo_delete, :cover_image_file, :cover_image_delete))
       redirect_to redirection_path_for(params[:return_to]), :notice => "Settings have been saved successfully."
     else
       render form_render_for(params[:return_to])

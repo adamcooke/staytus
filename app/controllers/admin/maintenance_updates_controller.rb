@@ -1,7 +1,7 @@
 class Admin::MaintenanceUpdatesController < Admin::BaseController
 
-  before_filter { @maintenance = Maintenance.find(params[:maintenance_id]) }
-  before_filter { params[:id] && @maintenance_update = @maintenance.updates.find(params[:id]) }
+  before_action { @maintenance = Maintenance.find(params[:maintenance_id]) }
+  before_action { params[:id] && @maintenance_update = @maintenance.updates.find(params[:id]) }
 
   def create
     @update = @maintenance.updates.build(safe_params)
@@ -29,7 +29,7 @@ class Admin::MaintenanceUpdatesController < Admin::BaseController
   private
 
   def safe_params
-    params.require(:maintenance_update).permit(:auto)
+    params.require(:maintenance_update).permit(:text)
   end
 
 end

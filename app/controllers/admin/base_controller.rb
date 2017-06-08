@@ -1,6 +1,6 @@
 class Admin::BaseController < ApplicationController
   layout 'admin'
-  before_filter :login_required
+  before_action :login_required
 
   private
 

@@ -14,7 +14,7 @@ class Admin::EmailTemplatesController < Admin::BaseController
 
   def update
     edit
-    @template.attributes = params.require(:email_template).permit(:auto)
+    @template.attributes = params.require(:email_template).permit(:subject, :content)
     if @template.save
       redirect_to admin_email_templates_path, :notice => "#{@default[:name]} has been updated successfully."
     else

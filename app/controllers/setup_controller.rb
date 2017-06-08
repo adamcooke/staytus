@@ -1,8 +1,8 @@
 class SetupController < ApplicationController
-  skip_before_filter :ensure_site
+  skip_before_action :ensure_site
   layout 'admin'
 
-  before_filter do
+  before_action do
     if has_site?
       redirect_to admin_root_path, :alert => "You already have configured this installation."
     end
@@ -14,7 +14,7 @@ class SetupController < ApplicationController
     end
 
     if request.post?
-      @user = User.new(params.require(:user).permit(:auto))
+      @user = User.new(params.require(:user).permit(:name, :email_address, :password, :password_confirmation))
       if @user.save
         redirect_to setup_path(:step3), :notice => "Great! You will be able to login using those details when this wizard is complete."
       else
@@ -27,7 +27,7 @@ class SetupController < ApplicationController
 
   def step3
     if request.post?
-      @new_site = Site.new(params.require(:site).permit(:auto))
+      @new_site = Site.new(params.require(:site).permit(:title, :domain, :website_url, :support_email, :description, :time_zone))
       @new_site.http_protocol = request.protocol.gsub('://', '')
       if @new_site.save
         ServiceStatus.create_defaults

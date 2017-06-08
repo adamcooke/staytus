@@ -1,4 +1,4 @@
-class AddIdentifiersToIssuesAndMaintenances < ActiveRecord::Migration
+class AddIdentifiersToIssuesAndMaintenances < ActiveRecord::Migration[4.2]
   def change
     add_column :issues, :identifier, :string
     add_column :issue_updates, :identifier, :string

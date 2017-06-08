@@ -1,6 +1,6 @@
 class Admin::MaintenancesController < Admin::BaseController
 
-  before_filter { params[:id] && @maintenance = Maintenance.find(params[:id]) }
+  before_action { params[:id] && @maintenance = Maintenance.find(params[:id]) }
 
   def index
     @maintenances = Maintenance.open.ordered
@@ -54,7 +54,7 @@ class Admin::MaintenancesController < Admin::BaseController
   private
 
   def safe_params
-    params.require(:maintenance).permit(:auto, :service_ids => [])
+    params.require(:maintenance).permit(:title, :description, :start_at_as_string, :length_in_minutes_as_string, :service_status_id, :notify, :service_ids => [])
   end
 
 end

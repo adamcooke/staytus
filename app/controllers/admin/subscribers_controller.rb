@@ -1,6 +1,6 @@
 class Admin::SubscribersController < Admin::BaseController
 
-  before_filter { params[:id] && @subscriber = Subscriber.find(params[:id]) }
+  before_action { params[:id] && @subscriber = Subscriber.find(params[:id]) }
 
   def new
     @subscriber = Subscriber.new

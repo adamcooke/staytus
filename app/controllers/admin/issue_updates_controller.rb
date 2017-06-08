@@ -1,7 +1,7 @@
 class Admin::IssueUpdatesController < Admin::BaseController
 
-  before_filter { @issue = Issue.find(params[:issue_id]) }
-  before_filter { params[:id] && @issue_update = @issue.updates.find(params[:id]) }
+  before_action { @issue = Issue.find(params[:issue_id]) }
+  before_action { params[:id] && @issue_update = @issue.updates.find(params[:id]) }
 
   def create
     @update = @issue.updates.build(safe_params)
@@ -29,7 +29,7 @@ class Admin::IssueUpdatesController < Admin::BaseController
   private
 
   def safe_params
-    params.require(:issue_update).permit(:auto)
+    params.require(:issue_update).permit(:text, :state, :service_status_id, :notify)
   end
 
 end

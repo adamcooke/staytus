@@ -16,7 +16,7 @@
 
 class IssueUpdate < ActiveRecord::Base
 
-  validates :state, :inclusion => {:in => Issue::STATES, :allow_blank => true}
+  validates :state, :inclusion => {:in => Issue::STATES}
   validates :text, :presence => true
 
   belongs_to :issue, :touch => true

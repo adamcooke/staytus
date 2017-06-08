@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  before_filter { prepend_view_path(File.join(Staytus::Config.theme_root, 'views')) }
+  before_action { prepend_view_path(File.join(Staytus::Config.theme_root, 'views')) }
   layout Staytus::Config.theme_name
 
   def index
@@ -48,7 +48,7 @@ class PagesController < ApplicationController
     end
   end
 
-  before_filter :check_whether_subscriptions_are_enabled, :only => [:subscribe, :subscribe_by_email]
+  before_action :check_whether_subscriptions_are_enabled, :only => [:subscribe, :subscribe_by_email]
 
   def subscribe
   end

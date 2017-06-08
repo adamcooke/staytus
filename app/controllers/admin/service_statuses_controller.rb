@@ -1,6 +1,6 @@
 class Admin::ServiceStatusesController < Admin::BaseController
 
-  before_filter { params[:id] && @service_status = ServiceStatus.find(params[:id]) }
+  before_action { params[:id] && @service_status = ServiceStatus.find(params[:id]) }
 
   def index
     @service_statuses = ServiceStatus.ordered.sort_by_type
@@ -40,7 +40,7 @@ class Admin::ServiceStatusesController < Admin::BaseController
   private
 
   def safe_params
-    params.require(:service_status).permit(:auto)
+    params.require(:service_status).permit(:name, :permalink, :color, :status_type)
   end
 
 end

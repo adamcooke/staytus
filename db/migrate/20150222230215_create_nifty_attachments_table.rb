@@ -1,5 +1,5 @@
-class CreateNiftyAttachmentsTable < ActiveRecord::Migration
-  
+class CreateNiftyAttachmentsTable < ActiveRecord::Migration[4.2]
+
   def up
     create_table :nifty_attachments do |t|
       t.integer :parent_id
@@ -8,9 +8,9 @@ class CreateNiftyAttachmentsTable < ActiveRecord::Migration
       t.timestamps
     end
   end
-  
+
   def down
     drop_table :nifty_attachments
   end
-  
+
 end

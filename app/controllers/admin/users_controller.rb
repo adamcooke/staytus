@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::BaseController
 
-  before_filter { params[:id] && @user = User.find(params[:id]) }
+  before_action { params[:id] && @user = User.find(params[:id]) }
 
   def index
     @users = User.ordered
@@ -43,7 +43,7 @@ class Admin::UsersController < Admin::BaseController
   private
 
   def safe_params
-    params.require(:user).permit(:auto)
+    params.require(:user).permit(:name, :email_address, :password, :password_confirmation)
   end
 
 end

@@ -17,6 +17,5 @@ module Staytus
       g.helper          false
     end
     config.i18n.load_path += Dir[Rails.root.join('content', 'locales', '*.{rb,yml}').to_s]
-    config.active_record.raise_in_transactional_callbacks = true
   end
 end

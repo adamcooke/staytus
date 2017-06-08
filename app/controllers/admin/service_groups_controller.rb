@@ -1,6 +1,6 @@
 class Admin::ServiceGroupsController < Admin::BaseController
 
-  before_filter { params[:id] && @service_group = ServiceGroup.find(params[:id]) }
+  before_action { params[:id] && @service_group = ServiceGroup.find(params[:id]) }
 
   def index
     @service_groups = ServiceGroup.ordered
@@ -40,7 +40,7 @@ class Admin::ServiceGroupsController < Admin::BaseController
   private
 
   def safe_params
-    params.require(:service_group).permit(:auto)
+    params.require(:service_group).permit(:name)
   end
 
 end
