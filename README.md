@@ -17,7 +17,7 @@ any organization with customers that rely on them to be online 24/7.
 
 ### System Requirements
 
-* Ruby 2.1 or greater
+* Ruby 2.3 or greater
 * RubyGems and Bundler
 * A MySQL database server
 * Bundler (`gem install bundler`)
