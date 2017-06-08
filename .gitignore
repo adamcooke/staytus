@@ -15,4 +15,4 @@ config/environment.yml
 config/database.yml
 config/secret_token.yml
 public/assets
-
+Procfile.local
