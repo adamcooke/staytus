@@ -72,6 +72,7 @@ Rails.application.routes.draw do
   post 'subscribe/email' => 'pages#subscribe_by_email'
   get 'unsub/:token' => 'pages#unsubscribe'
   get 'verify/:token' => 'pages#subscriber_verification'
+  get 'service-group/:service_group' => 'pages#service_group'
   root 'pages#index'
 
 end
