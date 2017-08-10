@@ -8,11 +8,11 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: 5
-  username: staytus
-  password:
-  database: staytus
-  host: 127.0.0.1
+  pool: <%= ENV.fetch("DB_POOL_SIZE", 5).to_i %>
+  username: <%= ENV.fetch("DB_USER", "staytus") %>
+  password: <%= ENV.fetch("DB_PASSWORD", nil) %>
+  database: <%= ENV.fetch("DB_NAME", "staytus") %>
+  host: <%= ENV.fetch("DB_HOST", "127.0.0.1") %>
 
 production:
   <<: *default

@@ -5,15 +5,15 @@
 # they will be loaded when the application starts.
 
 # The theme to use
-STAYTUS_THEME: 'default'
+STAYTUS_THEME: <%= ENV.fetch("STAYTUS_THEME", 'default') %>
 
 # If enabled, the application will allow any username/password
 # combination to login to the admin area.
-STAYTUS_DEMO: '0'
+STAYTUS_DEMO: <%= ENV.fetch("STAYTUS_DEMO", '0') %>
 
 # Configure an SMTP server for sending messages. If you don't
 # configure an SMTP service, e-mail will be sent using sendmail.
-STAYTUS_SMTP_HOSTNAME: smtp.deliverhq.com
-STAYTUS_SMTP_PORT: '25'
-STAYTUS_SMTP_USERNAME: your-username
-STAYTUS_SMTP_PASSWORD: your-password
+STAYTUS_SMTP_HOSTNAME: <%= ENV.fetch("SMTP_HOST", "smtp.mandrillapp.com") %>
+STAYTUS_SMTP_PORT: <%= ENV.fetch("SMTP_PORT", 25) %>
+STAYTUS_SMTP_USERNAME: <%= ENV.fetch("SMTP_USER_NAME", user-name) %>
+STAYTUS_SMTP_PASSWORD: <%= ENV.fetch("SMTP_PASSWORD", nil) %>

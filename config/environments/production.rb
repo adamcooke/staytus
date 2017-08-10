@@ -51,6 +51,9 @@ Rails.application.configure do
   # Prepend all log lines with the following tags.
   config.log_tags = [ :uuid ]
 
+  if ENV["USE_STDOUT"] == "true"
+    config.logger = Logger.new(STDOUT)
+  end
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
