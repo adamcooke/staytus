@@ -27,7 +27,7 @@ any organization with customers that rely on them to be online 24/7.
 
 **A comprehensive tutorial about how to install Staytus [available here](https://atech.blog/atech/install-staytus-tutorial) on the [aTech Media blog](https://atech.blog).**
 
-Alternativly, these basic instructions will get you up and running:
+Alternatively, these basic instructions will get you up and running:
 
 Before start, you'll need to create a new MySQL database:
 
