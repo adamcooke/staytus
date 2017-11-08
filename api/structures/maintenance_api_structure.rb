@@ -7,6 +7,7 @@ structure :maintenance do
   full :length_in_minutes
   full :created_at
   full :updated_at
+  full :identifier
 
   expansion :services
 
