@@ -9,7 +9,7 @@ module Staytus
       end
 
       def theme_root
-        Rails.root.join('content', 'themes', self.theme_name)
+        ENV['STAYTUS_THEME_ROOT'] ? File.join(ENV['STAYTUS_THEME_ROOT'], self.theme_name) : Rails.root.join('content', 'themes', self.theme_name)
       end
 
       def version
