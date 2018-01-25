@@ -27,7 +27,7 @@ any organization with customers that rely on them to be online 24/7.
 
 **A comprehensive tutorial about how to install Staytus [available here](https://atech.blog/atech/install-staytus-tutorial) on the [aTech Media blog](https://atech.blog).**
 
-Alternativly, these basic instructions will get you up and running:
+Alternatively, these basic instructions will get you up and running:
 
 Before start, you'll need to create a new MySQL database:
 
@@ -79,7 +79,7 @@ All e-mail notifications are sent through a background worker process. This will
 
 To log in for the first time, visit the `/admin`, and log in with email
 `admin@example.com` and password `password`. You will probably want to go to
-Settings -> Users and set up your admins.
+`Settings` -> `Users` and set up your admins.
 
 ## Themes
 
