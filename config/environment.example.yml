@@ -17,3 +17,7 @@ STAYTUS_SMTP_HOSTNAME: smtp.deliverhq.com
 STAYTUS_SMTP_PORT: '25'
 STAYTUS_SMTP_USERNAME: your-username
 STAYTUS_SMTP_PASSWORD: your-password
+
+
+# Optional requirement for services that require you to set a domain value. example: mailgun
+# STAYTUS_SMTP_DOMAIN:  example.net
