@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307130608) do
+ActiveRecord::Schema.define(version: 20180307131640) do
 
   create_table "api_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "name"
@@ -107,6 +107,21 @@ ActiveRecord::Schema.define(version: 20180307130608) do
     t.integer "user_id"
     t.string "identifier"
     t.boolean "notify", default: false
+  end
+
+  create_table "login_events", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "user_type"
+    t.integer "user_id"
+    t.string "username"
+    t.string "action"
+    t.string "interface"
+    t.string "ip"
+    t.string "user_agent"
+    t.datetime "created_at"
+    t.index ["created_at"], name: "index_login_events_on_created_at"
+    t.index ["interface"], name: "index_login_events_on_interface", length: { interface: 10 }
+    t.index ["ip"], name: "index_login_events_on_ip", length: { ip: 10 }
+    t.index ["user_type", "user_id"], name: "index_login_events_on_user_type_and_user_id", length: { user_type: 10 }
   end
 
   create_table "maintenance_service_joins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|

@@ -14,7 +14,7 @@ class Admin::SessionsController < Admin::BaseController
     if Staytus::Config.demo?
       user = User.first
     else
-      user = User.authenticate(params[:email], params[:password])
+      user = User.authenticate(params[:email], params[:password], request.ip)
     end
     if user.is_a?(User)
       self.current_user = user
@@ -23,6 +23,9 @@ class Admin::SessionsController < Admin::BaseController
       flash.now.alert = 'The email address and/or password entered was incorrect. Please check and try again.'
       render 'new'
     end
+  rescue LogLogins::LoginBlocked => e
+    flash.now.alert = 'Login attempts have been blocked due to too many invalid passwords. Please try later.'
+    render 'new'
   end
 
   def destroy

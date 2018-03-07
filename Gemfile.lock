@@ -120,6 +120,8 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
+    log_logins (1.0.1)
+      activerecord
     loofah (2.2.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -237,6 +239,7 @@ DEPENDENCIES
   haml
   jquery-rails
   kaminari
+  log_logins
   moonrope
   mysql2
   nifty-attachments
