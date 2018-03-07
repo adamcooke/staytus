@@ -14,6 +14,8 @@
 
 class User < ActiveRecord::Base
 
+  include LogLogins::User
+
   validates :email_address, :presence => true, :email => true
   validates :name, :presence => true
 
