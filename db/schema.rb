@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307131640) do
+ActiveRecord::Schema.define(version: 20180307163706) do
 
   create_table "api_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "name"
@@ -120,7 +120,9 @@ ActiveRecord::Schema.define(version: 20180307131640) do
     t.datetime "created_at"
     t.index ["created_at"], name: "index_login_events_on_created_at"
     t.index ["interface"], name: "index_login_events_on_interface", length: { interface: 10 }
+    t.index ["ip", "id"], name: "index_login_events_on_ip_and_id", length: { ip: 50 }
     t.index ["ip"], name: "index_login_events_on_ip", length: { ip: 10 }
+    t.index ["user_id", "id"], name: "index_login_events_on_user_id_and_id"
     t.index ["user_type", "user_id"], name: "index_login_events_on_user_type_and_user_id", length: { user_type: 10 }
   end
 
