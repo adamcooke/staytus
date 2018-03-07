@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608083964) do
+ActiveRecord::Schema.define(version: 20180307130608) do
 
   create_table "api_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170608083964) do
     t.integer "requests", default: 0
     t.datetime "password_seen_at"
     t.string "token_hash"
+    t.string "host"
     t.index ["browser_id"], name: "index_authie_sessions_on_browser_id"
     t.index ["token"], name: "index_authie_sessions_on_token"
     t.index ["token_hash"], name: "index_authie_sessions_on_token_hash"

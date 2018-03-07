@@ -14,7 +14,7 @@
 #  updated_at        :datetime         not null
 #  closed_at         :datetime
 #  identifier        :string(255)
-#  notify            :boolean          default("0")
+#  notify            :boolean          default(FALSE)
 #
 
 class Maintenance < ActiveRecord::Base

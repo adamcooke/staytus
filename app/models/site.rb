@@ -9,10 +9,10 @@
 #  support_email       :string(255)
 #  website_url         :string(255)
 #  time_zone           :string(255)
-#  crawling_permitted  :boolean          default("0")
+#  crawling_permitted  :boolean          default(FALSE)
 #  email_from_name     :string(255)
 #  email_from_address  :string(255)
-#  allow_subscriptions :boolean          default("1")
+#  allow_subscriptions :boolean          default(TRUE)
 #  http_protocol       :string(255)
 #
 
