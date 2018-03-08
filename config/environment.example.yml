@@ -17,3 +17,6 @@ STAYTUS_SMTP_HOSTNAME: smtp.deliverhq.com
 STAYTUS_SMTP_PORT: '25'
 STAYTUS_SMTP_USERNAME: your-username
 STAYTUS_SMTP_PASSWORD: your-password
+
+# Configure SSL to be forced (ensuring HSTS headers are sent and cookies are all secure)
+FORCE_SSL: 1
