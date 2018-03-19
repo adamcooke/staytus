@@ -52,7 +52,7 @@ GEM
       activerecord (>= 2.3.0)
       rake (~> 10.4.2, >= 10.4.2)
     arel (8.0.0)
-    authie (3.1.3)
+    authie (3.1.5)
     bcrypt (3.1.11)
     builder (3.2.3)
     chronic (0.10.2)

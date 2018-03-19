@@ -14,6 +14,7 @@
 
 class User < ActiveRecord::Base
 
+  include Authie::User
   include LogLogins::User
 
   validates :email_address, :presence => true, :email => true
