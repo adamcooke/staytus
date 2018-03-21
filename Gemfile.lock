@@ -122,7 +122,7 @@ GEM
     kaminari-core (1.1.1)
     log_logins (1.0.2)
       activerecord
-    loofah (2.2.0)
+    loofah (2.2.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.0)
