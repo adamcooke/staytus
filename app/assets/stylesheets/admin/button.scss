@@ -67,12 +67,12 @@
 // Colors
 
 $buttonColours: (
-  grey: $grey,
-  red: $red,
-  lime: $lime,
-  green: $green,
-  lightGrey: #aaa,
-  white: #fff
+  "grey": $grey,
+  "red": $red,
+  "lime": $lime,
+  "green": $green,
+  "lightGrey": #aaa,
+  "white": #fff
 );
 
 @each $name, $colour in $buttonColours {
