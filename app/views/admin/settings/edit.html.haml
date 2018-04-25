@@ -56,6 +56,10 @@
         .fieldSet__checkbox.fieldSet__selectContainer
           = f.check_box :allow_subscriptions
           = f.label :allow_subscriptions, "Yes - allow visitors to receive updates whenever you add/update issues"
+    %dl.fieldSet__field.u-margin-2x
+      %dt.fieldSet__label= f.label :privacy_policy_url, "Privacy Policy URL"
+      %dd.fieldSet__input= f.text_field :privacy_policy_url, :class => 'textInput'
+
 
     %h2.fieldSet__subHeading.u-margin Outgoing E-Mail Settings
     .row

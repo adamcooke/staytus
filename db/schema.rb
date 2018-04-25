@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307163706) do
+ActiveRecord::Schema.define(version: 20180425131827) do
 
   create_table "api_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "name"
@@ -209,6 +209,7 @@ ActiveRecord::Schema.define(version: 20180307163706) do
     t.string "email_from_address"
     t.boolean "allow_subscriptions", default: true
     t.string "http_protocol"
+    t.string "privacy_policy_url"
   end
 
   create_table "subscribers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
