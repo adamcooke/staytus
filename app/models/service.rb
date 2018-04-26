@@ -44,4 +44,11 @@ class Service < ActiveRecord::Base
     Service.create!(:name => "Customer Support")
   end
 
+  def self.reorder(ids)
+    ids.map(&:to_i).each_with_index do |id, index|
+      service = Service.find(id)
+      service.update(:position => index + 1)
+    end
+  end
+
 end
