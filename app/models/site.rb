@@ -25,7 +25,7 @@ class Site < ActiveRecord::Base
   validates :http_protocol, :inclusion => {:in => ['http', 'https']}
   validates :support_email, :presence => true, :email => true
   validates :website_url, :url => true
-  validates :privacy_policy_url, :url => true
+  validates :privacy_policy_url, :url => {:allow_blank => true}
   validates :time_zone, :presence => true
 
   default_value :time_zone, -> { 'UTC' }
