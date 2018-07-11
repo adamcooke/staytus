@@ -20,6 +20,10 @@ module Staytus
         ENV['STAYTUS_DEMO'] == '1'
       end
 
+      def omniauth_saml?
+        ENV['OMNIAUTH_SAML'] == '1'
+      end
+
     end
   end
 end
