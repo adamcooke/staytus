@@ -2,7 +2,7 @@
   "name": "Staytus",
   "description": "An open source solution for publishing the status of your services",
   "keywords": [
-    "status",
+    "status"
   ],
   "website": "http://staytus.co/",
   "repository": "https://github.com/adamcooke/staytus",
