@@ -5,6 +5,8 @@ any issues with your web applications, networks or services. Along with
 absolutely beautiful public & admin interfaces, Staytus is a powerful tool for
 any organization with customers that rely on them to be online 24/7.
 
+[![](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/ideasasylum/staytus/)
+
 * [Check out the live demo](http://demo.staytus.co)
 * [Read the roadmap](https://github.com/adamcooke/staytus/blob/master/ROADMAP.md)
 * [Report a bug](https://github.com/adamcooke/staytus/issues/new?labels=bug)
