@@ -29,19 +29,19 @@
     },
     "STAYTUS_SMTP_HOSTNAME": {
       "description": "SMTP server name",
-      "required": "true"
+      "required": true
     },
     "STAYTUS_SMTP_PORT": {
       "description": "SMTP server port",
-      "required": "true"
+      "required": true
     },
     "STAYTUS_SMTP_USERNAME": {
       "description": "SMTP server username",
-      "required": "true"
+      "required": true
     },
     "STAYTUS_SMTP_PASSWORD": {
       "description": "SMTP server password",
-      "required": "true"
+      "required": true
     }
   },
   "formation": {
