@@ -6,7 +6,6 @@
   ],
   "website": "http://staytus.co/",
   "repository": "https://github.com/adamcooke/staytus",
-  "logo": "http://staytus.co/assets/images/logo-brown.svg",
   "success_url": "/",
   "scripts": {
     "postdeploy": "bundle exec rake staytus:build staytus:install"
