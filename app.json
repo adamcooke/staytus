@@ -1,0 +1,63 @@
+{
+  "name": "Staytus",
+  "description": "An open source solution for publishing the status of your services",
+  "keywords": [
+    "status",
+  ],
+  "website": "http://staytus.co/",
+  "repository": "https://github.com/adamcooke/staytus",
+  "logo": "http://staytus.co/assets/images/logo-brown.svg",
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "bundle exec rake staytus:build staytus:install"
+  },
+  "env": {
+    "SECRET_TOKEN": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "STAYTUS_THEME": {
+      "description": "The theme to use",
+      "value": "default"
+    },
+    "STAYTUS_DEMO": {
+      "description": "If enabled, the application will allow any username/password combination to login to the admin area.",
+      "value": "0"
+    },
+    "FORCE_SSL": {
+      "description": "Configure SSL to be forced (ensuring HSTS headers are sent and cookies are all secure)",
+      "value": "1"
+    },
+    "STAYTUS_SMTP_HOSTNAME": {
+      "description": "SMTP server details",
+      "value": "default"
+    },
+    "STAYTUS_SMTP_PORT": {
+      "description": "SMTP server details",
+      "value": "default"
+    },
+    "STAYTUS_SMTP_USERNAME": {
+      "description": "SMTP server details",
+      "value": "default"
+    },
+    "STAYTUS_SMTP_PASSWORD": {
+      "description": "SMTP server details",
+      "value": "default"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "image": "heroku/ruby",
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev",
+      "options": {
+        "version": "9.5"
+      }
+    }
+  ]
+}
