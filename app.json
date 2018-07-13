@@ -28,20 +28,20 @@
       "value": "1"
     },
     "STAYTUS_SMTP_HOSTNAME": {
-      "description": "SMTP server details",
-      "value": "default"
+      "description": "SMTP server name",
+      "required": "true"
     },
     "STAYTUS_SMTP_PORT": {
-      "description": "SMTP server details",
-      "value": "default"
+      "description": "SMTP server port",
+      "required": "true"
     },
     "STAYTUS_SMTP_USERNAME": {
-      "description": "SMTP server details",
-      "value": "default"
+      "description": "SMTP server username",
+      "required": "true"
     },
     "STAYTUS_SMTP_PASSWORD": {
-      "description": "SMTP server details",
-      "value": "default"
+      "description": "SMTP server password",
+      "required": "true"
     }
   },
   "formation": {
