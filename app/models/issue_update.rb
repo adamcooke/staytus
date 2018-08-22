@@ -52,6 +52,7 @@ class IssueUpdate < ActiveRecord::Base
   end
 
   def send_notifications
+    Staytus::Webhookcaller.call('issue_update', :detail => self)
     for subscriber in Subscriber.verified
       Staytus::Email.deliver(subscriber, :new_issue_update, :issue => self.issue, :update => self)
     end
