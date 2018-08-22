@@ -90,15 +90,13 @@ module Staytus
           request = Net::HTTP::Post.new(uri.request_uri, header)
 
           request.body = message.to_json
-          puts message.to_json
 
-          response = http.request(request)
           # Send the request
-          #begin
-
-          #rescue StandardError
+          begin
+            response = http.request(request)
+          rescue StandardError
             # Ignore if failed!
-          #end
+          end
 
         end
       end # call
