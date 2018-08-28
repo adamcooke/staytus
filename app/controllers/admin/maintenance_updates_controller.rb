@@ -29,7 +29,7 @@ class Admin::MaintenanceUpdatesController < Admin::BaseController
   private
 
   def safe_params
-    params.require(:maintenance_update).permit(:text)
+    params.require(:maintenance_update).permit(:text, :notify)
   end
 
 end
