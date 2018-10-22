@@ -145,7 +145,7 @@ GEM
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
     nio4r (2.3.0)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     numerizer (0.1.1)
     omniauth (1.8.1)
