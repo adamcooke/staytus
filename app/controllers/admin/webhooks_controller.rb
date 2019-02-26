@@ -3,7 +3,7 @@ class Admin::WebhooksController < Admin::BaseController
   before_action { params[:id] && @webhook = Webhook.find(params[:id]) }
 
   def index
-    @webhooks = Webhook.ordered
+    @webhooks = Webhook.ordered.page(params[:page])
   end
 
   def new
