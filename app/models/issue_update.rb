@@ -58,17 +58,14 @@ class IssueUpdate < ActiveRecord::Base
   end
 
   def call_webhook
-    Staytus::Webhookcaller.call('issue_update', :detail => self)
+    Staytus::Webhookcaller.call(:issue_update, :object => self.issue, :update => self)
   end
 
   def send_notifications_on_create
-
     if self.notify?
       delay.send_notifications
     end
-
-    self.delay.call_webhook
-
+    delay.call_webhook
   end
 
 end
