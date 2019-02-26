@@ -1,38 +1,24 @@
+# Rocket.Chat WebHook integration
+
+Add the following script for formatting messages for Rocket.Chat
+
+```javascript
 class Script {
-  /**
-   * @params {object} request
-   */
   process_incoming_request({ request }) {
-    // request.url.hash
-    // request.url.search
-    // request.url.query
-    // request.url.pathname
-    // request.url.path
-    // request.url_raw
-    // request.url_params
-    // request.headers
-    // request.user._id
-    // request.user.name
-    // request.user.username
-    // request.content_raw
-    // request.content
-
-    var staytus_url = "http://localhost:3000"
-
-
     var staytus = request.content;
     var message = {};
     message.attachement = [];
 
     var attachement = {}
-    attachement.title = staytus.data.title + " (" + staytus.data.updates.state + ")";
-    attachement.title_link = staytus_url + "/issue/" + staytus.data.identifier;
+    attachement.title = staytus.data.title +
+      " (" + staytus.data.class + ": " + staytus.data.state + ")";
+    attachement.title_link = staytus.data.url;
     attachement.text = staytus.data.updates.text;
     attachement.text += "\n\nAffected Services:";
     message.attachement.push(attachement);
 
 
-    // Add more attachements for each affected Service
+    // add attachements for each affected service
     if (staytus.data.services.length > 0) {
       for (i = 0; i < staytus.data.services.length; i++) {
         var status_attachement = {}
@@ -49,9 +35,10 @@ class Script {
     return {
       content:{
         text: "",
-         "attachments":  message.attachement
+         "attachments": message.attachement
        }
     };
 
   }
 }
+```
