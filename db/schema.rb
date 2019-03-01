@@ -228,7 +228,7 @@ ActiveRecord::Schema.define(version: 20180821114121) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "webhooks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "webhooks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "name", null: false
     t.string "url", null: false
   end
