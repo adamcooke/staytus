@@ -64,8 +64,8 @@ class IssueUpdate < ActiveRecord::Base
   def send_notifications_on_create
     if self.notify?
       delay.send_notifications
+      delay.call_webhook
     end
-    delay.call_webhook
   end
 
 end
