@@ -18,7 +18,7 @@ module Staytus
           data["services"] = object.services.map do |service|
             service.as_json.merge( "status" => service.status.as_json )
           end
-          data["updates"] = update.as_json
+          data["text"] = update ? update.text : object.description
           # Add a URL reference
           data["url"] = "#{Site.first.domain_with_protocol}/#{object.class.to_s.downcase}/#{object.identifier}"
           message["data"] = data
