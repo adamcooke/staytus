@@ -13,7 +13,7 @@ class Script {
     attachement.title = staytus.data.title +
       " (" + staytus.data.class + ": " + staytus.data.state + ")";
     attachement.title_link = staytus.data.url;
-    attachement.text = staytus.data.updates.text;
+    attachement.text = staytus.data.text;
     attachement.text += "\n\nAffected Services:";
     message.attachement.push(attachement);
 
