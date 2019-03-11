@@ -18,6 +18,15 @@ To send parameters you should send a JSON hash containing your
 parameters in the body of your request. Be sure to set the request
 content type to `application/json`.
 
+For example, to retrieve information for a service called 'webapp' you can send the following
+request
+
+```POST /api/v1/services/info```
+
+and then use the following JSON hash in the body of your request.
+
+```{ "service" : "webapp" }```
+
 ## Ruby Library
 
 You can use any Moonrope-compatible API client to interact with
