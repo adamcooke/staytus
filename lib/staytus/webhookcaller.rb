@@ -13,7 +13,7 @@ module Staytus
 
         # Add Maintenance/Issue related data to the message
         if object.is_a? Issue or object.is_a? Maintenance
-          data =  object.as_json
+          data = object.as_json
           data["class"] = object.class.to_s
           data["services"] = object.services.map do |service|
             service.as_json.merge( "status" => service.status.as_json )
@@ -29,7 +29,7 @@ module Staytus
         end
 
         Webhook.all.each do |webhook|
-          puts "Call Webhook #{webhook.name} with URL: #{webhook.url}"
+          logger.info "Call Webhook #{webhook.name} with URL: #{webhook.url}"
           header = {"Content-Type" => "application/json"}
           uri = URI(webhook.url)
 
@@ -39,12 +39,14 @@ module Staytus
 
           request = Net::HTTP::Post.new(uri.request_uri, header)
           request.body = message.to_json
+          
+          logger.debug message.to_json
 
           # Send the request
           begin
             http.request(request)
           rescue => e
-            puts "Error calling webhook: #{e.message}"
+            logger.error "Error calling webhook: #{e.message}"
           end
         end
       end # call
