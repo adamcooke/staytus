@@ -29,7 +29,7 @@ module Staytus
         end
 
         Webhook.all.each do |webhook|
-          logger.info "Call Webhook #{webhook.name} with URL: #{webhook.url}"
+          Rails.logger.info "Call Webhook #{webhook.name} with URL: #{webhook.url}"
           header = {"Content-Type" => "application/json"}
           uri = URI(webhook.url)
 
@@ -39,14 +39,14 @@ module Staytus
 
           request = Net::HTTP::Post.new(uri.request_uri, header)
           request.body = message.to_json
-          
-          logger.debug message.to_json
+
+          Rails.logger.debug message.to_json
 
           # Send the request
           begin
             http.request(request)
           rescue => e
-            logger.error "Error calling webhook: #{e.message}"
+            Rails.logger.error "Error calling webhook: #{e.message}"
           end
         end
       end # call
