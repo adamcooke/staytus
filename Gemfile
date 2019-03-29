@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'rails', '~> 5.1'
+gem 'rails', '~> 5.2.3'
 gem 'mysql2'
 gem 'sass-rails'
 gem 'uglifier'
@@ -29,5 +29,5 @@ gem 'rack-custom-proxies'
 gem 'log_logins'
 
 group :development, :test do
-  gem 'annotate', '~> 2.6.5'
+  gem 'annotate', '~> 2.7.4'
 end
