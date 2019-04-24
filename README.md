@@ -3,7 +3,7 @@
 Staytus is a complete solution for publishing the latest information about
 any issues with your web applications, networks or services. Along with
 absolutely beautiful public & admin interfaces, Staytus is a powerful tool for
-any organization with customers rely on them to be online 24/7.
+any organization with customers that rely on them to be online 24/7.
 
 * [Check out the live demo](http://demo.staytus.co)
 * [Read the roadmap](https://github.com/adamcooke/staytus/blob/master/ROADMAP.md)
@@ -12,16 +12,15 @@ any organization with customers rely on them to be online 24/7.
 
 ![Screenshot](https://s.adamcooke.io/15/iOzvtk.png)
 
-## System Requirements
+## Installation from source
+
+### System Requirements
 
 * Ruby 2.1 or greater
 * RubyGems and Bundler
 * A MySQL database server
 
-## Installation from source
-
-Currently the only way to install Stayus is from the source repository.
-To do this, you'll need Git installed.
+### Instructions
 
 Before start, you'll need to create a new MySQL database:
 
@@ -32,8 +31,8 @@ mysql$ GRANT ALL ON staytus.* TO `staytus`@`localhost` IDENTIFIED BY "a_secure_p
 
 ```text
 $ git clone https://github.com/adamcooke/staytus
-$ git checkout stable
 $ cd staytus
+$ git checkout stable
 $ bundle install --deployment --without development:test
 $ cp config/database.example.yml config/database.yml
 $ nano -w config/database.yml # Add your database configuration
@@ -44,6 +43,9 @@ $ bundle exec foreman start
 This will run the application on HTTP port 5000. When you first
 login, you'll be able to add your own site settings. Browse to http://[IP]:5000
 to begin.
+
+You may also want to change the SMTP configuration via environment variables,
+which are described in [`config/environment.example.yml`](config/environment.example.yml).
 
 ### Upgrading
 
@@ -60,12 +62,22 @@ $ bundle exec rake staytus:build staytus:upgrade
 Once you've done this, you should ensure you restart any Staytus
 processes which you have running.
 
+## E-Mail Notifications
+
+All e-mail notifications are sent through a background worker process. This will be started automatically when you run the application using `foreman start`. If you don't do this, you can run jobs using `bundle exec rake jobs:work`.
+
+## Administration
+
+To log in for the first time, visit the `/admin`, and log in with email
+`admin@example.com` and password `password`. You will probably want to go to
+Settings -> Users and set up your admins.
+
 ## Themes
 
 All themes are stored in the `content/themes` directory. You can
-add your own these in this directory but we do not recommend
+add your own themes in this directory but we do not recommend
 making changes to the `default` theme as these changes may get
-overriden in an upgrade.
+overridden in an upgrade.
 
 Full details about how to make these will be coming soon.
 
@@ -75,7 +87,7 @@ Full details about how to make these will be coming soon.
 * [Dial 9 Status Site](http://status.dial9.co.uk)
 
 If you're running Staytus in the wild, let us know so we can
-add you tot he list.
+add you to the list.
 
 ## Screenshots
 

@@ -2,6 +2,7 @@ if ENV['STAYTUS_SMTP_HOSTNAME']
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     :address    => ENV['STAYTUS_SMTP_HOSTNAME'],
+    :port       => ENV['STAYTUS_SMTP_PORT'],
     :user_name  => ENV['STAYTUS_SMTP_USERNAME'],
     :password   => ENV['STAYTUS_SMTP_PASSWORD']
   }

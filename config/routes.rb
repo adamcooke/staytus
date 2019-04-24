@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :users
     resources :services
     resources :service_statuses
+    resources :service_groups
     resources :email_templates, :only => [:index, :edit, :update, :destroy]
     resources :api_tokens
 
@@ -40,7 +41,7 @@ Rails.application.routes.draw do
     #
     # Subscribers
     #
-    resources :subscribers, :only => [:index, :destroy] do
+    resources :subscribers, :only => [:index, :destroy, :new, :create] do
       post 'verify', :on => :member
     end
 

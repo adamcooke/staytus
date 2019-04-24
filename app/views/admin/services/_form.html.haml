@@ -18,6 +18,12 @@
       %dd.fieldSet__input
         .fieldSet__selectContainer
           = f.collection_select :status_id, ServiceStatus.all, :id, :name
+    - if ServiceGroup.count > 0
+      %dl.fieldSet__field.u-margin
+        %dt.fieldSet__label= f.label :group_id, "Service Group"
+        %dd.fieldSet__input
+          .fieldSet__selectContainer
+            = f.collection_select :group_id, ServiceGroup.all, :id, :name, :include_blank => true
 
   .formButtons
     - unless @service.new_record?

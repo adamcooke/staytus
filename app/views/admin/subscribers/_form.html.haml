@@ -1,0 +1,12 @@
+= form_for [:admin, @subscriber] do |f|
+  = f.error_messages
+  .fieldSet.u-margin-2x
+    %dl.fieldSet__field.u-margin
+      %dt.fieldSet__label= f.label :email_address
+      %dd.fieldSet__input= f.text_field :email_address, :class => 'textInput', :required => true, :autofocus => true
+
+  .formButtons
+    - unless @subscriber.new_record?
+      .formButtons__secondary= link_to "Delete", [:admin, @subscriber], :class => 'button button--solid button--grey', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this subscriber?"}
+    = f.submit :class => 'button button--solid'
+    = link_to "Cancel", @subscriber.new_record? ? admin_issues_path : [:admin, @subscriber], :class => 'button button--lightGrey'

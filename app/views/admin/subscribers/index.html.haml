@@ -1,5 +1,6 @@
 - @active_nav_item = :subscribers
 - content_for :page_header do
+  .pageHeader__button= link_to 'Add a new subscriber', new_admin_subscriber_path, :class => 'button button--small button--green button--solid'
   %h1.pageHeader__heading.u-margin= @page_title = 'Subscribers'
   %p.u-intro
     This page lists all the people who have subscribed to receive e-mail whenever

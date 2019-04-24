@@ -4,6 +4,7 @@
 .serviceList {
   border:2px solid #bfc8d0;
   border-radius:6px;
+  margin-bottom: 10px;
 }
 
 .serviceList__item {
@@ -27,18 +28,12 @@
 }
 
 .serviceList__description {
-  display:inline-block;
-  text-indent: -40000px;
-  background:image-url('default/question.svg');
-  background-size:14px;
-  height:14px;
-  width:14px;
-  vertical-align: -3px;
-  margin-left:5px;
-  .ui-tooltip-group {
-    text-indent: 0;
-    opacity: 0.8;
-  }
+  background: transparent image-url('default/question.svg') 0 0 / 100% auto no-repeat;
+  display: inline-block;
+  height: 14px;
+  margin-left: 5px;
+  vertical-align: -1px;
+  width: 14px;
 }
 
 .serviceList__name {

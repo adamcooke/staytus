@@ -19,3 +19,7 @@ production:
 
 development:
   <<: *default
+
+test:
+  <<: *default
+  database: staytus_test
