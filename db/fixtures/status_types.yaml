@@ -1,0 +1,6 @@
+---
+- :status_types:
+    - :ok
+    - :minor
+    - :major
+    - :maintenance

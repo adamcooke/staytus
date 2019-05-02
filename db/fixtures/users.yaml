@@ -1,0 +1,6 @@
+---
+- :email_address: admin@staytus.dev
+  :name: Administrator
+  :user_id: admin
+  :password: smartvm
+  # :group: StaytusGroup-super_administrator

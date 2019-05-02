@@ -37,11 +37,21 @@ class Service < ActiveRecord::Base
 
   scope :ordered, -> { order(:position => :asc) }
 
-  def self.create_defaults
-    Service.create!(:name => "Web Application")
-    Service.create!(:name => "API")
-    Service.create!(:name => "Public Website")
-    Service.create!(:name => "Customer Support")
+  def self.seed
+    seed_data[:services].each do |service_name|
+      next if find_by_name(service_name)
+      service = create(name: service_name)
+      service.save
+    end
   end
 
+  def self.seed_file_name
+    @seed_file_name ||= Rails.root.join("db", "fixtures", "#{table_name}.yaml")
+  end
+  private_class_method :seed_file_name
+
+  def self.seed_data
+    File.exist?(seed_file_name) ? YAML.load_file(seed_file_name) : []
+  end
+  private_class_method :seed_data
 end

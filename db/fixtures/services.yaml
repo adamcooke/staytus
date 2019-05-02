@@ -1,0 +1,6 @@
+---
+:services:
+  - API
+  - Ingest
+  - Persister
+  - Storage
