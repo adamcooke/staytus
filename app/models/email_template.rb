@@ -3,9 +3,9 @@
 # Table name: email_templates
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
-#  subject    :string(255)
-#  content    :text(65535)
+#  name       :string
+#  subject    :string
+#  content    :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

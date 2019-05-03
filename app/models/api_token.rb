@@ -3,9 +3,9 @@
 # Table name: api_tokens
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
-#  token      :string(255)
-#  secret     :string(255)
+#  name       :string
+#  token      :string
+#  secret     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
