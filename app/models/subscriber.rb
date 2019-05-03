@@ -3,8 +3,8 @@
 # Table name: subscribers
 #
 #  id                 :integer          not null, primary key
-#  email_address      :string(255)
-#  verification_token :string(255)
+#  email_address      :string
+#  verification_token :string
 #  verified_at        :datetime
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null

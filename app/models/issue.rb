@@ -3,14 +3,14 @@
 # Table name: issues
 #
 #  id                :integer          not null, primary key
-#  title             :string(255)
-#  state             :string(255)
+#  title             :string
+#  state             :string
 #  service_status_id :integer
 #  all_services      :boolean          default(TRUE)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  user_id           :integer
-#  identifier        :string(255)
+#  identifier        :string
 #  notify            :boolean          default(FALSE)
 #
 

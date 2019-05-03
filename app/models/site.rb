@@ -3,18 +3,18 @@
 # Table name: sites
 #
 #  id                  :integer          not null, primary key
-#  title               :string(255)
-#  description         :string(255)
-#  domain              :string(255)
-#  support_email       :string(255)
-#  website_url         :string(255)
-#  time_zone           :string(255)
+#  title               :string
+#  description         :string
+#  domain              :string
+#  support_email       :string
+#  website_url         :string
+#  time_zone           :string
 #  crawling_permitted  :boolean          default(FALSE)
-#  email_from_name     :string(255)
-#  email_from_address  :string(255)
+#  email_from_name     :string
+#  email_from_address  :string
 #  allow_subscriptions :boolean          default(TRUE)
-#  http_protocol       :string(255)
-#  privacy_policy_url  :string(255)
+#  http_protocol       :string
+#  privacy_policy_url  :string
 #
 
 class Site < ActiveRecord::Base
