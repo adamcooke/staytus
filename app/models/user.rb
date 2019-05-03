@@ -2,12 +2,24 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  email_address   :string(255)
-#  name            :string(255)
-#  password_digest :string(255)
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id               :integer          not null, primary key
+#  email_address    :string
+#  name             :string
+#  password_digest  :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  icon             :string
+#  user_id          :string
+#  last_log_on      :datetime
+#  last_log_off     :datetime
+#  current_group_id :bigint
+#  first_name       :string
+#  last_name        :string
+#
+# Indexes
+#
+#  index_users_on_current_group_id  (current_group_id)
+#  index_users_on_user_id           (user_id)
 #
 
 

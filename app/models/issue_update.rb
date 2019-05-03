@@ -6,12 +6,13 @@
 #  issue_id          :integer
 #  user_id           :integer
 #  service_status_id :integer
-#  state             :string(255)
-#  text              :text(65535)
+#  state             :string
+#  text              :text
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
-#  identifier        :string(255)
+#  identifier        :string
 #  notify            :boolean          default(FALSE)
+#  image_url         :string
 #
 
 class IssueUpdate < ActiveRecord::Base

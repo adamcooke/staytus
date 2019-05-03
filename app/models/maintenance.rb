@@ -3,8 +3,8 @@
 # Table name: maintenances
 #
 #  id                :integer          not null, primary key
-#  title             :string(255)
-#  description       :text(65535)
+#  title             :string
+#  description       :text
 #  start_at          :datetime
 #  finish_at         :datetime
 #  length_in_minutes :integer
@@ -13,7 +13,7 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  closed_at         :datetime
-#  identifier        :string(255)
+#  identifier        :string
 #  notify            :boolean          default(FALSE)
 #
 
