@@ -8,11 +8,14 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
+/.ruby-version
+/.ruby-gemset
 /log/*
 !/log/.keep
 /tmp
 config/environment.yml
 config/database.yml
 config/secret_token.yml
+Gemfile.lock
 public/assets
 Procfile.local
