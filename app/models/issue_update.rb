@@ -12,7 +12,6 @@
 #  updated_at        :datetime         not null
 #  identifier        :string
 #  notify            :boolean          default(FALSE)
-#  image_url         :string
 #
 
 class IssueUpdate < ActiveRecord::Base
