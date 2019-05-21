@@ -98,7 +98,6 @@ ActiveRecord::Schema.define(version: 2019_05_03_135242) do
     t.datetime "updated_at", null: false
     t.string "identifier"
     t.boolean "notify", default: false
-    t.string "image_url"
   end
 
   create_table "issues", id: :serial, force: :cascade do |t|

@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   around_action :set_time_zone
-  before_action :ensure_site
 
   rescue_from Authie::Session::ValidityError, :with => :auth_session_error
 
@@ -32,11 +31,4 @@ class ApplicationController < ActionController::Base
     site.is_a?(Site)
   end
   helper_method :has_site?
-
-  def ensure_site
-    unless site.is_a?(Site)
-      redirect_to setup_path(:step1)
-    end
-  end
-
 end

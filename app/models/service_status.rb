@@ -53,4 +53,21 @@ class ServiceStatus < ActiveRecord::Base
     where("1=1").sort_by { |s| ServiceStatus::STATUS_TYPES.index(s.status_type) }
   end
 
+  def self.seed
+    seed_data[:service_statuses].each do |service_status_attributes|
+      next if find_by_name(service_status_attributes[:name])
+      service_status = create(service_status_attributes)
+      service_status.save
+    end
+  end
+
+  def self.seed_file_name
+    @seed_file_name ||= Rails.root.join("db", "fixtures", "#{table_name}.yaml")
+  end
+  private_class_method :seed_file_name
+
+  def self.seed_data
+    File.exist?(seed_file_name) ? YAML.load_file(seed_file_name) : []
+  end
+  private_class_method :seed_data
 end

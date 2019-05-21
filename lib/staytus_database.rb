@@ -1,7 +1,10 @@
 class StaytusDatabase
   # A ordered list of classes that are seeded before server initialization.
   PRIMORDIAL_SEEDABLE_CLASSES = %w[
+    Site
+    ServiceStatus
     Service
+    ServiceGroup
     User
   ].freeze
 
