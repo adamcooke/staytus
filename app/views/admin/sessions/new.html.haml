@@ -2,7 +2,7 @@
   .loginForm
     %dl.loginField.u-margin
       %dt= label_tag 'email', 'E-Mail Address'
-      %dd= text_field_tag 'email', params[:email], :class => 'loginInput', :autofocus => true, :required => true, :placeholder => "E-Mail Address"
+      %dd= text_field_tag 'email', params[:email], :class => 'loginInput', :autofocus => true, :required => true, :placeholder => "E-Mail Address or Username"
     %dl.loginField.u-margin
       %dt= label_tag 'password', 'Password'
       %dd= password_field_tag 'password', params[:password], :class => 'loginInput', :required => true, :placeholder => "Password"

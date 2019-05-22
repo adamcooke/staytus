@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(email, password, ip)
-    user = self.where(:email_address => email).first
+    user = find_for_database_authentication({:email => email})
     unless user
       LogLogins.fail(email, nil, ip)
       return :no_user
@@ -60,6 +60,10 @@ class User < ActiveRecord::Base
 
     LogLogins.success(email, user, ip)
     user
+  end
+
+  def self.find_for_database_authentication(conditions={})
+    find_by(user_id: conditions[:email]) || find_by(email_address: conditions[:email])
   end
 
   def self.seed
