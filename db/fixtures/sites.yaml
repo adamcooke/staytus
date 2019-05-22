@@ -1,0 +1,8 @@
+---
+  - :title: Example Site
+    :domain: example.com
+    :website_url: http://example.com
+    :support_email: email@example.com
+    :description: Example Site
+    :http_protocol: http
+    :time_zone: UTC

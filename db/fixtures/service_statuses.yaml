@@ -1,0 +1,17 @@
+---
+  :service_statuses:
+  - :name: 'Operational'
+    :status_type: 'ok'
+    :color: '2FCC66'
+  - :name: 'Degraded Performance'
+    :status_type: 'minor'
+    :color: 'F1C40F'
+  - :name: 'Partial Outage'
+    :status_type: 'minor'
+    :color: 'E67E22'
+  - :name: 'Major Outage'
+    :status_type: 'major'
+    :color: 'E74C3C'
+  - :name: 'Maintenance'
+    :status_type: 'maintenance'
+    :color: 'AAAAAA'

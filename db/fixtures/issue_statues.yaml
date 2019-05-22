@@ -1,0 +1,6 @@
+---
+:states:
+  - investigating
+  - identified
+  - monitoring
+  - resolved

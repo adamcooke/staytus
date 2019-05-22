@@ -57,11 +57,6 @@ Rails.application.routes.draw do
   end
 
   #
-  # Setup Wizard
-  #
-  match 'setup/:action', :controller => 'setup', :as => 'setup', :via => [:get, :post]
-
-  #
   # Public Site Paths
   #
   get 'issue/:id' => 'pages#issue'

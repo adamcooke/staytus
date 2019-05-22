@@ -50,4 +50,23 @@ class Site < ActiveRecord::Base
     "#{http_protocol}://#{domain}"
   end
 
+  def self.seed
+    seed_data.each do |site_attributes|
+      site_id = site_attributes[:site_id]
+      next if find_by_id(site_id)
+      site = create(site_attributes)
+      site.save
+    end
+  end
+
+  def self.seed_file_name
+    @seed_file_name ||= Rails.root.join("db", "fixtures", "#{table_name}.yaml")
+  end
+  private_class_method :seed_file_name
+
+  def self.seed_data
+    File.exist?(seed_file_name) ? YAML.load_file(seed_file_name) : []
+  end
+  private_class_method :seed_data
+
 end

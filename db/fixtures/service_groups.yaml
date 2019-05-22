@@ -1,0 +1,6 @@
+---
+:service_groups:
+  - 3Scale
+  - AI-Ops
+  - Insights
+  - Topological Inventory

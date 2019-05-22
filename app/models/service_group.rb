@@ -15,5 +15,21 @@ class ServiceGroup < ActiveRecord::Base
 
   has_many :services, :dependent => :nullify, :foreign_key => 'group_id'
 
-end
+  def self.seed
+    seed_data[:service_groups].each do |service_group|
+      next if find_by_name(service_group)
+      service_group = create(name: service_group)
+      service_group.save
+    end
+  end
 
+  def self.seed_file_name
+    @seed_file_name ||= Rails.root.join("db", "fixtures", "#{table_name}.yaml")
+  end
+  private_class_method :seed_file_name
+
+  def self.seed_data
+    File.exist?(seed_file_name) ? YAML.load_file(seed_file_name) : []
+  end
+  private_class_method :seed_data
+end
