@@ -116,7 +116,7 @@ update.created_at = 15.minutes.ago
 update.save!
 
 update = issue.updates.build
-update.text = "It appears that the changes we made earlier weren't properly propogated to all routers on our network. We're pushing a fix out not."
+update.text = "It appears that the changes we made earlier weren't properly propogated to all routers on our network. We're pushing a fix out now."
 update.state = 'identified'
 update.user = User.first
 issue.service_status = ServiceStatus.find_by_name('Partial Outage')
