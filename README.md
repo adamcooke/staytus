@@ -10,6 +10,7 @@ any organization with customers that rely on them to be online 24/7.
 * [Report a bug](https://github.com/adamcooke/staytus/issues/new?labels=bug)
 * [Ask a question](https://github.com/adamcooke/staytus/issues/new?labels=question)
 * [Installation tutorial](https://atech.blog/atech/install-staytus-tutorial)
+* **[Donate to fund continued development](http://monzo.me/adamcooke)**
 
 ![Screenshot](https://s.adamcooke.io/15/iOzvtk.png)
 
