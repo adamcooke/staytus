@@ -2,7 +2,7 @@ version: '2'
 
 services:
   db:
-    image: mysql:5.7
+    image: mariadb:10.4
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: admin
@@ -23,7 +23,7 @@ services:
     volumes:
       - .:/staytus
     environment:
-      DB_HOST: db
+      DATABASE_URL: "mysql2://staytus:staytus@db/staytus"
       RAILS_ENV: production
       LOG_LEVEL: DEBUG
 

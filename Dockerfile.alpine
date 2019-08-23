@@ -1,27 +1,25 @@
-FROM ruby:2.6.2-alpine
+FROM ruby:2.6.3-alpine
 
 RUN apk add --update --no-cache \
   build-base \
   mariadb-dev \
   tzdata \
-  nodejs
+  nodejs \
+  libc6-compat
 
-USER root
-
+RUN adduser -D staytus
 WORKDIR /staytus
 COPY Gemfile* ./
+COPY config/database.example.yml config/database.yml
 RUN bundle install --binstubs --without development test
-COPY . ./
+COPY --chown=staytus . .
 
-ARG DB_HOST
-ARG DB_USER
-ARG DB_PASSWORD
-ARG DB_DATABASE
-
+ARG DATABASE_URL
+ENV RAILS_LOG_TO_STDOUT=TRUE
 RUN bundle exec rake staytus:build
+RUN chown -R staytus:staytus /staytus
+USER staytus
 
 EXPOSE 5000
-
-ENV RAILS_LOG_TO_STDOUT=TRUE
 
 ENTRYPOINT ["./docker-up.sh"]
