@@ -38,11 +38,11 @@ class Issue < ActiveRecord::Base
   has_many :updates, :dependent => :destroy, :class_name => 'IssueUpdate'
   has_one :latest_update, -> { order(:id => :desc) }, :class_name => 'IssueUpdate'
 
-  after_create :add_initial_update
-  after_save :update_service_statuses
-  after_create :create_history_item
-  after_destroy :destroy_history_item
-  after_commit :send_notifications_on_create, :on => :create
+  before_save :update_service_statuses
+  after_commit :add_initial_update, on: :create
+  after_commit :create_history_item, on: :create
+  after_commit :destroy_history_item, on: :destroy
+  after_commit :send_notifications_on_create, on: :create
 
   florrick do
     string :title
@@ -86,9 +86,14 @@ class Issue < ActiveRecord::Base
     end
   end
 
+  def call_webhook
+    Staytus::Webhookcaller.call(:new_issue, :object => self, :update => self.updates.last)
+  end
+
   def send_notifications_on_create
     if self.notify?
       self.delay.send_notifications
+      self.delay.call_webhook
     end
   end
 
