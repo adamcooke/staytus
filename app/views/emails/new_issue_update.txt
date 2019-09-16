@@ -1,6 +1,6 @@
 # An issue has been updated on {{site.title}}
 
-Full details can be seen below. We will continue to post updated whenever they become available.
+Full details can be seen below. We will continue to post updates whenever they become available.
 
 [View on the status site]({{site.domain_with_protocol}}/issue/{{issue.identifier}}#{{update.identifier}})
 
