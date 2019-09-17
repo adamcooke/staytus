@@ -38,9 +38,14 @@ class MaintenanceUpdate < ActiveRecord::Base
     end
   end
 
+  def call_webhook
+    Staytus::Webhookcaller.call(:maintenance_update, :object => self.maintenance, :update => self)
+  end
+
   def send_notifications_on_create
     if self.notify?
       self.delay.send_notifications
+      self.delay.call_webhook
     end
   end
 

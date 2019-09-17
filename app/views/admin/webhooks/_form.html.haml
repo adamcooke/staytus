@@ -1,0 +1,19 @@
+= form_for [:admin, @webhook] do |f|
+  = f.error_messages
+  .fieldSet.u-margin-2x
+    .row
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :name
+          %dd.fieldSet__input= f.text_field :name, :class => 'textInput', :autofocus => true, :required => true
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :url, "Webhook URL"
+          %dd.fieldSet__input= f.text_field :url, :class => 'textInput', :required => true
+
+
+  .formButtons
+    - unless @webhook.new_record?
+      .formButtons__secondary= link_to "Delete Webhook", [:admin, @webhook], :class => 'button button--grey button--solid', :method => :delete, :data => {:confirm => "Are you sure you wish to delete #{@webhook.name}?"}, :tabindex => -1
+    = f.submit "Save Webhook", :class => 'button button--solid'
+    = link_to "Cancel", admin_webhooks_path, :class => 'button button--lightGrey'

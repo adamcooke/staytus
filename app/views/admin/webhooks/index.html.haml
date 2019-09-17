@@ -1,0 +1,25 @@
+- @active_nav_item = :settings
+- content_for :page_header do
+  .pageHeader__button= link_to "Add New Webhook", new_admin_webhook_path, :class => 'button button--green button--small button--solid'
+  %h1.pageHeader__heading.u-margin= @page_title = 'Webhooks'
+  %p.u-intro
+    Call Webhooks when a new Issue is created or an existing Issue is updated
+
+- if @webhooks.empty?
+  .noDataArea.noDataArea--large
+    %p.u-margin No webhooks have been configured yet.
+- else
+  %table.dataTable.u-margin
+    %thead
+      %tr
+        %td{:width => '35%'} Name
+        %td{:width => '45%'} URL
+        %td{:width => '20%'}
+    %tbody
+      - for webhook in @webhooks
+        %tr
+          %td= link_to webhook.name, [:edit, :admin, webhook], :class => 'u-underline '
+          %td= webhook.url
+          %td.u-align-right= link_to "Edit", [:edit, :admin, webhook], :class => 'button button--small'
+
+  = paginate @webhooks

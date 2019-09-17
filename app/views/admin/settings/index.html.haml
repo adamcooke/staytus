@@ -32,7 +32,7 @@
     = image_tag 'icons/services.svg'
     %p= link_to "Service Groups", admin_service_groups_path
     %p.navGrid__text Configure the different groups which can be assigned to the services you're reporting on.
-.navGrid
+.navGrid.u-margin-2x
   .navGrid__item
     = image_tag 'icons/api_tokens.svg'
     %p= link_to "API Tokens", admin_api_tokens_path
@@ -40,5 +40,10 @@
   .navGrid__item
     = image_tag 'icons/email_templates.svg'
     %p= link_to "E-Mail Templates", admin_email_templates_path
-    %p.navGrid__text Customize the content of the emails which are sent to people who subscribe to your site by e-mail.
-
+    %p.navGrid__text Customize the content of the emails which are sent to people who subscribe to your site by e-mail
+.navGrid.u-margin-2x
+  .navGrid__item
+    = image_tag 'icons/webhooks.svg'
+    %p= link_to "WebHooks", admin_webhooks_path
+    %p.navGrid__text Manage WebHooks which are triggered on maintenance and issue updates
+  .navGrid__item
