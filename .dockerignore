@@ -1,0 +1,7 @@
+.git
+.gitignore
+.dockerignore
+Dockerfile
+config/database.yml
+config/environment.yml
+config/secret_token.yml

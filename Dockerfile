@@ -1,28 +1,47 @@
-FROM ruby
-MAINTAINER Tim Perry <pimterry@gmail.com>
+# This Dockerfile will create a container which can run the Staytus
+# application. This is ideal for deploying Staytus into container environments.
+# Some additional configuration is needed when running the application.
 
-USER root
+# NOTE: it does not install a database server so an external database
+# server will need to be provided when running the application. You should
+# set environment variables as needed to configure the application including
+# DATABASE_URL.
 
-RUN apt-get update && \
-    export DEBIAN_FRONTEND=noninteractive && \
-    # Set password to temp-password - reset to random password on startup
-    echo mysql-server mysql-server/root_password password temp-password | debconf-set-selections && \
-    echo mysql-server mysql-server/root_password_again password temp-password | debconf-set-selections && \   
-    # Instal MySQL for data, node as the JS engine for uglifier
-    apt-get install -y mysql-server nodejs
-    
-COPY . /opt/staytus
+FROM ruby:2.5
 
-RUN cd /opt/staytus && \
-    bundle install --deployment --without development:test
+# Install Node.js
+RUN apt-get update
+RUN apt-get install nodejs default-mysql-client -y
 
-ENTRYPOINT /opt/staytus/docker-start.sh
+# Create a user to run the application
+RUN useradd -r -d /app -m -s /bin/bash app
+USER app
+WORKDIR /app
 
-# Persists all DB state
-VOLUME /var/lib/mysql
+# Install bundler
+RUN gem install bundler --no-doc
+RUN bundle config --global frozen 1
+RUN bundle config set build '--build-flags "-march=x86-64 -mtune=generic"'
+RUN bundle config --local build.sassc --disable-march-tune-native
 
-# Persists copies of other relevant files (DB config, custom themes). Contents of this are copied 
-# to the relevant places each time the container is started
-VOLUME /opt/staytus/persisted
+# Install gem dependencies
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
 
-EXPOSE 5000
+# Set environment
+ENV RAILS_ENV production
+ENV RAILS_LOG_TO_STDOUT 1
+
+# This is the default DATABASE_URL which will almost certainly need
+# to be overriden when the application runs.
+ENV DATABASE_URL mysql2://staytus@127.0.0.1/staytus
+
+# Copy the application (and set permissions)
+COPY --chown=app . .
+
+# Precompile assets
+RUN bundle exec rake assets:precompile
+
+# Set up the entrypoint
+EXPOSE 8787
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
