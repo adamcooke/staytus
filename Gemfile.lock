@@ -153,7 +153,7 @@ GEM
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
     public_suffix (3.0.2)
-    puma (3.11.3)
+    puma (3.12.3)
     rack (2.0.6)
     rack-custom-proxies (1.0.1)
       rack
