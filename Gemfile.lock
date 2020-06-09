@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/ldstudios/heroku_rake_deploy.git
+  revision: 2ceb280b5b492ea625f7fd46c62db91eb3ebbb9a
+  specs:
+    heroku_rake_deploy (0.0.5)
+      heroku_db_restore (~> 0.0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -53,11 +60,16 @@ GEM
       rake (~> 10.4.2, >= 10.4.2)
     arel (8.0.0)
     authie (3.1.5)
+    awesome_print (1.8.0)
     bcrypt (3.1.11)
+    binding_of_caller (0.8.0)
+      debug_inspector (>= 0.0.1)
     builder (3.2.4)
+    byebug (11.1.3)
     chronic (0.10.2)
     chronic_duration (0.10.6)
       numerizer (~> 0.1.1)
+    coderay (1.1.3)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -81,12 +93,17 @@ GEM
       activemodel
       activesupport
     datey (1.1.0)
+    debug_inspector (0.0.3)
     deep_merge (1.2.1)
     delayed_job (4.1.4)
       activesupport (>= 3.0, < 5.2)
     delayed_job_active_record (4.1.2)
       activerecord (>= 3.0, < 5.2)
       delayed_job (>= 3.0, < 5)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     dynamic_form (1.1.4)
     erubi (1.9.0)
     execjs (2.7.0)
@@ -99,10 +116,14 @@ GEM
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
+    heroku_db_restore (0.0.5)
+    heroku_ops (0.0.5)
+      heroku_rake_deploy (~> 0.0.2)
     htmlentities (4.3.4)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     i18n_data (0.8.0)
+    interception (0.5)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -120,6 +141,10 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
     log_logins (1.0.2)
       activerecord
     loofah (2.5.0)
@@ -152,6 +177,20 @@ GEM
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
+    pry (0.13.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-byebug (3.9.0)
+      byebug (~> 11.0)
+      pry (~> 0.13.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
+    pry-rescue (1.5.1)
+      interception (>= 0.5)
+      pry (>= 0.12.0)
+    pry-stack_explorer (0.4.11)
+      binding_of_caller (~> 0.7)
+      pry (~> 0.13)
     public_suffix (3.0.2)
     puma (3.11.3)
     rack (2.2.2)
@@ -176,7 +215,12 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
     rails_env_config (1.1.1)
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.1.7)
       actionpack (= 5.1.7)
       activesupport (= 5.1.7)
@@ -227,18 +271,24 @@ DEPENDENCIES
   activevalidators
   annotate (~> 2.6.5)
   authie
+  awesome_print
   bcrypt
+  byebug
   chronic
   chronic_duration
   coffee-rails
   datey
   delayed_job_active_record
+  dotenv-rails
   dynamic_form
   florrick
   foreman
   haml
+  heroku_ops
+  heroku_rake_deploy!
   jquery-rails
   kaminari
+  letter_opener
   log_logins
   moonrope
   mysql2
@@ -246,9 +296,14 @@ DEPENDENCIES
   nifty-utils
   nilify_blanks
   premailer
+  pry-byebug
+  pry-rails
+  pry-rescue
+  pry-stack_explorer
   puma
   rack-custom-proxies
   rails (~> 5.1)
+  rails_12factor
   rails_env_config
   redcarpet
   sass-rails
