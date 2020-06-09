@@ -16,3 +16,5 @@ config/database.yml
 config/secret_token.yml
 public/assets
 Procfile.local
+
+.env
