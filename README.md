@@ -18,11 +18,12 @@ any organization with customers that rely on them to be online 24/7.
 
 ### System Requirements
 
-* Ruby 2.3 or greater
+* Ruby 2.5
+* Rails 5.1
 * RubyGems and Bundler
 * A MySQL database server
 * Bundler (`gem install bundler`)
-* Procodile (`gem install procodile`)
+* Procodile (`gem install procodile`) Not Needed on Heroku, Dokku, or any Ruby Buildpack enabled hosting service!
 
 ### Installation Instructions
 
