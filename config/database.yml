@@ -20,8 +20,3 @@ development:
 test:
   <<: *default
   database: staytus_test
-
-production:
-  adapter: mysql2
-  encoding: utf8
-  url: <%= ENV['JAWSDB_URL'] %>
