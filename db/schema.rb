@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180425131827) do
+ActiveRecord::Schema.define(version: 20200610134206) do
 
   create_table "api_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "name"
@@ -44,8 +44,10 @@ ActiveRecord::Schema.define(version: 20180425131827) do
     t.string "token_hash"
     t.string "host"
     t.index ["browser_id"], name: "index_authie_sessions_on_browser_id"
+    t.index ["parent_id"], name: "index_authie_sessions_on_parent_id"
     t.index ["token"], name: "index_authie_sessions_on_token"
     t.index ["token_hash"], name: "index_authie_sessions_on_token_hash"
+    t.index ["user_id", "user_type"], name: "index_authie_sessions_on_user_id_and_user_type"
     t.index ["user_id"], name: "index_authie_sessions_on_user_id"
   end
 
@@ -76,6 +78,7 @@ ActiveRecord::Schema.define(version: 20180425131827) do
     t.string "item_type"
     t.integer "item_id"
     t.datetime "date"
+    t.index ["item_id", "item_type"], name: "index_history_items_on_item_id_and_item_type"
   end
 
   create_table "issue_service_joins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
@@ -83,6 +86,9 @@ ActiveRecord::Schema.define(version: 20180425131827) do
     t.integer "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["issue_id", "service_id"], name: "index_issue_service_joins_on_issue_id_and_service_id", unique: true
+    t.index ["issue_id"], name: "index_issue_service_joins_on_issue_id"
+    t.index ["service_id"], name: "index_issue_service_joins_on_service_id"
   end
 
   create_table "issue_updates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
@@ -95,6 +101,9 @@ ActiveRecord::Schema.define(version: 20180425131827) do
     t.datetime "updated_at", null: false
     t.string "identifier"
     t.boolean "notify", default: false
+    t.index ["issue_id"], name: "index_issue_updates_on_issue_id"
+    t.index ["service_status_id"], name: "index_issue_updates_on_service_status_id"
+    t.index ["user_id"], name: "index_issue_updates_on_user_id"
   end
 
   create_table "issues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
@@ -107,6 +116,8 @@ ActiveRecord::Schema.define(version: 20180425131827) do
     t.integer "user_id"
     t.string "identifier"
     t.boolean "notify", default: false
+    t.index ["service_status_id"], name: "index_issues_on_service_status_id"
+    t.index ["user_id"], name: "index_issues_on_user_id"
   end
 
   create_table "login_events", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -131,6 +142,9 @@ ActiveRecord::Schema.define(version: 20180425131827) do
     t.integer "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["maintenance_id", "service_id"], name: "index_maintenance_service_joins_on_maintenance_id_and_service_id", unique: true
+    t.index ["maintenance_id"], name: "index_maintenance_service_joins_on_maintenance_id"
+    t.index ["service_id"], name: "index_maintenance_service_joins_on_service_id"
   end
 
   create_table "maintenance_updates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
@@ -141,6 +155,8 @@ ActiveRecord::Schema.define(version: 20180425131827) do
     t.datetime "updated_at", null: false
     t.string "identifier"
     t.boolean "notify", default: false
+    t.index ["maintenance_id"], name: "index_maintenance_updates_on_maintenance_id"
+    t.index ["user_id"], name: "index_maintenance_updates_on_user_id"
   end
 
   create_table "maintenances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
@@ -156,6 +172,8 @@ ActiveRecord::Schema.define(version: 20180425131827) do
     t.datetime "closed_at"
     t.string "identifier"
     t.boolean "notify", default: false
+    t.index ["service_status_id"], name: "index_maintenances_on_service_status_id"
+    t.index ["user_id"], name: "index_maintenances_on_user_id"
   end
 
   create_table "nifty_attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
@@ -169,6 +187,7 @@ ActiveRecord::Schema.define(version: 20180425131827) do
     t.binary "data", limit: 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["parent_id", "parent_type"], name: "index_nifty_attachments_on_parent_id_and_parent_type"
   end
 
   create_table "service_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
@@ -195,6 +214,8 @@ ActiveRecord::Schema.define(version: 20180425131827) do
     t.integer "status_id"
     t.text "description"
     t.integer "group_id"
+    t.index ["group_id"], name: "index_services_on_group_id"
+    t.index ["status_id"], name: "index_services_on_status_id"
   end
 
   create_table "sites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
