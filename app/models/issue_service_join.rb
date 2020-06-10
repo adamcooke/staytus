@@ -12,4 +12,8 @@
 class IssueServiceJoin < ActiveRecord::Base
   belongs_to :issue
   belongs_to :service
+
+  validates :issue_id, :uniqueness => { :scope => :service_id }
+  validates :issue_id, :service_id, presence: true
+
 end

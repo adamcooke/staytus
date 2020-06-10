@@ -14,4 +14,7 @@ class MaintenanceServiceJoin < ActiveRecord::Base
   belongs_to :maintenance
   belongs_to :service
 
+  validates :maintenance_id, :uniqueness => { :scope => :service_id }
+  validates :maintenance_id, :service_id, presence: true
+
 end
