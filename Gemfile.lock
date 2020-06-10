@@ -147,6 +147,10 @@ GEM
       launchy (~> 2.2)
     log_logins (1.0.2)
       activerecord
+    lol_dba (2.2.0)
+      actionpack (>= 3.0, < 7.0)
+      activerecord (>= 3.0, < 7.0)
+      railties (>= 3.0, < 7.0)
     loofah (2.5.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -290,6 +294,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   log_logins
+  lol_dba
   moonrope
   mysql2
   nifty-attachments

@@ -77,12 +77,12 @@ end
 #   gem 'timecop'
 # end
 
-# group :development do
+group :development do
 #   gem 'listen', '>= 3.0.5', '< 3.2'
 #   # gem 'spring'
 #   # gem 'spring-watcher-listen', '~> 2.0.0'
 #   gem 'web-console', '>= 3.3.0'
 #   gem 'papertrail' #Papertrail CLI gem, allows log searching without having to open up Heroku and navigate to their web interface!
-#   gem 'lol_dba'
-# end
+    gem 'lol_dba'
+end
 
