@@ -11,6 +11,11 @@
 #  identifier     :string(255)
 #  notify         :boolean          default(FALSE)
 #
+# Indexes
+#
+#  index_maintenance_updates_on_maintenance_id  (maintenance_id)
+#  index_maintenance_updates_on_user_id         (user_id)
+#
 
 class MaintenanceUpdate < ActiveRecord::Base
 

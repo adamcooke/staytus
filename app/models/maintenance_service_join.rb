@@ -8,6 +8,12 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
+# Indexes
+#
+#  index_maintenance_service_joins_on_maintenance_id                 (maintenance_id)
+#  index_maintenance_service_joins_on_maintenance_id_and_service_id  (maintenance_id,service_id) UNIQUE
+#  index_maintenance_service_joins_on_service_id                     (service_id)
+#
 
 class MaintenanceServiceJoin < ActiveRecord::Base
 

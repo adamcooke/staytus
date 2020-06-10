@@ -12,6 +12,11 @@
 #  description :text(65535)
 #  group_id    :integer
 #
+# Indexes
+#
+#  index_services_on_group_id   (group_id)
+#  index_services_on_status_id  (status_id)
+#
 
 class Service < ActiveRecord::Base
 

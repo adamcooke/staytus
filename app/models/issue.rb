@@ -13,6 +13,11 @@
 #  identifier        :string(255)
 #  notify            :boolean          default(FALSE)
 #
+# Indexes
+#
+#  index_issues_on_service_status_id  (service_status_id)
+#  index_issues_on_user_id            (user_id)
+#
 
 class Issue < ActiveRecord::Base
 

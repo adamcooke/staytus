@@ -7,6 +7,10 @@
 #  item_id   :integer
 #  date      :datetime
 #
+# Indexes
+#
+#  index_history_items_on_item_id_and_item_type  (item_id,item_type)
+#
 
 class HistoryItem < ActiveRecord::Base
 
