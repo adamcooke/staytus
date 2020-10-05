@@ -1,0 +1,21 @@
+de:
+  # You can add additional locale definitions in here if you need to
+  # override anything.
+  themes:
+    default:
+      footer:
+        history: "Verlauf"
+        homepage: "Unsere Website"
+        privacy_policy: "Privatsphäre"
+        contact_us: "Kontakt"
+        powered_by: "Ermöglicht durch"
+      history:
+        title: "Vorfall- und Wartungsverlauf"
+        intro: "Diese Seite zeigt alle momentanen und vergangenen Vorfälle und Wartungsarbeiten."
+      last_updated: "zuletzt aktualisiert"
+      maintenance: "Wartungsarbeiten"
+      due_to_finish: "wird abgeschlossen"
+      due_to_start: "wird gestartet"
+      subscribe:
+        title: "Aktualisierungen abonnieren"
+        intro: "Wählen Sie aus den folgenden Optionen, um automatisch Benachrichtigungen zu erhalten, wenn es neue Vorfälle gibt."
