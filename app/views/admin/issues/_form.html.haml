@@ -22,8 +22,11 @@
         %ul.fieldSet__checkboxList
           - for service in Service.ordered
             %li
+              - checkbox_label = service.name
+              - if service.group
+                - checkbox_label += " (#{service.group.name})"
               = check_box_tag 'issue[service_ids][]', service.id, @issue.services.include?(service), :id => "service_#{service.id}"
-              = label_tag "service_#{service.id}", service.name
+              = label_tag "service_#{service.id}", checkbox_label
 
     - if @issue.new_record?
       %dl.fieldSet__field.u-margin
