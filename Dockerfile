@@ -1,28 +1,34 @@
-FROM ruby
-MAINTAINER Tim Perry <pimterry@gmail.com>
+FROM ubuntu:16.04
+LABEL maintainer="Nikita Rukavkov <nrukavkov@appulate.com>"
 
-USER root
+ARG STAYTUS_VERSION="stable"
+ENV DEBIAN_FRONTEND="noninteractive" TZ="Etc/UTC" TINI_VERSION="v0.19.0"
 
-RUN apt-get update && \
-    export DEBIAN_FRONTEND=noninteractive && \
-    # Set password to temp-password - reset to random password on startup
-    echo mysql-server mysql-server/root_password password temp-password | debconf-set-selections && \
-    echo mysql-server mysql-server/root_password_again password temp-password | debconf-set-selections && \   
-    # Instal MySQL for data, node as the JS engine for uglifier
-    apt-get install -y mysql-server nodejs
-    
-COPY . /opt/staytus
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 
-RUN cd /opt/staytus && \
-    bundle install --deployment --without development:test
+RUN chmod +x /tini && \
+    apt-get -q update && \
+    apt-get -q install -y tzdata ruby ruby-dev ruby-json nodejs build-essential vim \
+        libmysqlclient-dev mysql-client && \
+    ln -fs "/usr/share/zoneinfo/${TZ}" /etc/localtime && \
+    gem update --system && \
+    gem install bundler:1.13.6 procodile json:1.8.3 && \
+    mkdir -p /opt/staytus && \
+    useradd -r -d /opt/staytus -m -s /bin/bash staytus && \
+    chown staytus:staytus /opt/staytus && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENTRYPOINT /opt/staytus/docker-start.sh
+COPY --chown=staytus . /opt/staytus/staytus
 
-# Persists all DB state
-VOLUME /var/lib/mysql
+RUN su - staytus -c "cd /opt/staytus/staytus ; bundle install --deployment --without development:test"
 
-# Persists copies of other relevant files (DB config, custom themes). Contents of this are copied 
-# to the relevant places each time the container is started
-VOLUME /opt/staytus/persisted
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
-EXPOSE 5000
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+USER staytus
+
+EXPOSE 8787
+
+ENTRYPOINT ["/tini", "--", "/usr/local/bin/entrypoint.sh"]

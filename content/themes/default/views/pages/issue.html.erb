@@ -15,7 +15,7 @@
   <% end %>
 
   <h1 class='issueDetail__title'><%= @issue.title %></h1>
-  <p class='issueDetail__date'>Opened on <%= @issue.created_at.strftime("%A #{@issue.created_at.day.ordinalize} %B %Y") %>, last updated <%= time_tag @issue.updated_at %></p>
+  <p class='issueDetail__date'>Opened on <%= @issue.created_at.strftime("%A #{@issue.created_at.day.ordinalize} %B %Y, %H:%M:%S %z") %>. Last updated <%= time_tag @issue.updated_at %></p>
 
   <div class='issueUpdates'>
     <% @updates.each do |update| %>
@@ -26,7 +26,7 @@
         <%= update.text %>
       </p>
       <p class='issueUpdates__meta'>
-        Posted <%= time_tag update.created_at%>
+        Posted <%= update.created_at%> <%= time_tag update.created_at%>
         <% if update.user %>by <%= update.user.name %><% end %>
       </p>
     </div>

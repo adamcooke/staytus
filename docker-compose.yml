@@ -1,0 +1,37 @@
+version: '3'
+services:
+  mariadb:
+    container_name: mariadb-staytus
+    image: mariadb:10.4.4-bionic
+    networks:
+      - staytus-net
+    volumes:
+      - mariadb:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+  staytus:
+    container_name: staytus
+    image: appulate/staytus:latest
+    depends_on:
+      - mariadb
+    networks:
+      - staytus-net
+    ports:
+      - "8787:8787"
+    restart: always
+    environment:
+      DB_HOST: mariadb-staytus
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      STAYTUS_SMTP_HOSTNAME: ${STAYTUS_SMTP_HOSTNAME}
+      STAYTUS_SMTP_USERNAME: ${STAYTUS_SMTP_USERNAME}
+      STAYTUS_SMTP_PASSWORD: ${STAYTUS_SMTP_PASSWORD}
+
+networks:
+  staytus-net:
+volumes:
+  mariadb:
