@@ -22,8 +22,22 @@
             <button class='pushButton'>Subscribe</button>
           </div>
         </div>
-
-
+        <div class="subscribePage__checkboxGroup">
+          <label for="all_services_checkbox">
+            <input type="checkbox" id="all_services_checkbox" value="all" checked>
+            <span>Subscribe to all services</span>
+          </label>
+        </div>
+        <div class="subscribePage__services">
+          <% for service in Service.ordered %>
+            <div class="subscribePage__checkboxGroup">
+              <%= label_tag "service_#{service.id}" do %>
+                <%= check_box_tag 'service_ids[]', service.id, false, :id => "service_#{service.id}", :class => 'subscribePage__checkbox' %>
+                <span><%= service.name %></span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
 

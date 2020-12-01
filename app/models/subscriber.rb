@@ -12,6 +12,9 @@
 
 class Subscriber < ActiveRecord::Base
 
+  has_many :subscriber_service_joins, :dependent => :destroy
+  has_many :services, :through => :subscriber_service_joins
+
   validates :email_address, :presence => true, :email => true, :uniqueness => true
 
   random_string :verification_token, :type => :uuid, :unique => true
@@ -39,6 +42,13 @@ class Subscriber < ActiveRecord::Base
 
   def send_verification_email
     Staytus::Email.deliver(self, :subscribed)
+  end
+
+  def self.for_services(service_ids)
+    self.verified
+        .left_joins(:subscriber_service_joins)
+        .where('subscriber_service_joins.service_id IS NULL OR subscriber_service_joins.service_id in (?)', service_ids)
+        .group(:id)
   end
 
 end

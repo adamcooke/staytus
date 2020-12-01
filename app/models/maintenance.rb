@@ -111,8 +111,12 @@ class Maintenance < ActiveRecord::Base
     end
   end
 
+  def subscribers
+    Subscriber.for_services(service_ids)
+  end
+
   def send_notifications
-    for subscriber in Subscriber.verified
+    for subscriber in subscribers
       Staytus::Email.deliver(subscriber, :new_maintenance, :maintenance => self)
     end
   end

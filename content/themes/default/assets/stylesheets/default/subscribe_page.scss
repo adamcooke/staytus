@@ -50,6 +50,27 @@
   }
 }
 
+.subscribePage__services {
+  display: none;
+  padding: 10px;
+  background-color: #f2f4f4;
+  border: 1px solid #f2f4f4;
+  border-radius: 4px;
+  margin-top: 10px;
+
+  p {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+}
+
+.subscribePage__checkboxGroup {
+  span, input {
+    font-size: 13px;
+    vertical-align: middle;
+  }
+}
+
 @media (max-width: 600px) {
   .subscribePage__heading {
     font-size:29px;

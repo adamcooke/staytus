@@ -52,7 +52,7 @@ class IssueUpdate < ActiveRecord::Base
   end
 
   def send_notifications
-    for subscriber in Subscriber.verified
+    for subscriber in issue.subscribers
       Staytus::Email.deliver(subscriber, :new_issue_update, :issue => self.issue, :update => self)
     end
   end

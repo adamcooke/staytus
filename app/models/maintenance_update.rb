@@ -33,7 +33,7 @@ class MaintenanceUpdate < ActiveRecord::Base
   end
 
   def send_notifications
-    for subscriber in Subscriber.verified
+    for subscriber in maintenance.subscribers
       Staytus::Email.deliver(subscriber, :new_maintenance_update, :maintenance => self.maintenance, :update => self)
     end
   end
