@@ -64,7 +64,20 @@
   }
 }
 
-.subscribePage__checkboxGroup {
+.subscribePage__serviceGroup {
+  margin-bottom: 10px;
+
+  .subscribePage__serviceGroup--label {
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+
+.subscribePage__checkboxList {
+  padding-left: 20px;
+}
+
+.subscribePage__checkbox {
   span, input {
     font-size: 13px;
     vertical-align: middle;

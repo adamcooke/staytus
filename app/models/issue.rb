@@ -81,7 +81,7 @@ class Issue < ActiveRecord::Base
   end
 
   def subscribers
-    Subscriber.for_services(service_ids)
+    @subscribers ||= Subscriber.for_services(service_ids)
   end
 
   def send_notifications

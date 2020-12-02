@@ -17,6 +17,8 @@ class MaintenanceUpdate < ActiveRecord::Base
   belongs_to :maintenance, :touch => true
   belongs_to :user
 
+  delegate :subscribers, to: :maintenance
+
   validates :text, :presence => true
 
   random_string :identifier, :type => :hex, :length => 6, :unique => true
@@ -33,7 +35,7 @@ class MaintenanceUpdate < ActiveRecord::Base
   end
 
   def send_notifications
-    for subscriber in maintenance.subscribers
+    for subscriber in subscribers
       Staytus::Email.deliver(subscriber, :new_maintenance_update, :maintenance => self.maintenance, :update => self)
     end
   end
