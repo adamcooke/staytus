@@ -26,10 +26,10 @@ $(function() {
     let checkboxGroup = $(this).parents().eq(2);
     let allServices = checkboxGroup.find("input[type=checkbox]").length
     let checkedServices = checkboxGroup.find("input[type=checkbox]:checked").length;
-      if (!checkedServices) {
-        checkboxGroup.parent().find(".js-serviceGroupCheckbox").prop("checked", false);
-      } else if (allServices === checkedServices) {
-        checkboxGroup.parent().find(".js-serviceGroupCheckbox").prop("checked", true);
-      }
+    if (!checkedServices) {
+      checkboxGroup.parent().find(".js-serviceGroupCheckbox").prop("checked", false);
+    } else if (allServices === checkedServices) {
+      checkboxGroup.parent().find(".js-serviceGroupCheckbox").prop("checked", true);
+    }
   });
 });
