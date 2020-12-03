@@ -22,9 +22,11 @@
     <div class='issueUpdates__update'>
       <a name='update-<%=update.identifier%>'></a>
       <p class='issueUpdates__text'>
-        <b class='issueUpdate__state issueUpdate__state--<%= update.state %>'><%= update.state.humanize %></b> &mdash;
-        <%= update.text %>
+        <b class='issueUpdate__state issueUpdate__state--<%= update.state %>'><%= update.state.humanize %></b>
       </p>
+      <div class='markdown'>
+        <%= markdown update.text %>
+      </div>
       <p class='issueUpdates__meta'>
         Posted <%= time_tag update.created_at%>
         <% if update.user %>by <%= update.user.name %><% end %>
