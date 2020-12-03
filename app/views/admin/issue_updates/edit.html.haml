@@ -6,7 +6,7 @@
   .fieldSet
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :text, "Post an update"
-      %dd.fieldSet__field= f.text_area :text, :class => 'textInput', :placeholder => "Enter the text you wish to post here..."
+      %dd.fieldSet__field= f.text_area :text, :rows => 7, :class => 'textInput', :placeholder => "Enter the text you wish to post here..."
   .formButtons
     .formButtons__secondary= link_to "Delete Update", [:admin, @issue, @issue_update], :class => 'button button--grey button--solid', :method => :delete, :data => {:confirm => "Are you sure you wish to delete this update?"}
     = f.submit :class => 'button button--solid'

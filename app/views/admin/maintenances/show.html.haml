@@ -9,7 +9,7 @@
     %dd= @maintenance.title
   %dl.definition.u-margin
     %dt Details
-    %dd= @maintenance.description
+    %dd.markdown= markdown @maintenance.description
   %dl.definition.u-margin
     %dt Time Period
     %dd
@@ -60,7 +60,7 @@
       - else
         - for update in @updates
           %li.issueUpdates__item
-            %p.issueUpdates__text= update.text
+            .issueUpdates__text.markdown= markdown update.text
             %p.issueUpdates__meta
               Posted #{time_tag update.created_at}
               - if update.user
