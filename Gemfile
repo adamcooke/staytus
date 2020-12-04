@@ -29,5 +29,5 @@ gem 'rack-custom-proxies'
 gem 'log_logins'
 
 group :development, :test do
-  gem 'annotate', '~> 2.6.5'
+  gem 'annotate'
 end
