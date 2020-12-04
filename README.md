@@ -1,3 +1,5 @@
+**Where did the GitHub Issues go?** Due to a bit of neglect on my part and an abundance of support questions coming to this repository as GitHub issues I have taken the decision to close all issues. I don't have time to go through each issue individually. If your issue has been closed and it's not a support request and you still think it is relevant, please comment and I'll review. 
+
 # Staytus
 
 Staytus is a complete solution for publishing the latest information about
