@@ -22,10 +22,11 @@ any organization with customers that rely on them to be online 24/7.
 
 ### System Requirements
 
-* Ruby 2.3 or greater
+* Ruby 2.3 or greater (including `ruby-dev` package on Linux)
 * RubyGems and Bundler
 * A MySQL database server
 * Bundler (`gem install bundler`)
+* Rake (`gem install rake`)
 * Procodile (`gem install procodile`)
 
 ### Installation Instructions
@@ -51,6 +52,8 @@ $ nano -w config/database.yml # Add your database configuration
 $ bundle exec rake staytus:build staytus:install
 $ procodile start --foreground
 ```
+
+In case the `bundle install` command fails at `mysql2`, make sure that you have the MySQL development package (ie. `mysql` on macOS, `libmariadb-dev` for MariaDB on Linux)
 
 This will run the application on HTTP port 5000. When you first
 login, you'll be able to add your own site settings. Browse to http://[IP]:8787
