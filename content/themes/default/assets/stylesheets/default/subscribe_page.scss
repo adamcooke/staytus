@@ -50,6 +50,40 @@
   }
 }
 
+.subscribePage__services {
+  display: none;
+  padding: 10px;
+  background-color: #f2f4f4;
+  border: 1px solid #f2f4f4;
+  border-radius: 4px;
+  margin-top: 10px;
+
+  p {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+}
+
+.subscribePage__serviceGroup {
+  margin-bottom: 10px;
+
+  .subscribePage__serviceGroup--label {
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+
+.subscribePage__checkboxList {
+  padding-left: 20px;
+}
+
+.subscribePage__checkbox {
+  span, input {
+    font-size: 13px;
+    vertical-align: middle;
+  }
+}
+
 @media (max-width: 600px) {
   .subscribePage__heading {
     font-size:29px;

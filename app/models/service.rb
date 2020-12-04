@@ -36,6 +36,7 @@ class Service < ActiveRecord::Base
   has_many :active_maintenances, -> { references(:maintenances).where(:closed_at => nil).where("start_at <= ?", Time.now) }, :through => :maintenance_service_joins, :source => :maintenance
 
   scope :ordered, -> { order(:position => :asc) }
+  scope :ungrouped, -> { where(:group_id => nil) }
 
   def self.create_defaults
     Service.create!(:name => "Web Application")

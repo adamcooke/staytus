@@ -80,8 +80,12 @@ class Issue < ActiveRecord::Base
     end
   end
 
+  def subscribers
+    @subscribers ||= Subscriber.for_services(service_ids)
+  end
+
   def send_notifications
-    for subscriber in Subscriber.verified
+    for subscriber in subscribers
       Staytus::Email.deliver(subscriber, :new_issue, :issue => self, :update => self.updates.order(:id).first)
     end
   end

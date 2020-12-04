@@ -54,7 +54,7 @@ class PagesController < ApplicationController
   end
 
   def subscribe_by_email
-    @subscriber = Subscriber.new(:email_address => params[:email_address])
+    @subscriber = Subscriber.new(:email_address => params[:email_address], :service_ids => params[:service_ids])
     if @subscriber.save
       @subscriber.send_verification_email
       redirect_to root_path, :notice => "Thanks - please check your email and click the link within to confirm your subscription."

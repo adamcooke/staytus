@@ -23,6 +23,8 @@ class IssueUpdate < ActiveRecord::Base
   belongs_to :user
   belongs_to :service_status
 
+  delegate :subscribers, to: :issue
+
   random_string :identifier, :type => :hex, :length => 6, :unique => true
 
   scope :ordered, -> { order(:id => :desc) }
@@ -52,7 +54,7 @@ class IssueUpdate < ActiveRecord::Base
   end
 
   def send_notifications
-    for subscriber in Subscriber.verified
+    for subscriber in subscribers
       Staytus::Email.deliver(subscriber, :new_issue_update, :issue => self.issue, :update => self)
     end
   end
