@@ -37,7 +37,7 @@
           %dd.fieldSet__input
             .fieldSet__checkbox.fieldSet__selectContainer
               = f.check_box :notify
-              = f.label :notify, "Yes - send notifications to #{pluralize Subscriber.verified.count, 'subscriber'}"
+              = f.label :notify, "Yes - send notifications to subscribers"
 
   .formButtons
     - unless @issue.new_record?

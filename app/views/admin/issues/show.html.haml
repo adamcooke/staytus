@@ -48,7 +48,7 @@
               %dd.fieldSet__input
                 .fieldSet__checkbox.fieldSet__selectContainer
                   = f.check_box :notify
-                  = f.label :notify, "Notify #{pluralize Subscriber.verified.count, 'subscriber'}"
+                  = f.label :notify, "Notify #{pluralize @issue.subscribers.length, 'subscriber'}"
 
       %p.u-align-right= f.submit "Post Update", :class => 'button button--solid'
 

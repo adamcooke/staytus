@@ -22,8 +22,47 @@
             <button class='pushButton'>Subscribe</button>
           </div>
         </div>
+        <div class="subscribePage__checkbox">
+          <label for="js-allServicesCheckbox">
+            <input type="checkbox" id="js-allServicesCheckbox" value="all" checked>
+            <span>Subscribe to all services</span>
+          </label>
+        </div>
+        <div class="subscribePage__services">
 
+          <% for service_group in ServiceGroup.ordered %>
+            <div class="subscribePage__serviceGroup">
+              <div class="subscribePage__checkbox">
+                <%= label_tag "service_group_#{service_group.id}", class: 'subscribePage__serviceGroup--label' do %>
+                  <%= check_box_tag '', service_group.id, false, :id => "service_group_#{service_group.id}", :class => 'subscribePage__checkbox js-serviceGroupCheckbox' %>
+                  <span class="subscribePage__serviceGroup--heading"><%= service_group.name %></span>
+                <% end %>
+              </div>
+              <ul class="subscribePage__checkboxList">
+                <% for service in service_group.services.ordered %>
+                  <li class="subscribePage__checkbox">
+                    <%= label_tag "service_#{service.id}" do %>
+                      <%= check_box_tag 'service_ids[]', service.id, false, :id => "service_#{service.id}", :class => 'subscribePage__checkbox' %>
+                      <span><%= service.name %></span>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
 
+          <div class="subscribePage__serviceGroup">
+            <% for service in Service.ungrouped %>
+              <div class="subscribePage__checkbox">
+                <%= label_tag "service_#{service.id}" do %>
+                  <%= check_box_tag 'service_ids[]', service.id, false, :id => "service_#{service.id}", :class => 'subscribePage__checkbox' %>
+                  <span><%= service.name %></span>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+
+        </div>
       <% end %>
     </div>
 
