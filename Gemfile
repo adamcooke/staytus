@@ -27,6 +27,7 @@ gem 'redcarpet'
 gem 'premailer'
 gem 'rack-custom-proxies'
 gem 'log_logins'
+gem 'clockwork'
 
 group :development, :test do
   gem 'annotate'

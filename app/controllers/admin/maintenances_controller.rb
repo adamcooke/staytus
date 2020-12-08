@@ -54,7 +54,7 @@ class Admin::MaintenancesController < Admin::BaseController
   private
 
   def safe_params
-    params.require(:maintenance).permit(:title, :description, :start_at_as_string, :length_in_minutes_as_string, :service_status_id, :notify, :service_ids => [])
+    params.require(:maintenance).permit(:title, :description, :start_at_as_string, :length_in_minutes_as_string, :auto_close_on_completion, :service_status_id, :notify, :service_ids => [])
   end
 
 end
