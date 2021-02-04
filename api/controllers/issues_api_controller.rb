@@ -7,6 +7,20 @@ controller :issues do
     end
   end
 
+  action :ongoing do
+    action do
+      issues = Issue.ongoing.includes(:service_status, :user)
+      issues.map { |i| structure(i, :full => true, :expansions => [:user, :service_status]) }
+    end
+  end
+
+  action :resolved do
+    action do
+      issues = Issue.resolved.includes(:service_status, :user)
+      issues.map { |i| structure(i, :full => true, :expansions => [:user, :service_status]) }
+    end
+  end
+
   action :create do
     param :title, :required => true, :type => String
     param :initial_update, :required => false, :type => String
