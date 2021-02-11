@@ -1,28 +1,20 @@
-FROM ruby
+FROM ruby:2.3.1
 MAINTAINER Tim Perry <pimterry@gmail.com>
 
 USER root
 
 RUN apt-get update && \
-    export DEBIAN_FRONTEND=noninteractive && \
-    # Set password to temp-password - reset to random password on startup
-    echo mysql-server mysql-server/root_password password temp-password | debconf-set-selections && \
-    echo mysql-server mysql-server/root_password_again password temp-password | debconf-set-selections && \   
-    # Instal MySQL for data, node as the JS engine for uglifier
-    apt-get install -y mysql-server nodejs
-    
+    DEBIAN_FRONTEND="noninteractive" apt-get install -y nodejs mysql-client && \
+    gem update --system 2.6.1 && \
+    gem install bundler
+
 COPY . /opt/staytus
 
-RUN cd /opt/staytus && \
-    bundle install --deployment --without development:test
+RUN mv /opt/staytus/docker-entrypoint.sh /entrypoint.sh && \
+    cd /opt/staytus && \
+    bundle install --deployment --without development:test && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENTRYPOINT /opt/staytus/docker-start.sh
-
-# Persists all DB state
-VOLUME /var/lib/mysql
-
-# Persists copies of other relevant files (DB config, custom themes). Contents of this are copied 
-# to the relevant places each time the container is started
-VOLUME /opt/staytus/persisted
+ENTRYPOINT "/entrypoint.sh"
 
 EXPOSE 5000
