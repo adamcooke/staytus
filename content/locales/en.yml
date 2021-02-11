@@ -3,4 +3,19 @@ en:
   # override anything.
   themes:
     default:
-      hello: Hello world!
+      footer:
+        history: "History"
+        homepage: "Our Homepage"
+        privacy_policy: "Privacy Policy"
+        contact_us: "Contact Us"
+        powered_by: "Powered By"
+      history:
+        title: "Issue & Maintenance History"
+        intro: "This page shows all current & historical issues & maintenance sessions."
+      last_updated: "last updated"
+      maintenance: "Maintenance"
+      due_to_finish: "due to finish"
+      due_to_start: "due to start"
+      subscribe:
+        title: "Subscribe for updates"
+        intro: "Choose from the options below to automatically receive notifications when we update the status site."
