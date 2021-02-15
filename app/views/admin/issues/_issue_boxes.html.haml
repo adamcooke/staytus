@@ -11,5 +11,6 @@
       .issueBox__status= service_status_tag issue.service_status
       - if issue.latest_update
         .issueBox__update
-          <b>#{issue.latest_update.state.humanize}</b> &mdash;
-          = truncate issue.latest_update.text, :length => 500
+          <b>#{issue.latest_update.state.humanize}</b>
+        .issueBox__text.markdown
+          = markdown truncate issue.latest_update.text, :length => 500

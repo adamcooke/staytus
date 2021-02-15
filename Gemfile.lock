@@ -194,6 +194,7 @@ GEM
       thor (>= 0.19.0, < 2.0)
     rake (13.0.1)
     redcarpet (3.4.0)
+    rouge (3.25.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -256,6 +257,7 @@ DEPENDENCIES
   rails (~> 5.2)
   rails_env_config
   redcarpet
+  rouge
   sass-rails
   uglifier
 

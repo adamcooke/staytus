@@ -17,7 +17,9 @@
   <h1 class='issueDetail__title'><%= @maintenance.title %></h1>
   <p class='issueDetail__date'>Scheduled for <%= @maintenance.start_at.strftime("%A #{@maintenance.start_at.day.ordinalize} %B %Y at %H:%M (#{site.time_zone})") %></p>
   <p class='issueDetail__descriptionTitle'>Schedule/description of work</p>
-  <p class='issueDetail__description'><%= @maintenance.description %></p>
+  <div class='issueDetail__description markdown'>
+    <%= markdown @maintenance.description %>
+  </div>
 
   <dl class='issueDetail__details'>
     <dt>Scheduled start time</dt>
@@ -35,9 +37,9 @@
     <% @updates.each do |update| %>
     <div class='issueUpdates__update'>
       <a name='update-<%=update.identifier%>'></a>
-      <p class='issueUpdates__text'>
-        <%= update.text %>
-      </p>
+      <div class='issueUpdates__text markdown'>
+        <%= markdown update.text %>
+      </div>
       <p class='issueUpdates__meta'>
         Posted <%= time_tag update.created_at%>
         <% if update.user %>by <%= update.user.name %><% end %>

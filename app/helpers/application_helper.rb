@@ -9,6 +9,12 @@ module ApplicationHelper
     content_tag :span, t("maintenance_statuses.#{status}"), :class => "maintenanceStatusTag maintenanceStatusTag--#{status}"
   end
 
+  def markdown(markdown, **options)
+    mr = Staytus::MarkdownRenderer.new(options.merge(with_toc_data: true))
+    rc = Redcarpet::Markdown.new(mr, space_after_headers: true, fenced_code_blocks: true, no_intra_emphasis: true, highlight: true, autolink: true, strikethrough: true, superscript: true, footnotes: true)
+    rc.render(markdown.to_s).html_safe
+  end
+
   def service_status_tag(status, options = {})
     case status
     when ServiceStatus then service_status_tag_for_status(status, options)

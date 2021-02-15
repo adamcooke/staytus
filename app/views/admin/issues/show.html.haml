@@ -59,10 +59,10 @@
       - else
         - for update in @updates
           %li.issueUpdates__item
-            %p.issueUpdates__text
+            %p.issueUpdates__header{:class => "issueUpdates__statusColor--#{update.state}"}
               %b= update.state.humanize
-              &mdash;
-              = update.text
+            .issueUpdates__text.markdown
+              = markdown update.text
             - if update.service_status
               %p.issueUpdates__status
                 Set service status to #{service_status_tag update.service_status}

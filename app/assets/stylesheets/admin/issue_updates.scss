@@ -1,3 +1,5 @@
+@import 'admin/variables';
+
 .issueUpdates {
 
 }
@@ -26,6 +28,23 @@
   margin-top:8px;
 }
 
+.issueUpdates__header {
+  margin-bottom: 10px;
+}
+
 .issueUpdates__edit {
   margin-left:8px;
+}
+
+$issueStates: (
+  "investigating": $red,
+  "identified": $orange,
+  "monitoring": $blue,
+  "resolved": #666
+);
+
+@each $status, $color in $issueStates {
+  .issueUpdates__statusColor--#{$status} {
+    color: $color;
+  }
 }
