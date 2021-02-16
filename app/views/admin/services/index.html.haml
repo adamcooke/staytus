@@ -12,6 +12,10 @@
   %tbody
     - for service in @services
       %tr
-        %td= link_to service.name, [:edit, :admin, service], :class => 'u-underline'
+        %td
+          - link_label = service.name
+          - if service.group
+            - link_label += " (#{service.group.name})"
+          = link_to link_label, [:edit, :admin, service], :class => 'u-underline'
         %td= service_status_tag service, :link_maintenance => :admin
         %td.u-align-right= link_to "Edit", [:edit, :admin, service], :class => 'button button--small'
