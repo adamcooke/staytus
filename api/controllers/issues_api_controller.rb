@@ -3,7 +3,7 @@ controller :issues do
   action :all do
     action do
       issues = Issue.ordered.includes(:service_status, :user)
-      issues.map { |i| structure(i, :full => true, :expansions => [:user, :service_status]) }
+      issues.map { |i| structure(i, :full => true, :expansions => [:user, :service_status, :services => {:full => true}]) }
     end
   end
 

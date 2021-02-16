@@ -5,4 +5,6 @@ structure :subscriber do
   full :verified_at
   full :created_at
   full :updated_at
+
+  expansion :services, :structure => :service
 end
