@@ -35,6 +35,11 @@ class Admin::ServicesController < Admin::BaseController
     redirect_to admin_services_path, :notice => "#{@service.name} has been removed successfully."
   end
 
+  def reorder
+    Service.reorder(params[:ids])
+    render body: nil, status: :no_content
+  end
+
   private
 
   def safe_params
