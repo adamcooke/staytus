@@ -8,7 +8,7 @@
     - if @issue.new_record?
       %dl.fieldSet__field.u-margin
         %dt.fieldSet__label= f.label :initial_update, "Text for the first update"
-        %dd.fieldSet__input= f.text_area :initial_update, :class => 'textInput', :placeholder => Issue::INITIAL_UPDATE_TEXT
+        %dd.fieldSet__input= f.text_area :initial_update, :value => Issue::INITIAL_UPDATE_TEXT, :class => 'textInput', :placeholder => Issue::INITIAL_UPDATE_TEXT
 
       %dl.fieldSet__field.u-margin
         %dt.fieldSet__label= f.label :state
