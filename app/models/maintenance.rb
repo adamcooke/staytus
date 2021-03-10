@@ -2,19 +2,20 @@
 #
 # Table name: maintenances
 #
-#  id                :integer          not null, primary key
-#  title             :string(255)
-#  description       :text(65535)
-#  start_at          :datetime
-#  finish_at         :datetime
-#  length_in_minutes :integer
-#  user_id           :integer
-#  service_status_id :integer
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
-#  closed_at         :datetime
-#  identifier        :string(255)
-#  notify            :boolean          default(FALSE)
+#  id                       :bigint           not null, primary key
+#  auto_close_on_completion :boolean          default(FALSE)
+#  closed_at                :datetime
+#  description              :text(65535)
+#  finish_at                :datetime
+#  identifier               :string(255)
+#  length_in_minutes        :integer
+#  notify                   :boolean          default(FALSE)
+#  start_at                 :datetime
+#  title                    :string(255)
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#  service_status_id        :integer
+#  user_id                  :integer
 #
 
 class Maintenance < ActiveRecord::Base
@@ -125,6 +126,10 @@ class Maintenance < ActiveRecord::Base
     if self.notify?
       self.delay.send_notifications
     end
+  end
+
+  def self.close_finished
+    self.open.where('auto_close_on_completion = true AND finish_at <= ?', Time.now.utc).update_all(:closed_at => Time.now)
   end
 
   private

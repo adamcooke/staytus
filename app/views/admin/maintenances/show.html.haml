@@ -19,6 +19,9 @@
     %dt Completion Time
     %dd= @maintenance.finish_at.to_s(:long)
   %dl.definition.u-margin
+    %dt Automatic finish?
+    %dd= @maintenance.auto_close_on_completion? ? "Yes" : "No"
+  %dl.definition.u-margin
     %dt Status
     %dd= maintenance_status_tag @maintenance.status
   - unless @maintenance.services.empty?

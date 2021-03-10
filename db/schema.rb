@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201130164954) do
+ActiveRecord::Schema.define(version: 2020_12_08_135052) do
 
-  create_table "api_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "api_tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.string "token"
     t.string "secret"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "authie_sessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "authie_sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "token"
     t.string "browser_id"
     t.integer "user_id"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.index ["user_id"], name: "index_authie_sessions_on_user_id"
   end
 
-  create_table "delayed_jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
     t.text "handler", null: false
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "email_templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "email_templates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.string "subject"
     t.text "content"
@@ -72,20 +72,20 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "history_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "history_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "item_type"
     t.integer "item_id"
     t.datetime "date"
   end
 
-  create_table "issue_service_joins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "issue_service_joins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "issue_id"
     t.integer "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "issue_updates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "issue_updates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "issue_id"
     t.integer "user_id"
     t.integer "service_status_id"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.boolean "notify", default: false
   end
 
-  create_table "issues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "issues", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "title"
     t.string "state"
     t.integer "service_status_id"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.boolean "notify", default: false
   end
 
-  create_table "login_events", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "login_events", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "user_type"
     t.integer "user_id"
     t.string "username"
@@ -119,21 +119,21 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.string "user_agent"
     t.datetime "created_at"
     t.index ["created_at"], name: "index_login_events_on_created_at"
-    t.index ["interface"], name: "index_login_events_on_interface", length: { interface: 10 }
+    t.index ["interface"], name: "index_login_events_on_interface", length: 10
     t.index ["ip", "id"], name: "index_login_events_on_ip_and_id", length: { ip: 50 }
-    t.index ["ip"], name: "index_login_events_on_ip", length: { ip: 10 }
+    t.index ["ip"], name: "index_login_events_on_ip", length: 10
     t.index ["user_id", "id"], name: "index_login_events_on_user_id_and_id"
     t.index ["user_type", "user_id"], name: "index_login_events_on_user_type_and_user_id", length: { user_type: 10 }
   end
 
-  create_table "maintenance_service_joins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "maintenance_service_joins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "maintenance_id"
     t.integer "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "maintenance_updates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "maintenance_updates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "maintenance_id"
     t.integer "user_id"
     t.text "text"
@@ -143,7 +143,7 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.boolean "notify", default: false
   end
 
-  create_table "maintenances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "maintenances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "start_at"
@@ -156,9 +156,10 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.datetime "closed_at"
     t.string "identifier"
     t.boolean "notify", default: false
+    t.boolean "auto_close_on_completion", default: false
   end
 
-  create_table "nifty_attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "nifty_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.integer "parent_id"
     t.string "parent_type"
     t.string "token"
@@ -171,13 +172,13 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.datetime "updated_at"
   end
 
-  create_table "service_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "service_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "service_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "service_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.string "permalink"
     t.string "color"
@@ -186,7 +187,7 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "services", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "services", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.string "permalink"
     t.integer "position"
@@ -197,7 +198,7 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.integer "group_id"
   end
 
-  create_table "sites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "sites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.string "domain"
@@ -212,14 +213,14 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.string "privacy_policy_url"
   end
 
-  create_table "subscriber_service_joins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "subscriber_service_joins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "subscriber_id"
     t.integer "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "subscribers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "subscribers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "email_address"
     t.string "verification_token"
     t.datetime "verified_at"
@@ -227,7 +228,7 @@ ActiveRecord::Schema.define(version: 20201130164954) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "email_address"
     t.string "name"
     t.string "password_digest"
