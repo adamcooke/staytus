@@ -38,8 +38,8 @@ class Issue < ActiveRecord::Base
   has_many :updates, :dependent => :destroy, :class_name => 'IssueUpdate'
   has_one :latest_update, -> { order(:id => :desc) }, :class_name => 'IssueUpdate'
 
-  before_save :update_service_statuses
   after_create :add_initial_update
+  after_save :update_service_statuses
   after_create :create_history_item
   after_destroy :destroy_history_item
   after_commit :send_notifications_on_create, :on => :create
@@ -72,7 +72,7 @@ class Issue < ActiveRecord::Base
   end
 
   def update_service_statuses
-    if self.service_status_id_changed?
+    if self.saved_change_to_service_status_id?
       self.services.each do |service|
         service.status = self.service_status
         service.save
