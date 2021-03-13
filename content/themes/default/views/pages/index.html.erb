@@ -25,7 +25,10 @@
     <a href='/issue/<%= issue.identifier %>' class='issueBanner issueBanner--<%= issue.state %>'>
       <p class='issueBanner__state'><%= issue.state.humanize %></p>
       <h2><%= issue.title %></h2>
-      <p class='issueBanner__time'><%= t("themes.default.last_updated", :default => 'last updated') %> <%= time_tag issue.updated_at %></p>
+      <p class='issueBanner__time'>
+        <%= t("themes.default.last_updated", :default => 'last updated') %> <%= time_tag issue.updated_at %>
+        <%= t("themes.default.by", :default => 'by') %> <%= issue.user.name %></p>
+      </p>
     </a>
     <% end %>
   </section>
