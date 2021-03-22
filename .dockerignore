@@ -1,0 +1,11 @@
+log
+tmp
+.bundle
+doc
+.git
+.gitignore
+README.md
+DOCKER_README.md
+ROADMAP.md
+CHANGELOG.md
+.dockerignore
