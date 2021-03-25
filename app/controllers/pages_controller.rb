@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
   before_action { prepend_view_path(File.join(Staytus::Config.theme_root, 'views')) }
+  before_action :set_service_group, only: [:service_group]
   layout Staytus::Config.theme_name
 
   def index
@@ -8,6 +9,19 @@ class PagesController < ApplicationController
     @services_with_group = @services.group_by(&:group).sort_by { |g,_| g ? g.name : 'zzz' }
     @issues = Issue.ongoing.ordered.to_a
     @maintenances = Maintenance.open.ordered.to_a
+  end
+
+  def service_group
+    unless @service_group && @service_group.services.present?
+      redirect_to :root
+    else
+      @services            = @service_group.services.ordered.includes(:group, :status, { :active_maintenances => :service_status })
+      @services_with_group = @services.group_by(&:group).sort_by { |g, _| g ? g.name : 'zzz' }
+      @issues              = Issue.ongoing.ordered.to_a
+      @maintenances        = Maintenance.open.ordered.to_a
+      puts "######SG: #{@services_with_group.count}"
+      render :index
+    end
   end
 
   def issue
@@ -69,6 +83,10 @@ class PagesController < ApplicationController
     unless site.allow_subscriptions?
       redirect_to root_path
     end
+  end
+
+  def set_service_group
+    @service_group = ServiceGroup.find_by(name: params[:service_group])
   end
 
 end
