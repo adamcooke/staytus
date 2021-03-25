@@ -2,6 +2,26 @@
 /etc/init.d/mysql start
 cd /opt/staytus
 
+# Enable SMTP via environment variable
+STAYTUS_SMTP_ENABLED=${STAYTUS_SMTP_ENABLED:-false}
+
+# Set environment variables
+if [ "$STAYTUS_SMTP_ENABLED" = true ]; then
+cat << EOF > /opt/staytus/config/environment.yml
+STAYTUS_THEME: '${STAYTUS_THEME:-default}'
+STAYTUS_DEMO: '${STAYTUS_DEMO:-0}'
+
+STAYTUS_SMTP_HOSTNAME: ${STAYTUS_SMTP_HOSTNAME:-smtp.deliverhq.com}
+STAYTUS_SMTP_USERNAME: ${STAYTUS_SMTP_USERNAME:-username}
+STAYTUS_SMTP_PASSWORD: ${STAYTUS_SMTP_PASSWORD:-password}
+EOF
+else
+cat << EOF > /opt/staytus/config/environment.yml
+STAYTUS_THEME: '${STAYTUS_THEME:-default}'
+STAYTUS_DEMO: '${STAYTUS_DEMO:-0}'
+EOF
+fi
+
 # Configure DB with random password, if not already configured
 if [ ! -f /opt/staytus/persisted/config/database.yml ]; then
   export RANDOM_PASSWORD=`openssl rand -base64 32`
