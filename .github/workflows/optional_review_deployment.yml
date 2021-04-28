@@ -42,7 +42,7 @@ jobs:
       - name: Prepare for production
         run: |
           echo WERF_SET_MARIADB_ENABLED=mariadb.enabled=false >> $GITHUB_ENV
-          echo WERF_SET_ENV_URL=global.env_url=status.${{ env.MAIN_DOMAIN }} >> $GITHUB_ENV
+          echo WERF_SET_ENV_URL=global.env_url=status.${{ env.KUBE_DOMAIN }} >> $GITHUB_ENV
           echo WERF_ENV=production >> $GITHUB_ENV
         if: github.ref == 'refs/heads/main'
       
