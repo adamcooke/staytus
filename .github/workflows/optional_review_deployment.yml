@@ -73,7 +73,7 @@ jobs:
               repo: context.repo.repo,
               body: `Review env: https://${url}`
             });
-        if: contains( github.event.pull_request.labels.*.name, 'review' ) || github.ref == 'refs/heads/main'
+        if: contains( github.event.pull_request.labels.*.name, 'review' )
       
       - name: Dismiss
         uses: werf/actions/dismiss@v1.2
