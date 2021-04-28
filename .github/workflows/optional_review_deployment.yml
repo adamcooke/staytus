@@ -37,6 +37,7 @@ jobs:
           github_repository_id=$(echo ${GITHUB_REPOSITORY} | sed -r s/[^a-zA-Z0-9]+/-/g | sed -r s/^-+\|-+$//g | tr A-Z a-z)
           echo WERF_SET_ENV_URL=global.env_url=${github_repository_id}-${pr_id}.${{ env.KUBE_DOMAIN }} >> $GITHUB_ENV
           echo WERF_ENV=review-${{ github.event.number }} >> $GITHUB_ENV
+          echo WERF_SET_MARIADB_ENABLED=mariadb.enabled=true >> $GITHUB_ENV
         if: contains( github.event.pull_request.labels.*.name, 'review' ) 
 
       - name: Prepare for production
