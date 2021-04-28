@@ -42,7 +42,7 @@ jobs:
       - name: Prepare for production
         run: |
           echo WERF_SET_MARIADB_ENABLED=mariadb.enabled=false >> $GITHUB_ENV
-          echo WERF_SET_ENV_URL=global.env_url=status.${{ env.KUBE_DOMAIN }} >> $GITHUB_ENV
+          echo WERF_SET_ENV_URL=global.env_url=status.${{ env.MAIN_DOMAIN }} >> $GITHUB_ENV
           echo WERF_ENV=production >> $GITHUB_ENV
         if: github.ref == 'refs/heads/main'
       
@@ -54,7 +54,6 @@ jobs:
           werf helm dependency update .helm
           werf converge
         env:
-          
           WERF_REPO: ghcr.io/${{ github.repository }}
           WERF_SECRET_KEY: ${{ secrets.WERF_SECRET_KEY }}
           WERF_KUBE_CONFIG_BASE64: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}          
