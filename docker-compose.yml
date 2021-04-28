@@ -15,7 +15,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
   staytus:
     container_name: staytus
-    image: appulate/staytus:latest
+    image: ${WERF_STAYTUS_DOCKER_IMAGE_NAME}
     depends_on:
       - mariadb
     networks:

@@ -29,6 +29,8 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 
 USER staytus
 
+LABEL org.opencontainers.image.source="https://github.com/appulate/staytus"
+
 EXPOSE 8787
 
 ENTRYPOINT ["/tini", "--", "/usr/local/bin/entrypoint.sh"]

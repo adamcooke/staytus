@@ -16,4 +16,5 @@ config/database.yml
 config/secret_token.yml
 public/assets
 .env
-
+**/charts/*.tgz
+.helm/secret-values-decrypted.yaml

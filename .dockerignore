@@ -1,4 +1,6 @@
 .git
 test
 .gitignore
+.helm
 .env.example
+.github

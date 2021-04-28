@@ -1,0 +1,85 @@
+name: Optional Review Deployment
+on:
+  pull_request:
+    types:
+      - labeled
+      - unlabeled
+      - synchronize
+  push:
+    branches:
+      - main
+
+env:
+  KUBE_DOMAIN: k8s-cluster01.appulate.dev
+  MAIN_DOMAIN: appulate.com
+  
+jobs:
+
+  optional_converge_or_dismiss:
+    name: Optional Converge or Dismiss
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+  
+      - name: Install werf CLI  
+        uses: werf/actions/install@v1.2
+        with:
+          channel: ea  
+        if: contains( github.event.pull_request.labels.*.name, 'review' ) || github.ref == 'refs/heads/main'
+
+      - name: Prepare for review
+        run: |
+          pr_id=${{ github.event.number }}
+          github_repository_id=$(echo ${GITHUB_REPOSITORY} | sed -r s/[^a-zA-Z0-9]+/-/g | sed -r s/^-+\|-+$//g | tr A-Z a-z)
+          echo WERF_SET_ENV_URL=global.env_url=${github_repository_id}-${pr_id}.${{ env.KUBE_DOMAIN }} >> $GITHUB_ENV
+          echo WERF_ENV=review-${{ github.event.number }} >> $GITHUB_ENV
+        if: contains( github.event.pull_request.labels.*.name, 'review' ) 
+
+      - name: Prepare for production
+        run: |
+          echo WERF_SET_MARIADB_ENABLED=mariadb.enabled=false >> $GITHUB_ENV
+          echo WERF_SET_ENV_URL=global.env_url=status.${{ env.MAIN_DOMAIN }} >> $GITHUB_ENV
+          echo WERF_ENV=production >> $GITHUB_ENV
+        if: github.ref == 'refs/heads/main'
+      
+      - name: Run werf
+        run: |
+          source $(werf ci-env github --as-file)
+          werf helm secret file decrypt .helm/secret/docker.config.json > "$DOCKER_CONFIG/config.json"
+          werf helm repo add bitnami https://charts.bitnami.com/bitnami
+          werf helm dependency update .helm
+          werf converge
+        env:
+          
+          WERF_REPO: ghcr.io/${{ github.repository }}
+          WERF_SECRET_KEY: ${{ secrets.WERF_SECRET_KEY }}
+          WERF_KUBE_CONFIG_BASE64: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}          
+          WERF_LOG_VERBOSE: "on"
+        if: contains( github.event.pull_request.labels.*.name, 'review' ) || github.ref == 'refs/heads/main'
+
+      - name: 'Comment PR'
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            var url=process.env.WERF_SET_ENV_URL.split('=')[1];
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Review env: https://${url}`
+            });
+        if: contains( github.event.pull_request.labels.*.name, 'review' ) || github.ref == 'refs/heads/main'
+      
+      - name: Dismiss
+        uses: werf/actions/dismiss@v1.2
+        env:
+          WERF_WITH_NAMESPACE: true
+        with:
+          env: review-${{ github.event.number }}
+          kube-config-base64-data: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
+        if: "!contains( github.event.pull_request.labels.*.name, 'review' )"

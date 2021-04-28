@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    app: app
+  name: app
+  annotations:  
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: "true"
+spec:
+  tls:
+  - hosts:
+    - {{ .Values.global.env_url }}
+    secretName: letsencrypt-api
+  rules:
+  - host: {{ .Values.global.env_url }}
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: app
+            port:
+              number: 8787

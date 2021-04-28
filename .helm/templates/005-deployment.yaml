@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: app
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      imagePullSecrets:
+        - name: regsecret
+      containers:
+      - image: {{ .Values.werf.image.staytus }}
+        name: app
+        env:
+          - name: DB_HOST
+            value: {{ include "app.databaseHost" . | quote }}
+          - name: DB_USER
+            value: {{ include "app.databaseUser" . | quote }}
+          - name: DB_PASSWORD
+            value: {{ include "app.databasePassword" . | quote }}
+          - name: STAYTUS_SMTP_HOSTNAME
+            value: {{ .Values.smtp.hostname | quote }}
+          - name: STAYTUS_SMTP_USERNAME
+            value: {{ .Values.smtp.username | quote }}
+          - name: STAYTUS_SMTP_PASSWORD
+            value: {{ .Values.smtp.password | quote }}

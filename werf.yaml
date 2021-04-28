@@ -1,0 +1,5 @@
+configVersion: 1
+project: staytus
+---
+image: staytus
+dockerfile: Dockerfile
