@@ -50,8 +50,8 @@ GEM
       mail
       phony (~> 2.0)
       rake
-    addressable (2.5.2)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
@@ -134,7 +134,9 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
-    mimemagic (0.3.5)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.2)
@@ -159,7 +161,7 @@ GEM
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
-    public_suffix (3.0.2)
+    public_suffix (4.0.6)
     puma (5.1.0)
       nio4r (~> 2.0)
     rack (2.2.3)
