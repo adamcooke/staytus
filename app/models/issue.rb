@@ -72,7 +72,7 @@ class Issue < ActiveRecord::Base
   end
 
   def update_service_statuses
-    if self.service_status_id_changed?
+    if self.saved_change_to_service_status_id?
       self.services.each do |service|
         service.status = self.service_status
         service.save
