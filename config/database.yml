@@ -1,0 +1,11 @@
+default: &default
+  url: <%= ENV['DATABASE_URL'] %>
+
+production:
+  <<: *default
+
+development:
+  <<: *default
+
+test:
+  <<: *default
