@@ -2,6 +2,7 @@ app_name: staytus
 log_root: log
 pid_root: tmp/pids
 console_command: bundle exec rails console
+exec_prefix: bundle exec
 processes:
   web:
     restart_mode: usr2
