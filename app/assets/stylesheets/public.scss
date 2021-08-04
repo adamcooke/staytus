@@ -1,6 +1,6 @@
 //= require reset
-//= require_tree ./default
-@import 'default/variables';
+//= require_tree ./public
+@import 'public/variables';
 body {
   font-family: $sansSerifFont;
   font-size:16px;
