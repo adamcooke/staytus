@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
-  before_action { prepend_view_path(File.join(Staytus::Config.theme_root, 'views')) }
-  layout Staytus::Config.theme_name
+  before_action { prepend_view_path(File.join(Staytus::Config.content_root, 'views')) }
+  layout 'public'
 
   def index
     @services = Service.ordered.includes(:group, :status, {:active_maintenances => :service_status})

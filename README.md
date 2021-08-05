@@ -1,7 +1,3 @@
-**Where did the GitHub Issues go?** Due to a bit of neglect on my part and an abundance of support questions coming to this repository as GitHub issues I have taken the decision to close all issues. I don't have time to go through each issue individually. If your issue has been closed and it's not a support request and you still think it is relevant, please comment and I'll review. 
-
-**Future plans** I'm hoping to do a bit more work on Staytus soon. One of the main things I want to achieve will be to provide Staytus as a container rather than requiring people to install it manually on servers which seems to be cause of a number of issues. Once this is complete, I'll update all docs to make it clear now to deploy Staytus either using Docker or onto a Kubernetes cluster if that's what you prefer.
-
 # Staytus
 
 Staytus is a complete solution for publishing the latest information about
@@ -14,9 +10,8 @@ any organization with customers that rely on them to be online 24/7.
 * [Report a bug](https://github.com/adamcooke/staytus/issues/new?labels=bug)
 * [Ask a question](https://github.com/adamcooke/staytus/issues/new?labels=question)
 * [Installation tutorial](https://atech.blog/atech/install-staytus-tutorial)
-* **[Donate to fund continued development](http://monzo.me/adamcooke)**
 
-![Screenshot](https://s.adamcooke.io/15/iOzvtk.png)
+![Screenshot](https://share.adam.ac/21/Screen-Shot-2021-08-04-21-41-55.10-lVqxpjoN4AdYmGEOiC.png)
 
 ## Installation from source
 

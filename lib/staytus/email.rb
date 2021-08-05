@@ -25,7 +25,7 @@ module Staytus
         content_html = markdown.render(plain_text)
 
         # Get the HTML template and generate a final HTML message
-        template_html = File.read(File.join(Staytus::Config.theme_root, 'views', 'email.html'))
+        template_html = File.read(Rails.root.join('app', 'views', 'email.html'))
         final_html = Florrick.convert(template_html, add_default_attributes(:content => content_html).merge(:subscriber => subscriber))
 
         # Pass the HTML through premailer to add inline CSS

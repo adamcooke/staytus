@@ -12,6 +12,10 @@ module Staytus
         ENV['STAYTUS_THEME_ROOT'] ? File.join(ENV['STAYTUS_THEME_ROOT'], self.theme_name) : Rails.root.join('content', 'themes', self.theme_name)
       end
 
+      def content_root
+        ENV['STAYTUS_CONTENT_ROOT'] || Rails.root.join('content')
+      end
+
       def version
         Staytus::VERSION
       end
