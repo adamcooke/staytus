@@ -21,6 +21,8 @@
         %dl.fieldSet__field.u-margin
           %dt.fieldSet__label= f.label :length_in_minutes_as_string, "How long will this session last?"
           %dd.fieldSet__input= f.text_field :length_in_minutes_as_string, :class => 'textInput', :required => true, :placeholder => "e.g. 2 hours, 30 minutes or 6 and a half hours"
+          = f.check_box :auto_close_on_completion
+          = f.label :auto_close_on_completion, "Auto-finish on completion?"
 
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :service_ids, "Which services are affected?"

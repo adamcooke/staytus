@@ -62,6 +62,9 @@ GEM
     chronic (0.10.2)
     chronic_duration (0.10.6)
       numerizer (~> 0.1.1)
+    clockwork (2.0.4)
+      activesupport
+      tzinfo
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 5.2.0)
@@ -235,6 +238,7 @@ DEPENDENCIES
   bcrypt
   chronic
   chronic_duration
+  clockwork
   coffee-rails
   datey
   delayed_job_active_record
