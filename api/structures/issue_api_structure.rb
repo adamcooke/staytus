@@ -12,6 +12,8 @@ structure :issue do
     structure(o.user)
   end
 
+  expansion :services, :structure => :service
+
   expansion :service_status do
     structure(o.service_status)
   end

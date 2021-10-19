@@ -11,7 +11,7 @@ controller :subscribers do
       else
         error :parameter_error, "Must provide `email_address` or `verification_token` parameter"
       end
-      structure subscriber, :full => true
+      structure subscriber, :full => true, :expansions => true
     end
   end
 
