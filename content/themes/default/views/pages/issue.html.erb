@@ -8,7 +8,12 @@
     <p>Affected services:</p>
     <ul>
       <% @issue.services.each do |service| %>
-      <li><%= service.name %></li>
+          <li>
+            <%= service.name %>
+            <% if service.group %>
+            (<%= service.group.name %>)
+            <% end %>
+          </li>
       <% end %>
     </ul>
   </div>

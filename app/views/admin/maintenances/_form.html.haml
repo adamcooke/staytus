@@ -29,8 +29,11 @@
         %ul.fieldSet__checkboxList
           - for service in Service.ordered
             %li
+              - checkbox_label = service.name
+              - if service.group
+                - checkbox_label += " (#{service.group.name})"
               = check_box_tag 'maintenance[service_ids][]', service.id, @maintenance.services.include?(service), :id => "service_#{service.id}"
-              = label_tag "service_#{service.id}", service.name
+              = label_tag "service_#{service.id}", checkbox_label
 
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :service_status_id, "Which status should be displayed for these status when this session is active?"
