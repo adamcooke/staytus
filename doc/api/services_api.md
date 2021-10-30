@@ -9,7 +9,7 @@ are present in your Staytus site.
 /api/v1/services/all
 ```
 
-This method accepts not parameters and will return an array of
+This method accepts no parameters and will return an array of
 all services along with their statuses. The method will return
 an array of service objects (see `services/info` for an example).
 
@@ -42,7 +42,7 @@ an array of service objects (see `services/info` for an example).
 }
 ```
 
-## Seting the status for a service
+## Setting the status for a service
 
 ```text
 /api/v1/services/set_status
@@ -51,4 +51,4 @@ an array of service objects (see `services/info` for an example).
 * `service` - the permalink for the service you want to set
 * `status` - the permalink of the status you want to set
 
-This will return the service's details. `services/info` method.
+This will return the service's details, `services/info` method.
