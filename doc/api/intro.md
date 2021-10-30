@@ -35,3 +35,13 @@ else
   puts "Status was not updated successfully."
 end
 ```
+
+## Using Curl to interact with the API
+
+For scripting the API (or using Jenkins, etc.), it is useful to make an API request with cUrl:
+
+```bash
+curl --header 'X-Auth-Token: your-token' --header 'X-Auth-Secret: your-secret' \
+    -H "Content-Type: application/json"  
+    -d '{"service":"webapp","status":"minor-outage"}' -v http(s)://status.yourapp.com/api/v1/services/set_status
+```
