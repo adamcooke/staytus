@@ -61,6 +61,21 @@ $ ->
       notices.hide('fast')
     , 5000
 
+  $('.data-orderable-list').each ->
+    new Sortable(this,
+      group: 'omega'
+      handle: '.drag-handle'
+      onUpdate: ->
+        orderedIds = $.map($(this.el).find('.data-orderable-id'), (elem) ->
+          $(elem).data 'orderable-id'
+        )
+        $.ajax
+          async: true
+          url: "/admin/services/reorder"
+          type: 'POST'
+          data: ids: orderedIds
+    )
+
   #
   # Open external links in new window
   #

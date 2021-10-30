@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def index
     @services = Service.ordered.includes(:group, :status, {:active_maintenances => :service_status})
-    @services_with_group = @services.group_by(&:group).sort_by { |g,_| g ? g.name : 'zzz' }
+    @services_with_group = @services.group_by(&:group).sort_by { |g,_| g ? g.name : '000' }
     @issues = Issue.ongoing.ordered.to_a
     @maintenances = Maintenance.open.ordered.to_a
   end
