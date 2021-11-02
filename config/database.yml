@@ -5,9 +5,9 @@ default: &default
 
 production:
   <<: *default
-  database: statusd_production
-  username: statusd
-  password: <%= ENV['STATUSD_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  database: statusd_database
+  port: 3306
 
 development:
   <<: *default
