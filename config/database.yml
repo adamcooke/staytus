@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+production:
+  <<: *default
+  database: statusd_production
+  username: statusd
+  password: <%= ENV['STATUSD_DATABASE_PASSWORD'] %>
+
+development:
+  <<: *default
+  database: statusd_development
+
+test:
+  <<: *default
+  database: statusd_test
