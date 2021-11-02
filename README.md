@@ -1,6 +1,6 @@
-**Where did the GitHub Issues go?** Due to a bit of neglect on my part and an abundance of support questions coming to this repository as GitHub issues I have taken the decision to close all issues. I don't have time to go through each issue individually. If your issue has been closed and it's not a support request and you still think it is relevant, please comment and I'll review. 
+# This is a PostgreSQL fork of Staytus.
 
-**Future plans** I'm hoping to do a bit more work on Staytus soon. One of the main things I want to achieve will be to provide Staytus as a container rather than requiring people to install it manually on servers which seems to be cause of a number of issues. Once this is complete, I'll update all docs to make it clear now to deploy Staytus either using Docker or onto a Kubernetes cluster if that's what you prefer.
+[How to install Staylus with Dokku](https://github.com/adamcooke/staytus/issues/377)
 
 # Staytus
 
