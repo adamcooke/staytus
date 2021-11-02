@@ -1,13 +1,13 @@
 default: &default
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   pool: 5
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-  database: statusd_database
-  port: 3306
+  database: statusd_production
+  username: statusd
+  password: <%= ENV['STATUSD_DATABASE_PASSWORD'] %>
 
 development:
   <<: *default
