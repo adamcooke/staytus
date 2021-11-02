@@ -249,7 +249,7 @@ DEPENDENCIES
   nifty-attachments
   nifty-utils
   nilify_blanks
-  pg
+  pg (>= 0.18, < 2.0)
   premailer
   puma
   rack-custom-proxies
