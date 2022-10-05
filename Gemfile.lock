@@ -50,8 +50,8 @@ GEM
       mail
       phony (~> 2.0)
       rake
-    addressable (2.5.2)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
@@ -158,7 +158,7 @@ GEM
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
-    public_suffix (3.0.2)
+    public_suffix (5.0.0)
     puma (5.1.0)
       nio4r (~> 2.0)
     racc (1.5.2)
