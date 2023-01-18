@@ -162,7 +162,7 @@ GEM
     puma (5.1.0)
       nio4r (~> 2.0)
     racc (1.5.2)
-    rack (2.2.3)
+    rack (2.2.6.2)
     rack-custom-proxies (1.0.1)
       rack
     rack-test (1.1.0)
